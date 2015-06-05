@@ -71,7 +71,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>25</real>
+							<real>0.0</real>
 							<real>0.0</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -179,8 +179,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>273</real>
-							<real>87</real>
+							<real>76</real>
+							<real>88</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -241,8 +241,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>455</real>
-							<real>201</real>
+							<real>243</real>
+							<real>200</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -351,8 +351,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>455</real>
-							<real>92.171875</real>
+							<real>243</real>
+							<real>93.171875</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -459,7 +459,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>25</real>
+							<real>0.0</real>
 							<real>0.0</real>
 							<integer>0</integer>
 							<integer>0</integer>
