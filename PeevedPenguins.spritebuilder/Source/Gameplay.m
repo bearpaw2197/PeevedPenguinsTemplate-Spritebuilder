@@ -23,6 +23,8 @@
 
 // is called when CCB file has completed loading
 - (void)didLoadFromCCB {
+    self.physicsBody.collisionType = @"seal";
+    
     // tell this scene to accept touches
     self.userInteractionEnabled = TRUE;
     
@@ -36,6 +38,8 @@
     
      //visualize physics bodies & joints
    // _physicsNode.debugDraw = TRUE;
+    
+    _physicsNode.collisionDelegate = self;
     
  
     
@@ -110,6 +114,11 @@
 {
     // when touches are cancelled, meaning the user drags their finger off the screen or onto something else, release the catapult
     [self releaseCatapult];
+}
+
+-(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB
+{
+    CCLOG(@"Something collided with a seal!");
 }
 
 - (void)launchPenguin {
