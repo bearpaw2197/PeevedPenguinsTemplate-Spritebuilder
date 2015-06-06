@@ -116,10 +116,7 @@
     [self releaseCatapult];
 }
 
--(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB
-{
-    CCLOG(@"Something collided with a seal!");
-}
+
 
 - (void)launchPenguin {
     // loads the Penguin.ccb we have set up in Spritebuilder
@@ -146,6 +143,11 @@
 - (void)retry {
     // reload this level
     [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"Gameplay"]];
+}
+
+-(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB
+{
+    CCLOG(@"Something collided with a seal!");
 }
 
 @end
