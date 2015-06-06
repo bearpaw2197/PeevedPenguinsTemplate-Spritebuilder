@@ -28,7 +28,7 @@
 
 // is called when CCB file has completed loading
 - (void)didLoadFromCCB {
-    self.physicsBody.collisionType = @"seal";
+    
     
     // tell this scene to accept touches
     self.userInteractionEnabled = TRUE;
@@ -46,8 +46,7 @@
     
     _physicsNode.collisionDelegate = self;
     
- 
-    
+    self.physicsBody.collisionType = @"seal";    
 }
 
 
