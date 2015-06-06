@@ -13,7 +13,8 @@
     CCNode *_catapultArm;
     CCNode *_levelNode;
     CCNode *_contentNode;
-
+    CCNode *_pullbackNode;
+    
 }
 
 // is called when CCB file has completed loading
@@ -24,7 +25,8 @@
     CCScene *level = [CCBReader loadAsScene:@"Levels/Level1"];
     [_levelNode addChild:level];
     
-    
+    // visualize physics bodies & joints
+    _physicsNode.debugDraw = TRUE;
     
 }
 
