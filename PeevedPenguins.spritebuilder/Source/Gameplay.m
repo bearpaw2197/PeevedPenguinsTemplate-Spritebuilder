@@ -42,11 +42,11 @@
     _mouseJointNode.physicsBody.collisionMask = @[];
     
      //visualize physics bodies & joints
-   // _physicsNode.debugDraw = TRUE;
+    _physicsNode.debugDraw = TRUE;
     
     _physicsNode.collisionDelegate = self;
     
-    self.physicsBody.collisionType = @"seal";    
+    self.physicsBody.collisionType = @"seal";
 }
 
 
