@@ -32,8 +32,8 @@
     
     _mouseJointNode.physicsBody.collisionMask = @[];
     
-    // visualize physics bodies & joints
-    //_physicsNode.debugDraw = TRUE;
+     //visualize physics bodies & joints
+    _physicsNode.debugDraw = TRUE;
     
  
     
