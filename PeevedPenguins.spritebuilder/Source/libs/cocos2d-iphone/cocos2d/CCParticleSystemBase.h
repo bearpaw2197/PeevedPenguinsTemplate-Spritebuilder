@@ -330,7 +330,7 @@ typedef void (*_CC_UPDATE_PARTICLE_IMP)(id, SEL, _CCParticle*, CGPoint);
  *
  *  @return An initialized CCParticleSystem Object.
  */
--(id) initWithFile:(NSString*) plistFile;
+-(instancetype) initWithFile:(NSString*) plistFile;
 
 /**
  *  Initializes and returns a particle system object from the specified dictionary.
@@ -339,7 +339,7 @@ typedef void (*_CC_UPDATE_PARTICLE_IMP)(id, SEL, _CCParticle*, CGPoint);
  *
  *  @return An initialized CCParticleSystem Object.
  */
--(id) initWithDictionary:(NSDictionary*)dictionary;
+-(instancetype) initWithDictionary:(NSDictionary*)dictionary;
 
 /**
  *  Initializes and returns a particle system object from the specified dictionary and texture directory path values.
@@ -349,7 +349,7 @@ typedef void (*_CC_UPDATE_PARTICLE_IMP)(id, SEL, _CCParticle*, CGPoint);
  *
  *  @return An initialized CCParticleSystem Object.
  */
--(id) initWithDictionary:(NSDictionary *)dictionary path:(NSString*)dirname;
+-(instancetype) initWithDictionary:(NSDictionary *)dictionary path:(NSString*)dirname;
 
 /**
  *  Initializes and returns an empty particle system object with the specified maxmium number of particles.
@@ -358,7 +358,7 @@ typedef void (*_CC_UPDATE_PARTICLE_IMP)(id, SEL, _CCParticle*, CGPoint);
  *
  *  @return An initialized CCParticleSystem Object.
  */
--(id) initWithTotalParticles:(NSUInteger) numberOfParticles;
+-(instancetype) initWithTotalParticles:(NSUInteger) numberOfParticles;
 
 
 /// -----------------------------------------------------------------------

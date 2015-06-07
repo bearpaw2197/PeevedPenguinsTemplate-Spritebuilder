@@ -43,7 +43,7 @@ static const NSUInteger CCLightCollectionMaxGroupCount = sizeof(NSUInteger) * 8;
 
 @implementation CCLightCollection
 
-- (id)init
+- (instancetype)init
 {
     if ((self = [super init]))
     {

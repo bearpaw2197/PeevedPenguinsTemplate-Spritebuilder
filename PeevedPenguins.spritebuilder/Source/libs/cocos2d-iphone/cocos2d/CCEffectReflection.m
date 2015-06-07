@@ -32,12 +32,12 @@
 
 @implementation CCEffectReflectionImpl
 
--(id)initWithInterface:(CCEffectReflection *)interface
+-(instancetype)initWithInterface:(CCEffectReflection *)interface
 {
     NSArray *fragUniforms = @[
-                              [CCEffectUniform uniform:@"float" name:@"u_shininess" value:[NSNumber numberWithFloat:1.0f]],
-                              [CCEffectUniform uniform:@"float" name:@"u_fresnelBias" value:[NSNumber numberWithFloat:1.0f]],
-                              [CCEffectUniform uniform:@"float" name:@"u_fresnelPower" value:[NSNumber numberWithFloat:0.0f]],
+                              [CCEffectUniform uniform:@"float" name:@"u_shininess" value:@1.0f],
+                              [CCEffectUniform uniform:@"float" name:@"u_fresnelBias" value:@1.0f],
+                              [CCEffectUniform uniform:@"float" name:@"u_fresnelPower" value:@0.0f],
                               [CCEffectUniform uniform:@"sampler2D" name:@"u_envMap" value:(NSValue*)[CCTexture none]],
                               [CCEffectUniform uniform:@"vec2" name:@"u_tangent" value:[NSValue valueWithGLKVector2:GLKVector2Make(1.0f, 0.0f)]],
                               [CCEffectUniform uniform:@"vec2" name:@"u_binormal" value:[NSValue valueWithGLKVector2:GLKVector2Make(0.0f, 1.0f)]],
@@ -155,9 +155,9 @@
             passInputs.verts = verts;
         }
         
-        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_shininess"]] = [NSNumber numberWithFloat:weakInterface.conditionedShininess];
-        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_fresnelBias"]] = [NSNumber numberWithFloat:weakInterface.conditionedFresnelBias];
-        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_fresnelPower"]] = [NSNumber numberWithFloat:weakInterface.conditionedFresnelPower];
+        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_shininess"]] = @(weakInterface.conditionedShininess);
+        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_fresnelBias"]] = @(weakInterface.conditionedFresnelBias);
+        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_fresnelPower"]] = @(weakInterface.conditionedFresnelPower);
         
         passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_envMap"]] = weakInterface.environment.texture ?: [CCTexture none];
         
@@ -192,27 +192,27 @@
 
 @implementation CCEffectReflection
 
--(id)init
+-(instancetype)init
 {
     return [self initWithShininess:1.0f environment:nil];
 }
 
--(id)initWithShininess:(float)shininess environment:(CCSprite *)environment
+-(instancetype)initWithShininess:(float)shininess environment:(CCSprite *)environment
 {
     return [self initWithShininess:shininess environment:environment normalMap:nil];
 }
 
--(id)initWithShininess:(float)shininess environment:(CCSprite *)environment normalMap:(CCSpriteFrame *)normalMap
+-(instancetype)initWithShininess:(float)shininess environment:(CCSprite *)environment normalMap:(CCSpriteFrame *)normalMap
 {
     return [self initWithShininess:shininess fresnelBias:1.0f fresnelPower:0.0f environment:environment normalMap:normalMap];
 }
 
--(id)initWithShininess:(float)shininess fresnelBias:(float)bias fresnelPower:(float)power environment:(CCSprite *)environment
+-(instancetype)initWithShininess:(float)shininess fresnelBias:(float)bias fresnelPower:(float)power environment:(CCSprite *)environment
 {
     return [self initWithShininess:shininess fresnelBias:bias fresnelPower:power environment:environment normalMap:nil];
 }
 
--(id)initWithShininess:(float)shininess fresnelBias:(float)bias fresnelPower:(float)power environment:(CCSprite *)environment normalMap:(CCSpriteFrame *)normalMap
+-(instancetype)initWithShininess:(float)shininess fresnelBias:(float)bias fresnelPower:(float)power environment:(CCSprite *)environment normalMap:(CCSpriteFrame *)normalMap
 {
     if((self = [super init]))
     {

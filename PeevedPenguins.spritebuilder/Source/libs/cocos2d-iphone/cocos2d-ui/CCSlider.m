@@ -19,12 +19,12 @@
 
 @implementation CCSlider
 
-- (id) init
+- (instancetype) init
 {
     return [self initWithBackground:NULL andHandleImage:NULL];
 }
 
-- (id) initWithBackground:(CCSpriteFrame*)background andHandleImage:(CCSpriteFrame*)handle
+- (instancetype) initWithBackground:(CCSpriteFrame*)background andHandleImage:(CCSpriteFrame*)handle
 {
     self = [super init];
     if (!self) return NULL;
@@ -266,7 +266,7 @@
 {
     if (spriteFrame)
     {
-        [_backgroundSpriteFrames setObject:spriteFrame forKey:[NSNumber numberWithInt:state]];
+        _backgroundSpriteFrames[[NSNumber numberWithInt:state]] = spriteFrame;
     }
     else
     {
@@ -277,14 +277,14 @@
 
 - (CCSpriteFrame*) backgroundSpriteFrameForState:(CCControlState)state
 {
-    return [_backgroundSpriteFrames objectForKey:[NSNumber numberWithInt:state]];
+    return _backgroundSpriteFrames[[NSNumber numberWithInt:state]];
 }
 
 - (void) setHandleSpriteFrame:(CCSpriteFrame*)spriteFrame forState:(CCControlState)state
 {
     if (spriteFrame)
     {
-        [_handleSpriteFrames setObject:spriteFrame forKey:[NSNumber numberWithInt:state]];
+        _handleSpriteFrames[[NSNumber numberWithInt:state]] = spriteFrame;
     }
     else
     {
@@ -295,7 +295,7 @@
 
 - (CCSpriteFrame*) handleSpriteFrameForState:(CCControlState)state
 {
-    return [_handleSpriteFrames objectForKey:[NSNumber numberWithInt:state]];
+    return _handleSpriteFrames[[NSNumber numberWithInt:state]];
 }
 
 #pragma mark Setting properties by name

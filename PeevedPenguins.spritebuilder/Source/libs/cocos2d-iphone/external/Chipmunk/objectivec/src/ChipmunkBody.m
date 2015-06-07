@@ -77,7 +77,7 @@ PositionFunction
 	return obj;
 }
 
-+ (id)bodyWithMass:(cpFloat)mass andMoment:(cpFloat)moment
++ (instancetype)bodyWithMass:(cpFloat)mass andMoment:(cpFloat)moment
 {
 	return [[[self alloc] initWithMass:mass andMoment:moment] autorelease];
 }
@@ -98,7 +98,7 @@ PositionFunction
 	return [body autorelease];
 }
 
-- (id)initWithMass:(cpFloat)mass andMoment:(cpFloat)moment
+- (instancetype)initWithMass:(cpFloat)mass andMoment:(cpFloat)moment
 {
 	if((self = [super init])){
 		cpBodyInit(&_body, mass, moment);
@@ -175,7 +175,7 @@ both(cpFloat, torque, Torque)
 - (void)sleepWithGroup:(ChipmunkBody *)group {cpBodySleepWithGroup(&_body, group.body);}
 - (void)sleep {cpBodySleep(&_body);}
 
-- (NSArray *)chipmunkObjects {return [NSArray arrayWithObject:self];}
+- (NSArray *)chipmunkObjects {return @[self];}
 - (void)addToSpace:(ChipmunkSpace *)space {[space addBody:self];}
 - (void)removeFromSpace:(ChipmunkSpace *)space {[space removeBody:self];}
 

@@ -91,11 +91,11 @@
 	return [[self alloc] initWithTotalParticles:numberOfParticles];
 }
 
--(id) init {
+-(instancetype) init {
 	return [self initWithTotalParticles:150];
 }
 
--(id) initWithFile:(NSString *)plistFile
+-(instancetype) initWithFile:(NSString *)plistFile
 {
 	NSString *path = [[CCFileUtils sharedFileUtils] fullPathForFilename:plistFile];
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
@@ -106,12 +106,12 @@
 }
 
 
--(id) initWithDictionary:(NSDictionary *)dictionary
+-(instancetype) initWithDictionary:(NSDictionary *)dictionary
 {
 	return [self initWithDictionary:dictionary path:@""];
 }
 
--(id) initWithDictionary:(NSDictionary *)dictionary path:(NSString*)dirname
+-(instancetype) initWithDictionary:(NSDictionary *)dictionary path:(NSString*)dirname
 {
 	NSUInteger maxParticles = [[dictionary valueForKey:@"maxParticles"] integerValue];
 	// self, not super
@@ -289,7 +289,7 @@
 	return self;
 }
 
--(id) initWithTotalParticles:(NSUInteger) numberOfParticles
+-(instancetype) initWithTotalParticles:(NSUInteger) numberOfParticles
 {
 	if( (self=[super init]) ) {
 

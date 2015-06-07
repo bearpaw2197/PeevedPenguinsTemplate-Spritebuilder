@@ -53,22 +53,22 @@ SetProgram(CCNode *n, CCShader *p, NSNumber *alpha) {
 @synthesize inverted = _inverted;
 
 
-+ (id)clippingNode
++ (instancetype)clippingNode
 {
     return [self node];
 }
 
-+ (id)clippingNodeWithStencil:(CCNode *)stencil
++ (instancetype)clippingNodeWithStencil:(CCNode *)stencil
 {
     return [[self alloc] initWithStencil:stencil];
 }
 
-- (id)init
+- (instancetype)init
 {
     return [self initWithStencil:nil];
 }
 
-- (id)initWithStencil:(CCNode *)stencil
+- (instancetype)initWithStencil:(CCNode *)stencil
 {
     NSAssert([CCConfiguration sharedConfiguration].graphicsAPI == CCGraphicsAPIGL, @"CCClippingNode is not supported by the Metal renderer yet.");
 		

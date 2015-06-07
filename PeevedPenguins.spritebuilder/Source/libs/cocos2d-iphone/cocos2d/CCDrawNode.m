@@ -126,7 +126,7 @@ CCShader *CCDRAWNODE_BATCH_SHADER = nil;
     return buffer;
 }
 
--(id)init
+-(instancetype)init
 {
     if((self = [super init])){
         _blendMode = [CCBlendMode premultipliedAlphaMode];

@@ -77,7 +77,7 @@
  *  @return An initialized CCNodeColor Object.
  *  @see CCColor
  */
--(id) initWithColor:(CCColor*)color width:(GLfloat)w height:(GLfloat)h;
+-(instancetype) initWithColor:(CCColor*)color width:(GLfloat)w height:(GLfloat)h;
 
 /**
  *  Creates a node with color. Width and height are the window size.
@@ -87,7 +87,7 @@
  *  @return An initialized CCNodeColor Object.
  *  @see CCColor
  */
--(id) initWithColor:(CCColor*)color;
+-(instancetype) initWithColor:(CCColor*)color;
 
 @end
 
@@ -146,7 +146,7 @@
  *  @return An initialized CCNodeGradient Object.
  *  @see CCColor
  */
-- (id)initWithColor:(CCColor*)start fadingTo:(CCColor*)end;
+- (instancetype)initWithColor:(CCColor*)start fadingTo:(CCColor*)end;
 
 /**
  *  Creates a full-screen CCNode with a gradient between start and end color values with gradient direction vector.
@@ -158,7 +158,7 @@
  *  @return An initialized CCNodeGradient Object.
  *  @see CCColor
  */
-- (id)initWithColor:(CCColor*)start fadingTo:(CCColor*)end alongVector:(CGPoint)v;
+- (instancetype)initWithColor:(CCColor*)start fadingTo:(CCColor*)end alongVector:(CGPoint)v;
 
 
 /// -----------------------------------------------------------------------
@@ -254,7 +254,7 @@
  *  @return An initialized CCNodeMultiplexer Object.
  */
 
--(id)initWithArray:(NSArray*)arrayOfNodes;
+-(instancetype)initWithArray:(NSArray*)arrayOfNodes;
 
 
 /// -----------------------------------------------------------------------

@@ -99,7 +99,7 @@ typedef NS_ENUM(NSInteger, CCTransitionFixedFunction)
 
 // -----------------------------------------------------------------
 
-- (id)initWithDuration:(NSTimeInterval)duration
+- (instancetype)initWithDuration:(NSTimeInterval)duration
          fixedFunction:(CCTransitionFixedFunction)function
              direction:(CCTransitionDirection)direction
                  color:(ccColor3B)color
@@ -142,7 +142,7 @@ typedef NS_ENUM(NSInteger, CCTransitionFixedFunction)
     return(self);
 }
 
-- (id)initWithDuration:(NSTimeInterval)duration
+- (instancetype)initWithDuration:(NSTimeInterval)duration
 {
     self = [super init];
     NSAssert(self, @"Unable to create class");

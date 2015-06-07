@@ -133,14 +133,14 @@
  * @param context the context to create this listener on.
  * @return A new listener.
  */
-+ (id) listenerForContext:(ALContext*) context;
++ (instancetype) listenerForContext:(ALContext*) context;
 
 /** (INTERNAL USE) Initialize a listener for the specified context.
  *
  * @param context the context to create this listener on.
  * @return The initialized listener.
  */
-- (id) initWithContext:(ALContext*) context;
+- (instancetype) initWithContext:(ALContext*) context;
 /** \endcond */
 
 @end

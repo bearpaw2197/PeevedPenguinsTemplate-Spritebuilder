@@ -67,12 +67,12 @@
 
 #pragma mark Object Management
 
-+ (id) contextOnDevice:(ALDevice *) device attributes:(NSArray*) attributes
++ (instancetype) contextOnDevice:(ALDevice *) device attributes:(NSArray*) attributes
 {
 	return as_autorelease([[self alloc] initOnDevice:device attributes:attributes]);
 }
 
-+ (id) contextOnDevice:(ALDevice*) device
++ (instancetype) contextOnDevice:(ALDevice*) device
 	   outputFrequency:(int) outputFrequency
 	  refreshIntervals:(int) refreshIntervals 
 	synchronousContext:(bool) synchronousContext
@@ -82,32 +82,32 @@
 	NSMutableArray* attributes = [NSMutableArray arrayWithCapacity:5];
 	if(outputFrequency > 0)
 	{
-		[attributes addObject:[NSNumber numberWithInt:ALC_FREQUENCY]];
-		[attributes addObject:[NSNumber numberWithInt:outputFrequency]];
+		[attributes addObject:@ALC_FREQUENCY];
+		[attributes addObject:@(outputFrequency)];
 	}
 	if(refreshIntervals > 0)
 	{
-		[attributes addObject:[NSNumber numberWithInt:ALC_REFRESH]];
-		[attributes addObject:[NSNumber numberWithInt:refreshIntervals]];
+		[attributes addObject:@ALC_REFRESH];
+		[attributes addObject:@(refreshIntervals)];
 	}
-	[attributes addObject:[NSNumber numberWithInt:ALC_SYNC]];
-	[attributes addObject:[NSNumber numberWithInt:synchronousContext ? AL_TRUE : AL_FALSE]];
+	[attributes addObject:@ALC_SYNC];
+	[attributes addObject:@(synchronousContext ? AL_TRUE : AL_FALSE)];
 	
 	if(monoSources >= 0)
 	{
-		[attributes addObject:[NSNumber numberWithInt:ALC_MONO_SOURCES]];
-		[attributes addObject:[NSNumber numberWithInt:monoSources]];
+		[attributes addObject:@ALC_MONO_SOURCES];
+		[attributes addObject:@(monoSources)];
 	}
 	if(stereoSources >= 0)
 	{
-		[attributes addObject:[NSNumber numberWithInt:ALC_STEREO_SOURCES]];
-		[attributes addObject:[NSNumber numberWithInt:stereoSources]];
+		[attributes addObject:@ALC_STEREO_SOURCES];
+		[attributes addObject:@(stereoSources)];
 	}
 	
 	return [self contextOnDevice:device attributes:attributes];
 }
 
-- (id) initOnDevice:(ALDevice*) deviceIn
+- (instancetype) initOnDevice:(ALDevice*) deviceIn
 	outputFrequency:(int) outputFrequency
    refreshIntervals:(int) refreshIntervals 
  synchronousContext:(bool) synchronousContext
@@ -117,32 +117,32 @@
 	NSMutableArray* attributesList = [NSMutableArray arrayWithCapacity:5];
 	if(outputFrequency > 0)
 	{
-		[attributesList addObject:[NSNumber numberWithInt:ALC_FREQUENCY]];
-		[attributesList addObject:[NSNumber numberWithInt:outputFrequency]];
+		[attributesList addObject:@ALC_FREQUENCY];
+		[attributesList addObject:@(outputFrequency)];
 	}
 	if(refreshIntervals > 0)
 	{
-		[attributesList addObject:[NSNumber numberWithInt:ALC_REFRESH]];
-		[attributesList addObject:[NSNumber numberWithInt:refreshIntervals]];
+		[attributesList addObject:@ALC_REFRESH];
+		[attributesList addObject:@(refreshIntervals)];
 	}
-	[attributesList addObject:[NSNumber numberWithInt:ALC_SYNC]];
-	[attributesList addObject:[NSNumber numberWithInt:synchronousContext ? AL_TRUE : AL_FALSE]];
+	[attributesList addObject:@ALC_SYNC];
+	[attributesList addObject:@(synchronousContext ? AL_TRUE : AL_FALSE)];
 	
 	if(monoSources >= 0)
 	{
-		[attributesList addObject:[NSNumber numberWithInt:ALC_MONO_SOURCES]];
-		[attributesList addObject:[NSNumber numberWithInt:monoSources]];
+		[attributesList addObject:@ALC_MONO_SOURCES];
+		[attributesList addObject:@(monoSources)];
 	}
 	if(stereoSources >= 0)
 	{
-		[attributesList addObject:[NSNumber numberWithInt:ALC_STEREO_SOURCES]];
-		[attributesList addObject:[NSNumber numberWithInt:stereoSources]];
+		[attributesList addObject:@ALC_STEREO_SOURCES];
+		[attributesList addObject:@(stereoSources)];
 	}
 	
 	return [self initOnDevice:deviceIn attributes:attributes];
 }
 
-- (id) initOnDevice:(ALDevice *) deviceIn attributes:(NSArray*) attributesIn
+- (instancetype) initOnDevice:(ALDevice *) deviceIn attributes:(NSArray*) attributesIn
 {
 	if(nil != (self = [super init]))
 	{
@@ -199,7 +199,7 @@
 			{
 				for(int i = 0; i < buffSize; i++)
 				{
-					[attributes addObject:[NSNumber numberWithInt:attributesList[i]]];
+					[attributes addObject:@(attributesList[i])];
 				}
 			}
 		}

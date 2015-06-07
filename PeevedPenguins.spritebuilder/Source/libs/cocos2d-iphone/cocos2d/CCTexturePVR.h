@@ -127,7 +127,7 @@ enum {
  *
  *  @return The CCTexturePVR object.
  */
-+(id)pvrTextureWithContentsOfFile:(NSString *)path;
++(instancetype)pvrTextureWithContentsOfFile:(NSString *)path;
 
 /**
  *  Creates and returns a PVR Texture from the specified URL value.
@@ -136,7 +136,7 @@ enum {
  *
  *  @return The CCTexturePVR object.
  */
-+(id)pvrTextureWithContentsOfURL:(NSURL *)url;
++(instancetype)pvrTextureWithContentsOfURL:(NSURL *)url;
 
 
 /// -----------------------------------------------------------------------
@@ -150,7 +150,7 @@ enum {
  *
  *  @return An initialized CCTexturePVR object.
  */
--(id)initWithContentsOfFile:(NSString *)path;
+-(instancetype)initWithContentsOfFile:(NSString *)path;
 
 /**
  *  Initializes a PVR Texture from the specified URL value.
@@ -159,7 +159,7 @@ enum {
  *
  *  @return An initialized CCTexturePVR object.
  */
--(id)initWithContentsOfURL:(NSURL *)url;
+-(instancetype)initWithContentsOfURL:(NSURL *)url;
 
 
 /// -----------------------------------------------------------------------

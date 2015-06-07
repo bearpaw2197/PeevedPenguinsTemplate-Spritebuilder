@@ -59,13 +59,13 @@
 
 @implementation CCEffectBloomImpl
 
--(id)initWithInterface:(CCEffectBloom *)interface
+-(instancetype)initWithInterface:(CCEffectBloom *)interface
 {
     CCEffectBlurParams blurParams = CCEffectUtilsComputeBlurParams(interface.blurRadius);
 
-    CCEffectUniform* u_intensity = [CCEffectUniform uniform:@"float" name:@"u_intensity" value:[NSNumber numberWithFloat:0.0f]];
-    CCEffectUniform* u_luminanceThreshold = [CCEffectUniform uniform:@"float" name:@"u_luminanceThreshold" value:[NSNumber numberWithFloat:0.0f]];
-    CCEffectUniform* u_enableGlowMap = [CCEffectUniform uniform:@"float" name:@"u_enableGlowMap" value:[NSNumber numberWithFloat:0.0f]];
+    CCEffectUniform* u_intensity = [CCEffectUniform uniform:@"float" name:@"u_intensity" value:@0.0f];
+    CCEffectUniform* u_luminanceThreshold = [CCEffectUniform uniform:@"float" name:@"u_luminanceThreshold" value:@0.0f];
+    CCEffectUniform* u_enableGlowMap = [CCEffectUniform uniform:@"float" name:@"u_enableGlowMap" value:@0.0f];
     CCEffectUniform* u_blurDirection = [CCEffectUniform uniform:@"highp vec2" name:@"u_blurDirection"
                                                           value:[NSValue valueWithGLKVector2:GLKVector2Make(0.0f, 0.0f)]];
     
@@ -297,7 +297,7 @@
         passInputs.shaderUniforms[CCShaderUniformTexCoord1Center] = [NSValue valueWithGLKVector2:passInputs.texCoord1Center];
         passInputs.shaderUniforms[CCShaderUniformTexCoord1Extents] = [NSValue valueWithGLKVector2:passInputs.texCoord1Extents];
 
-        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_enableGlowMap"]] = [NSNumber numberWithFloat:0.0f];
+        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_enableGlowMap"]] = @0.0f;
         passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_luminanceThreshold"]] = weakInterface.conditionedThreshold;
         passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_intensity"]] = weakInterface.conditionedIntensity;
         
@@ -315,8 +315,8 @@
         passInputs.shaderUniforms[CCShaderUniformTexCoord1Center] = [NSValue valueWithGLKVector2:GLKVector2Make(0.5f, 0.5f)];
         passInputs.shaderUniforms[CCShaderUniformTexCoord1Extents] = [NSValue valueWithGLKVector2:GLKVector2Make(1.0f, 1.0f)];
         
-        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_enableGlowMap"]] = [NSNumber numberWithFloat:0.0f];
-        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_luminanceThreshold"]] = [NSNumber numberWithFloat:0.0f];
+        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_enableGlowMap"]] = @0.0f;
+        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_luminanceThreshold"]] = @0.0f;
         passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_intensity"]] = weakInterface.conditionedIntensity;
         
         GLKVector2 dur = GLKVector2Make(0.0, 1.0 / (passInputs.previousPassTexture.pixelHeight / passInputs.previousPassTexture.contentScale));
@@ -337,8 +337,8 @@
         passInputs.shaderUniforms[CCShaderUniformTexCoord2Center] = [NSValue valueWithGLKVector2:passInputs.texCoord1Center];
         passInputs.shaderUniforms[CCShaderUniformTexCoord2Extents] = [NSValue valueWithGLKVector2:passInputs.texCoord1Extents];
 
-        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_enableGlowMap"]] = [NSNumber numberWithFloat:1.0f];
-        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_luminanceThreshold"]] = [NSNumber numberWithFloat:0.0f];
+        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_enableGlowMap"]] = @1.0f;
+        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_luminanceThreshold"]] = @0.0f;
         passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_intensity"]] = weakInterface.conditionedIntensity;
         
     } copy]];
@@ -354,7 +354,7 @@
     BOOL _shaderDirty;
 }
 
--(id)init
+-(instancetype)init
 {
     if((self = [self initWithPixelBlurRadius:2 intensity:1.0f luminanceThreshold:0.0f]))
     {
@@ -364,7 +364,7 @@
     return self;
 }
 
--(id)initWithPixelBlurRadius:(NSUInteger)blurRadius intensity:(float)intensity luminanceThreshold:(float)luminanceThreshold
+-(instancetype)initWithPixelBlurRadius:(NSUInteger)blurRadius intensity:(float)intensity luminanceThreshold:(float)luminanceThreshold
 {
     if(self = [super init])
     {
@@ -388,13 +388,13 @@
 -(void)setLuminanceThreshold:(float)luminanceThreshold
 {
     _luminanceThreshold = luminanceThreshold;
-    _conditionedThreshold = [NSNumber numberWithFloat:clampf(luminanceThreshold, 0.0f, 1.0f)];
+    _conditionedThreshold = @(clampf(luminanceThreshold, 0.0f, 1.0f));
 }
 
 -(void)setIntensity:(float)intensity
 {
     _intensity = intensity;
-    _conditionedIntensity = [NSNumber numberWithFloat:2.5f * clampf(intensity, 0.0f, 1.0f)];
+    _conditionedIntensity = @(2.5f * clampf(intensity, 0.0f, 1.0f));
 }
 
 -(void)setBlurRadius:(NSUInteger)blurRadius

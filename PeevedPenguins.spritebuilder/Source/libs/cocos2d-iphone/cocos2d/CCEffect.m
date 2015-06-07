@@ -44,7 +44,7 @@ static NSString* vertBase =
 
 @implementation CCEffectFunction
 
--(id)initWithName:(NSString *)name body:(NSString*)body inputs:(NSArray*)inputs returnType:(NSString *)returnType
+-(instancetype)initWithName:(NSString *)name body:(NSString*)body inputs:(NSArray*)inputs returnType:(NSString *)returnType
 {
     if((self = [super init]))
     {
@@ -72,7 +72,7 @@ static NSString* vertBase =
     return self;
 }
 
-+(id)functionWithName:(NSString*)name body:(NSString*)body inputs:(NSArray*)inputs returnType:(NSString*)returnType
++(instancetype)functionWithName:(NSString*)name body:(NSString*)body inputs:(NSArray*)inputs returnType:(NSString*)returnType
 {
     return [[self alloc] initWithName:name body:body inputs:inputs returnType:returnType];
 }
@@ -108,7 +108,7 @@ static NSString* vertBase =
 
 @implementation CCEffectFunctionInput
 
--(id)initWithType:(NSString*)type name:(NSString*)name initialSnippet:(NSString*)initialSnippet snippet:(NSString*)snippet
+-(instancetype)initWithType:(NSString*)type name:(NSString*)name initialSnippet:(NSString*)initialSnippet snippet:(NSString*)snippet
 {
     if((self = [super init]))
     {
@@ -122,7 +122,7 @@ static NSString* vertBase =
     return self;
 }
 
-+(id)inputWithType:(NSString*)type name:(NSString*)name initialSnippet:(NSString*)initialSnippet snippet:(NSString*)snippet
++(instancetype)inputWithType:(NSString*)type name:(NSString*)name initialSnippet:(NSString*)initialSnippet snippet:(NSString*)snippet
 {
     return [[self alloc] initWithType:type name:name initialSnippet:initialSnippet snippet:snippet];
 }
@@ -133,7 +133,7 @@ static NSString* vertBase =
 
 @implementation CCEffectUniform
 
--(id)initWithType:(NSString*)type name:(NSString*)name value:(NSValue*)value
+-(instancetype)initWithType:(NSString*)type name:(NSString*)name value:(NSValue*)value
 {
     if((self = [super init]))
     {
@@ -147,7 +147,7 @@ static NSString* vertBase =
     return self;
 }
 
-+(id)uniform:(NSString*)type name:(NSString*)name value:(NSValue*)value
++(instancetype)uniform:(NSString*)type name:(NSString*)name value:(NSValue*)value
 {
     return [[self alloc] initWithType:type name:name value:value];
 }
@@ -164,7 +164,7 @@ static NSString* vertBase =
 
 @implementation CCEffectVarying
 
--(id)initWithType:(NSString*)type name:(NSString*)name
+-(instancetype)initWithType:(NSString*)type name:(NSString*)name
 {
     if((self = [self initWithType:type name:name count:0]))
     {
@@ -174,12 +174,12 @@ static NSString* vertBase =
     return self;
 }
 
-+(id)varying:(NSString*)type name:(NSString*)name
++(instancetype)varying:(NSString*)type name:(NSString*)name
 {
     return [[self alloc] initWithType:type name:name];
 }
 
--(id)initWithType:(NSString*)type name:(NSString*)name count:(NSInteger)count
+-(instancetype)initWithType:(NSString*)type name:(NSString*)name count:(NSInteger)count
 {
     if((self = [super init]))
     {
@@ -193,7 +193,7 @@ static NSString* vertBase =
     return self;
 }
 
-+(id)varying:(NSString*)type name:(NSString*)name count:(NSInteger)count
++(instancetype)varying:(NSString*)type name:(NSString*)name count:(NSInteger)count
 {
     return [[self alloc] initWithType:type name:name count:count];
 }
@@ -218,7 +218,7 @@ static NSString* vertBase =
 
 @implementation CCEffectRenderPassInputs
 
--(id)init
+-(instancetype)init
 {
     return [super init];
 }
@@ -230,12 +230,12 @@ static NSString* vertBase =
 
 @implementation CCEffectRenderPass
 
--(id)init
+-(instancetype)init
 {
     return [self initWithIndex:0];
 }
 
--(id)initWithIndex:(NSUInteger)indexInEffect
+-(instancetype)initWithIndex:(NSUInteger)indexInEffect
 {
     if((self = [super init]))
     {
@@ -355,7 +355,7 @@ static NSString* vertBase =
     return [[NSSet alloc] initWithArray:@[]];
 }
 
--(id)initWithRenderPasses:(NSArray *)renderPasses fragmentFunctions:(NSArray*)fragmentFunctions vertexFunctions:(NSArray*)vertexFunctions fragmentUniforms:(NSArray*)fragmentUniforms vertexUniforms:(NSArray*)vertexUniforms varyings:(NSArray*)varyings uniformTranslationTable:(NSDictionary*)uniformTranslationTable firstInStack:(BOOL)firstInStack
+-(instancetype)initWithRenderPasses:(NSArray *)renderPasses fragmentFunctions:(NSArray*)fragmentFunctions vertexFunctions:(NSArray*)vertexFunctions fragmentUniforms:(NSArray*)fragmentUniforms vertexUniforms:(NSArray*)vertexUniforms varyings:(NSArray*)varyings uniformTranslationTable:(NSDictionary*)uniformTranslationTable firstInStack:(BOOL)firstInStack
 {
     if((self = [super init]))
     {
@@ -419,12 +419,12 @@ static NSString* vertBase =
     return self;
 }
 
--(id)initWithRenderPasses:(NSArray *)renderPasses fragmentFunctions:(NSArray*)fragmentFunctions vertexFunctions:(NSArray*)vertexFunctions fragmentUniforms:(NSArray*)fragmentUniforms vertexUniforms:(NSArray*)vertexUniforms varyings:(NSArray*)varyings
+-(instancetype)initWithRenderPasses:(NSArray *)renderPasses fragmentFunctions:(NSArray*)fragmentFunctions vertexFunctions:(NSArray*)vertexFunctions fragmentUniforms:(NSArray*)fragmentUniforms vertexUniforms:(NSArray*)vertexUniforms varyings:(NSArray*)varyings
 {
     return [self initWithRenderPasses:renderPasses fragmentFunctions:fragmentFunctions vertexFunctions:vertexFunctions fragmentUniforms:fragmentUniforms vertexUniforms:vertexUniforms varyings:varyings uniformTranslationTable:nil firstInStack:YES];
 }
 
--(id)initWithRenderPasses:(NSArray *)renderPasses shaderUniforms:(NSMutableDictionary *)uniforms
+-(instancetype)initWithRenderPasses:(NSArray *)renderPasses shaderUniforms:(NSMutableDictionary *)uniforms
 {
     if((self = [super init]))
     {
@@ -502,12 +502,12 @@ static NSString* vertBase =
     
     for(CCEffectUniform* uniform in fragmentUniforms)
     {
-        [allUniforms setObject:uniform.value forKey:uniform.name];
+        allUniforms[uniform.name] = uniform.value;
     }
     
     for(CCEffectUniform* uniform in vertexUniforms)
     {
-        [allUniforms setObject:uniform.value forKey:uniform.name];
+        allUniforms[uniform.name] = uniform.value;
     }
     
     return allUniforms;
@@ -541,7 +541,7 @@ static NSString* vertBase =
         NSArray *mangledNames = [utt allValues];
         for (NSString *mangledName in mangledNames)
         {
-            if (![uniforms objectForKey:mangledName])
+            if (!uniforms[mangledName])
             {
                 result = NO;
                 break;
@@ -586,7 +586,7 @@ static NSString* vertBase =
 
 @implementation CCEffect
 
-- (id)init
+- (instancetype)init
 {
     return [super init];
 }

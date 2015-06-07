@@ -73,7 +73,7 @@
 
 @implementation CCTableViewCell
 
-- (id) init
+- (instancetype) init
 {
     self = [super init];
     if (!self) return NULL;
@@ -111,7 +111,7 @@
 
 @implementation CCTableView
 
-- (id) init
+- (instancetype) init
 {
     self = [super init];
     if (!self) return self;
@@ -241,7 +241,7 @@
     {
         if (!NSLocationInRange(oldIdx, range))
         {
-            CCTableViewCellHolder* holder = [_rows objectAtIndex:oldIdx];
+            CCTableViewCellHolder* holder = _rows[oldIdx];
             if (holder)
             {
                 [self.contentNode removeChild:holder.cell cleanup:YES];
@@ -254,7 +254,7 @@
     {
         if (!NSLocationInRange(newIdx, _currentlyVisibleRange))
         {
-            CCTableViewCellHolder* holder = [_rows objectAtIndex:newIdx];
+            CCTableViewCellHolder* holder = _rows[newIdx];
             if (!holder.cell)
             {
                 holder.cell = [_dataSource tableView:self nodeForRowAtIndex:newIdx];

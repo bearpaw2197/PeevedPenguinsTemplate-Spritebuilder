@@ -146,7 +146,7 @@ enum {
 static char gPVRTexIdentifier[4] = "PVR!";
 
 // v2
-typedef enum
+typedef NS_ENUM(unsigned int, ccPVR2TexturePixelFormat)
 {
 	kPVR2TexturePixelFormat_RGBA_4444= 0x10,
 	kPVR2TexturePixelFormat_RGBA_5551,
@@ -160,10 +160,10 @@ typedef enum
 	kPVR2TexturePixelFormat_PVRTC_4BPP_RGBA,
 	kPVR2TexturePixelFormat_BGRA_8888,
 	kPVR2TexturePixelFormat_A_8,
-} ccPVR2TexturePixelFormat;
+};
 
 // v3
-typedef enum {
+typedef NS_ENUM(unsigned long, ccPVR3TexturePixelFormat) {
 	/* supported predefined formats */
 	kPVR3TexturePixelFormat_PVRTC_2BPP_RGB = 0,
 	kPVR3TexturePixelFormat_PVRTC_2BPP_RGBA = 1,
@@ -180,7 +180,7 @@ typedef enum {
 	kPVR3TexturePixelFormat_A_8 = 0x0000000800000061,
 	kPVR3TexturePixelFormat_L_8 = 0x000000080000006c,
 	kPVR3TexturePixelFormat_LA_88 = 0x000008080000616c,
-} ccPVR3TexturePixelFormat;
+};
 
 // v2
 static struct _pixel_formathash v2_pixel_formathash[] = {
@@ -580,7 +580,7 @@ CCRenderDispatch(NO, ^{
 }
 
 
-- (id)initWithContentsOfFile:(NSString *)path
+- (instancetype)initWithContentsOfFile:(NSString *)path
 {
 	if((self = [super init]))
 	{
@@ -679,7 +679,7 @@ CCRenderDispatch(NO, ^{
 	return self;
 }
 
-- (id)initWithContentsOfURL:(NSURL *)url
+- (instancetype)initWithContentsOfURL:(NSURL *)url
 {
 	if (![url isFileURL])
 	{
@@ -691,13 +691,13 @@ CCRenderDispatch(NO, ^{
 }
 
 
-+ (id)pvrTextureWithContentsOfFile:(NSString *)path
++ (instancetype)pvrTextureWithContentsOfFile:(NSString *)path
 {
 	return [[self alloc] initWithContentsOfFile:path];
 }
 
 
-+ (id)pvrTextureWithContentsOfURL:(NSURL *)url
++ (instancetype)pvrTextureWithContentsOfURL:(NSURL *)url
 {
 	if (![url isFileURL])
 		return nil;

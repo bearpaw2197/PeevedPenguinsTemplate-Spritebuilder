@@ -140,7 +140,7 @@
  * @param selector The selector for a "set suspended" method, taking a single
  *                 boolean parameter.
  */
-- (id) initWithTarget:(id) target selector:(SEL) selector;
+- (instancetype) initWithTarget:(id) target selector:(SEL) selector;
 
 
 /** If YES, the manual suspend control is set. */

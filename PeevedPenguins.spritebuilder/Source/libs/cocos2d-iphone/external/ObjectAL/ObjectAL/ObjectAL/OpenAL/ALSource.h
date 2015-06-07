@@ -121,21 +121,21 @@ typedef void (^OALSourceNotificationCallback)(ALSource* source, ALuint notificat
  *
  * @return A new source.
  */
-+ (id) source;
++ (instancetype) source;
 
 /** Create a new source on the specified context.
  *
  * @param context the context to create the source on.
  * @return A new source.
  */
-+ (id) sourceOnContext:(ALContext*) context;
++ (instancetype) sourceOnContext:(ALContext*) context;
 
 /** Initialize a new source on the specified context.
  *
  * @param context the context to create the source on.
  * @return A new source.
  */
-- (id) initOnContext:(ALContext*) context;
+- (instancetype) initOnContext:(ALContext*) context;
 
 
 #pragma mark Playback
@@ -144,7 +144,7 @@ typedef void (^OALSourceNotificationCallback)(ALSource* source, ALuint notificat
  *
  * @return the source playing the sound, or nil if the sound could not be played.
  */
-- (id<ALSoundSource>) play;
+@property (nonatomic, readonly, strong) id<ALSoundSource> play;
 
 
 #pragma mark Queued Playback

@@ -35,7 +35,7 @@
  *  @return The CCEffectHue object.
  *  @since v3.2 and later
  */
--(id)init;
+-(instancetype)init;
 
 /**
  *  Initializes a CCEffectHue object with the supplied parameters.
@@ -45,7 +45,7 @@
  *  @return The CCEffectHue object.
  *  @since v3.2 and later
  */
--(id)initWithHue:(float)hue;
+-(instancetype)initWithHue:(float)hue;
 
 
 /// -----------------------------------------------------------------------

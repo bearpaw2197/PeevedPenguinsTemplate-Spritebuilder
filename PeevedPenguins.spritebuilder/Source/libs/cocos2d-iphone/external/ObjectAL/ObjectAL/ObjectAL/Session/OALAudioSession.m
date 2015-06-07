@@ -122,7 +122,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_PROTOTYPE(OALAudioSession);
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(OALAudioSession);
 
-- (id) init
+- (instancetype) init
 {
 	if(nil != (self = [super init]))
 	{
@@ -658,7 +658,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(OALAudioSession);
 // iOS 6.0+ interrupt handling
 - (void) handleInterruption:(NSNotification*) notification
 {
-    NSUInteger type = [[notification.userInfo objectForKey:@"AVAudioSessionInterruptionTypeKey"] unsignedIntegerValue];
+    NSUInteger type = [(notification.userInfo)[@"AVAudioSessionInterruptionTypeKey"] unsignedIntegerValue];
     OAL_LOG_DEBUG(@"iOS 6+ interrupt type %d", type);
     switch(type)
     {
@@ -667,7 +667,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(OALAudioSession);
             break;
         case AVAudioSessionInterruptionTypeEnded:
         {
-            NSUInteger options = [[notification.userInfo objectForKey:@"AVAudioSessionInterruptionOptionKey"] unsignedIntegerValue];
+            NSUInteger options = [(notification.userInfo)[@"AVAudioSessionInterruptionOptionKey"] unsignedIntegerValue];
             [self endInterruptionWithFlags:options];
             break;
         }

@@ -223,7 +223,7 @@ typedef NS_ENUM(uint32_t, ccTMXTileFlags) {
  *
  *  @return An initialized CCTiledMapInfo Object.
  */
--(id) initWithFile:(NSString*)tmxFile;
+-(instancetype) initWithFile:(NSString*)tmxFile;
 
 /**
  *   Initializes and returns a  CCTiledMapInfo object using the TMX XML and resource file path.
@@ -233,7 +233,7 @@ typedef NS_ENUM(uint32_t, ccTMXTileFlags) {
  *
  *  @return An initialized CCTiledMapInfo Object.
  */
--(id) initWithXML:(NSString*)tmxString resourcePath:(NSString*)resourcePath;
+-(instancetype) initWithXML:(NSString*)tmxString resourcePath:(NSString*)resourcePath;
 
 /// -----------------------------------------------------------------------
 /// @name Tiled Map Properties

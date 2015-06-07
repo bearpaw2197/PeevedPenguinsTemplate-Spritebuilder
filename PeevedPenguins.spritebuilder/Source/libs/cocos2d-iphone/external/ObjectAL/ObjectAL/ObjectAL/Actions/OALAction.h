@@ -150,7 +150,7 @@
  * @param duration The duration of this action in seconds.
  * @return The initialized action.
  */
-- (id) initWithDuration:(float) duration;
+- (instancetype) initWithDuration:(float) duration;
 
 
 #pragma mark Functions
@@ -215,7 +215,7 @@ COCOS2D_SUBCLASS_HEADER(OALAction, CCActionInterval);
  * @param endValue The "ending" value that this action will converge upon when setting the target's property.
  * @return A new action.
  */
-+ (id) actionWithDuration:(float) duration
++ (instancetype) actionWithDuration:(float) duration
               propertyKey:(NSString*) propertyKey
                  endValue:(float) endValue;
 
@@ -228,7 +228,7 @@ COCOS2D_SUBCLASS_HEADER(OALAction, CCActionInterval);
  * @param endValue The "ending" value that this action will converge upon when setting the target's property.
  * @return A new action.
  */
-+ (id) actionWithDuration:(float) duration
++ (instancetype) actionWithDuration:(float) duration
               propertyKey:(NSString*) propertyKey
 			   startValue:(float) startValue
 				 endValue:(float) endValue;
@@ -241,7 +241,7 @@ COCOS2D_SUBCLASS_HEADER(OALAction, CCActionInterval);
  * @param endValue The "ending" value that this action will converge upon when setting the target's property.
  * @return The initialized action.
  */
-- (id) initWithDuration:(float) duration
+- (instancetype) initWithDuration:(float) duration
             propertyKey:(NSString*) propertyKey
                endValue:(float) endValue;
 
@@ -254,7 +254,7 @@ COCOS2D_SUBCLASS_HEADER(OALAction, CCActionInterval);
  * @param endValue The "ending" value that this action will converge upon when setting the target's property.
  * @return The initialized action.
  */
-- (id) initWithDuration:(float) duration
+- (instancetype) initWithDuration:(float) duration
             propertyKey:(NSString*) propertyKey
 			 startValue:(float) startValue
 			   endValue:(float) endValue;
@@ -267,18 +267,18 @@ COCOS2D_SUBCLASS_HEADER(OALAction, CCActionInterval);
 
 typedef float (*EaseFunctionPtr)(float);
 
-typedef enum
+typedef NS_ENUM(unsigned int, OALEasePhase)
 {
     kOALEaseIn,
     kOALEaseOut,
     kOALEaseInOut,
-} OALEasePhase;
+};
 
-typedef enum
+typedef NS_ENUM(unsigned int, OALEaseShape)
 {
     kOALEaseShapeSine,
     kOALEaseShapeExponential,
-} OALEaseShape;
+};
 
 /**
  * Applies an easing function to another action.
@@ -308,7 +308,7 @@ typedef enum
  * @action The action to apple the curve to.
  * @return The initialized action.
  */
-- (id) initWithShape:(OALEaseShape) shape
+- (instancetype) initWithShape:(OALEaseShape) shape
                phase:(OALEasePhase) phase
               action:(OALAction*) action;
 

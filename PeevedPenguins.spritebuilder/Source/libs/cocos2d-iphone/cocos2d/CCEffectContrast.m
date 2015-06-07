@@ -25,9 +25,9 @@ static float conditionContrast(float contrast);
 
 @implementation CCEffectContrastImpl
 
--(id)initWithInterface:(CCEffectContrast *)interface
+-(instancetype)initWithInterface:(CCEffectContrast *)interface
 {
-    CCEffectUniform* uniformContrast = [CCEffectUniform uniform:@"float" name:@"u_contrast" value:[NSNumber numberWithFloat:1.0f]];
+    CCEffectUniform* uniformContrast = [CCEffectUniform uniform:@"float" name:@"u_contrast" value:@1.0f];
     
     NSArray *fragFunctions = [CCEffectContrastImpl buildFragmentFunctions];
     NSArray *renderPasses = [CCEffectContrastImpl buildRenderPassesWithInterface:interface];
@@ -77,17 +77,17 @@ static float conditionContrast(float contrast);
 
 @implementation CCEffectContrast
 
--(id)init
+-(instancetype)init
 {
     return [self initWithContrast:0.0f];
 }
 
--(id)initWithContrast:(float)contrast
+-(instancetype)initWithContrast:(float)contrast
 {
     if((self = [super init]))
     {
         _contrast = contrast;
-        _conditionedContrast = [NSNumber numberWithFloat:conditionContrast(contrast)];
+        _conditionedContrast = @(conditionContrast(contrast));
 
         self.effectImpl = [[CCEffectContrastImpl alloc] initWithInterface:self];
         self.debugName = @"CCEffectContrast";
@@ -103,7 +103,7 @@ static float conditionContrast(float contrast);
 -(void)setContrast:(float)contrast
 {
     _contrast = contrast;
-    _conditionedContrast = [NSNumber numberWithFloat:conditionContrast(contrast)];
+    _conditionedContrast = @(conditionContrast(contrast));
 }
 
 @end

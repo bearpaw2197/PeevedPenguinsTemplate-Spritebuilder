@@ -44,7 +44,7 @@
 // Private method used by the CCNode.scene property.
 -(BOOL)isScene {return YES;}
 
--( id )init {
+-( instancetype )init {
 	if((self = [ super init ])){
 		CGSize s = [CCDirector sharedDirector].designSize;
 		_anchorPoint = ccp(0.0f, 0.0f);

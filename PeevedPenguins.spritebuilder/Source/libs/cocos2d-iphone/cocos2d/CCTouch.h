@@ -84,7 +84,7 @@ typedef NS_ENUM (NSInteger, CCTouchPhase) {
  @returns The touch location relative to the scene (aka "world"). 
  @since v3.2 and later
 */
-- (CGPoint)locationInWorld;
+@property (nonatomic, readonly) CGPoint locationInWorld;
 
 /** @name Convert Touch Location to View Coordinate System */
 

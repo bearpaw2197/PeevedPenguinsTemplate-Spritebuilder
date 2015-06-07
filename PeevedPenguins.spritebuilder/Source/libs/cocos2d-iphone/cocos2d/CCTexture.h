@@ -140,7 +140,7 @@ typedef NS_ENUM(NSUInteger, CCTexturePixelFormat) {
  *  @return An initialized CCTexture Object.
  *  @see CCTexturePixelFormat
  */
-- (id)initWithData:(const void*)data pixelFormat:(CCTexturePixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSizeInPixels:(CGSize)sizeInPixels contentScale:(CGFloat)contentScale;
+- (instancetype)initWithData:(const void*)data pixelFormat:(CCTexturePixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSizeInPixels:(CGSize)sizeInPixels contentScale:(CGFloat)contentScale;
 
 /**
  *  Creates and returns a new texture, based on the specified image file path.
@@ -168,7 +168,7 @@ typedef NS_ENUM(NSUInteger, CCTexturePixelFormat) {
  *  @return A new sprite frame.
  *  @see CCSpriteFrame
  */
--(CCSpriteFrame*)createSpriteFrame;
+@property (nonatomic, readonly, strong) CCSpriteFrame *createSpriteFrame;
 
 /// -------------------------------------------------------
 /// @name Texture Format and Size
@@ -185,7 +185,7 @@ typedef NS_ENUM(NSUInteger, CCTexturePixelFormat) {
 @property(nonatomic,readonly) NSUInteger pixelHeight;
 
 /** Returns the content size of the texture in points. */
--(CGSize)contentSize;
+@property (nonatomic, readonly) CGSize contentSize;
 
 /** Returns content size of the texture in pixels. */
 @property(nonatomic,readonly, nonatomic) CGSize contentSizeInPixels;
@@ -224,7 +224,7 @@ typedef NS_ENUM(NSUInteger, CCTexturePixelFormat) {
  *
  *  @return An initialized CCTexture object.
  */
-- (id)initWithCGImage:(CGImageRef)cgImage contentScale:(CGFloat)contentScale;
+- (instancetype)initWithCGImage:(CGImageRef)cgImage contentScale:(CGFloat)contentScale;
 
 @end
 
@@ -257,10 +257,10 @@ typedef NS_ENUM(NSUInteger, CCTexturePixelFormat) {
  *
  *  @return Number of bits per pixel.
  */
--(NSUInteger)bitsPerPixelForFormat;
+@property (nonatomic, readonly) NSUInteger bitsPerPixelForFormat;
 
 /** Returns the pixel format in a NSString. */
--(NSString*)stringForFormat;
+@property (nonatomic, readonly, copy) NSString *stringForFormat;
 
 /**
  *  Helper functions that returns bits per pixels for a given format.

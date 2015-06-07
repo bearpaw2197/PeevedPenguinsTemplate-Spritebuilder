@@ -735,6 +735,7 @@
 					"\"$(SRCROOT)/external/Chipmunk/include\"",
 					"\"$(SRCROOT)/external/Chipmunk/objectivec/include\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -759,6 +760,7 @@
 					"\"$(SRCROOT)/external/Chipmunk/include\"",
 					"\"$(SRCROOT)/external/Chipmunk/objectivec/include\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

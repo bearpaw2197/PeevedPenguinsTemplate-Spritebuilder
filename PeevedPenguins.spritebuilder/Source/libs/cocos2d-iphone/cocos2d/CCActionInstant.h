@@ -123,7 +123,7 @@
  *
  *  @return An initialized flip action object.
  */
-- (id)initWithFlipX:(BOOL)x;
+- (instancetype)initWithFlipX:(BOOL)x;
 
 @end
 
@@ -158,7 +158,7 @@
  *
  *  @return The initialized flip action object.
  */
-- (id)initWithFlipY:(BOOL)y;
+- (instancetype)initWithFlipY:(BOOL)y;
 
 @end
 
@@ -191,7 +191,7 @@
  *
  *  @return An initialized place action object.
  */
-- (id)initWithPosition:(CGPoint)pos;
+- (instancetype)initWithPosition:(CGPoint)pos;
 
 @end
 
@@ -252,7 +252,7 @@
  *
  *  @return An initialized call func action object.
  */
-- (id)initWithTarget:(id)t selector:(SEL)s;
+- (instancetype)initWithTarget:(id)t selector:(SEL)s;
 
 // Executes the selector on the specific target.
 - (void)execute;
@@ -321,7 +321,7 @@
  *
  *  @return An initialized call block action.
  */
-- (id)initWithBlock:(void(^)())block;
+- (instancetype)initWithBlock:(void(^)())block;
 
 // Executes the selector on the specific target.
 - (void)execute;
@@ -361,7 +361,7 @@
  *  @return An initialized sprite frame action object.
  *  @see CCSpriteFrame
  */
--(id) initWithSpriteFrame:(CCSpriteFrame*)spriteFrame;
+-(instancetype) initWithSpriteFrame:(CCSpriteFrame*)spriteFrame;
 
 @end
 
@@ -404,6 +404,6 @@
  @see OALSimpleAudio
  @see [OALSimpleAudio playEffect:volume:pitch:pan:loop:]
  */
--(id) initWithSoundFile:(NSString*)file pitch:(float)pitch pan:(float) pan gain:(float)gain;
+-(instancetype) initWithSoundFile:(NSString*)file pitch:(float)pitch pan:(float) pan gain:(float)gain;
 
 @end

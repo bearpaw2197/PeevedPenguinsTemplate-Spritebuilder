@@ -47,7 +47,7 @@
 		
 		// draw children zOrder < 0
 		for( ; i < _children.count; i++ ) {
-			CCNode *child = [_children objectAtIndex:i];
+			CCNode *child = _children[i];
 			if ( [child zOrder] < 0 )
 				[child walkSceneGraph:level+1];
 			else
@@ -59,7 +59,7 @@
 		
 		// draw children zOrder >= 0
 		for( ; i < _children.count; i++ ) {
-			CCNode *child = [_children objectAtIndex:i];
+			CCNode *child = _children[i];
 			[child walkSceneGraph:level+1];
 		}
 		

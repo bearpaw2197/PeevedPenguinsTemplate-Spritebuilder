@@ -59,11 +59,11 @@ CCBMFontConfiguration* FNTConfigLoadFile( NSString *fntFile)
 	if( configurations == nil )
 		configurations = [NSMutableDictionary dictionaryWithCapacity:3];
     
-	ret = [configurations objectForKey:fntFile];
+	ret = configurations[fntFile];
 	if( ret == nil ) {
 		ret = [CCBMFontConfiguration configurationWithFNTFile:fntFile];
 		if( ret )
-			[configurations setObject:ret forKey:fntFile];
+			configurations[fntFile] = ret;
 	}
     
 	return ret;
@@ -95,12 +95,12 @@ void FNTConfigRemoveCache( void )
 @synthesize characterSet=_characterSet;
 @synthesize atlasName=_atlasName;
 
-+(id) configurationWithFNTFile:(NSString*)FNTfile
++(instancetype) configurationWithFNTFile:(NSString*)FNTfile
 {
 	return [[self alloc] initWithFNTfile:FNTfile];
 }
 
--(id) initWithFNTfile:(NSString*)fntFile
+-(instancetype) initWithFNTfile:(NSString*)fntFile
 {
 	if((self=[super init])) {
         
@@ -239,7 +239,7 @@ void FNTConfigRemoveCache( void )
 	// file
 	propertyValue = [nse nextObject];
 	NSArray *array = [propertyValue componentsSeparatedByString:@"\""];
-	propertyValue = [array objectAtIndex:1];
+	propertyValue = array[1];
 	NSAssert(propertyValue,@"LabelBMFont file could not be found");
     
 	// Supports subdirectories
@@ -490,23 +490,23 @@ void FNTConfigRemoveCache( void )
     return [[self alloc] initWithString:string fntFile:fntFile width:width alignment:alignment imageOffset:offset];
 }
 
--(id) init
+-(instancetype) init
 {
 	return [self initWithString:nil fntFile:nil width:kCCLabelAutomaticWidth alignment:CCTextAlignmentLeft imageOffset:CGPointZero];
 }
 
--(id) initWithString:(NSString*)theString fntFile:(NSString*)fntFile
+-(instancetype) initWithString:(NSString*)theString fntFile:(NSString*)fntFile
 {
     return [self initWithString:theString fntFile:fntFile width:kCCLabelAutomaticWidth alignment:CCTextAlignmentLeft];
 }
 
--(id) initWithString:(NSString*)theString fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment
+-(instancetype) initWithString:(NSString*)theString fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment
 {
 	return [self initWithString:theString fntFile:fntFile width:width alignment:alignment imageOffset:CGPointZero];
 }
 
 // designated initializer
--(id) initWithString:(NSString*)theString fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment imageOffset:(CGPoint)offset
+-(instancetype) initWithString:(NSString*)theString fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment imageOffset:(CGPoint)offset
 {
 	NSAssert(!_configuration, @"re-init is no longer supported");
 	
@@ -571,7 +571,7 @@ void FNTConfigRemoveCache( void )
 {
 	if(tag < _childForTag.count){
 		// Replace the value normally.
-		[_childForTag replaceObjectAtIndex:tag withObject:child];
+		_childForTag[tag] = child;
 	} else {
 		// The array is expanding.
 		// Insert NSNull to fill holes if necessary since NSArray cannot be sparse.
@@ -880,7 +880,7 @@ void FNTConfigRemoveCache( void )
 
 -(void) setCString:(char*)label
 {
-	[self setString:[NSString stringWithUTF8String:label] ];
+	[self setString:@(label) ];
 }
 
 - (void) setString:(NSString*)newString
