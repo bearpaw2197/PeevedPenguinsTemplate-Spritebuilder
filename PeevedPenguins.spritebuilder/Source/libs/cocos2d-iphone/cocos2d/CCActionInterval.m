@@ -1485,7 +1485,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 	if( (self=[super initWithDuration:singleDuration * anim.loops] ) ) {
 
 		_nextFrame = 0;
-		self.animation = anim;
+		self._animation = anim;
 		_origFrame = nil;
 		_executedLoops = 0;
 		

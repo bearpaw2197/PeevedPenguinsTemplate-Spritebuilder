@@ -158,7 +158,7 @@
  *
  *  @return The initialized flip action object.
  */
-- (instance NS_DESIGNATED_INITIALIZERtype)initWithFlipY:(BOOL)y NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithFlipY:(BOOL)y;
 
 @end
 

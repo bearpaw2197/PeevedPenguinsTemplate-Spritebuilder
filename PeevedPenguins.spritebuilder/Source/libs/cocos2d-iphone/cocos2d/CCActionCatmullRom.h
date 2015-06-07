@@ -281,7 +281,7 @@ extern "C" {
  *  @return New catmull-rom action.
  *  @see CCPointArray
  */
-- (instancetype)init NS_DESIGNATED_INITIALIZERWithDuration:(CCTime)dt points:(CCPointArray*)points NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithDuration:(CCTime)dt points:(CCPointArray*)points;
 
 @end
 

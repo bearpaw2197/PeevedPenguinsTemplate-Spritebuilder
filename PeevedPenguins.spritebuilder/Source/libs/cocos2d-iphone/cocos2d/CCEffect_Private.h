@@ -91,7 +91,7 @@ typedef NS_ENUM(NSUInteger, CCEffectTexCoordMapping)
 @property (nonatomic, readonly) NSString* declaration;
 @property (nonatomic, readonly) NSValue* value;
 
--(instancetype)initWithType:(NSStr NS_DESIGNATED_INITIALIZERing*)type name:(NSString*)name value:(NSValue*)value NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithType:(NSString*)type name:(NSString*)name value:(NSValue*)value;
 +(instancetype)uniform:(NSString*)type name:(NSString*)name value:(NSValue*)value;
 
 @end
@@ -104,7 +104,7 @@ typedef NS_ENUM(NSUInteger, CCEffectTexCoordMapping)
 @property (nonatomic, readonly) NSInteger count;
 
 -(instancetype)initWithType:(NSString*)type name:(NSString*)name;
--(instanc NS_DESIGNATED_INITIALIZERetype)initWithType:(NSString*)type name:(NSString*)name count:(NSInteger)count NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithType:(NSString*)type name:(NSString*)name count:(NSInteger)count;
 +(instancetype)varying:(NSString*)type name:(NSString*)name;
 +(instancetype)varying:(NSString*)type name:(NSString*)name count:(NSInteger)count;
 
@@ -148,7 +148,7 @@ typedef void (^CCEffectRenderPassEndBlock)(CCEffectRenderPass *pass, CCEffectRen
 @property (nonatomic, copy) NSArray* beginBlocks;
 @property (nonatomic, copy) NSArray* updateBlocks;
 @property (nonatomic, copy) NSArray* endBlocks;
-@ NS_DESIGNATED_INITIALIZERproperty (nonatomic, copy) NSString *debugLabel;
+@property (nonatomic, copy) NSString *debugLabel;
 
 -(instancetype)initWithIndex:(NSUInteger)indexInEffect NS_DESIGNATED_INITIALIZER;
 
@@ -196,10 +196,10 @@ typedef void (^CCEffectRenderPassEndBlock)(CCEffectRenderPass *pass, CCEffectRen
 @property (nonatomic, readonly) BOOL firstInStack;
 
 
--(instancetype)initWithRenderPasses:(NSArray *)renderPasses fragmentFunctions:(NSArray*)fragmentFunctions vertexFunctions:(NSArray*)vertexFunctions fragmentUniforms:(NSArray*)fragmentUniforms vertexUniforms:(NSArr NS_DESIGNATED_INITIALIZERay*)vertexUniforms varyings:(NSArray*)varyings uniformTranslationTable:(NSDictionary*)translations firstInStack:(BOOL)firstInStack NS_DESIGNATED_INITIALIZER;
--(instancetype)initWithRenderPasses:(NSArray *)renderPasses fragmentFunctions:(NSArray*)fragmentFunctions vertexFunctions:(NSArray*)vertexFunctions fragmentUniforms:(NSArray*)fragmentUniforms vertexUniforms:(NSAr NS_DESIGNATED_INITIALIZERray*)vertexUniforms varyings:(NSArray*)varyings;
+-(instancetype)initWithRenderPasses:(NSArray *)renderPasses fragmentFunctions:(NSArray*)fragmentFunctions vertexFunctions:(NSArray*)vertexFunctions fragmentUniforms:(NSArray*)fragmentUniforms vertexUniforms:(NSArray*)vertexUniforms varyings:(NSArray*)varyings uniformTranslationTable:(NSDictionary*)translations firstInStack:(BOOL)firstInStack;
+-(instancetype)initWithRenderPasses:(NSArray *)renderPasses fragmentFunctions:(NSArray*)fragmentFunctions vertexFunctions:(NSArray*)vertexFunctions fragmentUniforms:(NSArray*)fragmentUniforms vertexUniforms:(NSArray*)vertexUniforms varyings:(NSArray*)varyings;
 
--(instancetype)initWithRenderPasses:(NSArray *)renderPasses shaderUniforms:(NSMutableDictionary *)uniforms NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithRenderPasses:(NSArray *)renderPasses shaderUniforms:(NSMutableDictionary *)uniforms;
 
 -(CCEffectPrepareResult)prepareForRenderingWithSprite:(CCSprite *)sprite;
 -(CCEffectRenderPass *)renderPassAtIndex:(NSUInteger)passIndex;

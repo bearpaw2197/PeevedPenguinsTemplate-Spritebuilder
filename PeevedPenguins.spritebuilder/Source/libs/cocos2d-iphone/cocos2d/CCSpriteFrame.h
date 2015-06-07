@@ -108,7 +108,7 @@
  *
  *  @return An initialized CCSpriteFrame Object.
  */
--(instancetype) initWithTextureFilename:(NSString*)filename rectInPixels:(CGRect)rect rotated:(BOOL)rotated offset:(CGPoint)offset origina NS_DESIGNATED_INITIALIZERlSize:(CGSize)originalSize NS_DESIGNATED_INITIALIZER;
+-(instancetype) initWithTextureFilename:(NSString*)filename rectInPixels:(CGRect)rect rotated:(BOOL)rotated offset:(CGPoint)offset originalSize:(CGSize)originalSize;
 
 /// -----------------------------------------------------------------------
 /// @name Sprite Frame Properties

@@ -253,8 +253,7 @@
  *
  *  @return An initialized CCNodeMultiplexer Object.
  */
- NS_DESIGNATED_INITIALIZER
--(instancetype)initWithArray:(NSArray*)arrayOfNodes NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithArray:(NSArray*)arrayOfNodes;
 
 
 /// -----------------------------------------------------------------------

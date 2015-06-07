@@ -143,7 +143,7 @@ typedef NS_ENUM(NSUInteger, CCTiledMapOrientation)
  *
  *  @return The CCTiledMap Object.
  */
--(instancetype) initWithXML:(NSString*)tmxString resourcePa NS_DESIGNATED_INITIALIZERth:(NSString*)resourcePath NS_DESIGNATED_INITIALIZER;
+-(instancetype) initWithXML:(NSString*)tmxString resourcePath:(NSString*)resourcePath;
 
 
 /// -----------------------------------------------------------------------

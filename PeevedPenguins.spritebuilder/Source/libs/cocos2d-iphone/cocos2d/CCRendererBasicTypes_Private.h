@@ -125,7 +125,7 @@ CCGraphicsBufferPushElements(CCGraphicsBuffer *buffer, size_t requestedCount)
 @property(nonatomic, assign) CGSize sizeInPixels;
 @property(nonatomic, assign) CGFloat contentScale;
 
--(instancetype)initWithTexture:(CCTexture *)texture depthStencilFormat: NS_DESIGNATED_INITIALIZER(GLuint)depthStencilFormat NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithTexture:(CCTexture *)texture depthStencilFormat:(GLuint)depthStencilFormat;
 
 -(void)syncWithView:(CC_VIEW<CCDirectorView> *)view;
 

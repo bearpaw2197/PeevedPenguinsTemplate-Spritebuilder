@@ -313,7 +313,7 @@ enum {
  *
  *  @return An initialized CCActionSpeed object.
  */
-- (instancetype)initWithAc NS_DESIGNATED_INITIALIZERtion:(CCActionInterval *)action speed:(CGFloat)value NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithAction:(CCActionInterval *)action speed:(CGFloat)value;
 
 
 /// -----------------------------------------------------------------------
