@@ -243,7 +243,7 @@ enum {
  *
  *  @return An initialised repeat action object.
  */
-- (instancetype)initWithAction:( NS_DESIGNATED_INITIALIZERCCActionInterval *) action NS_DESIGNATED_INITIALIZER;
+- (id)initWithAction:(CCActionInterval *) action;
 
 @end
 

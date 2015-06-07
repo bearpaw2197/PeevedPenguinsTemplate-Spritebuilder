@@ -211,13 +211,13 @@
  *  @return New action sequence.
  */
 + (id)actionWithArray: (NSArray*) arrayOfActions;
-- (instancetype)initWithArray:(NSArray*)arrayOfActions;
+- (id)initWithArray:(NSArray*)arrayOfActions;
 
 // purposefully undocumented: no point in having this documented if you can just create a list/array with 2 actions
 + (id)actionOne:(CCActionFiniteTime*)actionOne two:(CCActionFiniteTime*)actionTwo;
 
 // purposefully undocumented: no point in having this documented if you can just create a list/array with 2 actions
-- (instancetype)initOne:(CCActionFiniteTime*)actionOne two:(CCA NS_DESIGNATED_INITIALIZERctionFiniteTime*)actionTwo NS_DESIGNATED_INITIALIZER;
+- (id)initOne:(CCActionFiniteTime*)actionOne two:(CCActionFiniteTime*)actionTwo;
 
 @end
 
@@ -259,7 +259,7 @@
  *
  *  @return New action repeat.
  */
-- (instancetype)initWithAction NS_DESIGNATED_INITIALIZER:(CCActionFiniteTime*)action times:(NSUInteger)times NS_DESIGNATED_INITIALIZER;
+- (id)initWithAction:(CCActionFiniteTime*)action times:(NSUInteger)times;
 
 @end
 
@@ -542,7 +542,7 @@
  *
  *  @return New moveby action.
  */
-- (instancetype)initWithDuration: (CCTime)duration position:(CGPoint)deltaPosition NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithDuration: (CCTime)duration position:(CGPoint)deltaPosition;
 
 @end
 
@@ -568,7 +568,7 @@
  *
  *  @return New moveto action.
  */
-+ (id)actionWithDuration:(CCTime)duration posit NS_DESIGNATED_INITIALIZERion:(CGPoint)position;
++ (id)actionWithDuration:(CCTime)duration position:(CGPoint)position;
 
 /**
  *  Initializes the action.
@@ -578,7 +578,7 @@
  *
  *  @return New moveto action.
  */
-- (instancetype)initWithDuration:(CCTime)duration position:(CGPoint)position NS_DESIGNATED_INITIALIZER;
+- (id)initWithDuration:(CCTime)duration position:(CGPoint)position;
 
 @end
 
@@ -955,7 +955,7 @@ typedef struct _ccBezierConfig {
  *
  *  @return New tint by action.
  */
-- (instancetype)initWithDuration:(CCTime)duration red:(CGFloat)deltaRed green:(CGFloat)deltaGreen blue:(CGFloat)deltaBlue NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithDuration:(CCTime)duration red:(CGFloat)deltaRed green:(CGFloat)deltaGreen blue:(CGFloat)deltaBlue;
 
 @end
 
@@ -1019,7 +1019,7 @@ typedef struct _ccBezierConfig {
 }
 
 // Animation used for the sprite.
-@property (readwrite,nonatomic,strong) C NS_DESIGNATED_INITIALIZERCAnimation * animation;
+@property (readwrite,nonatomic,strong) CCAnimation *_animation;
 
 /** @name Creating a Animation Action */
 
