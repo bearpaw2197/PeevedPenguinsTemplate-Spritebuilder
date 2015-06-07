@@ -44,7 +44,7 @@
  *  @return The CCEffectPixellate object.
  *  @since v3.2 and later
  */
--(instancetype)initWithBlockSize:(float)blockSize NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithBlockSize:(float)blockSize NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
 
 
 /// -----------------------------------------------------------------------

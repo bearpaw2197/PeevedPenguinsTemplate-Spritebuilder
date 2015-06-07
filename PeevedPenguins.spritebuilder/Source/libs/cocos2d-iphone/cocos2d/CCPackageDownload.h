@@ -45,7 +45,7 @@
  *
  *  @return A new instance of a CCPackageDownload
  */
-- (instancetype)initWithPackage:(CCPackage *)package localURL:(NSURL *)localURL NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithPackage:(CCPackage *)package localURL:(NSURL *)localURL NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
 
 /**
  *  Starts the download, if there is a downloaded data the delegate is asked if the download should be resumed

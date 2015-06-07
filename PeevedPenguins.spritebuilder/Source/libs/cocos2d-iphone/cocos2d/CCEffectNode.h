@@ -100,7 +100,7 @@
  *  @return An initialized CCRenderTarget object.
  *  @see CCTexturePixelFormat
  */
--(instancetype)initWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format depthStencilFormat:(GLuint)depthStencilFormat NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format depthStencilFormat:(GLuint)depthStencilFormat NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
 
 /** @name Assigning an Effect */
 

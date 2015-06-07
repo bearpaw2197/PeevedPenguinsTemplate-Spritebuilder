@@ -47,7 +47,7 @@
  *  @return The CCEffectContrast object.
  *  @since v3.2 and later
  */
--(instancetype)initWithContrast:(float)contrast NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithContrast:(float)contrast NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
 
 
 /// -----------------------------------------------------------------------

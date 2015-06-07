@@ -54,6 +54,6 @@
 /// -----------------------------------------------------------------------
 
 /* Initialize the node. */
-- (instancetype)init NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
 
 @end
