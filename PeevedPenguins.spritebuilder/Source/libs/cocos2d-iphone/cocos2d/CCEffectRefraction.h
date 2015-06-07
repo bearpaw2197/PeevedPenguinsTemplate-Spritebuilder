@@ -78,7 +78,7 @@
  *  @see CCSprite
  *  @see CCSpriteFrame
  */
--(instancetype)initWithRefraction:(float)refraction environment:(CCSprite *)environment normalMap:(CCSpriteFrame *)normalMap;
+-(instancetype)initWithRefraction:(float)refraction environment:(CCSprite *)environment normalMap:(CCSpriteFrame *)normalMap NS_DESIGNATED_INITIALIZER;
 
 
 /// -----------------------------------------------------------------------

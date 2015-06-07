@@ -84,7 +84,7 @@
 @property (nonatomic, assign) float hitAreaExpansion;
 
 // purposefully undocumented: CCResponder should not be instantiated by users
-- (instancetype)init;
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
 
 /// -----------------------------------------------------------------------
 /// @name Performing Hit Tests

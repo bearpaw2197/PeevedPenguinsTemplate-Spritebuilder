@@ -358,7 +358,7 @@ typedef void (*_CC_UPDATE_PARTICLE_IMP)(id, SEL, _CCParticle*, CGPoint);
  *
  *  @return An initialized CCParticleSystem Object.
  */
--(instancetype) initWithTotalParticles:(NSUInteger) numberOfParticles;
+-(instancetype) initWithTotalParticles:(NSUInteger) numberOfParticles NS_DESIGNATED_INITIALIZER;
 
 
 /// -----------------------------------------------------------------------

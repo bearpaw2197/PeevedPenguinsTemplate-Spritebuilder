@@ -83,7 +83,7 @@
  *  @return The new CCClippingNode instance.
  *  @see clippingNodeWithStencil:
  */
--(instancetype) initWithStencil:(CCNode *)stencil;
+-(instancetype) initWithStencil:(CCNode *)stencil NS_DESIGNATED_INITIALIZER;
 
 /// -----------------------------------------------------------------------
 /// @name Accessing the Stencil (Mask) Node

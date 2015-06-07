@@ -116,7 +116,7 @@ typedef NS_ENUM(NSUInteger, CCLightType)
     specularColor:(CCColor *)specularColor
 specularIntensity:(float)specularIntensity
      ambientColor:(CCColor *)ambientColor
- ambientIntensity:(float)ambientIntensity;
+ ambientIntensity:(float)ambientIntensity NS_DESIGNATED_INITIALIZER;
 
 
 /// -----------------------------------------------------------------------

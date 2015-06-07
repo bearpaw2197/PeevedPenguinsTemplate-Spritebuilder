@@ -107,7 +107,7 @@ __attribute__((deprecated))
  *
  *  @return An initialized CCParticleBatchNode Object.
  */
--(id)initWithTexture:(CCTexture *)tex capacity:(NSUInteger)capacity;
+-(id)initWithTexture:(CCTexture *)tex capacity:(NSUInteger)capacity NS_DESIGNATED_INITIALIZER;
 
 /**
  *  Initializes and returns a particle batch node object from the specified texture and capacity values.

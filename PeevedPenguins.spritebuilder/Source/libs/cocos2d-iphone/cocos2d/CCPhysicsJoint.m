@@ -33,35 +33,35 @@
 
 
 @interface CCPhysicsPivotJoint : CCPhysicsJoint
--(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchor:(CGPoint)anchor;
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchor:(CGPoint)anchor NS_DESIGNATED_INITIALIZER;
 @end
 
 @interface CCPhysicsPinJoint : CCPhysicsJoint
--(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB;
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB NS_DESIGNATED_INITIALIZER;
 @end
 
 @interface CCPhysicsSlideJoint : CCPhysicsJoint
--(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB minDistance:(CGFloat)min maxDistance:(CGFloat)max;
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB minDistance:(CGFloat)min maxDistance:(CGFloat)max NS_DESIGNATED_INITIALIZER;
 @end
 
 @interface CCPhysicsSpringJoint : CCPhysicsJoint
--(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB restLength:(CGFloat)restLength stiffness:(CGFloat)stiffness damping:(CGFloat)damping;
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB restLength:(CGFloat)restLength stiffness:(CGFloat)stiffness damping:(CGFloat)damping NS_DESIGNATED_INITIALIZER;
 @end
 
 @interface CCPhysicsRotarySpring : CCPhysicsJoint
--(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB restAngle:(cpFloat)restAngle stiffness:(cpFloat)stiffness damping:(cpFloat)damping;
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB restAngle:(cpFloat)restAngle stiffness:(cpFloat)stiffness damping:(cpFloat)damping NS_DESIGNATED_INITIALIZER;
 @end
 
 @interface CCPhysicsMotorJoint : CCPhysicsJoint
--(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB rate:(cpFloat)rate;
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB rate:(cpFloat)rate NS_DESIGNATED_INITIALIZER;
 @end
 
 @interface CCPhysicsRatchet : CCPhysicsJoint
--(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB phase:(cpFloat)phase ratchet:(cpFloat)ratchet;
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB phase:(cpFloat)phase ratchet:(cpFloat)ratchet NS_DESIGNATED_INITIALIZER;
 @end
 
 @interface CCPhysicsRotaryLimitJoint : CCPhysicsJoint
--(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB min:(cpFloat)min max:(cpFloat)max;
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB min:(cpFloat)min max:(cpFloat)max NS_DESIGNATED_INITIALIZER;
 @end
 
 @implementation CCPhysicsJoint

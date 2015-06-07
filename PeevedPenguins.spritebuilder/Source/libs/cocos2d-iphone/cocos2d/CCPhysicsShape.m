@@ -38,18 +38,18 @@
 
 
 @interface CCPhysicsCircleShape : CCPhysicsShape
--(instancetype)initWithRadius:(CGFloat)radius center:(CGPoint)center;
+-(instancetype)initWithRadius:(CGFloat)radius center:(CGPoint)center NS_DESIGNATED_INITIALIZER;
 @end
 
 
 @interface CCPhysicsSegmentShape : CCPhysicsShape;
--(instancetype)initFrom:(CGPoint)from to:(CGPoint)to cornerRadius:(CGFloat)cornerRadius;
+-(instancetype)initFrom:(CGPoint)from to:(CGPoint)to cornerRadius:(CGFloat)cornerRadius NS_DESIGNATED_INITIALIZER;
 @end
 
 
 @interface CCPhysicsPolyShape : CCPhysicsShape
 -(instancetype)initWithRect:(CGRect)rect cornerRadius:(CGFloat)cornerRadius;
--(instancetype)initWithPolygonFromPoints:(CGPoint *)points count:(NSUInteger)count cornerRadius:(CGFloat)cornerRadius;
+-(instancetype)initWithPolygonFromPoints:(CGPoint *)points count:(NSUInteger)count cornerRadius:(CGFloat)cornerRadius NS_DESIGNATED_INITIALIZER;
 @end
 
 

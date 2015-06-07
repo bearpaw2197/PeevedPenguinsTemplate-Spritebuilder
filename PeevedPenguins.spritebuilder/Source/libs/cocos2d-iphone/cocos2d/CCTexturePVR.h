@@ -150,7 +150,7 @@ enum {
  *
  *  @return An initialized CCTexturePVR object.
  */
--(instancetype)initWithContentsOfFile:(NSString *)path;
+-(instancetype)initWithContentsOfFile:(NSString *)path NS_DESIGNATED_INITIALIZER;
 
 /**
  *  Initializes a PVR Texture from the specified URL value.

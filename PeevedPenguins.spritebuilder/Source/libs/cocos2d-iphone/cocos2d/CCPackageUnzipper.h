@@ -43,7 +43,7 @@
  *
  * @return A new instance of CCPackageUnzipper
  */
-- (instancetype)initWithPackage:(CCPackage *)package;
+- (instancetype)initWithPackage:(CCPackage *)package NS_DESIGNATED_INITIALIZER;
 
 /**
  * Unpacks a package archive. The local location of the package archive and the destination

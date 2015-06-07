@@ -48,7 +48,7 @@
  *  @return The CCEffectBrightness object.
  *  @since v3.2 and later
  */
--(instancetype)initWithBrightness:(float)brightness;
+-(instancetype)initWithBrightness:(float)brightness NS_DESIGNATED_INITIALIZER;
 
 
 /// -----------------------------------------------------------------------
