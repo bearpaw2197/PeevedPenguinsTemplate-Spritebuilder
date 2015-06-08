@@ -944,7 +944,7 @@
 		D38058211889CE7700822437 /* CCCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D380581F1889CE7700822437 /* CCCache.m */; };
 		D3903B0A1995285B003AA81A /* CCEffectBlur.h in Headers */ = {isa = PBXBuildFile; fileRef = D3903B081995285B003AA81A /* CCEffectBlur.h */; };
 		D3903B0B1995285B003AA81A /* CCEffectBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = D3903B091995285B003AA81A /* CCEffectBlur.m */; };
-		D3903B0D1995288D003AA81A /* CCNoARC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3903B0C1995288D003AA81A /* CCNoARC.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D3903B0D1995288D003AA81A /* CCNoARC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3903B0C1995288D003AA81A /* CCNoARC.m */; };
 		D3903B10199528A0003AA81A /* CCRenderDispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = D3903B0E199528A0003AA81A /* CCRenderDispatch.h */; };
 		D3903B11199528A0003AA81A /* CCRenderDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = D3903B0F199528A0003AA81A /* CCRenderDispatch.m */; };
 		D3903B14199528B6003AA81A /* CCMetalView.h in Headers */ = {isa = PBXBuildFile; fileRef = D3903B12199528B6003AA81A /* CCMetalView.h */; };
