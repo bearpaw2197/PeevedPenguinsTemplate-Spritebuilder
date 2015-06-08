@@ -206,7 +206,7 @@
 	return [_properties valueForKey:propertyName];
 }
 -(NSDictionary*)propertiesForGID:(unsigned int)GID{
-	return _tileProperties[[NSNumber numberWithInt:GID]];
+	return _tileProperties [[NSNumber numberWithInt:GID]];
 }
 @end
 
