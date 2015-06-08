@@ -47,7 +47,7 @@
 
 @interface CCEffectDropShadowImpl : CCEffectImpl
 
-@property (nonatomic, weak) CCEffectDropShadow *interface;
+@property (nonatomic, assign) CCEffectDropShadow *interface;
 
 @end
 

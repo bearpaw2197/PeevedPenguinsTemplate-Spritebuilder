@@ -21,7 +21,7 @@ static GLKMatrix4 matrixWithHue(float hue);
 
 
 @interface CCEffectHueImpl : CCEffectImpl
-@property (nonatomic, weak) CCEffectHue *interface;
+@property (nonatomic, assign) CCEffectHue *interface;
 @end
 
 @implementation CCEffectHueImpl
@@ -57,7 +57,7 @@ static GLKMatrix4 matrixWithHue(float hue);
 
 + (NSArray *)buildRenderPassesWithInterface:(CCEffectHue *)interface
 {
-    __weak CCEffectHue *weakInterface = interface;
+    CCEffectHue *weakInterface = interface;
 
     CCEffectRenderPass *pass0 = [[CCEffectRenderPass alloc] init];
     pass0.debugLabel = @"CCEffectHue pass 0";

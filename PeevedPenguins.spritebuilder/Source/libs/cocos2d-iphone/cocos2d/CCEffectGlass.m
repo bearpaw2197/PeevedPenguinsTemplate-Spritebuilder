@@ -23,15 +23,14 @@ static const float CCEffectGlassDefaultFresnelPower = 2.0f;
 
 
 @interface CCEffectGlass ()
-@property (nonatomic, assign) float conditionedRefraction;
-@property (nonatomic, assign) float conditionedShininess;
-@property (nonatomic, assign) float conditionedFresnelBias;
-@property (nonatomic, assign) float conditionedFresnelPower;
+@property (nonatomic,assign) float conditionedRefraction;
+@property (nonatomic,assign) float conditionedShininess;
+@property (nonatomic,assign) float conditionedFresnelBias;
+@property (nonatomic,assign) float conditionedFresnelPower;
 @end
 
-
 @interface CCEffectGlassImpl : CCEffectImpl
-@property (nonatomic, weak) CCEffectGlass *interface;
+@property (nonatomic,assign) CCEffectGlass *interface;
 @end
 
 @implementation CCEffectGlassImpl

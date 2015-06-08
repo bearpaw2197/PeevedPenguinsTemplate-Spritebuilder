@@ -19,7 +19,7 @@
 /**
  *  Unzipper's delegate
  */
-@property (nonatomic, weak) id <CCPackageUnzipperDelegate> delegate;
+@property (nonatomic, assign) id <CCPackageUnzipperDelegate> delegate;
 
 /**
  *  Password used to unzip the package archive.

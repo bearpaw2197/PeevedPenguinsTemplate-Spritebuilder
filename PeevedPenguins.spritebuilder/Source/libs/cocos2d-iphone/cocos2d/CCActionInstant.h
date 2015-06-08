@@ -221,7 +221,7 @@
     [self myCallFuncMethod];
  */
 @interface CCActionCallFunc : CCActionInstant <NSCopying> {
-	__weak id _targetCallback;
+	id _targetCallback;
 	SEL _selector;
 }
 

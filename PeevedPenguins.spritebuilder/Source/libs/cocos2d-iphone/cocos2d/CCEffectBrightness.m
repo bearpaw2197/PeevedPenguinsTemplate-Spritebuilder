@@ -18,7 +18,7 @@ static float conditionBrightness(float brightness);
 @end
 
 @interface CCEffectBrightnessImpl : CCEffectImpl
-@property (nonatomic, weak) CCEffectBrightness *interface;
+@property (nonatomic, assign) CCEffectBrightness *interface;
 @end
 
 
@@ -53,7 +53,7 @@ static float conditionBrightness(float brightness);
 
 + (NSArray *)buildRenderPassesWithInterface:(CCEffectBrightness *)interface
 {
-    __weak CCEffectBrightness *weakInterface = interface;
+    CCEffectBrightness *weakInterface = interface;
 
     CCEffectRenderPass *pass0 = [[CCEffectRenderPass alloc] init];
     pass0.debugLabel = @"CCEffectBrightness pass 0";

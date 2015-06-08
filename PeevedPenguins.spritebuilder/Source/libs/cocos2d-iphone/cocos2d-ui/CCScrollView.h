@@ -69,7 +69,7 @@
     CGPoint _velocity;
 }
 
-@property (nonatomic, weak) id<CCScrollViewDelegate> delegate;
+@property (nonatomic, assign) id<CCScrollViewDelegate> delegate;
 
 @property (nonatomic,strong) CCNode* contentNode;
 

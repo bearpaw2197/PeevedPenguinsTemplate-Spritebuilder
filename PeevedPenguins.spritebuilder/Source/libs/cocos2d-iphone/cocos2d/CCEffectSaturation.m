@@ -55,7 +55,7 @@ static float conditionSaturation(float saturation);
 
 
 @interface CCEffectSaturationImpl : CCEffectImpl
-@property (nonatomic, weak) CCEffectSaturation *interface;
+@property (assign, nonatomic) CCEffectSaturation *interface;
 @end
 
 
@@ -96,7 +96,7 @@ static float conditionSaturation(float saturation);
 
 + (NSArray *)buildRenderPassesWithInterface:(CCEffectSaturation *)interface
 {
-    __weak CCEffectSaturation *weakInterface = interface;
+    CCEffectSaturation *weakInterface = interface;
     
     CCEffectRenderPass *pass0 = [[CCEffectRenderPass alloc] init];
     pass0.debugLabel = @"CCEffectSaturation pass 0";

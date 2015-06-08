@@ -24,7 +24,7 @@
 
 
 @interface CCEffectRefractionImpl : CCEffectImpl
-@property (nonatomic, weak) CCEffectRefraction *interface;
+@property (nonatomic,assign) CCEffectRefraction *interface;
 @end
 
 

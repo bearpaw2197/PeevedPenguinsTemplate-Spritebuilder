@@ -24,7 +24,7 @@
 - (void) onEnterTransitionDidFinish;
 - (void) onExitTransitionDidStart;
 - (void) setFontSize:(float)fontSize;
-@property (nonatomic, weak) id<CCPlatformTextFieldDelegate> delegate;
+@property (nonatomic, assign) id<CCPlatformTextFieldDelegate> delegate;
 @property (nonatomic) NSString * string;
 @property (nonatomic) BOOL hidden;
 @property (nonatomic, readonly) id nativeTextField;

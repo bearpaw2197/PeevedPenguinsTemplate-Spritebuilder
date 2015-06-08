@@ -27,7 +27,7 @@
 
 
 @interface CCEffectReflectionImpl : CCEffectImpl
-@property (nonatomic, weak) CCEffectReflection *interface;
+@property (nonatomic, assign) CCEffectReflection *interface;
 @end
 
 @implementation CCEffectReflectionImpl

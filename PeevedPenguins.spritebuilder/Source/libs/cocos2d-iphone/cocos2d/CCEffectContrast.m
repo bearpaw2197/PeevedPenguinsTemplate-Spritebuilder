@@ -19,7 +19,7 @@ static float conditionContrast(float contrast);
 
 
 @interface CCEffectContrastImpl : CCEffectImpl
-@property (nonatomic, weak) CCEffectContrast *interface;
+@property (assign, nonatomic) CCEffectContrast *interface;
 @end
 
 
@@ -55,7 +55,7 @@ static float conditionContrast(float contrast);
 
 + (NSArray *)buildRenderPassesWithInterface:(CCEffectContrast *)interface
 {
-    __weak CCEffectContrast *weakInterface = interface;
+    CCEffectContrast *weakInterface = interface;
     
     CCEffectRenderPass *pass0 = [[CCEffectRenderPass alloc] init];
     pass0.debugLabel = @"CCEffectContrast pass 0";

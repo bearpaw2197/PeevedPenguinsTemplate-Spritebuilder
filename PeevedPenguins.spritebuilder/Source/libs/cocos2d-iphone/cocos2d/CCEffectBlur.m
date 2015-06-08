@@ -46,7 +46,7 @@
 
 
 @interface CCEffectBlurImpl : CCEffectImpl
-@property (nonatomic, weak) CCEffectBlur *interface;
+@property (assign, nonatomic) CCEffectBlur *interface;
 @end
 
 @implementation CCEffectBlurImpl

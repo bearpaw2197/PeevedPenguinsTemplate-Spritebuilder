@@ -54,7 +54,7 @@
 
 
 @interface CCEffectBloomImpl : CCEffectImpl
-@property (nonatomic, weak) CCEffectBloom *interface;
+@property (nonatomic, assign) CCEffectBloom *interface;
 @end
 
 @implementation CCEffectBloomImpl
@@ -286,7 +286,7 @@
 
     // Why not just use self (or "__weak self" really)? Because at the time these blocks are created,
     // self is not necesssarily valid.
-    __weak CCEffectBloom *weakInterface = interface;
+    CCEffectBloom *weakInterface = interface;
 
     CCEffectRenderPass *pass0 = [[CCEffectRenderPass alloc] initWithIndex:0];
     pass0.debugLabel = @"CCEffectBloom pass 0";

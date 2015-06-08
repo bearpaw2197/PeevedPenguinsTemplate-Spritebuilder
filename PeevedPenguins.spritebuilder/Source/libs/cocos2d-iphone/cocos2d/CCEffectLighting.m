@@ -51,7 +51,7 @@ static float conditionShininess(float shininess);
 
 
 @interface CCEffectLightingImpl : CCEffectImpl
-@property (nonatomic, weak) CCEffectLighting *interface;
+@property (nonatomic, assign) CCEffectLighting *interface;
 @end
 
 

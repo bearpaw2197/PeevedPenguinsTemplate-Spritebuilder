@@ -53,7 +53,7 @@ static float conditionBlockSize(float blockSize);
 @end
 
 @interface CCEffectPixellateImpl : CCEffectImpl
-@property (nonatomic, weak) CCEffectPixellate *interface;
+@property (nonatomic, assign) CCEffectPixellate *interface;
 @end
 
 
@@ -95,7 +95,7 @@ static float conditionBlockSize(float blockSize);
 
 + (NSArray *)buildRenderPassesWithInterface:(CCEffectPixellate *)interface
 {
-    __weak CCEffectPixellate *weakInterface = interface;
+    CCEffectPixellate *weakInterface = interface;
 
     CCEffectRenderPass *pass0 = [[CCEffectRenderPass alloc] init];
     pass0.debugLabel = @"CCEffectPixellate pass 0";

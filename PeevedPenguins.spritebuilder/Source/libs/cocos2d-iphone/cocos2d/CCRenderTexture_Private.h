@@ -47,7 +47,7 @@
 
 @interface CCRenderTextureSprite : CCSprite
 
-@property (nonatomic, weak) CCRenderTexture *renderTexture;
+@property (nonatomic, assign) CCRenderTexture *renderTexture;
 
 @property (nonatomic, readonly) CGAffineTransform nodeToWorldTransform;
 

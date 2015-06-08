@@ -14,7 +14,7 @@
 
 @interface CCEffectColorChannelOffsetImpl : CCEffectImpl
 
-@property (nonatomic, weak) CCEffectColorChannelOffset *interface;
+@property (nonatomic, assign) CCEffectColorChannelOffset *interface;
 
 @end
 
