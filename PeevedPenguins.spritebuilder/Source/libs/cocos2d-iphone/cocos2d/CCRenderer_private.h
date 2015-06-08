@@ -87,7 +87,7 @@ typedef NS_ENUM(NSUInteger, CCRenderCommandDrawMode){
 @property(nonatomic, readonly) NSUInteger first;
 @property(nonatomic, readonly) size_t count;
 
--(instancetype)initWithMode:(CCRenderCommandDrawMode)mode renderState:(CCRenderState *)renderState firstIndex:(NSUInteger)firstIndex vertexPage:(NSUInteger)vertexPage count:(size_t)count globalSortOrder:(NSInteger)globalSortOrder NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithMode:(CCRenderCommandDrawMode)mode renderState:(CCRenderState *)renderState firstIndex:(NSUInteger)firstIndex vertexPage:(NSUInteger)vertexPage count:(size_t)count globalSortOrder:(NSInteger)globalSortOrder;
 
 -(void)batch:(NSUInteger)count;
 

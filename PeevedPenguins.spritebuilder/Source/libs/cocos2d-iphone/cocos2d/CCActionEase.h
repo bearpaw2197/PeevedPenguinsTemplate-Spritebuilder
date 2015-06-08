@@ -68,7 +68,7 @@
  *
  *  @return New ease action.
  */
-- (instancetype)initWithAction:(CCActionInterval*)action NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithAction:(CCActionInterval*)action;
 
 @end
 

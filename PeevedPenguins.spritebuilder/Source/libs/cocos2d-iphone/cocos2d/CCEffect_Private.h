@@ -65,7 +65,7 @@ typedef NS_ENUM(NSUInteger, CCEffectTexCoordMapping)
 @property (nonatomic, readonly) NSString* returnType;
 @property (nonatomic, readonly) NSString* function;
 
--(instancetype)initWithName:(NSString*)name body:(NSString*)body inputs:(NSArray*)inputs returnType:(NSString*)returnType NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithName:(NSString*)name body:(NSString*)body inputs:(NSArray*)inputs returnType:(NSString*)returnType;
 +(instancetype)functionWithName:(NSString*)name body:(NSString*)body inputs:(NSArray*)inputs returnType:(NSString*)returnType;
 
 -(NSString*)callStringWithInputs:(NSArray*)inputs;
@@ -79,7 +79,7 @@ typedef NS_ENUM(NSUInteger, CCEffectTexCoordMapping)
 @property (nonatomic, readonly) NSString* initialSnippet;
 @property (nonatomic, readonly) NSString* snippet;
 
--(instancetype)initWithType:(NSString*)type name:(NSString*)name initialSnippet:(NSString*)initialSnippet  NS_DESIGNATED_INITIALIZERsnippet:(NSString*)snippet NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithType:(NSString*)type name:(NSString*)name initialSnippet:(NSString*)initialSnippet snippet:(NSString*)snippet;
 +(instancetype)inputWithType:(NSString*)type name:(NSString*)name initialSnippet:(NSString*)initialSnippet snippet:(NSString*)snippet;
 
 @end
@@ -150,7 +150,7 @@ typedef void (^CCEffectRenderPassEndBlock)(CCEffectRenderPass *pass, CCEffectRen
 @property (nonatomic, copy) NSArray* endBlocks;
 @property (nonatomic, copy) NSString *debugLabel;
 
--(instancetype)initWithIndex:(NSUInteger)indexInEffect NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithIndex:(NSUInteger)indexInEffect;
 
 -(void)begin:(CCEffectRenderPassInputs *)passInputs;
 -(void)update:(CCEffectRenderPassInputs *)passInputs;

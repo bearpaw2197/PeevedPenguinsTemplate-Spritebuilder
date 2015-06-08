@@ -117,7 +117,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 /** Initializes an CCGLView with a frame, a color buffer format, and 0-bit depth buffer */
 - (instancetype) initWithFrame:(CGRect)frame pixelFormat:(NSString*)format;
 /** Initializes an CCGLView with a frame, a color buffer format, a depth buffer format, a sharegroup and multisampling support */
-- (instancetype) initWithFrame:(CGRect)frame pixelFormat:(NSString*)format depthFormat:(GLuint)depth preserveBackbuffer:(BOOL)retained sharegroup:(EAGLSharegroup*)sharegroup multiSampling:(BOOL)sampling numberOfSamples:(unsigned int)nSamples NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithFrame:(CGRect)frame pixelFormat:(NSString*)format depthFormat:(GLuint)depth preserveBackbuffer:(BOOL)retained sharegroup:(EAGLSharegroup*)sharegroup multiSampling:(BOOL)sampling numberOfSamples:(unsigned int)nSamples;
 
 /** pixel format: it could be RGBA8 (32-bit) or RGB565 (16-bit) */
 @property(nonatomic,readonly) NSString* pixelFormat;

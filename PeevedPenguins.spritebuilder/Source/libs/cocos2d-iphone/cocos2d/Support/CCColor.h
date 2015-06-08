@@ -101,7 +101,7 @@
  *
  *  @return An initialized color object.
  */
-- (CCColor *)initWithWhite:(float)white alpha:(float)alpha NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+- (CCColor *)initWithWhite:(float)white alpha:(float)alpha;
 
 /**
  *  Initializes and returns a color object using the specified opacity and RGBA component values.
@@ -155,19 +155,19 @@
  *
  *  @param cgColor A reference to a Quartz color.
  *
- *  @return An  NS_DESIGNATED_INITIALIZERinitialized color object.
+ *  @return An initialized color object.
  */
-- (CCColor *)initWithCGColor:(CGColorRef)cgColor NS_DESIGNATED_INITIALIZER;
+- (CCColor *)initWithCGColor:(CGColorRef)cgColor;
 
 #if __CC_PLATFORM_IOS
 /**
  *  Initializes and returns a UIColor object to its CCColor equivalent.
  *
- *  @param color UICo NS_DESIGNATED_INITIALIZERlor object.
+ *  @param color UIColor object.
  *
  *  @return An initialized color object.
  */
-- (CCColor *)initWithUIColor:(UIColor*)color NS_DESIGNATED_INITIALIZER;
+- (CCColor *)initWithUIColor:(UIColor*)color;
 #endif
 
 

@@ -62,7 +62,7 @@ typedef NS_ENUM(NSUInteger, CCGraphicsBufferType){
 	void *_ptr;
 }
 
--(instancetype)initWithCapacity:(NSUInteger)capacity elementSize:(size_t)elementSize type:(CCGraphicsBufferType)type NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithCapacity:(NSUInteger)capacity elementSize:(size_t)elementSize type:(CCGraphicsBufferType)type;
 -(void)resize:(size_t)newCapacity;
 
 -(void)destroy;

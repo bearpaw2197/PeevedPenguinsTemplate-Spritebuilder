@@ -83,7 +83,7 @@ enum {
  *
  *  @return An initialized CCAction Object.
  */
-- (instancetype)init NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+- (instancetype)init;
 
 
 /// -----------------------------------------------------------------------
@@ -409,9 +409,9 @@ enum {
  *
  *  @param followedNode Node to follow.
  *
- *  @return An initialized f NS_DESIGNATED_INITIALIZERollow action object.
+ *  @return An initialized follow action object.
  */
-- (instancetype)initWithTarget:(CCNode *)followedNode NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithTarget:(CCNode *)followedNode;
 
 /**
  *  Initalizes a follow action with boundaries.
@@ -419,9 +419,9 @@ enum {
  *  @param followedNode Node to follow.
  *  @param rect         Boundary rect.
  *
- *  @return The initalized fo NS_DESIGNATED_INITIALIZERllow action object.
+ *  @return The initalized follow action object.
  */
-- (instancetype)initWithTarget:(CCNode *)followedNode worldBoundary:(CGRect)rect NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithTarget:(CCNode *)followedNode worldBoundary:(CGRect)rect;
 
 
 // purposefully undocumented: needn't be changed while action is running

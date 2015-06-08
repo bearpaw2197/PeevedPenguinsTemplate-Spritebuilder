@@ -317,8 +317,8 @@ extern "C" {
  *  @param points Points to use for spline.
  *
  *  @return New catmull-rom action.
- *  @see CCPointArra NS_DESIGNATED_INITIALIZERy
+ *  @see CCPointArray
  */
-- (instancetype)initWithDuration:(CCTime)dt points:(CCPointArray*)points NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithDuration:(CCTime)dt points:(CCPointArray*)points;
 
 @end

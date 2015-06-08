@@ -145,7 +145,7 @@
  *  @see CCSprite
  *  @see CCSpriteFrame
  */
--(instancetype)initWithShininess:(float)shininess fresnelBias:(float)bias fresnelPower:(float)power environment:(CCSprite *)environment normalMap:(CCSpriteFrame *)normalMap NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithShininess:(float)shininess fresnelBias:(float)bias fresnelPower:(float)power environment:(CCSprite *)environment normalMap:(CCSpriteFrame *)normalMap;
 
 
 /// -----------------------------------------------------------------------

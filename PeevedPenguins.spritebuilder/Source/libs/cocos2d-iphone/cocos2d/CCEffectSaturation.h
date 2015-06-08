@@ -45,7 +45,7 @@
  *  @return The CCEffectSaturation object.
  *  @since v3.2 and later
  */
--(instancetype)initWithSaturation:(float)saturation NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithSaturation:(float)saturation;
 
 
 /// -----------------------------------------------------------------------

@@ -133,7 +133,7 @@ typedef NS_ENUM(NSUInteger, CCTiledMapOrientation)
  *
  *  @return An initialized CCTiledMap Object.
  */
--(instancetype) initWithFile:(NSString*)tmxFile NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+-(instancetype) initWithFile:(NSString*)tmxFile;
 
 /**
  *  Initializes and returns a Tile Map object using the specified TMX XML and path to TMX resources.

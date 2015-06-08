@@ -51,7 +51,7 @@ extern const CCLightGroupMask CCLightCollectionAllGroups;
  *  @return The CCLightCollection object.
  *  @since v3.4 and later
  */
-- (instancetype)init NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+- (instancetype)init;
 
 
 /// -----------------------------------------------------------------------
