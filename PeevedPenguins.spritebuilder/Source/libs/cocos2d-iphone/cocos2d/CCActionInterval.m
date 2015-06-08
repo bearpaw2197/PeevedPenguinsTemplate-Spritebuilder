@@ -1467,7 +1467,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 #pragma mark - CCAnimate
 @implementation CCActionAnimate
 
-@synthesize animation = _animation;
+@synthesize anim = _animation;
 
 +(id) actionWithAnimation: (CCAnimation*)anim
 {
