@@ -64,7 +64,7 @@
  *
  *  @return Returns a new text field.
  */
-+ (instancetype) textFieldWithSpriteFrame:(CCSpriteFrame*)frame;
++ (id) textFieldWithSpriteFrame:(CCSpriteFrame*)frame;
 
 /**
  Initializes a text field with the specified sprite frame used as its background.
@@ -73,7 +73,7 @@
  
  @return Returns a new text field.
  */
-- (instancetype) initWithSpriteFrame:(CCSpriteFrame*)frame NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+- (id) initWithSpriteFrame:(CCSpriteFrame*)frame;
 
 /** @name Accessing the Platform-Specific Text Field */
 

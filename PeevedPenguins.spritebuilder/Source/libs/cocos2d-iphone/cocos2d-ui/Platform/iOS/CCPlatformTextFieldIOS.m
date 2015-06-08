@@ -17,7 +17,7 @@
     BOOL _keyboardIsShown;
     float _keyboardHeight;
 }
-- (instancetype) init {
+- (id) init {
     if (self=[super init]) {
         // Create UITextField and set it up
         _textField = [[UITextField alloc] initWithFrame:CGRectZero];

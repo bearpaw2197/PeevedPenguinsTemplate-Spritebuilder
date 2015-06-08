@@ -1273,7 +1273,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 	return [[ self alloc] initWithDuration: t opacity: o];
 }
 
--(instancetype) initWithDuration: (CCTime) t opacity: (CGFloat) o
+-(id) initWithDuration: (CCTime) t opacity: (CGFloat) o
 {
 	if( (self=[super initWithDuration: t] ) )
 		_toOpacity = o;
@@ -1309,7 +1309,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 	return [(CCActionTintTo*)[ self alloc] initWithDuration:duration color:color];
 }
 
--(instancetype) initWithDuration:(CCTime)t color:(CCColor*)color
+-(id) initWithDuration:(CCTime)t color:(CCColor*)color
 {
 	if( (self=[super initWithDuration:t] ) )
 		_to = color;
@@ -1461,7 +1461,6 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 }
 @end
 
-//
 // Animate
 //
 
