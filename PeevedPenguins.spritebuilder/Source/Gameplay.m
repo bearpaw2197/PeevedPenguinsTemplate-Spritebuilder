@@ -120,10 +120,7 @@
     [self releaseCatapult];
 }
 
--(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB
-{
-    CCLOG(@"Something collided with a seal!");
-}
+
 
 - (void)launchPenguin {
     // loads the Penguin.ccb we have set up in Spritebuilder
@@ -144,6 +141,10 @@
     CCActionFollow *follow = [CCActionFollow actionWithTarget:penguin worldBoundary:self.boundingBox];
     [_contentNode runAction:follow];
     
+    -(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB
+    {
+        CCLOG(@"Something collided with a seal!");
+    }
     
 }
 
