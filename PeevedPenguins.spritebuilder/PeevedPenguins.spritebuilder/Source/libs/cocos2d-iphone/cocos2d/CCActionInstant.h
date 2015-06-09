@@ -123,7 +123,7 @@
  *
  *  @return An initialized flip action object.
  */
-- (instancetype)initWithFlipX:(BOOL)x;
+- (instancetype)initWithFlipX:(BOOL)x NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
 
 @end
 
@@ -158,7 +158,7 @@
  *
  *  @return The initialized flip action object.
  */
-- (instancetype)initWithFlipY:(BOOL)y;
+- (instance NS_DESIGNATED_INITIALIZERtype)initWithFlipY:(BOOL)y NS_DESIGNATED_INITIALIZER;
 
 @end
 
@@ -189,9 +189,9 @@
  *
  *  @param pos The position the target is placed at
  *
- *  @return An initialized place action object.
+ *  @return An initialized place action objec NS_DESIGNATED_INITIALIZERt.
  */
-- (instancetype)initWithPosition:(CGPoint)pos;
+- (instancetype)initWithPosition:(CGPoint)pos NS_DESIGNATED_INITIALIZER;
 
 @end
 
@@ -250,9 +250,9 @@
  *  @param t Target the selector is sent to
  *  @param s Selector to execute. Selector takes no parameters and returns nothing.
  *
- *  @return An initialized call func action object.
+ *  @return An initialized cal NS_DESIGNATED_INITIALIZERl func action object.
  */
-- (instancetype)initWithTarget:(id)t selector:(SEL)s;
+- (instancetype)initWithTarget:(id)t selector:(SEL)s NS_DESIGNATED_INITIALIZER;
 
 // Executes the selector on the specific target.
 - (void)execute;
@@ -317,11 +317,11 @@
  *  Initializes the action with the specified block, to be used as a callback.
  *  The block will be copied.
  *
- *  @param block Block to run. Block takes no parameters, returns nothing.
+ *  @param block Block to run. Block takes no parameters, returns noth NS_DESIGNATED_INITIALIZERing.
  *
  *  @return An initialized call block action.
  */
-- (instancetype)initWithBlock:(void(^)())block;
+- (instancetype)initWithBlock:(void(^)())block NS_DESIGNATED_INITIALIZER;
 
 // Executes the selector on the specific target.
 - (void)execute;
@@ -358,10 +358,10 @@
  *
  *  @param spriteFrame SpriteFrame to use.
  *
- *  @return An initialized sprite frame action object.
+ *  @return An  NS_DESIGNATED_INITIALIZERinitialized sprite frame action object.
  *  @see CCSpriteFrame
  */
--(instancetype) initWithSpriteFrame:(CCSpriteFrame*)spriteFrame;
+-(instancetype) initWithSpriteFrame:(CCSpriteFrame*)spriteFrame NS_DESIGNATED_INITIALIZER;
 
 @end
 
@@ -402,8 +402,8 @@
  @param gain Gain (loudness), default 1.0 equals *normal* volume.
  
  @see OALSimpleAudio
- @see [OALSimpleAudio playEffect:volume:pitch:pan:loop:]
+ @see  NS_DESIGNATED_INITIALIZER[OALSimpleAudio playEffect:volume:pitch:pan:loop:]
  */
--(instancetype) initWithSoundFile:(NSString*)file pitch:(float)pitch pan:(float) pan gain:(float)gain;
+-(instancetype) initWithSoundFile:(NSString*)file pitch:(float)pitch pan:(float) pan gain:(float)gain NS_DESIGNATED_INITIALIZER;
 
 @end

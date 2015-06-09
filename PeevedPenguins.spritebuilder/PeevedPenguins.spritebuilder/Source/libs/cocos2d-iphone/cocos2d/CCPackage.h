@@ -32,7 +32,7 @@
 - (instancetype)initWithName:(NSString *)name
                   resolution:(NSString *)resolution
                           os:(NSString *)os
-                   remoteURL:(NSURL *)remoteURL;
+                   remoteURL:(NSURL *)remoteURL NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
 
 /** @name Accessing Package Information */
 

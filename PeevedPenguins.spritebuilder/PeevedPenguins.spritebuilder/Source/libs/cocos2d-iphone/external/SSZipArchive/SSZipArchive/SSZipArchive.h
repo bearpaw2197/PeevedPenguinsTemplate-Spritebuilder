@@ -27,7 +27,7 @@
 + (BOOL)createZipFileAtPath:(NSString *)path withFilesAtPaths:(NSArray *)filenames;
 + (BOOL)createZipFileAtPath:(NSString *)path withContentsOfDirectory:(NSString *)directoryPath;
 
-- (instancetype)initWithPath:(NSString *)path;
+- (instancetype)initWithPath:(NSString *)path NS_DESIGNATED_INITIALIZER;
 @property (nonatomic, readonly) BOOL open;
 - (BOOL)writeFile:(NSString *)path;
 - (BOOL)writeData:(NSData *)data filename:(NSString *)filename;

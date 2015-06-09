@@ -47,7 +47,7 @@ static NSInteger ccbAnimationManagerID = 0;
 }
 
 + (id)actionWithDuration:(CCTime)duration key:(NSString *)aKey from:(CCColor*)fc to:(CCColor*)tc;
-- (instancetype)initWithDuration:(CCTime)duration key:(NSString *)aKey from:(CCColor*)fc to:(CCColor*)tc;
+- (instancetype)initWithDuration:(CCTime)duration key:(NSString *)aKey from:(CCColor*)fc to:(CCColor*)tc NS_DESIGNATED_INITIALIZER;
 
 @end
 

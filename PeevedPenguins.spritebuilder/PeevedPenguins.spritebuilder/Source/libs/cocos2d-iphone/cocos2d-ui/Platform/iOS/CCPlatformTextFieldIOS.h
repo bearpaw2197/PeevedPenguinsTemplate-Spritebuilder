@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "CCPlatformTextField.h"
+#import "CCTextField.h"
 
-@interface CCPlatformTextFieldIOS : CCPlatformTextField <UITextFieldDelegate, CCLabelProtocol>
+@interface CCPlatformTextFieldIOS : CCPlatformTextField <CCPlatformTextFieldDelegate, CCLabelProtocol>
 
 @end

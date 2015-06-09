@@ -104,7 +104,7 @@ extern "C" {
  *  @return New point array.
  *  @see arrayWithCapacity:
  */
-- (instancetype)initWithCapacity:(NSUInteger)capacity;
+- (instancetype)initWithCapacity:(NSUInteger)capacity NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
 
 
 /// -----------------------------------------------------------------------
@@ -229,7 +229,7 @@ extern "C" {
  *  @return New spline action.
  *  @see CCPointArray
  */
-- (instancetype)initWithDuration:(CCTime)duration points:(CCPointArray*)points tension:(CGFloat)tension;
+- (instancetype)initWithDuration:(CCTime)duration points:(CCPointArray*)point NS_DESIGNATED_INITIALIZERs tension:(CGFloat)tension NS_DESIGNATED_INITIALIZER;
 
 @end
 
@@ -281,7 +281,7 @@ extern "C" {
  *  @return New catmull-rom action.
  *  @see CCPointArray
  */
-- (instancetype)initWithDuration:(CCTime)dt points:(CCPointArray*)points;
+- (instancetype)init NS_DESIGNATED_INITIALIZERWithDuration:(CCTime)dt points:(CCPointArray*)points NS_DESIGNATED_INITIALIZER;
 
 @end
 
@@ -317,8 +317,8 @@ extern "C" {
  *  @param points Points to use for spline.
  *
  *  @return New catmull-rom action.
- *  @see CCPointArray
+ *  @see CCPointArra NS_DESIGNATED_INITIALIZERy
  */
-- (instancetype)initWithDuration:(CCTime)dt points:(CCPointArray*)points;
+- (instancetype)initWithDuration:(CCTime)dt points:(CCPointArray*)points NS_DESIGNATED_INITIALIZER;
 
 @end

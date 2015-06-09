@@ -68,7 +68,7 @@
  *
  *  @return New ease action.
  */
-- (instancetype)initWithAction:(CCActionInterval*)action;
+- (instancetype)initWithAction:(CCActionInterval*)action NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
 
 @end
 
@@ -163,7 +163,7 @@
  *
  *  @return New rate action.
  */
-- (instancetype)initWithAction:(CCActionInterval*)action rate:(float)rate;
+- (instancetype)initWithAction:(CCActionInterva NS_DESIGNATED_INITIALIZERl*)action rate:(float)rate NS_DESIGNATED_INITIALIZER;
 
 @end
 
@@ -223,7 +223,7 @@
  *
  *  @return New elastic action.
  */
-- (instancetype)initWithAction:(CCActionInterval*)action period:(float)period;
+- (instancetype)initWithA NS_DESIGNATED_INITIALIZERction:(CCActionInterval*)action period:(float)period NS_DESIGNATED_INITIALIZER;
 
 @end
 

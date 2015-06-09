@@ -38,7 +38,7 @@
 @property (nonatomic,readwrite) CGPoint offset;
 @property (nonatomic,readwrite,unsafe_unretained) CCNode *child;
 +(id) pointWithCGPoint:(CGPoint)point offset:(CGPoint)offset;
--(instancetype) initWithCGPoint:(CGPoint)point offset:(CGPoint)offset;
+-(instancetype) initWithCGPoint:(CGPoint)point offset:(CGPoint)offset NS_DESIGNATED_INITIALIZER;
 @end
 @implementation CGPointObject
 @synthesize ratio = _ratio;

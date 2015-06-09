@@ -69,7 +69,7 @@ typedef NS_ENUM (NSInteger, CCTouchPhase) {
 */
 @property (nonatomic, strong) PlatformTouch* uiTouch;
 
-- (instancetype)initWithPlatformTouch:(PlatformTouch*)touch;
+- (instancetype)initWithPlatformTouch:(PlatformTouch*)touch NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
 + (instancetype)touchWithPlatformTouch:(PlatformTouch*)touch;
 
 /** @name Convert Touch Location to Node Coordinate System */

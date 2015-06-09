@@ -59,7 +59,7 @@
  *  @return The CCEffectStack object.
  *  @since v3.2 and later
  */
-- (instancetype)initWithArray:(NSArray *)arrayOfEffects;
+- (instancetype)initWithArray:(NSArray *)arrayOfEffects NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
 
 /**
  *  Initializes an effect stack object with the specified effects.

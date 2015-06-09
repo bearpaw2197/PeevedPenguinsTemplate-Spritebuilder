@@ -42,7 +42,7 @@
 //------------------------------------------------------------------------------
 
 + (instancetype)cache;
-- (instancetype)init;
+- (instancetype)init NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
 
 - (void)preload:(id<NSCopying>)key;
 

@@ -83,7 +83,7 @@ enum {
  *
  *  @return An initialized CCAction Object.
  */
-- (instancetype)init;
+- (instancetype)init NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
 
 
 /// -----------------------------------------------------------------------
@@ -243,7 +243,7 @@ enum {
  *
  *  @return An initialised repeat action object.
  */
-- (instancetype)initWithAction:(CCActionInterval *) action;
+- (instancetype)initWithAction:( NS_DESIGNATED_INITIALIZERCCActionInterval *) action NS_DESIGNATED_INITIALIZER;
 
 @end
 
@@ -313,7 +313,7 @@ enum {
  *
  *  @return An initialized CCActionSpeed object.
  */
-- (instancetype)initWithAction:(CCActionInterval *)action speed:(CGFloat)value;
+- (instancetype)initWithAc NS_DESIGNATED_INITIALIZERtion:(CCActionInterval *)action speed:(CGFloat)value NS_DESIGNATED_INITIALIZER;
 
 
 /// -----------------------------------------------------------------------
@@ -409,9 +409,9 @@ enum {
  *
  *  @param followedNode Node to follow.
  *
- *  @return An initialized follow action object.
+ *  @return An initialized f NS_DESIGNATED_INITIALIZERollow action object.
  */
-- (instancetype)initWithTarget:(CCNode *)followedNode;
+- (instancetype)initWithTarget:(CCNode *)followedNode NS_DESIGNATED_INITIALIZER;
 
 /**
  *  Initalizes a follow action with boundaries.
@@ -419,9 +419,9 @@ enum {
  *  @param followedNode Node to follow.
  *  @param rect         Boundary rect.
  *
- *  @return The initalized follow action object.
+ *  @return The initalized fo NS_DESIGNATED_INITIALIZERllow action object.
  */
-- (instancetype)initWithTarget:(CCNode *)followedNode worldBoundary:(CGRect)rect;
+- (instancetype)initWithTarget:(CCNode *)followedNode worldBoundary:(CGRect)rect NS_DESIGNATED_INITIALIZER;
 
 
 // purposefully undocumented: needn't be changed while action is running

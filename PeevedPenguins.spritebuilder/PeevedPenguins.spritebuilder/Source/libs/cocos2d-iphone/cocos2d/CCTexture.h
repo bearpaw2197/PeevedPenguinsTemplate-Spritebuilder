@@ -140,7 +140,7 @@ typedef NS_ENUM(NSUInteger, CCTexturePixelFormat) {
  *  @return An initialized CCTexture Object.
  *  @see CCTexturePixelFormat
  */
-- (instancetype)initWithData:(const void*)data pixelFormat:(CCTexturePixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSizeInPixels:(CGSize)sizeInPixels contentScale:(CGFloat)contentScale;
+- (instancetype)initWithData:(const void*)data pixelFormat:(CCTexturePixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSizeInPixels:(CGSize)sizeInPixels contentScale:(CGFloat)contentScale NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
 
 /**
  *  Creates and returns a new texture, based on the specified image file path.

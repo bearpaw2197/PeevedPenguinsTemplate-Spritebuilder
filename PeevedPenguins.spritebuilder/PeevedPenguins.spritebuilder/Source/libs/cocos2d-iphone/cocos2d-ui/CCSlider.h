@@ -42,7 +42,7 @@
  *  @param handle     Handle image for the normal state.
  *  @see CCSpriteFrame
  */
-- (instancetype) initWithBackground:(CCSpriteFrame*)background andHandleImage:(CCSpriteFrame*)handle;
+- (instancetype) initWithBackground:(CCSpriteFrame*)background andHandleImage:(CCSpriteFrame*)handle NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
 
 
 /// -----------------------------------------------------------------------
