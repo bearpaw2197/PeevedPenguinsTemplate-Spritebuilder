@@ -143,8 +143,6 @@
  *  @return A new button.
  *  @see CCSpriteFrame
  */
-- (instancetype) initWithTitle:(NSString*) title spriteFrame:(CCSpriteFrame*) spriteFrame;
-
 /// -----------------------------------------------------------------------
 /// @name Button Child Nodes
 /// -----------------------------------------------------------------------
