@@ -57,7 +57,7 @@
  *
  *  @return New progress action.
  */
-- (id)initWithDuration:(CCTime)duration percent:(float)percent;
+- (instancetype)initWithDuration:(CCTime)duration percent:(float)percent;
 
 @end
 
@@ -93,6 +93,6 @@
  *
  *  @return New progress action.
  */
-- (id)initWithDuration:(CCTime)duration from:(float)fromPercentage to:(float)toPercentage;
+- (instancetype)initWithDuration:(CCTime)duration from:(float)fromPercentage to:(float)toPercentage;
 
 @end

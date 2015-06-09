@@ -76,14 +76,14 @@
  * @param deviceSpecifier The device to open (nil = default device).
  * @return A new device.
  */
-+ (id) deviceWithDeviceSpecifier:(NSString*) deviceSpecifier;
++ (instancetype) deviceWithDeviceSpecifier:(NSString*) deviceSpecifier;
 
 /** Initialize with the specified device.
  *
  * @param deviceSpecifier The device to open (nil = default device).
  * @return the initialized device.
  */
-- (id) initWithDeviceSpecifier:(NSString*) deviceSpecifier;
+- (instancetype) initWithDeviceSpecifier:(NSString*) deviceSpecifier;
 
 
 #pragma mark Extensions
@@ -100,7 +100,7 @@
  * @param functionName the name of the procedure to get.
  * @return the procedure's address, or NULL if it wasn't found.
  */
-- (void*) getProcAddress:(NSString*) functionName;
+- (void*) getProcAddress:(NSString*) functionName NS_RETURNS_INNER_POINTER;
 
 
 #pragma mark Utility

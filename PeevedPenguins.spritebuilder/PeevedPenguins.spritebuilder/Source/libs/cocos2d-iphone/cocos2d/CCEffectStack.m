@@ -15,12 +15,12 @@
 
 #pragma mark - API
 
-- (id)init
+- (instancetype)init
 {
     return [self initWithArray:nil];
 }
 
-- (id)initWithArray:(NSArray *)effects
+- (instancetype)initWithArray:(NSArray *)effects
 {
     NSAssert(effects.count, @"CCEffectStack unexpectedly supplied a nil or empty effects array.");
     if ((self = [super init]))
@@ -59,7 +59,7 @@
     return self;
 }
 
-- (id)initWithEffect:(CCEffect*)effect1 vaList:(va_list)args
+- (instancetype)initWithEffect:(CCEffect*)effect1 vaList:(va_list)args
 {
     NSMutableArray *effects = [[NSMutableArray alloc] init];
 	
@@ -73,7 +73,7 @@
 	return [self initWithArray:effects];
 }
 
-- (id)initWithEffects:(CCEffect*)effect1, ...
+- (instancetype)initWithEffects:(CCEffect*)effect1, ...
 {
 	va_list args;
 	va_start(args, effect1);
@@ -362,7 +362,7 @@
     {
         NSString *prefixedName = [NSString stringWithFormat:@"%@%@", prefix, varying.name];
         CCEffectVarying *prefixedVarying = [[CCEffectVarying alloc] initWithType:varying.type name:prefixedName count:varying.count];
-        [varyingReplacements setObject:prefixedVarying forKey:varying.name];
+        varyingReplacements[varying.name] = prefixedVarying;
     }
     return [varyingReplacements copy];
 }
@@ -383,7 +383,7 @@
     {
         NSString *prefixedName = [NSString stringWithFormat:@"%@%@", prefix, uniform.name];
         CCEffectUniform *prefixedUniform = [[CCEffectUniform alloc] initWithType:uniform.type name:prefixedName value:uniform.value];
-        [uniformReplacements setObject:prefixedUniform forKey:uniform.name];
+        uniformReplacements[uniform.name] = prefixedUniform;
     }
     return [uniformReplacements copy];
 }

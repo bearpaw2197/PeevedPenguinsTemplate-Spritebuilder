@@ -67,14 +67,14 @@
 	return [(CCNodeColor*)[self alloc] initWithColor:color];
 }
 
--(id) init
+-(instancetype) init
 {
 	CGSize s = [CCDirector sharedDirector].designSize;
 	return [self initWithColor:[CCColor clearColor] width:s.width height:s.height];
 }
 
 // Designated initializer
-- (id) initWithColor:(CCColor*)color width:(GLfloat)w  height:(GLfloat) h
+- (instancetype) initWithColor:(CCColor*)color width:(GLfloat)w  height:(GLfloat) h
 {
 	if( (self=[super init]) ) {
 		self.blendMode = [CCBlendMode premultipliedAlphaMode];
@@ -88,7 +88,7 @@
 	return self;
 }
 
-- (id) initWithColor:(CCColor*)color
+- (instancetype) initWithColor:(CCColor*)color
 {
 	CGSize s = [CCDirector sharedDirector].designSize;
 	return [self initWithColor:color width:s.width height:s.height];
@@ -161,17 +161,17 @@
     return [[self alloc] initWithColor:start fadingTo:end alongVector:v];
 }
 
-- (id) init
+- (instancetype) init
 {
 	return [self initWithColor:[CCColor blackColor] fadingTo:[CCColor blackColor]];
 }
 
-- (id) initWithColor: (CCColor*) start fadingTo: (CCColor*) end
+- (instancetype) initWithColor: (CCColor*) start fadingTo: (CCColor*) end
 {
     return [self initWithColor:start fadingTo:end alongVector:ccp(0, -1)];
 }
 
-- (id) initWithColor: (CCColor*) start fadingTo: (CCColor*) end alongVector: (CGPoint) v
+- (instancetype) initWithColor: (CCColor*) start fadingTo: (CCColor*) end alongVector: (CGPoint) v
 {
 	_color = start.ccColor4f;
 	_endColor = end.ccColor4f;
@@ -275,21 +275,21 @@
 	return s;
 }
 
--(id) initWithArray:(NSArray *)arrayOfNodes
+-(instancetype) initWithArray:(NSArray *)arrayOfNodes
 {
 	if( (self=[super init])) {
 		_nodes = [arrayOfNodes mutableCopy];
 
 		_enabledNode = 0;
 
-		[self addChild: [_nodes objectAtIndex:_enabledNode]];
+		[self addChild: _nodes[_enabledNode]];
 	}
 
 
 	return self;
 }
 
--(id) initWithLayers: (CCNode*) node vaList:(va_list) params
+-(instancetype) initWithLayers: (CCNode*) node vaList:(va_list) params
 {
 	if( (self=[super init]) ) {
 
@@ -304,7 +304,7 @@
 		}
 
 		_enabledNode = 0;
-		[self addChild: [_nodes objectAtIndex: _enabledNode]];
+		[self addChild: _nodes[_enabledNode]];
 	}
 
 	return self;
@@ -315,23 +315,23 @@
 {
 	NSAssert( n < [_nodes count], @"Invalid index in MultiplexLayer switchTo message" );
 
-	[self removeChild: [_nodes objectAtIndex:_enabledNode] cleanup:YES];
+	[self removeChild: _nodes[_enabledNode] cleanup:YES];
 
 	_enabledNode = n;
 
-	[self addChild: [_nodes objectAtIndex:n]];
+	[self addChild: _nodes[n]];
 }
 
 -(void) switchToAndReleaseMe: (unsigned int) n
 {
 	NSAssert( n < [_nodes count], @"Invalid index in MultiplexLayer switchTo message" );
 
-	[self removeChild: [_nodes objectAtIndex:_enabledNode] cleanup:YES];
+	[self removeChild: _nodes[_enabledNode] cleanup:YES];
 
-	[_nodes replaceObjectAtIndex:_enabledNode withObject:[NSNull null]];
+	_nodes[_enabledNode] = [NSNull null];
 
 	_enabledNode = n;
 
-	[self addChild: [_nodes objectAtIndex:n]];
+	[self addChild: _nodes[n]];
 }
 @end

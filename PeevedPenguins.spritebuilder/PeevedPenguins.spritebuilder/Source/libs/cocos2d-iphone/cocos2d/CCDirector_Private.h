@@ -64,7 +64,7 @@
 -(void) setViewport;
 
 /// XXX: missing description
--(float) getZEye;
+@property (nonatomic, getter=getZEye, readonly) float ZEye;
 
 /* Pops out all scenes from the queue until it reaches `level`.
  If level is 0, it will end the director.
@@ -82,7 +82,7 @@
 
 /// Get a renderer object to use for rendering.
 /// This method is thread safe.
--(CCRenderer *)rendererFromPool;
+@property (nonatomic, readonly, strong) CCRenderer *rendererFromPool;
 
 /// Return a renderer to a pool after rendering.
 /// This method is thread safe.

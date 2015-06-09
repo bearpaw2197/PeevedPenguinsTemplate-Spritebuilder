@@ -42,7 +42,7 @@
  * Handles the audio session and interrupts.
  */
 #if __CC_PLATFORM_IOS
-@interface OALAudioSession : NSObject <AVAudioSessionDelegate, OALSuspendManager>
+@interface OALAudioSession : NSObject <AVAudioSessionDelegate, OALSuspendManager, NSCopying>
 #else
 @interface OALAudioSession : NSObject <OALSuspendManager>
 #endif

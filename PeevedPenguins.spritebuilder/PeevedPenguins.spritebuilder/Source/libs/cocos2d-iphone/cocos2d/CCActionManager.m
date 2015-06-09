@@ -40,7 +40,7 @@
 
 @implementation CCActionManager
 
--(id) init
+-(instancetype) init
 {
 	if ((self=[super init]) ) {
 		targets = NULL;
@@ -93,7 +93,7 @@
 
 -(void) removeActionAtIndex:(NSUInteger)index hashElement:(tHashElement*)element
 {
-	id action = [element->actions objectAtIndex:index];
+	id action = element->actions[index];
 
 	if( action == element->currentAction && !element->currentActionSalvaged ) {
         void* a = (__bridge void*) element->currentAction;
@@ -255,7 +255,7 @@
 	if( element ) {
 		NSUInteger limit = element->actions.count;
 		for( NSUInteger i = 0; i < limit; i++) {
-			CCAction *a = [element->actions objectAtIndex:i];
+			CCAction *a = element->actions[i];
 
 			if( a.tag == aTag && [a originalTarget]==target) {
 				[self removeActionAtIndex:i hashElement:element];
@@ -280,7 +280,7 @@
 		if( element->actions != nil ) {
 			NSUInteger limit = element->actions.count;
 			for( NSUInteger i = 0; i < limit; i++) {
-				CCAction *a = [element->actions objectAtIndex:i];
+				CCAction *a = element->actions[i];
 
 				if( a.tag == aTag )
 					return a;
@@ -319,7 +319,7 @@
 
 			// The 'actions' ccArray may change while inside this loop.
 			for( currentTarget->actionIndex = 0; currentTarget->actionIndex < currentTarget->actions.count; currentTarget->actionIndex++) {
-				currentTarget->currentAction = [currentTarget->actions objectAtIndex:currentTarget->actionIndex];
+				currentTarget->currentAction = currentTarget->actions[currentTarget->actionIndex];
 				currentTarget->currentActionSalvaged = NO;
 
 				[currentTarget->currentAction step: dt];

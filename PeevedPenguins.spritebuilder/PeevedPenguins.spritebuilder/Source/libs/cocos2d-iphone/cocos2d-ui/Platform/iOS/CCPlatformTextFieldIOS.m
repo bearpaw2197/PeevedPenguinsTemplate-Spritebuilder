@@ -17,7 +17,7 @@
     BOOL _keyboardIsShown;
     float _keyboardHeight;
 }
-- (id) init {
+- (instancetype) init {
     if (self=[super init]) {
         // Create UITextField and set it up
         _textField = [[UITextField alloc] initWithFrame:CGRectZero];
@@ -154,7 +154,7 @@
     UIView* view = [[CCDirector sharedDirector] view];
     
     NSDictionary* info = [notification userInfo];
-    NSValue* value = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
+    NSValue* value = info[UIKeyboardFrameEndUserInfoKey];
     CGRect frame = [value CGRectValue];
     frame = [view.window convertRect:frame toView:view];
     

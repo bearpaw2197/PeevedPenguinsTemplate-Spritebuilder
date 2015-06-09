@@ -149,7 +149,7 @@ static CCDirector *_sharedDirector = nil;
 	_sharedDirector = nil;
 }
 
-- (id) init
+- (instancetype) init
 {
 	if( (self=[super init] ) ) {
 
@@ -565,7 +565,7 @@ static CCDirector *_sharedDirector = nil;
 		[self end];
 	else {
 		_sendCleanupToScene = YES;
-		_nextScene = [_scenesStack objectAtIndex:c-1];
+		_nextScene = _scenesStack[c-1];
 	}
 }
 

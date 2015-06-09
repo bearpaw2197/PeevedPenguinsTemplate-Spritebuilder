@@ -69,7 +69,7 @@ static NSMutableDictionary* g_allSourcesByID;
 
 static ALvoid alSourceNotification(ALuint sid, ALuint notificationID, ALvoid* userData)
 {
-    ALSource* source = [g_allSourcesByID objectForKey:[NSNumber numberWithUnsignedInt:sid]];
+    ALSource* source = g_allSourcesByID[@(sid)];
     [source receiveNotification:notificationID userData:userData];
 }
 
@@ -86,22 +86,22 @@ static ALvoid alSourceNotification(ALuint sid, ALuint notificationID, ALvoid* us
 
 #pragma mark Object Management
 
-+ (id) source
++ (instancetype) source
 {
 	return as_autorelease([[self alloc] init]);
 }
 
-+ (id) sourceOnContext:(ALContext*) context
++ (instancetype) sourceOnContext:(ALContext*) context
 {
 	return as_autorelease([[self alloc] initOnContext:context]);
 }
 
-- (id) init
+- (instancetype) init
 {
 	return [self initOnContext:[OpenALManager sharedInstance].currentContext];
 }
 
-- (id) initOnContext:(ALContext*) contextIn
+- (instancetype) initOnContext:(ALContext*) contextIn
 {
 	if(nil != (self = [super init]))
 	{
@@ -1387,7 +1387,7 @@ initFailed:
 {
     @synchronized(g_allSourcesByID)
     {
-        [g_allSourcesByID setObject:source forKey:[NSNumber numberWithUnsignedInt:source.sourceId]];
+        g_allSourcesByID[@(source.sourceId)] = source;
     }
 }
 
@@ -1395,7 +1395,7 @@ initFailed:
 {
     @synchronized(g_allSourcesByID)
     {
-        [g_allSourcesByID removeObjectForKey:[NSNumber numberWithUnsignedInt:source.sourceId]];
+        [g_allSourcesByID removeObjectForKey:@(source.sourceId)];
     }
 }
 
@@ -1403,12 +1403,11 @@ initFailed:
                      callback:(OALSourceNotificationCallback) callback
                      userData:(void*) userData
 {
-    NSNumber* key = [NSNumber numberWithUnsignedInt:notificationID];
+    NSNumber* key = @(notificationID);
     OPTIONALLY_SYNCHRONIZED(self)
     {
         [self unregisterNotification:notificationID];
-        [self.notificationCallbacks setObject:as_autorelease([callback copy])
-                                       forKey:key];
+        (self.notificationCallbacks)[key] = as_autorelease([callback copy]);
         [ALWrapper addNotification:notificationID
                           onSource:self.sourceId
                           callback:alSourceNotification
@@ -1418,10 +1417,10 @@ initFailed:
 
 - (void) unregisterNotification:(ALuint) notificationID
 {
-    NSNumber* key = [NSNumber numberWithUnsignedInt:notificationID];
+    NSNumber* key = @(notificationID);
     OPTIONALLY_SYNCHRONIZED(self)
     {
-        if([self.notificationCallbacks objectForKey:key] != nil)
+        if((self.notificationCallbacks)[key] != nil)
         {
             [self.notificationCallbacks removeObjectForKey:key];
             [ALWrapper removeNotification:notificationID
@@ -1449,10 +1448,10 @@ initFailed:
 
 - (void) receiveNotification:(ALuint) notificationID userData:(void*) userData
 {
-    NSNumber* key = [NSNumber numberWithUnsignedInt:notificationID];
+    NSNumber* key = @(notificationID);
     OPTIONALLY_SYNCHRONIZED(self)
     {
-        OALSourceNotificationCallback callback = [self.notificationCallbacks objectForKey:key];
+        OALSourceNotificationCallback callback = (self.notificationCallbacks)[key];
         if(callback != nil)
         {
             callback(self, notificationID, userData);

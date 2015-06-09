@@ -82,7 +82,7 @@ static CCTextureCache *sharedTextureCache;
 	sharedTextureCache = nil;
 }
 
--(id) init
+-(instancetype) init
 {
 	if( (self=[super init]) ) {
 		_textures = [NSMutableDictionary dictionaryWithCapacity: 10];
@@ -165,7 +165,7 @@ static CCTextureCache *sharedTextureCache;
 	__block CCTexture * tex;
 		
 	dispatch_sync(_dictQueue, ^{
-		tex = [_textures objectForKey:path];
+		tex = _textures[path];
 	});
 
 	if(tex) {
@@ -226,7 +226,7 @@ static CCTextureCache *sharedTextureCache;
 	__block CCTexture * tex;
 
 	dispatch_sync(_dictQueue, ^{
-		tex = [_textures objectForKey:path];
+		tex = _textures[path];
 	});
 
 	if(tex) {
@@ -288,7 +288,7 @@ static CCTextureCache *sharedTextureCache;
 	__block CCTexture * tex = nil;
 
 	dispatch_sync(_dictQueue, ^{
-		tex = [_textures objectForKey: path];
+		tex = _textures[path];
 	});
 
 	if( ! tex ) {
@@ -329,7 +329,7 @@ static CCTextureCache *sharedTextureCache;
             
 			if( tex ){
 				dispatch_sync(_dictQueue, ^{
-					[_textures setObject: tex forKey:path];
+					_textures[path] = tex;
 					CCLOGINFO(@"Texture %@ cached: %p", path, tex);
 				});
 			}else{
@@ -374,7 +374,7 @@ static CCTextureCache *sharedTextureCache;
 	// If key is nil, then create a new texture each time
 	if( key ) {
 		dispatch_sync(_dictQueue, ^{
-			tex = [_textures objectForKey:key];
+			tex = _textures[key];
 		});
 		if(tex)
 			return((id)tex.proxy);
@@ -384,7 +384,7 @@ static CCTextureCache *sharedTextureCache;
 
 	if(tex && key){
 		dispatch_sync(_dictQueue, ^{
-			[_textures setObject: tex forKey:key];
+			_textures[key] = tex;
 		});
 	}else{
 		CCLOG(@"cocos2d: Couldn't add CGImage in CCTextureCache");
@@ -408,7 +408,7 @@ static CCTextureCache *sharedTextureCache;
         NSArray *keys = [_textures allKeys];
         for(id key in keys)
         {
-            CCTexture *texture = [_textures objectForKey:key];
+            CCTexture *texture = _textures[key];
             CCLOGINFO(@"texture: %@", texture);
             // If the weakly retained proxy object is nil, then the texture is unreferenced.
             if (!texture.hasProxy)
@@ -430,7 +430,7 @@ static CCTextureCache *sharedTextureCache;
 		NSArray *keys = [_textures allKeysForObject:tex];
 
 		for( NSUInteger i = 0; i < [keys count]; i++ )
-			[_textures removeObjectForKey:[keys objectAtIndex:i]];
+			[_textures removeObjectForKey:keys[i]];
 	});
 }
 
@@ -450,7 +450,7 @@ static CCTextureCache *sharedTextureCache;
 	__block CCTexture *tex = nil;
 
 	dispatch_sync(_dictQueue, ^{
-		tex = [_textures objectForKey:key];
+		tex = _textures[key];
 	});
 
 	return((id)tex.proxy);
@@ -472,7 +472,7 @@ static CCTextureCache *sharedTextureCache;
 	__block CCTexture * tex;
 	
 	dispatch_sync(_dictQueue, ^{
-		tex = [_textures objectForKey:path];
+		tex = _textures[path];
 	});
 
 	if(tex) {
@@ -482,7 +482,7 @@ static CCTextureCache *sharedTextureCache;
 	tex = [[CCTexture alloc] initWithPVRFile: path];
 	if( tex ){
 		dispatch_sync(_dictQueue, ^{
-			[_textures setObject: tex forKey:path];
+			_textures[path] = tex;
 		});
 	}else{
 		CCLOG(@"cocos2d: Couldn't add PVRImage:%@ in CCTextureCache",path);
@@ -503,7 +503,7 @@ static CCTextureCache *sharedTextureCache;
 
 	dispatch_sync(_dictQueue, ^{
 		for (NSString* texKey in _textures) {
-			CCTexture* tex = [_textures objectForKey:texKey];
+			CCTexture* tex = _textures[texKey];
 			NSUInteger bpp = [tex bitsPerPixelForFormat];
 			// Each texture takes up width * height * bytesPerPixel bytes.
 			NSUInteger bytes = tex.pixelWidth * tex.pixelHeight * bpp / 8;

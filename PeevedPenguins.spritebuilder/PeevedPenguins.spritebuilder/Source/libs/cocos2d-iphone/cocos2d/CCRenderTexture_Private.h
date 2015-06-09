@@ -49,7 +49,7 @@
 
 @property (nonatomic, weak) CCRenderTexture *renderTexture;
 
-- (CGAffineTransform)nodeToWorldTransform;
+@property (nonatomic, readonly) CGAffineTransform nodeToWorldTransform;
 
 @end
 

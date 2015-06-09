@@ -34,7 +34,7 @@
 	return [[[self class] alloc] initWithDuration:aDuration key:aKey from:aFrom to:aTo];
 }
 
-- (id)initWithDuration:(CCTime)aDuration key:(NSString *)key from:(float)from to:(float)to {
+- (instancetype)initWithDuration:(CCTime)aDuration key:(NSString *)key from:(float)from to:(float)to {
 
 	if ((self = [super initWithDuration:aDuration])) {
 

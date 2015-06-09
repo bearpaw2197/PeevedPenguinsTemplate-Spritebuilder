@@ -45,7 +45,7 @@ const float CCSprite9SliceMarginDefault         = 1.0f/3.0f;
 #pragma mark - create and destroy
 // ---------------------------------------------------------------------
 
-- (id)initWithTexture:(CCTexture *)texture rect:(CGRect)rect rotated:(BOOL)rotated
+- (instancetype)initWithTexture:(CCTexture *)texture rect:(CGRect)rect rotated:(BOOL)rotated
 {
     self = [super initWithTexture:texture rect:rect rotated:rotated];
     NSAssert(self != nil, @"Unable to create class");

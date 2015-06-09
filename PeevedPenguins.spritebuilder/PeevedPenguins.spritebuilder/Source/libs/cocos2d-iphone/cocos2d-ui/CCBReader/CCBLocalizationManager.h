@@ -34,7 +34,7 @@
 
 @property (nonatomic,readonly) NSDictionary* translations;
 
-+ (id)sharedManager;
++ (CCBLocalizationManager*)sharedManager;
 
 - (NSString*) localizedStringForKey:(NSString*)key;
 

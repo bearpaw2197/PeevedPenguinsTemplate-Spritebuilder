@@ -47,12 +47,12 @@
 
 #pragma mark Object Management
 
-+ (id) listenerForContext:(ALContext*) context
++ (instancetype) listenerForContext:(ALContext*) context
 {
 	return as_autorelease([[self alloc] initWithContext:context]);
 }
 
-- (id) initWithContext:(ALContext*) contextIn
+- (instancetype) initWithContext:(ALContext*) contextIn
 {
 	if(nil != (self = [super init]))
 	{

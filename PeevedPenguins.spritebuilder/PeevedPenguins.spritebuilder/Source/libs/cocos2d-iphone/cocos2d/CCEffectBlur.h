@@ -48,7 +48,7 @@
  *  @return The CCEffectBlur object.
  *  @since v3.2 and later
  */
--(id)init;
+-(instancetype)init;
 
 /**
  *  Initializes a CCEffectBlur object with the specified parameters.
@@ -59,7 +59,7 @@
  *  @return The CCEffectBlur object.
  *  @since v3.2 and later
  */
--(id)initWithPixelBlurRadius:(NSUInteger)blurRadius;
+-(instancetype)initWithPixelBlurRadius:(NSUInteger)blurRadius;
 
 @end
 

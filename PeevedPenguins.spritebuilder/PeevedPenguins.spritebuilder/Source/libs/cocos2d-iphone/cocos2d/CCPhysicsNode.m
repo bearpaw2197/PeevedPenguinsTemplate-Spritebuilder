@@ -280,7 +280,7 @@ static void PhysicsSeparate(cpArbiter *arb, cpSpace *space, CCPhysicsCollisionHa
 // Used by CCNode.physicsNode
 -(BOOL)isPhysicsNode {return YES;}
 
--(id)init
+-(instancetype)init
 {
 	if((self = [super init])){
 		_space = [[ChipmunkSpace alloc] init];
@@ -562,10 +562,10 @@ ColorForShape(cpShape *shape, CCDrawNode *draw)
 {
 	if(string == nil || [string isEqualToString:@"default"]) return nil;
 	
-	NSString *interned = [_internedStrings objectForKey:string];
+	NSString *interned = _internedStrings[string];
 	if(interned == nil){
 		interned = [string copy];
-		[_internedStrings setObject:interned forKey:interned];
+		_internedStrings[interned] = interned;
 	}
 	
 	return interned;
@@ -592,7 +592,7 @@ ColorForShape(cpShape *shape, CCDrawNode *draw)
 		}
 		
 		if(_cachedCategories.count < MAX_CACHED_CATEGORIES){
-			[_cachedCategories setObject:[categories copy] forKey:@(bitmask)];
+			_cachedCategories[@(bitmask)] = [categories copy];
 		}
 		
 		return bitmask;
@@ -608,7 +608,7 @@ ColorForShape(cpShape *shape, CCDrawNode *draw)
 	if(bitmask == CP_ALL_CATEGORIES) return nil;
 	
 	// First check if it has been cached.
-	NSArray *cached = [_cachedCategories objectForKey:@(bitmask)];
+	NSArray *cached = _cachedCategories[@(bitmask)];
 	if(cached) return cached;
 	
 	NSString *arr[MAX_CATEGORIES] = {};
@@ -616,7 +616,7 @@ ColorForShape(cpShape *shape, CCDrawNode *draw)
 	
 	for(int i=0; i<_categories.count; i++){
 		if(bitmask & (1<<i)){
-			arr[i] = [_categories objectAtIndex:i];
+			arr[i] = _categories[i];
 		}
 	}
 	

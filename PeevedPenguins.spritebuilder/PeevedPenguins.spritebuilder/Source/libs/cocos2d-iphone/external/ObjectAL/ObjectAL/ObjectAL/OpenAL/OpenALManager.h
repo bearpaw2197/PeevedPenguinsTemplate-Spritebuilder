@@ -52,7 +52,7 @@
  *
  * Alternatively, you may opt to use OALSimpleAudio for a simpler interface.
  */
-@interface OpenALManager : NSObject <OALSuspendManager>
+@interface OpenALManager : NSObject <OALSuspendManager, NSCopying>
 {
 	/** All opened devices */
 	NSMutableArray* devices;

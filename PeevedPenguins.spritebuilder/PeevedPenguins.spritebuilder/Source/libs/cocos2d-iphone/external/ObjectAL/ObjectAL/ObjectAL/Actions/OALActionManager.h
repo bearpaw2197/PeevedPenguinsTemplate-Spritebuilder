@@ -42,7 +42,7 @@
 /**
  * Manages all ObjectAL actions.
  */
-@interface OALActionManager : NSObject
+@interface OALActionManager : NSObject<NSCopying> 
 {
 	/** All targets that have actions running on them (id). */
 	NSMutableArray* targets;

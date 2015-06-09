@@ -137,12 +137,12 @@ static NSUInteger globalOrderOfArrival = 1;
 
 #pragma mark CCNode - Init & cleanup
 
-+(id) node
++(instancetype) node
 {
 	return [[self alloc] init];
 }
 
--(id) init
+-(instancetype) init
 {
 	if ((self=[super init]) ) {
 		_isInActiveScene = NO;

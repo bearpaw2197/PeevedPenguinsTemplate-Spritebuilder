@@ -59,7 +59,7 @@
  *  @return The CCEffectGlass object.
  *  @since v3.2 and later
  */
--(id)init;
+-(instancetype)init;
 
 /**
  *  Initializes a CCEffectGlass object with the supplied parameters and a nil normal map.
@@ -73,7 +73,7 @@
  *  @since v3.2 and later
  *  @see CCSprite
  */
--(id)initWithShininess:(float)shininess refraction:(float)refraction refractionEnvironment:(CCSprite *)refractionEnvironment reflectionEnvironment:(CCSprite *)reflectionEnvironment;
+-(instancetype)initWithShininess:(float)shininess refraction:(float)refraction refractionEnvironment:(CCSprite *)refractionEnvironment reflectionEnvironment:(CCSprite *)reflectionEnvironment;
 
 /**
  *  Initializes a CCEffectGlass object with the supplied parameters.
@@ -89,7 +89,7 @@
  *  @see CCSprite
  *  @see CCSpriteFrame
  */
--(id)initWithShininess:(float)shininess refraction:(float)refraction refractionEnvironment:(CCSprite *)refractionEnvironment reflectionEnvironment:(CCSprite *)reflectionEnvironment normalMap:(CCSpriteFrame *)normalMap;
+-(instancetype)initWithShininess:(float)shininess refraction:(float)refraction refractionEnvironment:(CCSprite *)refractionEnvironment reflectionEnvironment:(CCSprite *)reflectionEnvironment normalMap:(CCSpriteFrame *)normalMap;
 
 
 /// -----------------------------------------------------------------------

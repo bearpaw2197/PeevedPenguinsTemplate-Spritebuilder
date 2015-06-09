@@ -190,7 +190,7 @@ typedef NS_ENUM(NSUInteger, CCGraphicsAPI) {
 - (BOOL) checkForGLExtension:(NSString *)searchName;
 
 /** returns the current device */
--(NSInteger) runningDevice;
+@property (nonatomic, readonly) NSInteger runningDevice;
 
 /** dumps in the console the CCConfiguration information.
  */

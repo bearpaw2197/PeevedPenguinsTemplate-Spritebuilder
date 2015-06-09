@@ -39,7 +39,7 @@
 
 @implementation CCActionInstant
 
--(id) init
+-(instancetype) init
 {
 	if( (self=[super init]) )
 		_duration = 0;
@@ -144,7 +144,7 @@
 	return [[self alloc] initWithFlipX:x];
 }
 
--(id) initWithFlipX:(BOOL)x
+-(instancetype) initWithFlipX:(BOOL)x
 {
 	if(( self=[super init]))
 		_flipX = x;
@@ -180,7 +180,7 @@
 	return [[self alloc] initWithFlipY:y];
 }
 
--(id) initWithFlipY:(BOOL)y
+-(instancetype) initWithFlipY:(BOOL)y
 {
 	if(( self=[super init]))
 		_flipY = y;
@@ -217,7 +217,7 @@
 	return [[self alloc]initWithPosition:pos];
 }
 
--(id) initWithPosition: (CGPoint) pos
+-(instancetype) initWithPosition: (CGPoint) pos
 {
 	if( (self=[super init]) )
 		_position = pos;
@@ -252,7 +252,7 @@
 	return [[self alloc] initWithTarget: t selector: s];
 }
 
--(id) initWithTarget: (id) t selector:(SEL) s
+-(instancetype) initWithTarget: (id) t selector:(SEL) s
 {
 	if( (self=[super init]) ) {
         
@@ -306,7 +306,7 @@
 	return [[self alloc] initWithBlock:block];
 }
 
--(id) initWithBlock:(void(^)())block
+-(instancetype) initWithBlock:(void(^)())block
 {
 	if ((self = [super init]))
 		_block = [block copy];
@@ -341,7 +341,7 @@
 	return [[self alloc]initWithSpriteFrame:spriteFrame];
 }
 
-- (id)initWithSpriteFrame:(CCSpriteFrame*)spriteFrame;
+- (instancetype)initWithSpriteFrame:(CCSpriteFrame*)spriteFrame;
 {
 	if( (self=[super init]) )
 		_spriteFrame = spriteFrame;
@@ -370,7 +370,7 @@
     return [[CCActionSoundEffect alloc] initWithSoundFile:f pitch:pi pan:pa gain:ga];
 }
 
-- (id)initWithSoundFile:(NSString*)file pitch:(float)pi pan:(float) pa gain:(float)ga
+- (instancetype)initWithSoundFile:(NSString*)file pitch:(float)pi pan:(float) pa gain:(float)ga
 {
     self = [super init];
     if (!self) return NULL;

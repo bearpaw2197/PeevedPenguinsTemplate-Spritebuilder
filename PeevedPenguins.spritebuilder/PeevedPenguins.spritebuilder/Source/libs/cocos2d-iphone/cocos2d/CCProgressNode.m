@@ -65,13 +65,13 @@
 	return [[self alloc]initWithSprite:sprite];
 }
 
--(id) init
+-(instancetype) init
 {
 	return [self initWithSprite:nil];
 }
 
 // designated initializer
--(id)initWithSprite:(CCSprite*) sprite
+-(instancetype)initWithSprite:(CCSprite*) sprite
 {
 	if(( self = [super init] )){
 		_type = CCProgressNodeTypeRadial;

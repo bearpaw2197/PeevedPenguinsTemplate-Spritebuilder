@@ -112,7 +112,7 @@
 	Initialize a pin joint between the two bodies with the given anchor points.
 	The distance is calculated when the joint is initialized. It can be set explicitly using the property.
 */
-- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB;
+- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB;
 
 /// The anchor point on the first body.
 @property(nonatomic, assign) cpVect anchorA;
@@ -140,7 +140,7 @@
 /**
 	Initialize a slide joint between the two bodies with the given anchor points and distance range.
 */
-- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB min:(cpFloat)min max:(cpFloat)max;
+- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB min:(cpFloat)min max:(cpFloat)max;
 
 /// The anchor point on the first body.
 @property(nonatomic, assign) cpVect anchorA;
@@ -177,12 +177,12 @@
 	Initialize a pivot joint between the two bodies with the two anchor points.
 	Make sure you have the bodies in the right place as the joint will fix itself as soon as you start simulating the space.
 */
-- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB;
+- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB;
 
 /**
 	Initialize a pivot joint between the two bodies by calculating the anchor points from the pivot point given in absolute coordinates.
 */
-- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b pivot:(cpVect)pivot;
+- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b pivot:(cpVect)pivot;
 
 /// The anchor point on the first body.
 @property(nonatomic, assign) cpVect anchorA;
@@ -214,7 +214,7 @@
 	@param grooveB The end of the line segment on the first body.
 	@param anchorB The anchor point on the second body that is held to the line segment on the first.
 */
-- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b grooveA:(cpVect)grooveA grooveB:(cpVect)grooveB anchorB:(cpVect)anchorB;
+- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b grooveA:(cpVect)grooveA grooveB:(cpVect)grooveB anchorB:(cpVect)anchorB;
 
 /// The start point of the groove on the first body.
 @property(nonatomic, assign) cpVect grooveA;
@@ -247,7 +247,7 @@
 	@param stiffness The <a href="http://en.wikipedia.org/wiki/Young's_modulus">young's modulus</a> of the spring.
 	@param damping The amount of viscous damping to apply.
 */
-- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB restLength:(cpFloat)restLength stiffness:(cpFloat)stiffness damping:(cpFloat)damping;
+- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB restLength:(cpFloat)restLength stiffness:(cpFloat)stiffness damping:(cpFloat)damping;
 
 /// The anchor point on the first body.
 @property(nonatomic, assign) cpVect anchorA;
@@ -287,7 +287,7 @@
 	@param stiffness The <a href="http://en.wikipedia.org/wiki/Young's_modulus">young's modulus</a> of the spring.
 	@param damping The amount of viscous damping to apply.
 */
-- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b restAngle:(cpFloat)restAngle stiffness:(cpFloat)stiffness damping:(cpFloat)damping;
+- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b restAngle:(cpFloat)restAngle stiffness:(cpFloat)stiffness damping:(cpFloat)damping;
 
 /// The angular offset the spring attempts to keep between the two bodies.
 @property(nonatomic, assign) cpFloat restAngle;
@@ -317,7 +317,7 @@
 	Create an autoreleased rotary limit joint between the two bodies and angular range in radians.
 	Make sure you have the bodies in the right place as the joint will snap into shape as soon as you start simulating the space.
 */
-- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b min:(cpFloat)min max:(cpFloat)max;
+- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b min:(cpFloat)min max:(cpFloat)max;
 
 /// The minimum angular delta of the joint in radians.
 @property(nonatomic, assign) cpFloat min;
@@ -338,7 +338,7 @@
 + (ChipmunkSimpleMotor *)simpleMotorWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b rate:(cpFloat)rate;
 
 /// Initialize a simple motor between the given bodies and relative rotation rate in radians per second.
-- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b rate:(cpFloat)rate;
+- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b rate:(cpFloat)rate;
 
 /// The relative rotation speed of the two bodies in radians per second.
 @property(nonatomic, assign) cpFloat rate;
@@ -365,7 +365,7 @@
 	@param phase The angular offset in radians.
 	@param ratio The ratio of the rotational speeds.
 */
-- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b phase:(cpFloat)phase ratio:(cpFloat)ratio;
+- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b phase:(cpFloat)phase ratio:(cpFloat)ratio;
 
 /// The angular offset in radians.
 @property(nonatomic, assign) cpFloat phase;
@@ -391,7 +391,7 @@
 	@param phase The angular offset of the ratchet positions in radians.
 	@param ratchet The angle in radians of each ratchet position. Negative values cause the ratchet to operate in the opposite direction.
 */
-- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b phase:(cpFloat)phase ratchet:(cpFloat)ratchet;
+- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b phase:(cpFloat)phase ratchet:(cpFloat)ratchet;
 
 /// The current ratchet position in radians.
 @property(nonatomic, assign) cpFloat angle;

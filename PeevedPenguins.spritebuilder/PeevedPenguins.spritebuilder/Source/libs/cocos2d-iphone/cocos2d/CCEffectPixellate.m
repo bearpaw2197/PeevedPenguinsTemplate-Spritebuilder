@@ -59,11 +59,11 @@ static float conditionBlockSize(float blockSize);
 
 @implementation CCEffectPixellateImpl
 
--(id)initWithInterface:(CCEffectPixellate *)interface
+-(instancetype)initWithInterface:(CCEffectPixellate *)interface
 {
     NSArray *fragUniforms = @[
-                              [CCEffectUniform uniform:@"float" name:@"u_uStep" value:[NSNumber numberWithFloat:1.0f]],
-                              [CCEffectUniform uniform:@"float" name:@"u_vStep" value:[NSNumber numberWithFloat:1.0f]]
+                              [CCEffectUniform uniform:@"float" name:@"u_uStep" value:@1.0f],
+                              [CCEffectUniform uniform:@"float" name:@"u_vStep" value:@1.0f]
                               ];
     
     NSArray *fragFunctions = [CCEffectPixellateImpl buildFragmentFunctions];
@@ -109,8 +109,8 @@ static float conditionBlockSize(float blockSize);
         float uStep = weakInterface.conditionedBlockSize / passInputs.previousPassTexture.contentSize.width;
         float vStep = uStep * aspect;
         
-        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_uStep"]] = [NSNumber numberWithFloat:uStep];
-        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_vStep"]] = [NSNumber numberWithFloat:vStep];
+        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_uStep"]] = @(uStep);
+        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_vStep"]] = @(vStep);
     } copy]];
     
     return @[pass0];
@@ -121,12 +121,12 @@ static float conditionBlockSize(float blockSize);
 
 @implementation CCEffectPixellate
 
--(id)init
+-(instancetype)init
 {
     return [self initWithBlockSize:1.0f];
 }
 
--(id)initWithBlockSize:(float)blockSize
+-(instancetype)initWithBlockSize:(float)blockSize
 {
     if((self = [super init]))
     {

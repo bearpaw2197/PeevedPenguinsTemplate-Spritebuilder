@@ -40,7 +40,7 @@
 
 // -----------------------------------------------------------------
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     NSAssert(self, @"Unable to create class");

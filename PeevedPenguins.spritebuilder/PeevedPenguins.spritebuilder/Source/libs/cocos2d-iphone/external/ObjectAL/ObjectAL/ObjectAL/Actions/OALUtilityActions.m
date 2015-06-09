@@ -48,12 +48,12 @@
 
 #pragma mark Object Management
 
-+ (id) actionWithTarget:(id) target action:(OALAction*) action
++ (instancetype) actionWithTarget:(id) target action:(OALAction*) action
 {
 	return as_autorelease([(OALTargetedAction*)[self alloc] initWithTarget:target action:action]);
 }
 
-- (id) initWithTarget:(id) target action:(OALAction*) action
+- (instancetype) initWithTarget:(id) target action:(OALAction*) action
 {
 	if(nil != (self = [super initWithDuration:action.duration]))
 	{
@@ -141,7 +141,7 @@
 
 #pragma mark Object Management
 
-+ (id) actions:(OALAction*) firstAction, ...
++ (instancetype) actions:(OALAction*) firstAction, ...
 {
 	NSMutableArray* actions = [NSMutableArray arrayWithCapacity:10];
 	va_list params;
@@ -156,12 +156,12 @@
 	return as_autorelease([[self alloc] initWithActions:actions]);
 }
 
-+ (id) actionsFromArray:(NSArray*) actions;
++ (instancetype) actionsFromArray:(NSArray*) actions;
 {
 	return as_autorelease([[self alloc] initWithActions:actions]);
 }
 
-- (id) initWithActions:(NSArray*) actions
+- (instancetype) initWithActions:(NSArray*) actions
 {
 	if(nil != (self = [super initWithDuration:0]))
 	{
@@ -208,7 +208,7 @@
 		// Easy case: 0 duration.
 		for(__unused OALAction* action in actions_)
 		{
-			[pDurations_ addObject:[NSNumber numberWithFloat:0]];
+			[pDurations_ addObject:@0.0f];
 		}
 	}
 	else
@@ -216,15 +216,15 @@
 		// Complex case: > 0 duration.
 		for(OALAction* action in actions_)
 		{
-			[pDurations_ addObject:[NSNumber numberWithFloat:action.duration/duration_]];
+			[pDurations_ addObject:@(action.duration/duration_)];
 		}
 	}
 
 	// Start at the first action.
 	if([actions_ count] > 0)
 	{
-		self.currentAction = [actions_ objectAtIndex:0];
-		pCurrentActionDuration_ = [[pDurations_ objectAtIndex:0] floatValue];
+		self.currentAction = actions_[0];
+		pCurrentActionDuration_ = [pDurations_[0] floatValue];
 	}
 	else
 	{
@@ -279,8 +279,8 @@
 		}
 
 		// Store some info about the new current action and start it running.
-		self.currentAction = [actions_ objectAtIndex:actionIndex_];
-		pCurrentActionDuration_ = [[pDurations_ objectAtIndex:actionIndex_] floatValue];
+		self.currentAction = actions_[actionIndex_];
+		pCurrentActionDuration_ = [pDurations_[actionIndex_] floatValue];
 		pCurrentActionComplete_ = 0;
 		[currentAction_ startAction];
 	}
@@ -351,7 +351,7 @@ COCOS2D_SUBCLASS(OALSequentialActions)
 
 #pragma mark Object Management
 
-+ (id) actions:(OALAction*) firstAction, ...
++ (instancetype) actions:(OALAction*) firstAction, ...
 {
 	NSMutableArray* actions = [NSMutableArray arrayWithCapacity:10];
 	va_list params;
@@ -366,12 +366,12 @@ COCOS2D_SUBCLASS(OALSequentialActions)
 	return as_autorelease([[self alloc] initWithActions:actions]);
 }
 
-+ (id) actionsFromArray:(NSArray*) actions;
++ (instancetype) actionsFromArray:(NSArray*) actions;
 {
 	return as_autorelease([[self alloc] initWithActions:actions]);
 }
 
-- (id) initWithActions:(NSArray*) actions
+- (instancetype) initWithActions:(NSArray*) actions
 {
 	if(nil != (self = [super initWithDuration:0]))
 	{
@@ -428,7 +428,7 @@ COCOS2D_SUBCLASS(OALSequentialActions)
 	[pDurations_ removeAllObjects];
 	for(OALAction* action in actionsWithDuration_)
 	{
-		[pDurations_ addObject:[NSNumber numberWithFloat:action.duration/duration_]];
+		[pDurations_ addObject:@(action.duration/duration_)];
 	}
 
 	[super prepareWithTarget:target];
@@ -461,8 +461,8 @@ COCOS2D_SUBCLASS(OALSequentialActions)
 		// Only actions with a duration get an update after 0.
 		for(NSUInteger i = 0; i < [actionsWithDuration_ count]; i++)
 		{
-			OALAction* action = [actionsWithDuration_ objectAtIndex:i];
-			float proportion = proportionComplete / [[pDurations_ objectAtIndex:i] floatValue];
+			OALAction* action = actionsWithDuration_[i];
+			float proportion = proportionComplete / [pDurations_[i] floatValue];
 			if(proportion > 1.0f)
 			{
 				proportion = 1.0f;
@@ -501,13 +501,13 @@ COCOS2D_SUBCLASS(OALConcurrentActions)
 
 #pragma mark Object Management
 
-+ (id) actionWithCallTarget:(id) callTarget
++ (instancetype) actionWithCallTarget:(id) callTarget
 				   selector:(SEL) selector
 {
 	return as_autorelease([[self alloc] initWithCallTarget:callTarget selector:selector]);
 }
 
-+ (id) actionWithCallTarget:(id) callTarget
++ (instancetype) actionWithCallTarget:(id) callTarget
 				   selector:(SEL) selector
 				 withObject:(id) object
 {
@@ -516,7 +516,7 @@ COCOS2D_SUBCLASS(OALConcurrentActions)
                                                 withObject:object]);
 }
 
-+ (id) actionWithCallTarget:(id) callTarget
++ (instancetype) actionWithCallTarget:(id) callTarget
 				   selector:(SEL) selector
 				 withObject:(id) firstObject
 				 withObject:(id) secondObject
@@ -527,7 +527,7 @@ COCOS2D_SUBCLASS(OALConcurrentActions)
                                                 withObject:secondObject]);
 }
 
-- (id) initWithCallTarget:(id) callTargetIn selector:(SEL) selectorIn
+- (instancetype) initWithCallTarget:(id) callTargetIn selector:(SEL) selectorIn
 {
 	if(nil != (self = [super init]))
 	{
@@ -537,7 +537,7 @@ COCOS2D_SUBCLASS(OALConcurrentActions)
 	return self;
 }
 
-- (id) initWithCallTarget:(id) callTargetIn
+- (instancetype) initWithCallTarget:(id) callTargetIn
 				 selector:(SEL) selectorIn
 			   withObject:(id) object
 {
@@ -551,7 +551,7 @@ COCOS2D_SUBCLASS(OALConcurrentActions)
 	return self;
 }
 
-- (id) initWithCallTarget:(id) callTargetIn
+- (instancetype) initWithCallTarget:(id) callTargetIn
 				 selector:(SEL) selectorIn
 			   withObject:(id) firstObject
 			   withObject:(id) secondObject

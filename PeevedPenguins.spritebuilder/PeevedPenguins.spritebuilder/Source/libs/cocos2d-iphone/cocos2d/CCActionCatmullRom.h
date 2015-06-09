@@ -94,7 +94,7 @@ extern "C" {
  *  @return New point array.
  *  @see initWithCapacity:
  */
-+ (id)arrayWithCapacity:(NSUInteger)capacity;
++ (instancetype)arrayWithCapacity:(NSUInteger)capacity;
 
 /**
  *  Initializes a Points array with capacity.
@@ -104,7 +104,7 @@ extern "C" {
  *  @return New point array.
  *  @see arrayWithCapacity:
  */
-- (id)initWithCapacity:(NSUInteger)capacity;
+- (instancetype)initWithCapacity:(NSUInteger)capacity;
 
 
 /// -----------------------------------------------------------------------
@@ -159,7 +159,7 @@ extern "C" {
  *
  *  @return Number of control points.
  */
-- (NSUInteger)count;
+@property (nonatomic, readonly) NSUInteger count;
 
 /// -----------------------------------------------------------------------
 /// @name Reversing the Order of Points
@@ -171,7 +171,7 @@ extern "C" {
  *
  *  @return New point array.
  */
-- (CCPointArray*)reverse;
+@property (nonatomic, readonly, copy) CCPointArray *reverse;
 
 /** Reverses the current control point array. */
 - (void)reverseInline;
@@ -229,7 +229,7 @@ extern "C" {
  *  @return New spline action.
  *  @see CCPointArray
  */
-- (id)initWithDuration:(CCTime)duration points:(CCPointArray*)points tension:(CGFloat)tension;
+- (instancetype)initWithDuration:(CCTime)duration points:(CCPointArray*)points tension:(CGFloat)tension;
 
 @end
 
@@ -281,7 +281,7 @@ extern "C" {
  *  @return New catmull-rom action.
  *  @see CCPointArray
  */
-- (id)initWithDuration:(CCTime)dt points:(CCPointArray*)points;
+- (instancetype)initWithDuration:(CCTime)dt points:(CCPointArray*)points;
 
 @end
 
@@ -319,6 +319,6 @@ extern "C" {
  *  @return New catmull-rom action.
  *  @see CCPointArray
  */
-- (id)initWithDuration:(CCTime)dt points:(CCPointArray*)points;
+- (instancetype)initWithDuration:(CCTime)dt points:(CCPointArray*)points;
 
 @end

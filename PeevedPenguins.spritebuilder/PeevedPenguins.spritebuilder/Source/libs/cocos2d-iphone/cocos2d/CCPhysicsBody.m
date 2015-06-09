@@ -31,7 +31,7 @@
 
 
 @interface CCNode(Private)
--(CGAffineTransform)nonRigidTransform;
+@property (nonatomic, readonly) CGAffineTransform nonRigidTransform;
 @end
 
 //Function Prototype
@@ -65,7 +65,7 @@ CCPhysicsBodyUpdatePosition(cpBody *body, cpFloat dt);
 
 //MARK: Constructors:
 
--(id)initWithShapeList:(CCPhysicsShape *)shapeList
+-(instancetype)initWithShapeList:(CCPhysicsShape *)shapeList
 {
 	if((self = [super init])){
 		_body = [ChipmunkBody bodyWithMass:0.0 andMoment:0.0];

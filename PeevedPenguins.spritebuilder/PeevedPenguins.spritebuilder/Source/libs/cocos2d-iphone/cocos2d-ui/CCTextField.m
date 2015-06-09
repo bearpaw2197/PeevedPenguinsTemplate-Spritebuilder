@@ -38,17 +38,17 @@
 
 }
 
-+ (id) textFieldWithSpriteFrame:(CCSpriteFrame *)frame
++ (instancetype) textFieldWithSpriteFrame:(CCSpriteFrame *)frame
 {
     return [[self alloc] initWithSpriteFrame:frame];
 }
 
-- (id) init
+- (instancetype) init
 {
     return [self initWithSpriteFrame:NULL];
 }
 
-- (id) initWithSpriteFrame:(CCSpriteFrame*)frame
+- (instancetype) initWithSpriteFrame:(CCSpriteFrame*)frame
 {
     self = [super init];
     if (!self) return NULL;

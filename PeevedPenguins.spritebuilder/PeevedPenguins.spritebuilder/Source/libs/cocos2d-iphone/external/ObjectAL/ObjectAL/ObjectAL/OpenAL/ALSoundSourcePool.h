@@ -55,7 +55,7 @@
 /** Make a new pool.
  * @return A new pool.
  */
-+ (id) pool;
++ (instancetype) pool;
 
 
 #pragma mark Source Management

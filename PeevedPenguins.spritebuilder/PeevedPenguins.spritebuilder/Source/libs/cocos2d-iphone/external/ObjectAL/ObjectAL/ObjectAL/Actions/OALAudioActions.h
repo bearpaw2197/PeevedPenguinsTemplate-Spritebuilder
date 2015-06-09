@@ -84,14 +84,14 @@
  * @param position The position to place the target at.
  * @return A new action.
  */
-+ (id) actionWithPosition:(ALPoint) position;
++ (instancetype) actionWithPosition:(ALPoint) position;
 
 /** Initialize an action with the specified position.
  *
  * @param position The position to place the target at.
  * @return The initialized action.
  */
-- (id) initWithPosition:(ALPoint) position;
+- (instancetype) initWithPosition:(ALPoint) position;
 
 @end
 
@@ -134,7 +134,7 @@
  * @param position The position to move to.
  * @return A new action.
  */
-+ (id) actionWithDuration:(float) duration position:(ALPoint) position;
++ (instancetype) actionWithDuration:(float) duration position:(ALPoint) position;
 
 /** Create a new action.
  *
@@ -142,7 +142,7 @@
  * @param position The position to move to.
  * @return A new action.
  */
-+ (id) actionWithUnitsPerSecond:(float) unitsPerSecond position:(ALPoint) position;
++ (instancetype) actionWithUnitsPerSecond:(float) unitsPerSecond position:(ALPoint) position;
 
 /** Initialize an action.
  *
@@ -150,7 +150,7 @@
  * @param position The position to move to.
  * @return The initialized action.
  */
-- (id) initWithDuration:(float) duration position:(ALPoint) position;
+- (instancetype) initWithDuration:(float) duration position:(ALPoint) position;
 
 /** Initialize an action.
  *
@@ -158,7 +158,7 @@
  * @param position The position to move to.
  * @return The initialized action.
  */
-- (id) initWithUnitsPerSecond:(float) unitsPerSecond position:(ALPoint) position;
+- (instancetype) initWithUnitsPerSecond:(float) unitsPerSecond position:(ALPoint) position;
 
 @end
 
@@ -195,7 +195,7 @@
  * @param delta The amount to move by.
  * @return A new action.
  */
-+ (id) actionWithDuration:(float) duration delta:(ALPoint) delta;
++ (instancetype) actionWithDuration:(float) duration delta:(ALPoint) delta;
 
 /** Create a new action.
  *
@@ -203,7 +203,7 @@
  * @param delta The amount to move by.
  * @return A new action.
  */
-+ (id) actionWithUnitsPerSecond:(float) unitsPerSecond delta:(ALPoint) delta;
++ (instancetype) actionWithUnitsPerSecond:(float) unitsPerSecond delta:(ALPoint) delta;
 
 /** Initialize an action.
  *
@@ -211,7 +211,7 @@
  * @param delta The amount to move by.
  * @return The initialized action.
  */
-- (id) initWithDuration:(float) duration delta:(ALPoint) delta;
+- (instancetype) initWithDuration:(float) duration delta:(ALPoint) delta;
 
 /** Initialize an action.
  *
@@ -219,6 +219,6 @@
  * @param delta The amount to move by.
  * @return The initialized action.
  */
-- (id) initWithUnitsPerSecond:(float) unitsPerSecond delta:(ALPoint) delta;
+- (instancetype) initWithUnitsPerSecond:(float) unitsPerSecond delta:(ALPoint) delta;
 
 @end

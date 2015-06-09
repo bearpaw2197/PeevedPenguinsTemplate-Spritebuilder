@@ -72,7 +72,7 @@
  * @param bufferSize The size of buffer that the device must allocate for audio capture.
  * @return A new capture device.
  */
-+ (id) deviceWithDeviceSpecifier:(NSString*) deviceSpecifier
++ (instancetype) deviceWithDeviceSpecifier:(NSString*) deviceSpecifier
 					   frequency:(ALCuint) frequency
 						  format:(ALCenum) format
 					  bufferSize:(ALCsizei) bufferSize;
@@ -85,7 +85,7 @@
  * @param bufferSize The size of buffer that the device must allocate for audio capture.
  * @return The initialized capture device.
  */
-- (id) initWithDeviceSpecifier:(NSString*) deviceSpecifier
+- (instancetype) initWithDeviceSpecifier:(NSString*) deviceSpecifier
 					 frequency:(ALCuint) frequency
 						format:(ALCenum) format
 					bufferSize:(ALCsizei) bufferSize;
@@ -97,13 +97,13 @@
  *
  * @return TRUE if the operation was successful.
  */
-- (bool) startCapture;
+@property (nonatomic, readonly) bool startCapture;
 
 /** Stop capturing samples.
  *
  * @return TRUE if the operation was successful.
  */
-- (bool) stopCapture;
+@property (nonatomic, readonly) bool stopCapture;
 
 /** Move captured samples to the specified buffer.
  * This method will fail if less than the specified number of samples have been captured.
@@ -129,7 +129,7 @@
  * @param functionName The name of the procedure to get.
  * @return the procedure's address, or NULL if it wasn't found.
  */
-- (void*) getProcAddress:(NSString*) functionName;
+- (void*) getProcAddress:(NSString*) functionName NS_RETURNS_INNER_POINTER;
 
 
 @end

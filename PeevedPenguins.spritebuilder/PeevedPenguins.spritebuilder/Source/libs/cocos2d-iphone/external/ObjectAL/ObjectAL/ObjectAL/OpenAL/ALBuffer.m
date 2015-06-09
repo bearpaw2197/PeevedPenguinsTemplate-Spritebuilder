@@ -39,7 +39,7 @@
 
 #pragma mark Object Management
 
-+ (id) bufferWithName:(NSString*) name
++ (instancetype) bufferWithName:(NSString*) name
                  data:(void*) data
                  size:(ALsizei) size
                format:(ALenum) format
@@ -52,7 +52,7 @@
                                                 frequency:frequency]);
 }
 
-- (id) initWithName:(NSString*) nameIn
+- (instancetype) initWithName:(NSString*) nameIn
                data:(void*) data
                size:(ALsizei) size
              format:(ALenum) formatIn

@@ -46,12 +46,12 @@
 
 #pragma mark Object Management
 
-- (id) init
+- (instancetype) init
 {
 	return [self initWithDuration:0];
 }
 
-- (id) initWithDuration:(float) duration
+- (instancetype) initWithDuration:(float) duration
 {
 	if(nil != (self = [super init]))
 	{
@@ -228,7 +228,7 @@
 
 #pragma mark Object Management
 
-+ (id) actionWithDuration:(float) duration
++ (instancetype) actionWithDuration:(float) duration
               propertyKey:(NSString*) propertyKey
 				 endValue:(float) endValue
 {
@@ -237,7 +237,7 @@
                                                 endValue:endValue]);
 }
 
-+ (id) actionWithDuration:(float) duration
++ (instancetype) actionWithDuration:(float) duration
               propertyKey:(NSString*) propertyKey
 			   startValue:(float) startValue
 				 endValue:(float) endValue
@@ -248,7 +248,7 @@
                                                 endValue:endValue]);
 }
 
-- (id) initWithDuration:(float) duration
+- (instancetype) initWithDuration:(float) duration
             propertyKey:(NSString*) propertyKey
                endValue:(float) endValue
 {
@@ -258,7 +258,7 @@
 						 endValue:endValue];
 }
 
-- (id) initWithDuration:(float) duration
+- (instancetype) initWithDuration:(float) duration
             propertyKey:(NSString*) propertyKey
 			 startValue:(float) startValue
 			   endValue:(float) endValue
@@ -290,7 +290,7 @@
 - (void) updateCompletion:(float) proportionComplete
 {
     float value = self.startValue + self.delta * proportionComplete;
-    [self.target setValue:[NSNumber numberWithFloat:value] forKey:self.propertyKey];
+    [self.target setValue:@(value) forKey:self.propertyKey];
 }
 
 @end
@@ -391,7 +391,7 @@ static EaseFunctionPtr g_easeFunctions[2][3] =
                                                action:action]);
 }
 
-- (id) initWithShape:(OALEaseShape) shape
+- (instancetype) initWithShape:(OALEaseShape) shape
                phase:(OALEasePhase) phase
               action:(OALAction*) action
 {

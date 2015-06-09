@@ -242,13 +242,13 @@ typedef void (^ChipmunkPostStepBlock)(void);
 - (BOOL)shapeTest:(ChipmunkShape *)shape;
 
 /// Get a copy of the list of all the bodies in the space.
-- (NSArray *)bodies;
+@property (nonatomic, readonly, copy) NSArray *bodies;
 
 /// Get a copy of the list of all the shapes in the space
-- (NSArray *)shapes;
+@property (nonatomic, readonly, copy) NSArray *shapes;
 
 /// Get a copy of the list of all the constraints in the space
-- (NSArray *)constraints;
+@property (nonatomic, readonly, copy) NSArray *constraints;
 
 /// Update all the static shapes.
 - (void)reindexStatic;

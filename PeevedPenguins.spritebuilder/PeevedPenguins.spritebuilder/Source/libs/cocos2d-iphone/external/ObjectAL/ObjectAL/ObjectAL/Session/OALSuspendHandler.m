@@ -52,7 +52,7 @@
 	return as_autorelease([[self alloc] initWithTarget:target selector:selector]);
 }
 
-- (id) initWithTarget:(id) target selector:(SEL) selector
+- (instancetype) initWithTarget:(id) target selector:(SEL) selector
 {
 	if(nil != (self = [super init]))
 	{
@@ -79,7 +79,7 @@
 		// If this handler is already suspended, make sure we don't unsuspend
 		// a newly added listener on the next manual unsuspend.
 		bool startingSuspendedValue = manualSuspendLock ? listener.manuallySuspended : NO;
-		[manualSuspendStates addObject:[NSNumber numberWithBool:startingSuspendedValue]];
+		[manualSuspendStates addObject:@(startingSuspendedValue)];
 	}
 }
 
@@ -125,13 +125,13 @@
 			NSUInteger numListeners = [listeners count];
 			for(NSUInteger index = 0; index < numListeners; index++)
 			{
-				id<OALSuspendListener> listener = [listeners objectAtIndex:index];
+				id<OALSuspendListener> listener = listeners[index];
 				
 				// Record whether they were already suspended or not
 				bool alreadySuspended = listener.manuallySuspended;
-				if(alreadySuspended != [[manualSuspendStates objectAtIndex:index] boolValue])
+				if(alreadySuspended != [manualSuspendStates[index] boolValue])
 				{
-					[manualSuspendStates replaceObjectAtIndex:index withObject:[NSNumber numberWithBool:alreadySuspended]];
+					manualSuspendStates[index] = @(alreadySuspended);
 				}
 				
 				// Update listener suspend state if necessary
@@ -163,9 +163,9 @@
 		{
 			for(int index = (int)[listeners count] - 1; index >= 0; index--)
 			{
-				id<OALSuspendListener> listener = [listeners objectAtIndex:(NSUInteger)index];
+				id<OALSuspendListener> listener = listeners[(NSUInteger)index];
 				
-				bool alreadySuspended = [[manualSuspendStates objectAtIndex:(NSUInteger)index] boolValue];
+				bool alreadySuspended = [manualSuspendStates[(NSUInteger)index] boolValue];
 				
 				// Update listener suspend state if necessary
 				if(!alreadySuspended && listener.manuallySuspended)

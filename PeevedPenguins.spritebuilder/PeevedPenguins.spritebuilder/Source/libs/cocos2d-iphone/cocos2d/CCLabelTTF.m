@@ -96,36 +96,36 @@ static __strong NSMutableDictionary* ccLabelTTF_registeredFonts;
     return [[self alloc] initWithAttributedString:attrString dimensions:dimensions];
 }
 
-- (id) init
+- (instancetype) init
 {
     return [self initWithString:@"" fontName:@"Helvetica" fontSize:12];
 }
 
 
-- (id) initWithString:(NSString*)str fontName:(NSString*)name fontSize:(CGFloat)size
+- (instancetype) initWithString:(NSString*)str fontName:(NSString*)name fontSize:(CGFloat)size
 {
 	return [self initWithAttributedString:[[NSAttributedString alloc] initWithString:str] fontName:name fontSize:size dimensions:CGSizeZero];
 }
 
-- (id) initWithString:(NSString*)str fontName:(NSString*)name fontSize:(CGFloat)size dimensions:(CGSize)dimensions
+- (instancetype) initWithString:(NSString*)str fontName:(NSString*)name fontSize:(CGFloat)size dimensions:(CGSize)dimensions
 {
     return [self initWithAttributedString:[[NSAttributedString alloc] initWithString:str] fontName:name fontSize:size dimensions:dimensions];
 }
 
-- (id) initWithAttributedString:(NSAttributedString *)attrString;
+- (instancetype) initWithAttributedString:(NSAttributedString *)attrString;
 {
     NSAssert([CCConfiguration sharedConfiguration].OSVersion >= CCSystemVersion_iOS_6_0, @"Attributed strings are only supported on iOS 6 or later");
     return [self initWithAttributedString:attrString fontName:@"Helvetica" fontSize:12 dimensions:CGSizeZero];
 }
 
-- (id) initWithAttributedString:(NSAttributedString *)attrString dimensions:(CGSize)dimensions
+- (instancetype) initWithAttributedString:(NSAttributedString *)attrString dimensions:(CGSize)dimensions
 {
     NSAssert([CCConfiguration sharedConfiguration].OSVersion >= CCSystemVersion_iOS_6_0, @"Attributed strings are only supported on iOS 6 or later");
     return [self initWithAttributedString:attrString fontName:@"Helvetica" fontSize:12 dimensions:dimensions];
 }
 
 // This is a private initializer
-- (id) initWithAttributedString:(NSAttributedString *)attrString fontName:(NSString*)fontName fontSize:(CGFloat)fontSize dimensions:(CGSize)dimensions
+- (instancetype) initWithAttributedString:(NSAttributedString *)attrString fontName:(NSString*)fontName fontSize:(CGFloat)fontSize dimensions:(CGSize)dimensions
 {
     if ( (self = [super init]) )
     {
@@ -951,7 +951,7 @@ static __strong NSMutableDictionary* ccLabelTTF_registeredFonts;
         ccLabelTTF_registeredFonts = [[NSMutableDictionary alloc] init];
     }
     
-    if ([ccLabelTTF_registeredFonts objectForKey:fontFile]) return [ccLabelTTF_registeredFonts objectForKey:fontFile];
+    if (ccLabelTTF_registeredFonts[fontFile]) return ccLabelTTF_registeredFonts[fontFile];
     
     
     // Register with font manager
@@ -987,7 +987,7 @@ static __strong NSMutableDictionary* ccLabelTTF_registeredFonts;
             CGDataProviderRelease(fontDataProvider);
         }
         
-        [ccLabelTTF_registeredFonts setObject:fontName forKey:fontFile];
+        ccLabelTTF_registeredFonts[fontFile] = fontName;
         return fontName;
     }
     return nil;

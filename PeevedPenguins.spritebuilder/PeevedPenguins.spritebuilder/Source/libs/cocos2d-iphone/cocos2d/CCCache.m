@@ -75,13 +75,13 @@
 
 -(id)rawObjectForKey:(id<NSCopying>)key
 {
-    CCCacheEntry *entry = [_cacheList objectForKey:key];
+    CCCacheEntry *entry = _cacheList[key];
 		return entry.publicObject;
 }
 
 - (CCCacheEntry *)entryForKey:(id<NSCopying>)key
 {
-    CCCacheEntry *entry = [_cacheList objectForKey:key];
+    CCCacheEntry *entry = _cacheList[key];
     
     if (entry == nil)
     {
@@ -89,7 +89,7 @@
         entry = [[CCCacheEntry alloc] init];
         entry.sharedData = [self createSharedDataForKey:key];
         
-        [_cacheList setObject:entry forKey:key];
+        _cacheList[key] = entry;
     }
     
     return entry;
@@ -112,12 +112,12 @@
 - (void)makeAlias:(id<NSCopying>)alias forKey:(id<NSCopying>)key
 {
     CCCacheEntry *entry = [self entryForKey:key];
-    [_cacheList setObject:entry forKey:alias];
+    _cacheList[alias] = entry;
 }
 
 - (BOOL)keyExists:(id<NSCopying>)key
 {
-    return([_cacheList objectForKey:key] != nil);
+    return(_cacheList[key] != nil);
 }
 
 //------------------------------------------------------------------------------
@@ -127,7 +127,7 @@
     // iterate keys
     for (id key in [_cacheList allKeys])
     {
-        CCCacheEntry *entry = [_cacheList objectForKey:key];
+        CCCacheEntry *entry = _cacheList[key];
         
         // if entry has no live public objects, delete the entry
         if (entry.publicObject == nil)

@@ -49,7 +49,7 @@
  *  @return The CCEffectStack object.
  *  @since v3.2 and later
  */
-- (id)init;
+- (instancetype)init;
 
 /**
  *  Initializes an effect stack object with the specified array of effects.
@@ -59,7 +59,7 @@
  *  @return The CCEffectStack object.
  *  @since v3.2 and later
  */
-- (id)initWithArray:(NSArray *)arrayOfEffects;
+- (instancetype)initWithArray:(NSArray *)arrayOfEffects;
 
 /**
  *  Initializes an effect stack object with the specified effects.
@@ -71,7 +71,7 @@
  *  @since v3.2 and later
  *  @see CCEffect
  */
-- (id)initWithEffects:(CCEffect*)effect1, ... NS_REQUIRES_NIL_TERMINATION;
+- (instancetype)initWithEffects:(CCEffect*)effect1, ... NS_REQUIRES_NIL_TERMINATION;
 
 /// -----------------------------------------------------------------------
 /// @name Getting Effects and Effect Count
