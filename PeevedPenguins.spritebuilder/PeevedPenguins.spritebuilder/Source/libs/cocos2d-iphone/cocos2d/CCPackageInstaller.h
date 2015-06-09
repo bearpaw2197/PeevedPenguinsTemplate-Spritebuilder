@@ -25,7 +25,7 @@
  *
  *  @return A new instance of a CCPackageInstaller
  */
-- (instancetype)initWithPackage:(CCPackage *)package installRelPath:(NSString *)installRelPath NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithPackage:(CCPackage *)package installRelPath:(NSString *)installRelPath NS_DESIGNATED_INITIALIZER;
 
 /**
  *  Installs the package. The contents of the unzipped packages folder are moved to the

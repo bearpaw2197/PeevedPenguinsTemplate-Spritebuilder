@@ -59,7 +59,7 @@
  *  @return The CCEffectBlur object.
  *  @since v3.2 and later
  */
--(instancetype)initWithPixelBlurRadius:(NSUInteger)blurRadius NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithPixelBlurRadius:(NSUInteger)blurRadius NS_DESIGNATED_INITIALIZER;
 
 @end
 

@@ -123,7 +123,7 @@
  *
  *  @return An initialized flip action object.
  */
-- (instancetype)initWithFlipX:(BOOL)x NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithFlipX:(BOOL)x NS_DESIGNATED_INITIALIZER;
 
 @end
 
@@ -158,7 +158,7 @@
  *
  *  @return The initialized flip action object.
  */
-- (instance NS_DESIGNATED_INITIALIZERtype)initWithFlipY:(BOOL)y NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithFlipY:(BOOL)y NS_DESIGNATED_INITIALIZER;
 
 @end
 
@@ -189,7 +189,7 @@
  *
  *  @param pos The position the target is placed at
  *
- *  @return An initialized place action objec NS_DESIGNATED_INITIALIZERt.
+ *  @return An initialized place action object.
  */
 - (instancetype)initWithPosition:(CGPoint)pos NS_DESIGNATED_INITIALIZER;
 
@@ -250,7 +250,7 @@
  *  @param t Target the selector is sent to
  *  @param s Selector to execute. Selector takes no parameters and returns nothing.
  *
- *  @return An initialized cal NS_DESIGNATED_INITIALIZERl func action object.
+ *  @return An initialized call func action object.
  */
 - (instancetype)initWithTarget:(id)t selector:(SEL)s NS_DESIGNATED_INITIALIZER;
 
@@ -317,7 +317,7 @@
  *  Initializes the action with the specified block, to be used as a callback.
  *  The block will be copied.
  *
- *  @param block Block to run. Block takes no parameters, returns noth NS_DESIGNATED_INITIALIZERing.
+ *  @param block Block to run. Block takes no parameters, returns nothing.
  *
  *  @return An initialized call block action.
  */
@@ -358,7 +358,7 @@
  *
  *  @param spriteFrame SpriteFrame to use.
  *
- *  @return An  NS_DESIGNATED_INITIALIZERinitialized sprite frame action object.
+ *  @return An initialized sprite frame action object.
  *  @see CCSpriteFrame
  */
 -(instancetype) initWithSpriteFrame:(CCSpriteFrame*)spriteFrame NS_DESIGNATED_INITIALIZER;
@@ -402,7 +402,7 @@
  @param gain Gain (loudness), default 1.0 equals *normal* volume.
  
  @see OALSimpleAudio
- @see  NS_DESIGNATED_INITIALIZER[OALSimpleAudio playEffect:volume:pitch:pan:loop:]
+ @see [OALSimpleAudio playEffect:volume:pitch:pan:loop:]
  */
 -(instancetype) initWithSoundFile:(NSString*)file pitch:(float)pitch pan:(float) pan gain:(float)gain NS_DESIGNATED_INITIALIZER;
 

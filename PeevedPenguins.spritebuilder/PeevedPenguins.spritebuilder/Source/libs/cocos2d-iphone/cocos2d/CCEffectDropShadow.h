@@ -51,7 +51,7 @@
  *  @since v3.3 and later
  *  @see CCColor
  */
--(instancetype)initWithShadowOffset:(GLKVector2)shadowOffset shadowColor:(CCColor*)shadowColor blurRadius:(NSUInteger)blurRadius NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithShadowOffset:(GLKVector2)shadowOffset shadowColor:(CCColor*)shadowColor blurRadius:(NSUInteger)blurRadius NS_DESIGNATED_INITIALIZER;
 
 
 /// -----------------------------------------------------------------------

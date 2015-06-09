@@ -142,7 +142,7 @@ typedef struct _KerningHashElement {
 /// -----------------------------------------------------------------------
 
 //  Initializes and returns a CCBMFontConfiguration object from a specified font file value.
--(instancetype) initWithFNTfile:(NSString*)FNTfile NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+-(instancetype) initWithFNTfile:(NSString*)FNTfile NS_DESIGNATED_INITIALIZER;
 
 @end
 

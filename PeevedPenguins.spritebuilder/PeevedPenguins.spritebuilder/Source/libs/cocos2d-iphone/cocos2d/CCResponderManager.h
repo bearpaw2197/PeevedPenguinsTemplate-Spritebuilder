@@ -161,7 +161,7 @@ enum
  *
  *  @return An initialized CCResponderManager Object.
  */
-- (instancetype)init NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
 
 
 /// -----------------------------------------------------------------------

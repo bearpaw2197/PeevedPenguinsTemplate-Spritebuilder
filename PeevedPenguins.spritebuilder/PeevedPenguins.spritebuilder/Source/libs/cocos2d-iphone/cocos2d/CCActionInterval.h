@@ -126,7 +126,7 @@
  *
  *  @return An initialized CCActionInterval Object.
  */
--(instancetype) initWithDuration: (CCTime) d NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+-(instancetype) initWithDuration: (CCTime) d NS_DESIGNATED_INITIALIZER;
 
 
 /// -----------------------------------------------------------------------
@@ -217,7 +217,7 @@
 + (id)actionOne:(CCActionFiniteTime*)actionOne two:(CCActionFiniteTime*)actionTwo;
 
 // purposefully undocumented: no point in having this documented if you can just create a list/array with 2 actions
-- (instancetype)initOne:(CCActionFiniteTime*)actionOne two:(CCA NS_DESIGNATED_INITIALIZERctionFiniteTime*)actionTwo NS_DESIGNATED_INITIALIZER;
+- (instancetype)initOne:(CCActionFiniteTime*)actionOne two:(CCActionFiniteTime*)actionTwo NS_DESIGNATED_INITIALIZER;
 
 @end
 
@@ -259,7 +259,7 @@
  *
  *  @return New action repeat.
  */
-- (instancetype)initWithAction NS_DESIGNATED_INITIALIZER:(CCActionFiniteTime*)action times:(NSUInteger)times NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithAction:(CCActionFiniteTime*)action times:(NSUInteger)times NS_DESIGNATED_INITIALIZER;
 
 @end
 
@@ -332,7 +332,7 @@
 // purposefully undocumented: no point in having this documented if you can just create a list/array with 2 actions
 + (id)actionOne:(CCActionFiniteTime*)one two:(CCActionFiniteTime*)two;
 
-// purposefully undocumented: no point in having this documented if you can just create a list/array with 2 actions NS_DESIGNATED_INITIALIZER
+// purposefully undocumented: no point in having this documented if you can just create a list/array with 2 actions
 - (instancetype)initOne:(CCActionFiniteTime*)one two:(CCActionFiniteTime*)two NS_DESIGNATED_INITIALIZER;
 
 @end
@@ -390,7 +390,7 @@
  *  @param angle    Angle to rotate to (degrees).
  *  @param simple   Simple rotation, no smart checks.
  *
- *  @return New ro NS_DESIGNATED_INITIALIZERtate action
+ *  @return New rotate action
  */
 - (instancetype)initWithDuration:(CCTime)duration angle:(float)angle simple:(bool)simple NS_DESIGNATED_INITIALIZER;
 
@@ -418,7 +418,7 @@
  *  Initializes the action with angleX rotation angle.
  *
  *  @param t  Action duration.
- *   NS_DESIGNATED_INITIALIZER@param aX X rotation in degrees.
+ *  @param aX X rotation in degrees.
  *
  *  @return New rotate action.
  */
@@ -437,7 +437,7 @@
 /**
  *  Initializes the action with angleY rotation angle.
  *
- *  @para NS_DESIGNATED_INITIALIZERm t  Action duration.
+ *  @param t  Action duration.
  *  @param aY Y rotation in degrees.
  *
  *  @return New rotate action.
@@ -476,7 +476,7 @@
 /**
  *  Initializes the action.
  *
- *  @param dur NS_DESIGNATED_INITIALIZERation   Action duration.
+ *  @param duration   Action duration.
  *  @param deltaAngle Delta angle in degrees.
  *
  *  @return New rotate action.
@@ -497,7 +497,7 @@
 /**
  *  Initializes the action with separate rotation angles.
  *
- *  @param  NS_DESIGNATED_INITIALIZERt  Action duration.
+ *  @param t  Action duration.
  *  @param aX X rotation in degrees.
  *  @param aY Y rotation in degrees.
  *
@@ -535,7 +535,7 @@
 + (id)actionWithDuration: (CCTime)duration position:(CGPoint)deltaPosition;
 
 /**
- NS_DESIGNATED_INITIALIZER *  Initializes the action.
+ *  Initializes the action.
  *
  *  @param duration      Action interval.
  *  @param deltaPosition Delta position.
@@ -568,7 +568,7 @@
  *
  *  @return New moveto action.
  */
-+ (id)actionWithDuration:(CCTime)duration posit NS_DESIGNATED_INITIALIZERion:(CGPoint)position;
++ (id)actionWithDuration:(CCTime)duration position:(CGPoint)position;
 
 /**
  *  Initializes the action.
@@ -611,7 +611,7 @@
 + (id)actionWithDuration:(CCTime)t skewX:(float)sx skewY:(float)sy;
 
 /**
- *   NS_DESIGNATED_INITIALIZERInitializes the action.
+ *  Initializes the action.
  *
  *  @param t  Action duration.
  *  @param sx X skew value in degrees, between -90 and 90.
@@ -629,7 +629,7 @@
 @interface CCActionSkewBy : CCActionSkewTo <NSCopying> {
 }
 
-/** @name Creating a Skew Actio NS_DESIGNATED_INITIALIZERn */
+/** @name Creating a Skew Action */
 
 /**
  *  Initializes the action.
@@ -655,7 +655,7 @@
 	CGPoint _previousPos;
 }
 
-// purposeful NS_DESIGNATED_INITIALIZERly undocumented: see note above @interface
+// purposefully undocumented: see note above @interface
 + (id)actionWithDuration:(CCTime)duration position:(CGPoint)position height:(CCTime)height jumps:(NSUInteger)jumps;
 
 // purposefully undocumented: see note above @interface
@@ -695,7 +695,7 @@ typedef struct _ccBezierConfig {
  *  Creates the action with a duration and a bezier configuration.
  *
  *  @param t Action duration.
- *  @param c Bezier NS_DESIGNATED_INITIALIZER configuration.
+ *  @param c Bezier configuration.
  *
  *  @return New bezier action.
  */
@@ -747,7 +747,7 @@ typedef struct _ccBezierConfig {
 /**
  *  Creates the action with the same scale factor for X and Y.
  *
- *  @param duration Action durati NS_DESIGNATED_INITIALIZERon.
+ *  @param duration Action duration.
  *  @param s        Scale to scale to.
  *
  *  @return New scale action.
@@ -771,7 +771,7 @@ typedef struct _ccBezierConfig {
  *  @param sx       X scale to scale to.
  *  @param sy       Y scale to scale to.
  *
- *  @return NS_DESIGNATED_INITIALIZER New scale action.
+ *  @return New scale action.
  */
 + (id)actionWithDuration:(CCTime)duration scaleX:(float)sx scaleY:(float)sy;
 
@@ -810,7 +810,7 @@ typedef struct _ccBezierConfig {
 /** @name Creating a Blink Action */
 
 /**
- *  Creates t NS_DESIGNATED_INITIALIZERhe blink action.
+ *  Creates the blink action.
  *
  *  @param duration Action duration.
  *  @param blinks   Number of times to blink.
@@ -862,7 +862,7 @@ typedef struct _ccBezierConfig {
 	CGFloat _fromOpacity;
 }
 
-/** @name NS_DESIGNATED_INITIALIZER Creating a Fade Action */
+/** @name Creating a Fade Action */
 
 /**
  *  Creates a fade action.
@@ -897,7 +897,7 @@ typedef struct _ccBezierConfig {
 	CCColor* _from;
 }
 
-/** @name C NS_DESIGNATED_INITIALIZERreating a Colorize Action */
+/** @name Creating a Colorize Action */
 
 /**
  *  Creates a tint to action.
@@ -941,7 +941,7 @@ typedef struct _ccBezierConfig {
  *  @param deltaGreen Green delta color to tint.
  *  @param deltaBlue  Blue delta color to tint.
  *
- *  @return New NS_DESIGNATED_INITIALIZER tint by action.
+ *  @return New tint by action.
  */
 + (id)actionWithDuration:(CCTime)duration red:(CGFloat)deltaRed green:(CGFloat)deltaGreen blue:(CGFloat)deltaBlue;
 
@@ -974,7 +974,7 @@ typedef struct _ccBezierConfig {
  *  This action executes the specified action in reverse order.
  *
  *  @note This action can not be used in a CCActionSequence. Not all actions are reversible.
- *  Use it as the default "reversed" method of your own act NS_DESIGNATED_INITIALIZERions, but using it outside the "reversed" scope is not recommended.
+ *  Use it as the default "reversed" method of your own actions, but using it outside the "reversed" scope is not recommended.
  */
 @interface CCActionReverse : CCActionInterval <NSCopying> {
 	CCActionFiniteTime * _other;
@@ -1019,7 +1019,7 @@ typedef struct _ccBezierConfig {
 }
 
 // Animation used for the sprite.
-@property (readwrite,nonatomic,strong) C NS_DESIGNATED_INITIALIZERCAnimation * animation;
+@property (readwrite,nonatomic,strong) CCAnimation * animation;
 
 /** @name Creating a Animation Action */
 

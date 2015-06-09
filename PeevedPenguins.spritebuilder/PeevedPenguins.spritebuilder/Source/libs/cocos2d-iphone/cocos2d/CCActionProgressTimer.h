@@ -57,7 +57,7 @@
  *
  *  @return New progress action.
  */
-- (instancetype)initWithDuration:(CCTime)duration percent:(float)percent NS_DESIGNATED_INITIALIZER NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithDuration:(CCTime)duration percent:(float)percent NS_DESIGNATED_INITIALIZER;
 
 @end
 
@@ -93,6 +93,6 @@
  *
  *  @return New progress action.
  */
-- (instancetype)initWithDuration:(CCTime)duration from:(float)fromPercent NS_DESIGNATED_INITIALIZERage to:(float)toPercentage NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithDuration:(CCTime)duration from:(float)fromPercentage to:(float)toPercentage NS_DESIGNATED_INITIALIZER;
 
 @end
