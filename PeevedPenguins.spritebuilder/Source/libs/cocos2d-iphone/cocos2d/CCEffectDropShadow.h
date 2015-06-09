@@ -62,7 +62,7 @@
  *  place the drop shadow at the bottom right.
  *  @since v3.3 and later
  */
-@property (nonatomic) GLKVector2 shadowOffset __attribute__((deprecated));
+@property (nonatomic) GLKVector2 shadowOffset __attribute;
 @property (nonatomic) CGPoint shadowOffsetWithPoint;
 
 /** Color of the shadow. [CCColor blackColor] will result in an opaque black drop shadow.
