@@ -227,7 +227,7 @@
 
 // purposefully undocumented: there's little to no need to change the action's target
 /* Target for the selector that will be called. */
-@property (nonatomic, readwrite, weak) id targetCallback;
+@property (nonatomic, readwrite) id targetCallback;
 
 
 /// -----------------------------------------------------------------------

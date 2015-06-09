@@ -171,7 +171,7 @@ PageOffset(NSUInteger firstVertex, NSUInteger vertexCount)
 		// Start a new command.
 		CCRenderCommandDraw *command = [[CCRenderCommandDrawClass alloc] initWithMode:CCRenderCommandDrawTriangles renderState:renderState firstIndex:firstIndex vertexPage:vertexPage count:indexCount globalSortOrder:globalSortOrder];
 		[_queue addObject:command];
-		[command release];
+		
 		
 		_lastDrawCommand = command;
 	}
@@ -199,7 +199,7 @@ PageOffset(NSUInteger firstVertex, NSUInteger vertexCount)
 	
 	CCRenderCommandDraw *command = [[CCRenderCommandDrawClass alloc] initWithMode:CCRenderCommandDrawLines renderState:renderState firstIndex:firstIndex vertexPage:vertexPage count:indexCount globalSortOrder:globalSortOrder];
 	[_queue addObject:command];
-	[command release];
+	
 	
 	// Line drawing commands are currently intended for debugging and cannot be batched.
 	_lastDrawCommand = nil;
