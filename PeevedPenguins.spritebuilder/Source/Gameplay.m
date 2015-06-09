@@ -43,10 +43,7 @@
     
 }
 
-- (void)retry {
-    // reload this level
-    [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"Gameplay"]];
-}
+
 
 - (void)releaseCatapult {
     if (_mouseJoint != nil)
@@ -147,6 +144,11 @@
 -(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB
 {
     CCLOG(@"Something collided with a seal!");
+}
+
+- (void)retry {
+    // reload this level
+    [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"Gameplay"]];
 }
 
 @end
