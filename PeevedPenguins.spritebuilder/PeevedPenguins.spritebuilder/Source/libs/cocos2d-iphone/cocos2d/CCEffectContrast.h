@@ -37,7 +37,7 @@
  *  @return The CCEffectContrast object.
  *  @since v3.2 and later
  */
--(instancetype)init;
+-(id)init;
 
 /**
  *  Initializes a CCEffectContrast object with the supplied parameters.
@@ -47,7 +47,7 @@
  *  @return The CCEffectContrast object.
  *  @since v3.2 and later
  */
--(instancetype)initWithContrast:(float)contrast;
+-(id)initWithContrast:(float)contrast;
 
 
 /// -----------------------------------------------------------------------

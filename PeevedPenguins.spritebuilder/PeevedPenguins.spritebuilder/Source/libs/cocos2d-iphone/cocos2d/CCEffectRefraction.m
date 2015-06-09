@@ -30,10 +30,10 @@
 
 @implementation CCEffectRefractionImpl
 
--(instancetype)initWithInterface:(CCEffectRefraction *)interface
+-(id)initWithInterface:(CCEffectRefraction *)interface
 {
     NSArray *fragUniforms = @[
-                              [CCEffectUniform uniform:@"float" name:@"u_refraction" value:@1.0f],
+                              [CCEffectUniform uniform:@"float" name:@"u_refraction" value:[NSNumber numberWithFloat:1.0f]],
                               [CCEffectUniform uniform:@"sampler2D" name:@"u_envMap" value:(NSValue*)[CCTexture none]],
                               [CCEffectUniform uniform:@"vec2" name:@"u_tangent" value:[NSValue valueWithGLKVector2:GLKVector2Make(1.0f, 0.0f)]],
                               [CCEffectUniform uniform:@"vec2" name:@"u_binormal" value:[NSValue valueWithGLKVector2:GLKVector2Make(0.0f, 1.0f)]]
@@ -136,7 +136,7 @@
             passInputs.verts = verts;
         }
         
-        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_refraction"]] = @(weakInterface.conditionedRefraction);
+        passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_refraction"]] = [NSNumber numberWithFloat:weakInterface.conditionedRefraction];
         passInputs.shaderUniforms[pass.uniformTranslationTable[@"u_envMap"]] = weakInterface.environment.texture ?: [CCTexture none];
         
         // Get the transform from the affected node's local coordinates to the environment node.
@@ -174,17 +174,17 @@
 
 @implementation CCEffectRefraction
 
--(instancetype)init
+-(id)init
 {
     return [self initWithRefraction:1.0f environment:nil normalMap:nil];
 }
 
--(instancetype)initWithRefraction:(float)refraction environment:(CCSprite *)environment
+-(id)initWithRefraction:(float)refraction environment:(CCSprite *)environment
 {
     return [self initWithRefraction:refraction environment:environment normalMap:nil];
 }
 
--(instancetype)initWithRefraction:(float)refraction environment:(CCSprite *)environment normalMap:(CCSpriteFrame *)normalMap
+-(id)initWithRefraction:(float)refraction environment:(CCSprite *)environment normalMap:(CCSpriteFrame *)normalMap
 {
     if((self = [super init]))
     {

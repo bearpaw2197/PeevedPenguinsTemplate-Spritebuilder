@@ -37,7 +37,7 @@ BOOL kCCProfilerCategoryParticles = NO;
 
 
 @interface CCProfilingTimer()
-- (instancetype)initWithName:(NSString*)timerName;
+- (id)initWithName:(NSString*)timerName;
 @end
 
 
@@ -58,7 +58,7 @@ static CCProfiler* g_sharedProfiler;
 - (CCProfilingTimer*) createAndAddTimerWithName:(NSString*)timerName
 {
 	CCProfilingTimer* t = [[CCProfilingTimer alloc] initWithName:timerName];
-	activeTimers[timerName] = t;
+	[activeTimers setObject:t forKey:timerName];
 	return t;
 }
 
@@ -72,7 +72,7 @@ static CCProfiler* g_sharedProfiler;
 	[activeTimers removeAllObjects];
 }
 
-- (instancetype)init
+- (id)init
 {
 	if ((self = [super init])) {
 		activeTimers = [[NSMutableDictionary alloc] initWithCapacity:10];
@@ -97,7 +97,7 @@ static CCProfiler* g_sharedProfiler;
 
 @implementation CCProfilingTimer
 
-- (instancetype)initWithName:(NSString*)timerName
+- (id)initWithName:(NSString*)timerName
 {
 	if ((self = [super init])) {
 		name = [timerName copy];
@@ -138,7 +138,7 @@ static CCProfiler* g_sharedProfiler;
 void CCProfilingBeginTimingBlock(NSString *timerName)
 {
 	CCProfiler* p = [CCProfiler sharedProfiler];
-	CCProfilingTimer *timer = p->activeTimers[timerName];
+	CCProfilingTimer *timer = [p->activeTimers objectForKey:timerName];
 	if( ! timer )
 		timer = [p createAndAddTimerWithName:timerName];
 
@@ -150,7 +150,7 @@ void CCProfilingBeginTimingBlock(NSString *timerName)
 void CCProfilingEndTimingBlock(NSString *timerName)
 {
 	CCProfiler* p = [CCProfiler sharedProfiler];
-	CCProfilingTimer *timer = p->activeTimers[timerName];
+	CCProfilingTimer *timer = [p->activeTimers objectForKey:timerName];
 
 	NSCAssert1(timer, @"CCProfilingTimer %@ not found", timerName);
 
@@ -170,7 +170,7 @@ void CCProfilingEndTimingBlock(NSString *timerName)
 void CCProfilingResetTimingBlock(NSString *timerName)
 {
 	CCProfiler* p = [CCProfiler sharedProfiler];
-	CCProfilingTimer *timer = p->activeTimers[timerName];
+	CCProfilingTimer *timer = [p->activeTimers objectForKey:timerName];
 
 	NSCAssert1(timer, @"CCProfilingTimer %@ not found", timerName);
 

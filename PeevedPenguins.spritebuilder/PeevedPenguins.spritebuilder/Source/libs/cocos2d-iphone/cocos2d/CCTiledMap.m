@@ -55,12 +55,12 @@
 @synthesize objectGroups = _objectGroups;
 @synthesize properties = _properties;
 
-+(instancetype) tiledMapWithFile:(NSString*)tmxFile
++(id) tiledMapWithFile:(NSString*)tmxFile
 {
 	return [[self alloc] initWithFile:tmxFile];
 }
 
-+(instancetype) tiledMapWithXML:(NSString*)tmxString resourcePath:(NSString*)resourcePath
++(id) tiledMapWithXML:(NSString*)tmxString resourcePath:(NSString*)resourcePath
 {
 	return [[self alloc] initWithXML:tmxString resourcePath:resourcePath];
 }
@@ -95,7 +95,7 @@
 	}
 }
 
--(instancetype) initWithXML:(NSString*)tmxString resourcePath:(NSString*)resourcePath
+-(id) initWithXML:(NSString*)tmxString resourcePath:(NSString*)resourcePath
 {
 	if ((self=[super init])) {
 
@@ -110,7 +110,7 @@
 	return self;
 }
 
--(instancetype) initWithFile:(NSString*)tmxFile
+-(id) initWithFile:(NSString*)tmxFile
 {
 	NSAssert(tmxFile != nil, @"TMXTiledMap: tmx file should not be nil");
 
@@ -206,7 +206,7 @@
 	return [_properties valueForKey:propertyName];
 }
 -(NSDictionary*)propertiesForGID:(unsigned int)GID{
-	return _tileProperties[[NSNumber numberWithInt:GID]];
+	return [_tileProperties objectForKey:[NSNumber numberWithInt:GID]];
 }
 @end
 

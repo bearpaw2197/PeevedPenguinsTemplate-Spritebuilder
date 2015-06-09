@@ -101,7 +101,7 @@
  * @param frequency The sampling frequency in Hz.
  * @return A new buffer.
  */
-+ (instancetype) bufferWithName:(NSString*) name
++ (id) bufferWithName:(NSString*) name
 				 data:(void*) data
 				 size:(ALsizei) size
 			   format:(ALenum) format
@@ -116,7 +116,7 @@
  * @param frequency The sampling frequency in Hz.
  * @return The initialized buffer.
  */
-- (instancetype) initWithName:(NSString*) name
+- (id) initWithName:(NSString*) name
 			   data:(void*) data
 			   size:(ALsizei) size
 			 format:(ALenum) format

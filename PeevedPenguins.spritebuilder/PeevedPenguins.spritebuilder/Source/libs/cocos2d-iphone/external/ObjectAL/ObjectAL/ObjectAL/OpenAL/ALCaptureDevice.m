@@ -37,7 +37,7 @@
 
 #pragma mark Object Management
 
-+ (instancetype) deviceWithDeviceSpecifier:(NSString*) deviceSpecifier
++ (id) deviceWithDeviceSpecifier:(NSString*) deviceSpecifier
 					   frequency:(ALCuint) frequency
 						  format:(ALCenum) format
 					  bufferSize:(ALCsizei) bufferSize
@@ -48,7 +48,7 @@
                                                      bufferSize:bufferSize]);
 }
 
-- (instancetype) initWithDeviceSpecifier:(NSString*) deviceSpecifier
+- (id) initWithDeviceSpecifier:(NSString*) deviceSpecifier
 					 frequency:(ALCuint) frequency
 						format:(ALCenum) format
 					bufferSize:(ALCsizei) bufferSize

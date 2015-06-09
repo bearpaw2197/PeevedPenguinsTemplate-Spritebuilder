@@ -16,7 +16,7 @@
 
 @implementation CCEffectInvertImpl
 
--(instancetype)init
+-(id)init
 {
     NSArray *fragFunctions = [CCEffectInvertImpl buildFragmentFunctions];
     NSArray *renderPasses = [CCEffectInvertImpl buildRenderPasses];
@@ -63,7 +63,7 @@
 
 @implementation CCEffectInvert
 
--(instancetype)init
+-(id)init
 {
     if((self = [super init]))
     {

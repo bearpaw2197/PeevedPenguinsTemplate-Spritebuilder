@@ -41,7 +41,7 @@
 }
 
 
-- (instancetype) initWithUrl:(NSURL*) urlIn
+- (id) initWithUrl:(NSURL*) urlIn
 	  reduceToMono:(bool) reduceToMonoIn
 {
 	if(nil != (self = [super init]))

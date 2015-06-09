@@ -73,7 +73,7 @@ typedef NS_ENUM(NSInteger, CCRenderTextureImageFormat)
  *  @return An initialized CCRenderTarget object.
  *  @see CCTexturePixelFormat
  */
-+(instancetype)renderTextureWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat) format depthStencilFormat:(GLuint)depthStencilFormat;
++(id)renderTextureWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat) format depthStencilFormat:(GLuint)depthStencilFormat;
 
 /**
  *  Creates a RenderTexture object with width and height in Points and a pixel format, only RGB and RGBA formats are valid
@@ -85,7 +85,7 @@ typedef NS_ENUM(NSInteger, CCRenderTextureImageFormat)
  *  @return An initialized CCRenderTarget object.
  *  @see CCTexturePixelFormat
  */
-+(instancetype)renderTextureWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat) format;
++(id)renderTextureWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat) format;
 
 /**
  *  Creates a RenderTexture object with width and height in Points, pixel format is RGBA8888
@@ -95,7 +95,7 @@ typedef NS_ENUM(NSInteger, CCRenderTextureImageFormat)
  *
  *  @return An initialized CCRenderTarget object.
  */
-+(instancetype)renderTextureWithWidth:(int)w height:(int)h;
++(id)renderTextureWithWidth:(int)w height:(int)h;
 
 /**
  *  Initializes a RenderTexture object with width and height in Points and a pixel format, only RGB and RGBA formats are valid
@@ -107,7 +107,7 @@ typedef NS_ENUM(NSInteger, CCRenderTextureImageFormat)
  *  @return An initialized CCRenderTarget object.
  *  @see CCTexturePixelFormat
  */
--(instancetype)initWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat) format;
+-(id)initWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat) format;
 
 /**
  *  Initializes a RenderTexture object with width and height in Points and a pixel format( only RGB and RGBA formats are valid ) and depthStencil format
@@ -120,10 +120,10 @@ typedef NS_ENUM(NSInteger, CCRenderTextureImageFormat)
  *  @return An initialized CCRenderTarget object.
  *  @see CCTexturePixelFormat
  */
-- (instancetype)initWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format depthStencilFormat:(GLuint)depthStencilFormat;
+- (id)initWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format depthStencilFormat:(GLuint)depthStencilFormat;
 
 
-- (instancetype)init;
+- (id)init;
 
 /**
  *  @name Begin and End Drawing
@@ -133,7 +133,7 @@ typedef NS_ENUM(NSInteger, CCRenderTextureImageFormat)
  Starts rendering to the texture whitout clearing the texture first.
  @returns A CCRenderer instance used for drawing.
  */
-@property (nonatomic, readonly, strong) CCRenderer *begin;
+-(CCRenderer *)begin;
 
 /**
  *  Starts rendering to the texture while clearing the texture first.
@@ -258,13 +258,13 @@ typedef NS_ENUM(NSInteger, CCRenderTextureImageFormat)
  
  @note Caller is responsible for releasing the CGImageRef by calling `CGImageRelease(imageRef)` on the returned CG image.
  */
-@property (nonatomic, readonly) CGImageRef newCGImage CF_RETURNS_RETAINED;
+-(CGImageRef) newCGImage;
 
 #if __CC_PLATFORM_IOS
 /**
  Returns a UIImage created from the texture.
  */
-@property (nonatomic, getter=getUIImage, readonly, strong) UIImage *UIImage;
+-(UIImage *) getUIImage;
 #endif // __CC_PLATFORM_IOS
 
 /**

@@ -33,7 +33,7 @@
 	return [[ self alloc] initWithDuration: t percent: v];
 }
 
--(instancetype) initWithDuration: (CCTime) t percent: (float) v
+-(id) initWithDuration: (CCTime) t percent: (float) v
 {
 	if( (self=[super initWithDuration: t] ) )
 		_to = v;
@@ -70,7 +70,7 @@
 	return [[self alloc] initWithDuration: t from: fromPercentage to: toPercentage];
 }
 
--(instancetype) initWithDuration: (CCTime) t from:(float)fromPercentage to:(float) toPercentage
+-(id) initWithDuration: (CCTime) t from:(float)fromPercentage to:(float) toPercentage
 {
 	if( (self=[super initWithDuration: t] ) ){
 		_to = toPercentage;

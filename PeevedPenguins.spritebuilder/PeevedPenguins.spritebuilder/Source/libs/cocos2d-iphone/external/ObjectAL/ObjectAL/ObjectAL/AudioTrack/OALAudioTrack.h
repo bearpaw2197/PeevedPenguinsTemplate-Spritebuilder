@@ -201,7 +201,7 @@ BRIDGE_CLASS("com.spritebuilder.OALAudioTrack")
  *
  * @return A new audio track.
  */
-+ (instancetype) track;
++ (id) track;
 
 
 #pragma mark Playback
@@ -356,7 +356,7 @@ BRIDGE_CLASS("com.spritebuilder.OALAudioTrack")
  *
  * @return TRUE if the operation was successful.
  */
-@property (nonatomic, readonly) bool play;
+- (bool) play;
 
 /** Plays a sound asynchronously, starting at a specified point in the audio output device’s timeline.
  *

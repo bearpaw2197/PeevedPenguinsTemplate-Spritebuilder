@@ -134,7 +134,7 @@
  * Posible attributes: ALC_FREQUENCY, ALC_REFRESH, ALC_SYNC, ALC_MONO_SOURCES, ALC_STEREO_SOURCES
  * @return A new context.
  */
-+ (instancetype) contextOnDevice:(ALDevice *) device attributes:(NSArray*) attributes;
++ (id) contextOnDevice:(ALDevice *) device attributes:(NSArray*) attributes;
 
 /** Create a new context on the specified device with attributes.
  *
@@ -148,7 +148,7 @@
  * @param stereoSources A hint indicating how many sources should support stereo (default 4 on iOS).
  * @return A new context.
  */
-+ (instancetype) contextOnDevice:(ALDevice*) device
++ (id) contextOnDevice:(ALDevice*) device
 	   outputFrequency:(int) outputFrequency
 	  refreshIntervals:(int) refreshIntervals 
 	synchronousContext:(bool) synchronousContext
@@ -168,7 +168,7 @@
  * @param stereoSources A hint indicating how many sources should support stereo (default 4 on iOS).
  * @return The initialized context.
  */
-- (instancetype) initOnDevice:(ALDevice*) device
+- (id) initOnDevice:(ALDevice*) device
 	outputFrequency:(int) outputFrequency
    refreshIntervals:(int) refreshIntervals 
  synchronousContext:(bool) synchronousContext
@@ -183,7 +183,7 @@
  * Posible attributes: ALC_FREQUENCY, ALC_REFRESH, ALC_SYNC, ALC_MONO_SOURCES, ALC_STEREO_SOURCES
  * @return The initialized context.
  */
-- (instancetype) initOnDevice:(ALDevice *) device attributes:(NSArray*) attributes;
+- (id) initOnDevice:(ALDevice *) device attributes:(NSArray*) attributes;
 
 
 #pragma mark Utility
@@ -225,7 +225,7 @@
  * @param functionName the name of the procedure to get.
  * @return the procedure's address, or NULL if it wasn't found.
  */
-- (void*) getProcAddress:(NSString*) functionName NS_RETURNS_INNER_POINTER;
+- (void*) getProcAddress:(NSString*) functionName;
 
 
 #pragma mark Internal Use

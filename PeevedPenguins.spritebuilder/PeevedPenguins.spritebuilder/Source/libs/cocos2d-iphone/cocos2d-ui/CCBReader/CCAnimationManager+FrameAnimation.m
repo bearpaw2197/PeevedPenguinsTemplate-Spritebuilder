@@ -18,16 +18,20 @@
     
     for(NSString* frame in animFrames) {
         // Create Frame(s)
-        NSDictionary* frameDict = @{@"value": frame,
-                                   @"time": @(nextTime)};
+        NSDictionary* frameDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   frame, @"value",
+                                   [NSNumber numberWithFloat:nextTime], @"time",
+                                   nil];
         
         [keyFrames addObject:frameDict];
         nextTime+=delay;
     }
     
     // Return to first frame
-    NSDictionary* frameDict = @{@"value": [animFrames firstObject],
-                               @"time": @(nextTime)};
+    NSDictionary* frameDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                               [animFrames firstObject], @"value",
+                               [NSNumber numberWithFloat:(nextTime)], @"time",
+                               nil];
     
     [keyFrames addObject:frameDict];
     
@@ -45,10 +49,10 @@
         
         [animFrames removeAllObjects];
         
-		NSDictionary* animationDict = animations[name];
-		NSArray *frameNames = animationDict[@"frames"];
+		NSDictionary* animationDict = [animations objectForKey:name];
+		NSArray *frameNames = [animationDict objectForKey:@"frames"];
         
-		float delay = [animationDict[@"delay"] floatValue];
+		float delay = [[animationDict objectForKey:@"delay"] floatValue];
 
 		if ( frameNames == nil ) {
 			CCLOG(@"Animation '%@' found in dictionary without any frames - Skipping", name);
@@ -78,12 +82,12 @@
 	for( NSString *name in animationNames ) {
         
         [animFrames removeAllObjects];
-		NSDictionary* animationDict = animations[name];
+		NSDictionary* animationDict = [animations objectForKey:name];
         
 		//int loops = [[animationDict objectForKey:@"loops"] intValue];
 		//BOOL restoreOriginalFrame = [[animationDict objectForKey:@"restoreOriginalFrame"] boolValue];
         
-		NSArray *frameArray = animationDict[@"frames"];
+		NSArray *frameArray = [animationDict objectForKey:@"frames"];
 		
 		if ( frameArray == nil ) {
 			CCLOG(@"Animation '%@' found in dictionary without any frames - Skipping", name);
@@ -91,7 +95,7 @@
 		}
         
 		for( NSDictionary *entry in frameArray ) {
-			NSString *spriteFrameName = entry[@"spriteframe"];
+			NSString *spriteFrameName = [entry objectForKey:@"spriteframe"];
 			CCSpriteFrame *spriteFrame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:spriteFrameName];
 			
 			if ( !spriteFrame ) {
@@ -105,14 +109,14 @@
 			//NSDictionary *userInfo = [entry objectForKey:@"notification"];
 		}
 		
-		float delayPerUnit = [animationDict[@"delayPerUnit"] floatValue];
+		float delayPerUnit = [[animationDict objectForKey:@"delayPerUnit"] floatValue];
 
         [self animationWithSpriteFrames:animFrames delay:delayPerUnit name:name node:node loop:YES];
 	}
 }
 
 - (void)addAnimationsWithDictionary:(NSDictionary *)dictionary node:(CCNode*)node {
-	NSDictionary *animations = dictionary[@"animations"];
+	NSDictionary *animations = [dictionary objectForKey:@"animations"];
     
 	if ( animations == nil ) {
 		CCLOG(@"No animations were found in dictionary.");
@@ -120,12 +124,12 @@
 	}
 	
 	NSUInteger version = 1;
-	NSDictionary *properties = dictionary[@"properties"];
+	NSDictionary *properties = [dictionary objectForKey:@"properties"];
 	if( properties ) {
-		version = [properties[@"format"] intValue];
+		version = [[properties objectForKey:@"format"] intValue];
     }
 	
-	NSArray *spritesheets = properties[@"spritesheets"];
+	NSArray *spritesheets = [properties objectForKey:@"spritesheets"];
     
     // Ensure Sheets Loaded
 	for( NSString *name in spritesheets ) {

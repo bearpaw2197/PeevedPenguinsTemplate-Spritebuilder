@@ -110,7 +110,7 @@
  *
  *  @return An initialized CCLabelBMFont Object.
  */
--(instancetype) initWithString:(NSString*)string fntFile:(NSString*)fntFile;
+-(id) initWithString:(NSString*)string fntFile:(NSString*)fntFile;
 
 /**
  *  Initializes and returns a label object using the specified text, font file and alignment values.
@@ -123,7 +123,7 @@
  *  @return An initialized CCLabelBMFont Object.
  *  @see CCTextAlignment
  */
--(instancetype) initWithString:(NSString*)string fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment;
+-(id) initWithString:(NSString*)string fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment;
 
 /**
  *  Initializes and returns a label object using the specified text, font file, alignment and image offset values.
@@ -137,7 +137,7 @@
  *  @return An initialized CCLabelBMFont Object.
  *  @see CCTextAlignment
  */
--(instancetype) initWithString:(NSString*)string fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment imageOffset:(CGPoint)offset;
+-(id) initWithString:(NSString*)string fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment imageOffset:(CGPoint)offset;
 
 
 /// -----------------------------------------------------------------------

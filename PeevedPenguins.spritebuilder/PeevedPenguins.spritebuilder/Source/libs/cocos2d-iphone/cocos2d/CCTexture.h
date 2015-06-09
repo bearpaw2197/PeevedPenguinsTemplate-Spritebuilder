@@ -140,7 +140,7 @@ typedef NS_ENUM(NSUInteger, CCTexturePixelFormat) {
  *  @return An initialized CCTexture Object.
  *  @see CCTexturePixelFormat
  */
-- (instancetype)initWithData:(const void*)data pixelFormat:(CCTexturePixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSizeInPixels:(CGSize)sizeInPixels contentScale:(CGFloat)contentScale;
+- (id)initWithData:(const void*)data pixelFormat:(CCTexturePixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSizeInPixels:(CGSize)sizeInPixels contentScale:(CGFloat)contentScale;
 
 /**
  *  Creates and returns a new texture, based on the specified image file path.
@@ -168,7 +168,7 @@ typedef NS_ENUM(NSUInteger, CCTexturePixelFormat) {
  *  @return A new sprite frame.
  *  @see CCSpriteFrame
  */
-@property (nonatomic, readonly, strong) CCSpriteFrame *createSpriteFrame;
+-(CCSpriteFrame*)createSpriteFrame;
 
 /// -------------------------------------------------------
 /// @name Texture Format and Size
@@ -185,7 +185,7 @@ typedef NS_ENUM(NSUInteger, CCTexturePixelFormat) {
 @property(nonatomic,readonly) NSUInteger pixelHeight;
 
 /** Returns the content size of the texture in points. */
-@property (nonatomic, readonly) CGSize contentSize;
+-(CGSize)contentSize;
 
 /** Returns content size of the texture in pixels. */
 @property(nonatomic,readonly, nonatomic) CGSize contentSizeInPixels;
@@ -224,7 +224,7 @@ typedef NS_ENUM(NSUInteger, CCTexturePixelFormat) {
  *
  *  @return An initialized CCTexture object.
  */
-- (instancetype)initWithCGImage:(CGImageRef)cgImage contentScale:(CGFloat)contentScale;
+- (id)initWithCGImage:(CGImageRef)cgImage contentScale:(CGFloat)contentScale;
 
 @end
 
@@ -257,10 +257,10 @@ typedef NS_ENUM(NSUInteger, CCTexturePixelFormat) {
  *
  *  @return Number of bits per pixel.
  */
-@property (nonatomic, readonly) NSUInteger bitsPerPixelForFormat;
+-(NSUInteger)bitsPerPixelForFormat;
 
 /** Returns the pixel format in a NSString. */
-@property (nonatomic, readonly, copy) NSString *stringForFormat;
+-(NSString*)stringForFormat;
 
 /**
  *  Helper functions that returns bits per pixels for a given format.

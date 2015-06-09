@@ -43,18 +43,18 @@
 
 @synthesize controlPoints = _controlPoints;
 
-+(instancetype) arrayWithCapacity:(NSUInteger)capacity
++(id) arrayWithCapacity:(NSUInteger)capacity
 {
 	return [[self alloc] initWithCapacity:capacity];
 }
 
--(instancetype) init
+-(id) init
 {
 	return [self initWithCapacity:50];
 }
 
 // designated initializer
--(instancetype) initWithCapacity:(NSUInteger)capacity
+-(id) initWithCapacity:(NSUInteger)capacity
 {
 	if( (self=[super init])) {
 		_controlPoints = [[NSMutableArray alloc] initWithCapacity:capacity];
@@ -103,7 +103,7 @@
     NSValue *value = [_controlPoints objectAtIndex:index];
 	CGPoint point = NSPointToCGPoint([value pointValue]);
 #elif __CC_PLATFORM_IOS || __CC_PLATFORM_ANDROID
-    NSValue *value = _controlPoints[index];
+    NSValue *value = [_controlPoints objectAtIndex:index];
 	CGPoint point = [value CGPointValue];
 #endif
 
@@ -118,7 +118,7 @@
 	NSValue *value = [NSValue valueWithCGPoint:controlPoint];
 #endif
 
-	_controlPoints[index] = value;
+	[_controlPoints replaceObjectAtIndex:index withObject:value];
 }
 
 -(void) removeControlPointAtIndex:(NSUInteger)index
@@ -191,7 +191,7 @@ inline CGPoint CCCardinalSplineAt( CGPoint p0, CGPoint p1, CGPoint p2, CGPoint p
 	return [[self alloc] initWithDuration:duration points:points tension:tension ];
 }
 
--(instancetype) initWithDuration:(CCTime)duration points:(CCPointArray *)points tension:(CGFloat)tension								
+-(id) initWithDuration:(CCTime)duration points:(CCPointArray *)points tension:(CGFloat)tension								
 {
 	NSAssert( [points count] > 0, @"Invalid configuration. It must at least have one control point");
 
@@ -342,7 +342,7 @@ inline CGPoint CCCardinalSplineAt( CGPoint p0, CGPoint p1, CGPoint p2, CGPoint p
 	return [[self alloc] initWithDuration:dt points:points];
 }
 
--(instancetype) initWithDuration:(CCTime)dt points:(CCPointArray *)points
+-(id) initWithDuration:(CCTime)dt points:(CCPointArray *)points
 {
 	if( (self=[super initWithDuration:dt points:points tension:0.5f]) ) {
 		
@@ -358,7 +358,7 @@ inline CGPoint CCCardinalSplineAt( CGPoint p0, CGPoint p1, CGPoint p2, CGPoint p
 	return [[self alloc] initWithDuration:dt points:points];
 }
 
--(instancetype) initWithDuration:(CCTime)dt points:(CCPointArray *)points
+-(id) initWithDuration:(CCTime)dt points:(CCPointArray *)points
 {
 	if( (self=[super initWithDuration:dt points:points tension:0.5f]) ) {
 		

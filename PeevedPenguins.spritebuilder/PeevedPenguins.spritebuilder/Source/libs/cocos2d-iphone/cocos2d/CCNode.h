@@ -245,10 +245,10 @@
 /** Creates and returns a new node.
  @note Not all subclasses support initialization via the `node` initializer. Prefer to use specialized initializers
  in CCNode subclasses, where available. */
-+(instancetype) node;
++(id) node;
 
 // purposefully undocumented: init is inherited from NSObject
--(instancetype) init;
+-(id) init;
 
 /// -----------------------------------------------------------------------
 /// @name Storing Custom Information
@@ -418,7 +418,7 @@
 /** Returns an axis aligned bounding box in points, in the parent node's coordinate system.
  @see contentSize
  @see nodeToParentTransform */
-@property (nonatomic, readonly) CGRect boundingBox;
+- (CGRect) boundingBox;
 
 /// -----------------------------------------------------------------------
 /// @name Content Anchor
@@ -696,7 +696,7 @@
  - If you are running 2 Sequences each with 7 actions, it will return 2.
  - If you are running 7 Sequences each with 2 actions, it will return 7.
  */
-@property (nonatomic, readonly) NSUInteger numberOfRunningActions;
+-(NSUInteger) numberOfRunningActions;
 
 /// -----------------------------------------------------------------------
 /// @name SpriteBuilder Animation Manager
@@ -811,26 +811,26 @@
  @see [CGAffineTransform](https://developer.apple.com/library/ios/documentation/graphicsimaging/reference/CGAffineTransform/index.html)
  @see parentToNodeTransform
  */
-@property (nonatomic, readonly) CGAffineTransform nodeToParentTransform;
+- (CGAffineTransform)nodeToParentTransform;
 
 /** Returns the matrix that transform parent's space coordinates to the node's (local) space coordinates. The matrix is in Pixels.
  @see [CGAffineTransform](https://developer.apple.com/library/ios/documentation/graphicsimaging/reference/CGAffineTransform/index.html)
  @see nodeToParentTransform
 */
-@property (nonatomic, readonly) CGAffineTransform parentToNodeTransform;
+- (CGAffineTransform)parentToNodeTransform;
 
 /** Returns the world affine transform matrix. The matrix is in Pixels.
  @see [CGAffineTransform](https://developer.apple.com/library/ios/documentation/graphicsimaging/reference/CGAffineTransform/index.html)
  @see nodeToParentTransform
  @see worldToNodeTransform
 */
-@property (nonatomic, readonly) CGAffineTransform nodeToWorldTransform;
+- (CGAffineTransform)nodeToWorldTransform;
 
 /** Returns the inverse world affine transform matrix. The matrix is in Pixels.
  @see [CGAffineTransform](https://developer.apple.com/library/ios/documentation/graphicsimaging/reference/CGAffineTransform/index.html)
  @see nodeToWorldTransform
 */
-@property (nonatomic, readonly) CGAffineTransform worldToNodeTransform;
+- (CGAffineTransform)worldToNodeTransform;
 
 /// -----------------------------------------------------------------------
 /// @name Converting Point and Size "Types"

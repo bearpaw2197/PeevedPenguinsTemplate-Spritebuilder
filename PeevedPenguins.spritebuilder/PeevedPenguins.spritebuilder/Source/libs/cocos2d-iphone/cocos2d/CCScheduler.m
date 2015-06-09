@@ -90,7 +90,7 @@ InvokeMethods(NSArray *methods, SEL selector, CCTime dt)
 	}
 }
 
--(instancetype)initWithTarget:(NSObject<CCSchedulerTarget> *)target
+-(id)initWithTarget:(NSObject<CCSchedulerTarget> *)target
 {
 	if((self = [super init])){
 		_target = target;
@@ -209,7 +209,7 @@ static CCTimerBlock INVALIDATED_BLOCK = ^(CCTimer *timer){};
 
 @implementation CCTimer(Private)
 
--(instancetype)initWithDelay:(CCTime)delay scheduler:(CCScheduler *)scheduler scheduledTarget:(CCScheduledTarget *)scheduledTarget block:(CCTimerBlock)block;
+-(id)initWithDelay:(CCTime)delay scheduler:(CCScheduler *)scheduler scheduledTarget:(CCScheduledTarget *)scheduledTarget block:(CCTimerBlock)block;
 {
 	if((self = [super init])){
 		_deltaTime = delay;
@@ -282,7 +282,7 @@ CompareTimers(const void *a, const void *b, void *context)
 	}
 }
 
--(instancetype)init
+-(id)init
 {
 	if((self = [super init])){
 		_timeScale = 1.0;

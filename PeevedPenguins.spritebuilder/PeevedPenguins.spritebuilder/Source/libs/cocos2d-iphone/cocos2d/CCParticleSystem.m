@@ -55,7 +55,7 @@
 }
 
 // overriding the init method
--(instancetype) initWithTotalParticles:(NSUInteger) numberOfParticles
+-(id) initWithTotalParticles:(NSUInteger) numberOfParticles
 {
 	// base initialization
 	if( (self=[super initWithTotalParticles:numberOfParticles]) ) {

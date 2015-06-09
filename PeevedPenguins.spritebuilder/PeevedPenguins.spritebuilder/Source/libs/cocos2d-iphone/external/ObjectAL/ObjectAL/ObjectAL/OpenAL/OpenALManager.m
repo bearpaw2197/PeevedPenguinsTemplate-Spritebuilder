@@ -162,7 +162,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(OpenALManager);
 
 @synthesize realCurrentContext;
 
-- (instancetype) init
+- (id) init
 {
 	if(nil != (self = [super init]))
 	{

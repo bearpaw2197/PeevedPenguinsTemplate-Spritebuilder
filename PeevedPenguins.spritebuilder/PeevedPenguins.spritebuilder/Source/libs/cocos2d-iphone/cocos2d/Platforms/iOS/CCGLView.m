@@ -179,37 +179,37 @@ extern EAGLContext *CCRenderDispatchSetupGL(EAGLRenderingAPI api, EAGLSharegroup
 	return [CAEAGLLayer class];
 }
 
-+ (instancetype) viewWithFrame:(CGRect)frame
++ (id) viewWithFrame:(CGRect)frame
 {
 	return [[self alloc] initWithFrame:frame];
 }
 
-+ (instancetype) viewWithFrame:(CGRect)frame pixelFormat:(NSString*)format
++ (id) viewWithFrame:(CGRect)frame pixelFormat:(NSString*)format
 {
 	return [[self alloc] initWithFrame:frame pixelFormat:format];
 }
 
-+ (instancetype) viewWithFrame:(CGRect)frame pixelFormat:(NSString*)format depthFormat:(GLuint)depth
++ (id) viewWithFrame:(CGRect)frame pixelFormat:(NSString*)format depthFormat:(GLuint)depth
 {
 	return [[self alloc] initWithFrame:frame pixelFormat:format depthFormat:depth preserveBackbuffer:NO sharegroup:nil multiSampling:NO numberOfSamples:0];
 }
 
-+ (instancetype) viewWithFrame:(CGRect)frame pixelFormat:(NSString*)format depthFormat:(GLuint)depth preserveBackbuffer:(BOOL)retained sharegroup:(EAGLSharegroup*)sharegroup multiSampling:(BOOL)multisampling numberOfSamples:(unsigned int)samples
++ (id) viewWithFrame:(CGRect)frame pixelFormat:(NSString*)format depthFormat:(GLuint)depth preserveBackbuffer:(BOOL)retained sharegroup:(EAGLSharegroup*)sharegroup multiSampling:(BOOL)multisampling numberOfSamples:(unsigned int)samples
 {
 	return [[self alloc] initWithFrame:frame pixelFormat:format depthFormat:depth preserveBackbuffer:retained sharegroup:sharegroup multiSampling:multisampling numberOfSamples:samples];
 }
 
-- (instancetype) initWithFrame:(CGRect)frame
+- (id) initWithFrame:(CGRect)frame
 {
 	return [self initWithFrame:frame pixelFormat:kEAGLColorFormatRGB565 depthFormat:0 preserveBackbuffer:NO sharegroup:nil multiSampling:NO numberOfSamples:0];
 }
 
-- (instancetype) initWithFrame:(CGRect)frame pixelFormat:(NSString*)format
+- (id) initWithFrame:(CGRect)frame pixelFormat:(NSString*)format
 {
 	return [self initWithFrame:frame pixelFormat:format depthFormat:0 preserveBackbuffer:NO sharegroup:nil multiSampling:NO numberOfSamples:0];
 }
 
-- (instancetype) initWithFrame:(CGRect)frame pixelFormat:(NSString*)format depthFormat:(GLuint)depth preserveBackbuffer:(BOOL)retained sharegroup:(EAGLSharegroup*)sharegroup multiSampling:(BOOL)sampling numberOfSamples:(unsigned int)nSamples
+- (id) initWithFrame:(CGRect)frame pixelFormat:(NSString*)format depthFormat:(GLuint)depth preserveBackbuffer:(BOOL)retained sharegroup:(EAGLSharegroup*)sharegroup multiSampling:(BOOL)sampling numberOfSamples:(unsigned int)nSamples
 {
 	if((self = [super initWithFrame:frame]))
 	{
@@ -241,7 +241,7 @@ extern EAGLContext *CCRenderDispatchSetupGL(EAGLRenderingAPI api, EAGLSharegroup
 	return self;
 }
 
--(instancetype) initWithCoder:(NSCoder *)aDecoder
+-(id) initWithCoder:(NSCoder *)aDecoder
 {
 	if( (self = [super initWithCoder:aDecoder]) ) {
 
@@ -265,8 +265,9 @@ extern EAGLContext *CCRenderDispatchSetupGL(EAGLRenderingAPI api, EAGLSharegroup
 	CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
 
 	eaglLayer.opaque = YES;
-	eaglLayer.drawableProperties = @{kEAGLDrawablePropertyRetainedBacking: @(_preserveBackbuffer),
-									kEAGLDrawablePropertyColorFormat: _pixelFormat};
+	eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
+									[NSNumber numberWithBool:_preserveBackbuffer], kEAGLDrawablePropertyRetainedBacking,
+									_pixelFormat, kEAGLDrawablePropertyColorFormat, nil];
 
 	// ES2 renderer only
 #if CC_RENDER_DISPATCH_ENABLED

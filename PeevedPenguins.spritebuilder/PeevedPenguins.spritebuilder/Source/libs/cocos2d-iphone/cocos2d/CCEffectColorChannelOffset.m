@@ -21,7 +21,7 @@
 
 @implementation CCEffectColorChannelOffsetImpl
 
--(instancetype)initWithInterface:(CCEffectColorChannelOffset *)interface
+-(id)initWithInterface:(CCEffectColorChannelOffset *)interface
 {
     NSArray *fragUniforms = @[
                               [CCEffectUniform uniform:@"vec2" name:@"u_redOffset" value:[NSValue valueWithGLKVector2:GLKVector2Make(0.0f, 0.0f)]],
@@ -104,7 +104,7 @@
 
 @implementation CCEffectColorChannelOffset
 
--(instancetype)init
+-(id)init
 {
     return [self initWithRedOffsetWithPoint:CGPointMake(0.0f, 0.0f) greenOffsetWithPoint:CGPointMake(0.0f, 0.0f) blueOffsetWithPoint:CGPointMake(0.0f, 0.0f)];
 }
@@ -124,7 +124,7 @@
     return self;
 }
 
--(instancetype)initWithRedOffsetWithPoint:(CGPoint)redOffset greenOffsetWithPoint:(CGPoint)greenOffset blueOffsetWithPoint:(CGPoint)blueOffset
+-(id)initWithRedOffsetWithPoint:(CGPoint)redOffset greenOffsetWithPoint:(CGPoint)greenOffset blueOffsetWithPoint:(CGPoint)blueOffset
 {    
     if((self = [super init]))
     {

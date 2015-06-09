@@ -111,7 +111,7 @@
                        (stereo samples don't support panning or positional audio).
  * @return the initialized audio file object.
  */
-- (instancetype) initWithUrl:(NSURL*) url
+- (id) initWithUrl:(NSURL*) url
 	  reduceToMono:(bool) reduceToMono;
 
 /** Read audio data from this file into a new buffer.
@@ -123,7 +123,7 @@
  */
 - (void*) audioDataWithStartFrame:(SInt64) startFrame
 						numFrames:(SInt64) numFrames
-					   bufferSize:(UInt32*) bufferSize NS_RETURNS_INNER_POINTER;
+					   bufferSize:(UInt32*) bufferSize;
 
 /** Create a new ALBuffer with the contents of this file.
  *

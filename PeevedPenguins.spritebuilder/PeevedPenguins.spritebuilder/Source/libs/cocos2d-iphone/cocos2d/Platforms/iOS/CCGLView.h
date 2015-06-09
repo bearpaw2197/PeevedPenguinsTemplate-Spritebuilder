@@ -104,20 +104,20 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 @interface CCGLView : UIView <CCDirectorView>
 
 /** creates an initializes an CCGLView with a frame and 0-bit depth buffer, and a RGB565 color buffer. */
-+ (instancetype) viewWithFrame:(CGRect)frame;
++ (id) viewWithFrame:(CGRect)frame;
 /** creates an initializes an CCGLView with a frame, a color buffer format, and 0-bit depth buffer. */
-+ (instancetype) viewWithFrame:(CGRect)frame pixelFormat:(NSString*)format;
++ (id) viewWithFrame:(CGRect)frame pixelFormat:(NSString*)format;
 /** creates an initializes an CCGLView with a frame, a color buffer format, and a depth buffer. */
-+ (instancetype) viewWithFrame:(CGRect)frame pixelFormat:(NSString*)format depthFormat:(GLuint)depth;
++ (id) viewWithFrame:(CGRect)frame pixelFormat:(NSString*)format depthFormat:(GLuint)depth;
 /** creates an initializes an CCGLView with a frame, a color buffer format, a depth buffer format, a sharegroup, and multisamping */
-+ (instancetype) viewWithFrame:(CGRect)frame pixelFormat:(NSString*)format depthFormat:(GLuint)depth preserveBackbuffer:(BOOL)retained sharegroup:(EAGLSharegroup*)sharegroup multiSampling:(BOOL)multisampling numberOfSamples:(unsigned int)samples;
++ (id) viewWithFrame:(CGRect)frame pixelFormat:(NSString*)format depthFormat:(GLuint)depth preserveBackbuffer:(BOOL)retained sharegroup:(EAGLSharegroup*)sharegroup multiSampling:(BOOL)multisampling numberOfSamples:(unsigned int)samples;
 
 /** Initializes an CCGLView with a frame and 0-bit depth buffer, and a RGB565 color buffer */
-- (instancetype) initWithFrame:(CGRect)frame; //These also set the current context
+- (id) initWithFrame:(CGRect)frame; //These also set the current context
 /** Initializes an CCGLView with a frame, a color buffer format, and 0-bit depth buffer */
-- (instancetype) initWithFrame:(CGRect)frame pixelFormat:(NSString*)format;
+- (id) initWithFrame:(CGRect)frame pixelFormat:(NSString*)format;
 /** Initializes an CCGLView with a frame, a color buffer format, a depth buffer format, a sharegroup and multisampling support */
-- (instancetype) initWithFrame:(CGRect)frame pixelFormat:(NSString*)format depthFormat:(GLuint)depth preserveBackbuffer:(BOOL)retained sharegroup:(EAGLSharegroup*)sharegroup multiSampling:(BOOL)sampling numberOfSamples:(unsigned int)nSamples;
+- (id) initWithFrame:(CGRect)frame pixelFormat:(NSString*)format depthFormat:(GLuint)depth preserveBackbuffer:(BOOL)retained sharegroup:(EAGLSharegroup*)sharegroup multiSampling:(BOOL)sampling numberOfSamples:(unsigned int)nSamples;
 
 /** pixel format: it could be RGBA8 (32-bit) or RGB565 (16-bit) */
 @property(nonatomic,readonly) NSString* pixelFormat;

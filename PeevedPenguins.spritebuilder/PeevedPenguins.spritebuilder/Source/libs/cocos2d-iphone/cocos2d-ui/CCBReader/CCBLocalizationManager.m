@@ -29,7 +29,7 @@
 
 @synthesize translations = _translations;
 
-+ (CCBLocalizationManager*)sharedManager
++ (id)sharedManager
 {
 	static dispatch_once_t pred;
 	static CCBLocalizationManager *loc = nil;
@@ -39,7 +39,7 @@
 	return loc;
 }
 
-- (instancetype) init
+- (id) init
 {
     self = [super init];
     if (!self) return NULL;
@@ -58,13 +58,13 @@
     NSDictionary* ser = [NSDictionary dictionaryWithContentsOfFile:path];
     
     // Check that format of file is correct
-    NSAssert([ser[@"fileType"] isEqualToString:@"SpriteBuilderTranslations"], @"Invalid file format for SpriteBuilder localizations");
+    NSAssert([[ser objectForKey:@"fileType"] isEqualToString:@"SpriteBuilderTranslations"], @"Invalid file format for SpriteBuilder localizations");
     
     // Check that file version is correct
-    NSAssert([ser[@"fileVersion"] intValue] == 1, @"Translation file version is incompatible with this reader");
+    NSAssert([[ser objectForKey:@"fileVersion"] intValue] == 1, @"Translation file version is incompatible with this reader");
     
     // Load available languages
-    NSArray* languages = ser[@"activeLanguages"];
+    NSArray* languages = [ser objectForKey:@"activeLanguages"];
     
     // Determine which language to use
     NSString* userLanguage = NULL;
@@ -85,16 +85,16 @@
     // Load translations
     if (userLanguage != NULL)
     {
-        NSArray* translations = ser[@"translations"];
+        NSArray* translations = [ser objectForKey:@"translations"];
         
         for (NSDictionary* translation in translations)
         {
-            NSString* key = translation[@"key"];
-            NSString* value = ((NSDictionary*)translation[@"translations"])[userLanguage];
+            NSString* key = [translation objectForKey:@"key"];
+            NSString* value = [(NSDictionary*)[translation objectForKey:@"translations"] objectForKey:userLanguage];
             
             if (key != NULL && value != NULL)
             {
-                _translations[key] = value;
+                [_translations setObject:value forKey:key];
             }
         }
     }
@@ -102,7 +102,7 @@
 
 - (NSString*) localizedStringForKey:(NSString*)key
 {
-    NSString* localizedString = _translations[key];
+    NSString* localizedString = [_translations objectForKey:key];
     if (!localizedString) localizedString = key;
     return localizedString;
 }

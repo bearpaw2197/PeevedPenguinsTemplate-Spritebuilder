@@ -117,7 +117,7 @@ both(cpShapeFilter, filter, Filter)
 }
 
 
-- (NSArray *)chipmunkObjects {return @[self];}
+- (NSArray *)chipmunkObjects {return [NSArray arrayWithObject:self];}
 - (void)addToSpace:(ChipmunkSpace *)space {[space addShape:self];}
 - (void)removeFromSpace:(ChipmunkSpace *)space {[space removeShape:self];}
 
@@ -126,7 +126,7 @@ both(cpShapeFilter, filter, Filter)
 
 @implementation ChipmunkPointQueryInfo
 
-- (instancetype)initWithInfo:(cpPointQueryInfo *)info
+- (id)initWithInfo:(cpPointQueryInfo *)info
 {
 	if((self = [super init])){
 		_info = (*info);
@@ -154,7 +154,7 @@ both(cpShapeFilter, filter, Filter)
 
 @implementation ChipmunkSegmentQueryInfo
 
-- (instancetype)initWithInfo:(cpSegmentQueryInfo *)info start:(cpVect)start end:(cpVect)end
+- (id)initWithInfo:(cpSegmentQueryInfo *)info start:(cpVect)start end:(cpVect)end
 {
 	if((self = [super init])){
 		_info = (*info);
@@ -191,7 +191,7 @@ both(cpShapeFilter, filter, Filter)
 @synthesize shape = _shape;
 - (cpContactPointSet *)contactPoints {return &_contactPoints;}
 
-- (instancetype)initWithShape:(ChipmunkShape *)shape andPoints:(cpContactPointSet *)set
+- (id)initWithShape:(ChipmunkShape *)shape andPoints:(cpContactPointSet *)set
 {
 	if((self = [super init])){
 		_shape = [shape retain];
@@ -220,7 +220,7 @@ both(cpShapeFilter, filter, Filter)
 
 - (cpShape *)shape {return (cpShape *)&_shape;}
 
-- (instancetype)initWithBody:(ChipmunkBody *)body radius:(cpFloat)radius offset:(cpVect)offset {
+- (id)initWithBody:(ChipmunkBody *)body radius:(cpFloat)radius offset:(cpVect)offset {
 	if((self = [super init])){
 		[body retain];
 		cpCircleShapeInit(&_shape, body.body, radius, offset);
@@ -247,7 +247,7 @@ both(cpShapeFilter, filter, Filter)
 
 - (cpShape *)shape {return (cpShape *)&_shape;}
 
-- (instancetype)initWithBody:(ChipmunkBody *)body from:(cpVect)a to:(cpVect)b radius:(cpFloat)radius {
+- (id)initWithBody:(ChipmunkBody *)body from:(cpVect)a to:(cpVect)b radius:(cpFloat)radius {
 	if((self = [super init])){
 		[body retain];
 		cpSegmentShapeInit(&_shape, body.body, a, b, radius);
@@ -291,7 +291,7 @@ both(cpShapeFilter, filter, Filter)
 
 - (cpShape *)shape {return (cpShape *)&_shape;}
 
-- (instancetype)initWithBody:(ChipmunkBody *)body count:(int)count verts:(const cpVect *)verts transform:(cpTransform)transform radius:(cpFloat)radius
+- (id)initWithBody:(ChipmunkBody *)body count:(int)count verts:(const cpVect *)verts transform:(cpTransform)transform radius:(cpFloat)radius
 {
 	if((self = [super init])){
 		[body retain];
@@ -302,7 +302,7 @@ both(cpShapeFilter, filter, Filter)
 	return self;
 }
 
-- (instancetype)initBoxWithBody:(ChipmunkBody *)body width:(cpFloat)width height:(cpFloat)height radius:(cpFloat)radius
+- (id)initBoxWithBody:(ChipmunkBody *)body width:(cpFloat)width height:(cpFloat)height radius:(cpFloat)radius
 {
 	if((self = [super init])){
 		[body retain];
@@ -313,7 +313,7 @@ both(cpShapeFilter, filter, Filter)
 	return self;
 }
 
-- (instancetype)initBoxWithBody:(ChipmunkBody *)body bb:(cpBB)bb radius:(cpFloat)radius
+- (id)initBoxWithBody:(ChipmunkBody *)body bb:(cpBB)bb radius:(cpFloat)radius
 {
 	if((self = [super init])){
 		[body retain];

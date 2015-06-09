@@ -62,7 +62,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_PROTOTYPE(OALActionManager);
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(OALActionManager);
 
-- (instancetype) init
+- (id) init
 {
 	if(nil != (self = [super init]))
 	{
@@ -146,7 +146,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(OALActionManager);
 				}
 
 				// Get the list of actions operating on this target and add the new action.
-				NSMutableArray* actions = targetActions[index];
+				NSMutableArray* actions = [targetActions objectAtIndex:index];
 				[actions addObject:action];
 			}
 		}
@@ -161,7 +161,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(OALActionManager);
 			if(NSNotFound != index)
 			{
 				// Remove the action.
-				NSMutableArray* actions = targetActions[index];
+				NSMutableArray* actions = [targetActions objectAtIndex:index];
 				[actions removeObject:action];
 				if([actions count] == 0)
 				{

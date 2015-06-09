@@ -337,10 +337,10 @@ CGPoint ccpIntersectPoint(CGPoint A, CGPoint B, CGPoint C, CGPoint D);
 + (NSValue *)valueWithCGRect:(CGRect)rect;
 + (NSValue *)valueWithCGAffineTransform:(CGAffineTransform)transform;
 
-@property (nonatomic, readonly) CGPoint CGPointValue;
-@property (nonatomic, readonly) CGSize CGSizeValue;
-@property (nonatomic, readonly) CGRect CGRectValue;
-@property (nonatomic, readonly) CGAffineTransform CGAffineTransformValue;
+- (CGPoint)CGPointValue;
+- (CGSize)CGSizeValue;
+- (CGRect)CGRectValue;
+- (CGAffineTransform)CGAffineTransformValue;
 
 @end
     

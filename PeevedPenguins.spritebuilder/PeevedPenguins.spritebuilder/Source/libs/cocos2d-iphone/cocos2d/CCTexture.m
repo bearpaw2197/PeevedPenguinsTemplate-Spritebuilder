@@ -118,7 +118,7 @@ static const MTLPixelFormat MetalPixelFormats[] = {
     id _target;
 }
 
-- (instancetype)initWithTarget:(id)target
+- (id)initWithTarget:(id)target
 {
     if ((self = [super init]))
     {
@@ -221,12 +221,12 @@ static CCTexture *CCTextureNone = nil;
 	return CCTextureNone;
 }
 
-+ (instancetype) textureWithFile:(NSString*)file
++ (id) textureWithFile:(NSString*)file
 {
     return [[CCTextureCache sharedTextureCache] addImage:file];
 }
 
-- (instancetype) initWithData:(const void*)data pixelFormat:(CCTexturePixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSizeInPixels:(CGSize)sizeInPixels contentScale:(CGFloat)contentScale
+- (id) initWithData:(const void*)data pixelFormat:(CCTexturePixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSizeInPixels:(CGSize)sizeInPixels contentScale:(CGFloat)contentScale
 {
 	NSAssert([CCConfiguration sharedConfiguration].graphicsAPI != CCGraphicsAPIInvalid, @"Graphics API not configured.");
 	
@@ -440,7 +440,7 @@ static CCTexture *CCTextureNone = nil;
 
 @implementation CCTexture (Image)
 
-- (instancetype) initWithCGImage:(CGImageRef)cgImage contentScale:(CGFloat)contentScale
+- (id) initWithCGImage:(CGImageRef)cgImage contentScale:(CGFloat)contentScale
 {
 	NSUInteger				textureWidth, textureHeight;
 	CGContextRef			context = nil;
@@ -674,7 +674,7 @@ static CCTexture *CCTextureNone = nil;
 // By default PVR images are treated as if they have the alpha channel premultiplied
 static BOOL _PVRHaveAlphaPremultiplied = YES;
 
--(instancetype) initWithPVRFile: (NSString*) relPath
+-(id) initWithPVRFile: (NSString*) relPath
 {
 	CGFloat contentScale;
 	NSString *fullpath = [[CCFileUtils sharedFileUtils] fullPathForFilename:relPath contentScale:&contentScale];

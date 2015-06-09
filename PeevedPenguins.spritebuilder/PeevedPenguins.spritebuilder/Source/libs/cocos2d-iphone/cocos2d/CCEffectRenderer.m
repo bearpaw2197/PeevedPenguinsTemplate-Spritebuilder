@@ -66,7 +66,7 @@ static GLKVector2 selectTexCoordPadding(CCEffectTexCoordSource tcSource, GLKVect
 
 @implementation CCEffectRenderTarget
 
-- (instancetype)init
+- (id)init
 {
     if((self = [super init]))
     {
@@ -177,7 +177,7 @@ static GLKVector2 selectTexCoordPadding(CCEffectTexCoordSource tcSource, GLKVect
 	return copyShader;
 }
 
--(instancetype)init
+-(id)init
 {
     if((self = [super init]))
     {

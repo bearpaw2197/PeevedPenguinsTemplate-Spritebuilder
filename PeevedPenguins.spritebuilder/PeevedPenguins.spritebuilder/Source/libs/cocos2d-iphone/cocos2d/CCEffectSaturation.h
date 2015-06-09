@@ -35,7 +35,7 @@
  *  @return The CCEffecSaturation object.
  *  @since v3.2 and later
  */
--(instancetype)init;
+-(id)init;
 
 /**
  *  Initializes a CCEffectSaturation object with the supplied parameters.
@@ -45,7 +45,7 @@
  *  @return The CCEffectSaturation object.
  *  @since v3.2 and later
  */
--(instancetype)initWithSaturation:(float)saturation;
+-(id)initWithSaturation:(float)saturation;
 
 
 /// -----------------------------------------------------------------------

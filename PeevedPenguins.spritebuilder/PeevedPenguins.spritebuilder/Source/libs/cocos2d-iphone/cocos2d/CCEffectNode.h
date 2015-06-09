@@ -40,7 +40,7 @@
  *
  *  @return An initialized CCRenderTarget object.
  */
-+(instancetype)effectNodeWithWidth:(int)w height:(int)h;
++(id)effectNodeWithWidth:(int)w height:(int)h;
 
 /**
  *  Creates a CCEffectNode object with width and height in Points and a pixel format( only RGB and RGBA formats are valid ) and no depth-stencil buffer.
@@ -52,7 +52,7 @@
  *  @return An initialized CCRenderTarget object.
  *  @see CCTexturePixelFormat
  */
-+(instancetype)effectNodeWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format;
++(id)effectNodeWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format;
 
 /**
  *  Creates a CCEffectNode object with width and height in Points and a pixel format( only RGB and RGBA formats are valid ) and depthStencil format
@@ -65,7 +65,7 @@
  *  @return An initialized CCRenderTarget object.
  *  @see CCTexturePixelFormat
  */
-+(instancetype)effectNodeWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format depthStencilFormat:(GLuint)depthStencilFormat;
++(id)effectNodeWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format depthStencilFormat:(GLuint)depthStencilFormat;
 
 /**
  *  Initializes a CCEffectNode object with the specified parameters.
@@ -75,7 +75,7 @@
  *
  *  @return The CCEffectNode object.
  */
--(instancetype)initWithWidth:(int)w height:(int)h;
+-(id)initWithWidth:(int)w height:(int)h;
 
 /**
  *  Initializes a CCEffectNode object with width and height in Points and a pixel format( only RGB and RGBA formats are valid ) and no depth-stencil buffer.
@@ -87,7 +87,7 @@
  *  @return An initialized CCRenderTarget object.
  *  @see CCTexturePixelFormat
  */
--(instancetype)initWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format;
+-(id)initWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format;
 
 /**
  *  Initializes a CCEffectNode object with width and height in Points and a pixel format( only RGB and RGBA formats are valid ) and depthStencil format
@@ -100,7 +100,7 @@
  *  @return An initialized CCRenderTarget object.
  *  @see CCTexturePixelFormat
  */
--(instancetype)initWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format depthStencilFormat:(GLuint)depthStencilFormat;
+-(id)initWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format depthStencilFormat:(GLuint)depthStencilFormat;
 
 /** @name Assigning an Effect */
 

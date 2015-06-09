@@ -93,7 +93,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(OALSimpleAudio);
                                                   stereoSources:stereoSources]);
 }
 
-- (instancetype) init
+- (id) init
 {
 	return [self initWithSources:kDefaultReservedSources];
 }
@@ -115,7 +115,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(OALSimpleAudio);
     self.effectsVolume = 1.0f;
 }
 
-- (instancetype) initWithReservedSources:(int) reservedSources
+- (id) initWithReservedSources:(int) reservedSources
                    monoSources:(int) monoSources
                  stereoSources:(int) stereoSources
 {
@@ -149,7 +149,7 @@ initFailed:
     return nil;
 }
 
-- (instancetype) initWithSources:(int) reservedSources
+- (id) initWithSources:(int) reservedSources
 {
 	if(nil != (self = [super init]))
 	{
@@ -489,7 +489,7 @@ initFailed:
     NSString* cacheKey = [self cacheKeyForEffectPath:filePath];
 	OPTIONALLY_SYNCHRONIZED(self)
 	{
-		buffer = preloadCache[cacheKey];
+		buffer = [preloadCache objectForKey:cacheKey];
 	}
 	if(nil == buffer)
 	{
@@ -504,7 +504,7 @@ initFailed:
         buffer.name = cacheKey;
 		OPTIONALLY_SYNCHRONIZED(self)
 		{
-			preloadCache[cacheKey] = buffer;
+			[preloadCache setObject:buffer forKey:cacheKey];
 		}
 	}
 

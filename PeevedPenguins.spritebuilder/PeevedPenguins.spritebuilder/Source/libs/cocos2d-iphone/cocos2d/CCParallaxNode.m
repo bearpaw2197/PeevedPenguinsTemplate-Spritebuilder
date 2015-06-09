@@ -38,7 +38,7 @@
 @property (nonatomic,readwrite) CGPoint offset;
 @property (nonatomic,readwrite,unsafe_unretained) CCNode *child;
 +(id) pointWithCGPoint:(CGPoint)point offset:(CGPoint)offset;
--(instancetype) initWithCGPoint:(CGPoint)point offset:(CGPoint)offset;
+-(id) initWithCGPoint:(CGPoint)point offset:(CGPoint)offset;
 @end
 @implementation CGPointObject
 @synthesize ratio = _ratio;
@@ -49,7 +49,7 @@
 {
 	return [[self alloc] initWithCGPoint:ratio offset:offset];
 }
--(instancetype) initWithCGPoint:(CGPoint)ratio offset:(CGPoint)offset
+-(id) initWithCGPoint:(CGPoint)ratio offset:(CGPoint)offset
 {
 	if( (self=[super init])) {
 		_ratio = ratio;
@@ -63,7 +63,7 @@
 
 @synthesize parallaxArray = _parallaxArray;
 
--(instancetype) init
+-(id) init
 {
 	if( (self=[super init]) ) {
 		_parallaxArray = [[NSMutableArray alloc] init];

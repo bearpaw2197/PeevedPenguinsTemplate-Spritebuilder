@@ -53,7 +53,7 @@ GrabPreSolve(cpConstraint *constraint, cpSpace *space)
 }
 
 // Body will be nil if no object was grabbed.
--(instancetype)initWithMultiGrab:(ChipmunkMultiGrab *)multiGrab pos:(cpVect)pos nearest:(cpVect)nearest
+-(id)initWithMultiGrab:(ChipmunkMultiGrab *)multiGrab pos:(cpVect)pos nearest:(cpVect)nearest
 	body:(ChipmunkBody *)body grabbedShape:(ChipmunkShape *)grabbedShape
 	chipmunkObjects:(NSArray *)chipmunkObjects
 {
@@ -126,7 +126,7 @@ GrabPreSolve(cpConstraint *constraint, cpSpace *space)
 @synthesize pushFriction = _pushFriction, pushElasticity = _pushElasticity;
 @synthesize pushCollisionType = _pushCollisionType;
 
--(instancetype)initForSpace:(ChipmunkSpace *)space withSmoothing:(cpFloat)smoothing withGrabForce:(cpFloat)grabForce
+-(id)initForSpace:(ChipmunkSpace *)space withSmoothing:(cpFloat)smoothing withGrabForce:(cpFloat)grabForce
 {
 	if((self = [super init])){
 		_space = [space retain];
@@ -187,7 +187,7 @@ static void PushBodyVelocityUpdate(cpBody *body, cpVect gravity, cpFloat damping
 	}
 	
 	ChipmunkBody *pushBody = nil;
-	NSArray *chipmunkObjects = @[];
+	NSArray *chipmunkObjects = [NSArray array];
 	
 	if(!grabbedShape && _pushMode){
 		pushBody = [ChipmunkBody bodyWithMass:_pushMass andMoment:INFINITY];
@@ -200,7 +200,7 @@ static void PushBodyVelocityUpdate(cpBody *body, cpVect gravity, cpFloat damping
 		pushShape.filter = _filter;
 		pushShape.collisionType = _pushCollisionType;
 		
-		chipmunkObjects = @[pushBody, pushShape];
+		chipmunkObjects = [NSArray arrayWithObjects:pushBody, pushShape, nil];
 	}
 	
 	ChipmunkBody *grabBody = (grabbedShape ? grabbedShape.body : pushBody);

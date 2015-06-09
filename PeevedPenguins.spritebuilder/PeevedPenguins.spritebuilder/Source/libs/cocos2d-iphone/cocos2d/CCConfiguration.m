@@ -112,7 +112,7 @@ static char * glExtensions;
 }
 #endif // __CC_PLATFORM_MAC
 
--(instancetype) init
+-(id) init
 {
 	if( (self=[super init])) {
 
@@ -176,7 +176,7 @@ static char * glExtensions;
 {
 	// For best results, extensionsNames should be stored in your renderer so that it does not
 	// need to be recreated on each invocation.
-    NSString *extensionsString = @(glExtensions);
+    NSString *extensionsString = [NSString stringWithCString:glExtensions encoding: NSASCIIStringEncoding];
     NSArray *extensionsNames = [extensionsString componentsSeparatedByString:@" "];
     return [extensionsNames containsObject: searchName];
 }

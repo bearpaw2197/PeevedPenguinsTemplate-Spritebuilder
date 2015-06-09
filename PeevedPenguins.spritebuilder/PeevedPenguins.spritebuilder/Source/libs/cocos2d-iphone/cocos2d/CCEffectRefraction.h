@@ -52,7 +52,7 @@
  *  @return The CCEffectRefraction object.
  *  @since v3.2 and later
  */
--(instancetype)init;
+-(id)init;
 
 /**
  *  Initializes a CCEffectRefraction object with the supplied parameters and a nil normal map.
@@ -64,7 +64,7 @@
  *  @since v3.2 and later
  *  @see CCSprite
  */
--(instancetype)initWithRefraction:(float)refraction environment:(CCSprite *)environment;
+-(id)initWithRefraction:(float)refraction environment:(CCSprite *)environment;
 
 /**
  *  Initializes a CCEffectRefraction object with the supplied parameters.
@@ -78,7 +78,7 @@
  *  @see CCSprite
  *  @see CCSpriteFrame
  */
--(instancetype)initWithRefraction:(float)refraction environment:(CCSprite *)environment normalMap:(CCSpriteFrame *)normalMap;
+-(id)initWithRefraction:(float)refraction environment:(CCSprite *)environment normalMap:(CCSpriteFrame *)normalMap;
 
 
 /// -----------------------------------------------------------------------

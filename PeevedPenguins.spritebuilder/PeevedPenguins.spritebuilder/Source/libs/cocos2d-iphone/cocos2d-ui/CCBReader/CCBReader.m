@@ -101,8 +101,10 @@
      nil];
 #else
     sharedFileUtils.searchPath =
-    @[[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Published-iOS"],
-     [[NSBundle mainBundle] resourcePath]];
+    [NSArray arrayWithObjects:
+     [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Published-iOS"],
+     [[NSBundle mainBundle] resourcePath],
+     nil];
 #endif
     
 	sharedFileUtils.enableiPhoneResourcesOniPad = YES;
@@ -113,7 +115,7 @@
     [[CCSpriteFrameCache sharedSpriteFrameCache] loadSpriteFrameLookupDictionaryFromFile:@"spriteFrameFileList.plist"];
 }
 
-- (instancetype) init
+- (id) init
 {
     self = [super init];
     if (!self) return NULL;
@@ -351,7 +353,7 @@ static inline float readFloat(CCBReader *self)
 - (NSString*) readCachedString
 {
     int n = readIntWithSign(self, NO);
-    return stringCache[n];
+    return [stringCache objectAtIndex:n];
 }
 
 - (void) readPropertyForNode:(CCNode*) node parent:(CCNode*)parent isExtraProp:(BOOL)isExtraProp
@@ -426,11 +428,13 @@ static inline float readFloat(CCBReader *self)
             
             if ([animatedProps containsObject:name])
             {
-                id baseValue = @[@(x),
-                                @(y),
-                                @(corner),
-                                @(xUnit),
-                                @(yUnit)];
+                id baseValue = [NSArray arrayWithObjects:
+                                [NSNumber numberWithFloat:x],
+                                [NSNumber numberWithFloat:y],
+                                [NSNumber numberWithInt:corner],
+                                [NSNumber numberWithInt:xUnit],
+                                [NSNumber numberWithInt:yUnit],
+                                nil];
                 [animationManager setBaseValue:baseValue forNode:node propertyName:name];
             }
         }
@@ -491,15 +495,17 @@ static inline float readFloat(CCBReader *self)
 
         if (setProp)
         {
-            [node setValue:@(x) forKey:[name stringByAppendingString:@"X"]];
-            [node setValue:@(y) forKey:[name stringByAppendingString:@"Y"]];
-            [node setValue:@(sType) forKey:[name stringByAppendingString:@"Type"]];
+            [node setValue:[NSNumber numberWithFloat:x] forKey:[name stringByAppendingString:@"X"]];
+            [node setValue:[NSNumber numberWithFloat:y] forKey:[name stringByAppendingString:@"Y"]];
+            [node setValue:[NSNumber numberWithInt:sType] forKey:[name stringByAppendingString:@"Type"]];
             
             if ([animatedProps containsObject:name])
             {
-                id baseValue = @[@(x),
-                                @(y),
-                                @(sType)];
+                id baseValue = [NSArray arrayWithObjects:
+                                [NSNumber numberWithFloat:x],
+                                [NSNumber numberWithFloat:y],
+                                [NSNumber numberWithInt:sType],
+                                nil];
                 [animationManager setBaseValue:baseValue forNode:node propertyName:name];
             }
         }
@@ -517,8 +523,8 @@ static inline float readFloat(CCBReader *self)
         {
             NSString* nameX = [NSString stringWithFormat:@"%@X",name];
             NSString* nameY = [NSString stringWithFormat:@"%@Y",name];
-            [node setValue:@(xFloat) forKey:nameX];
-            [node setValue:@(yFloat) forKey:nameY];
+            [node setValue:[NSNumber numberWithFloat:xFloat] forKey:nameX];
+            [node setValue:[NSNumber numberWithFloat:yFloat] forKey:nameY];
         }
     }
     else if (type == kCCBPropTypeDegrees
@@ -532,7 +538,7 @@ static inline float readFloat(CCBReader *self)
 
         if (setProp)
         {
-            id value = @(f);
+            id value = [NSNumber numberWithFloat:f];
             [node setValue:value forKey:name];
             
             if ([animatedProps containsObject:name])
@@ -553,7 +559,7 @@ static inline float readFloat(CCBReader *self)
         if (setProp)
         {
             if (sType == 1) f *= [CCDirector sharedDirector].UIScaleFactor;
-            [node setValue:@(f) forKey:name];
+            [node setValue:[NSNumber numberWithFloat:f] forKey:name];
         }
     }
     else if (type == kCCBPropTypeInteger
@@ -567,7 +573,7 @@ static inline float readFloat(CCBReader *self)
 
         if (setProp)
         {
-            [node setValue:@(d) forKey:name];
+            [node setValue:[NSNumber numberWithInt:d] forKey:name];
         }
     }
     else if (type == kCCBPropTypeFloatVar)
@@ -582,8 +588,8 @@ static inline float readFloat(CCBReader *self)
         if (setProp)
         {
             NSString* nameVar = [NSString stringWithFormat:@"%@Var",name];
-            [node setValue:@(f) forKey:name];
-            [node setValue:@(fVar) forKey:nameVar];
+            [node setValue:[NSNumber numberWithFloat:f] forKey:name];
+            [node setValue:[NSNumber numberWithFloat:fVar] forKey:nameVar];
         }
     }
     else if (type == kCCBPropTypeCheck)
@@ -596,7 +602,7 @@ static inline float readFloat(CCBReader *self)
 
         if (setProp)
         {
-            id value = @(b);
+            id value = [NSNumber numberWithBool:b];
             [node setValue:value forKey:name];
             
             if ([animatedProps containsObject:name])
@@ -656,7 +662,7 @@ static inline float readFloat(CCBReader *self)
 
         if (setProp)
         {
-            id value = @(byte);
+            id value = [NSNumber numberWithInt:byte];
             [node setValue:value forKey:name];
             
             if ([animatedProps containsObject:name])
@@ -727,8 +733,8 @@ static inline float readFloat(CCBReader *self)
         {
             NSString* nameX = [NSString stringWithFormat:@"%@X",name];
             NSString* nameY = [NSString stringWithFormat:@"%@Y",name];
-            [node setValue:@(xFlip) forKey:nameX];
-            [node setValue:@(yFlip) forKey:nameY];
+            [node setValue:[NSNumber numberWithBool:xFlip] forKey:nameX];
+            [node setValue:[NSNumber numberWithBool:yFlip] forKey:nameY];
         }
     }
     else if (type == kCCBPropTypeBlendmode)
@@ -1056,7 +1062,7 @@ static inline float readFloat(CCBReader *self)
     for (int i = 0; i < iVarCount; i++)
     {
         Ivar var = vars[i];
-        NSString *ivarName = @(ivar_getName(var));
+        NSString *ivarName = [NSString stringWithCString:ivar_getName(var) encoding:NSUTF8StringEncoding];
         [result addObject:ivarName];
     }
     free(vars);
@@ -1088,7 +1094,7 @@ static inline float readFloat(CCBReader *self)
     
     if (type == kCCBPropTypeCheck)
     {
-        value = @(readBool(self));
+        value = [NSNumber numberWithBool:readBool(self)];
     }
     else if (type == kCCBPropTypeByte)
     {
@@ -1105,7 +1111,7 @@ static inline float readFloat(CCBReader *self)
     }
     else if (type == kCCBPropTypeDegrees || type == kCCBPropTypeFloat)
     {
-        value = @(readFloat(self));
+        value = [NSNumber numberWithFloat:readFloat(self)];
     }
     else if (type == kCCBPropTypeScaleLock
              || type == kCCBPropTypePosition
@@ -1114,8 +1120,10 @@ static inline float readFloat(CCBReader *self)
         float a = readFloat(self);
         float b = readFloat(self);
         
-        value = @[@(a),
-                 @(b)];
+        value = [NSArray arrayWithObjects:
+                 [NSNumber numberWithFloat:a],
+                 [NSNumber numberWithFloat:b],
+                 nil];
     }
     else if (type == kCCBPropTypeSpriteFrame)
     {
@@ -1423,10 +1431,10 @@ SelectorNameForProperty(objc_property_t property)
                 [seqProp.keyframes addObject:keyframe];
             }
             
-            seqNodeProps[seqProp.name] = seqProp;
+            [seqNodeProps setObject:seqProp forKey:seqProp.name];
         }
         
-        seqs[@(seqId)] = seqNodeProps;
+        [seqs setObject:seqNodeProps forKey:[NSNumber numberWithInt:seqId]];
     }
     
     if (seqs.count > 0)
@@ -1664,7 +1672,7 @@ SelectorNameForProperty(objc_property_t property)
         
         NSMutableArray* value = [NSMutableArray arrayWithObjects:
                                  callbackName,
-                                 @(callbackType),
+                                 [NSNumber numberWithInt:callbackType],
                                  nil];
         
         CCBKeyframe* keyframe = [[CCBKeyframe alloc] init];
@@ -1698,9 +1706,9 @@ SelectorNameForProperty(objc_property_t property)
         
         NSMutableArray* value = [NSMutableArray arrayWithObjects:
                                  soundFile,
-                                 @(pitch),
-                                 @(pan),
-                                 @(gain),
+                                 [NSNumber numberWithFloat:pitch],
+                                 [NSNumber numberWithFloat:pan],
+                                 [NSNumber numberWithFloat:gain],
                                  nil];
         CCBKeyframe* keyframe = [[CCBKeyframe alloc] init];
         keyframe.time = time;
@@ -1800,7 +1808,7 @@ SelectorNameForProperty(objc_property_t property)
     [self readJoints];
 	[self postDeserialization];
     
-    actionManagers[[NSValue valueWithPointer:(__bridge const void *)(node)]] = self.animationManager;
+    [actionManagers setObject:self.animationManager forKey:[NSValue valueWithPointer:(__bridge const void *)(node)]];
     
     if (cleanUp)
     {
@@ -1849,7 +1857,7 @@ SelectorNameForProperty(objc_property_t property)
     {
         CCNode* node = [pointerValue pointerValue];
         
-        CCAnimationManager* manager = animationManagers[pointerValue];
+        CCAnimationManager* manager = [animationManagers objectForKey:pointerValue];
         node.animationManager = manager;
         node.userObject = manager;//Backwards Compatible.
     }
@@ -1941,7 +1949,7 @@ SelectorNameForProperty(objc_property_t property)
 + (NSString*) ccbDirectoryPath
 {
     NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    return [searchPaths[0] stringByAppendingPathComponent:@"ccb"];
+    return [[searchPaths objectAtIndex:0] stringByAppendingPathComponent:@"ccb"];
 }
 
 @end

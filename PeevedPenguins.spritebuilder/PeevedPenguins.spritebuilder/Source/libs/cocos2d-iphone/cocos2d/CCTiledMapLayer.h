@@ -59,7 +59,7 @@
  *  @see CCTiledMapLayerInfo
  *  @see CCTiledMapInfo
  */
-+(instancetype) layerWithTilesetInfo:(CCTiledMapTilesetInfo*)tilesetInfo layerInfo:(CCTiledMapLayerInfo*)layerInfo mapInfo:(CCTiledMapInfo*)mapInfo;
++(id) layerWithTilesetInfo:(CCTiledMapTilesetInfo*)tilesetInfo layerInfo:(CCTiledMapLayerInfo*)layerInfo mapInfo:(CCTiledMapInfo*)mapInfo;
 
 /**
  *  Initializes and returns a CCTiledMapLayer using the specified tileset info, layerinfo and mapinfo values.
@@ -73,7 +73,7 @@
  *  @see CCTiledMapLayerInfo
  *  @see CCTiledMapInfo
  */
--(instancetype) initWithTilesetInfo:(CCTiledMapTilesetInfo*)tilesetInfo layerInfo:(CCTiledMapLayerInfo*)layerInfo mapInfo:(CCTiledMapInfo*)mapInfo;
+-(id) initWithTilesetInfo:(CCTiledMapTilesetInfo*)tilesetInfo layerInfo:(CCTiledMapLayerInfo*)layerInfo mapInfo:(CCTiledMapInfo*)mapInfo;
 
 /// -----------------------------------------------------------------------
 /// @name Tiled Map Layer Attributes

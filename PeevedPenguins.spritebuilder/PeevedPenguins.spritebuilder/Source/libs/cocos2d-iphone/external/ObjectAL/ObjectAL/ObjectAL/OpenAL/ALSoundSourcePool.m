@@ -55,12 +55,12 @@
 
 #pragma mark Object Management
 
-+ (instancetype) pool
++ (id) pool
 {
 	return as_autorelease([[self alloc] init]);
 }
 
-- (instancetype) init
+- (id) init
 {
 	if(nil != (self = [super init]))
 	{
@@ -105,7 +105,7 @@
 {
 	OPTIONALLY_SYNCHRONIZED(self)
 	{
-		id source = as_retain(sources[(NSUInteger)index]);
+		id source = as_retain([sources objectAtIndex:(NSUInteger)index]);
 		[sources removeObjectAtIndex:(NSUInteger)index];
 		[sources addObject:source];
 		as_release(source);

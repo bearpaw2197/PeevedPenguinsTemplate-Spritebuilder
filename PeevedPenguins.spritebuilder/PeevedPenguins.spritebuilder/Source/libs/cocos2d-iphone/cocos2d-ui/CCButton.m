@@ -32,32 +32,32 @@
 
 @implementation CCButton
 
-- (instancetype) init
+- (id) init
 {
     return [self initWithTitle:@"" spriteFrame:NULL];
 }
 
-+ (instancetype) buttonWithTitle:(NSString*) title
++ (id) buttonWithTitle:(NSString*) title
 {
     return [[self alloc] initWithTitle:title];
 }
 
-+ (instancetype) buttonWithTitle:(NSString*) title fontName:(NSString*)fontName fontSize:(float)size
++ (id) buttonWithTitle:(NSString*) title fontName:(NSString*)fontName fontSize:(float)size
 {
     return [[self alloc] initWithTitle:title fontName:fontName fontSize:size];
 }
 
-+ (instancetype) buttonWithTitle:(NSString*) title spriteFrame:(CCSpriteFrame*) spriteFrame
++ (id) buttonWithTitle:(NSString*) title spriteFrame:(CCSpriteFrame*) spriteFrame
 {
     return [[self alloc] initWithTitle:title spriteFrame:spriteFrame];
 }
 
-+ (instancetype) buttonWithTitle:(NSString*) title spriteFrame:(CCSpriteFrame*) spriteFrame highlightedSpriteFrame:(CCSpriteFrame*) highlighted disabledSpriteFrame:(CCSpriteFrame*) disabled
++ (id) buttonWithTitle:(NSString*) title spriteFrame:(CCSpriteFrame*) spriteFrame highlightedSpriteFrame:(CCSpriteFrame*) highlighted disabledSpriteFrame:(CCSpriteFrame*) disabled
 {
     return [[self alloc] initWithTitle:title spriteFrame:spriteFrame highlightedSpriteFrame: highlighted disabledSpriteFrame:disabled];
 }
 
-- (instancetype) initWithTitle:(NSString *)title
+- (id) initWithTitle:(NSString *)title
 {
     self = [self initWithTitle:title spriteFrame:NULL highlightedSpriteFrame:NULL disabledSpriteFrame:NULL];
     
@@ -67,7 +67,7 @@
     return self;
 }
 
-- (instancetype) initWithTitle:(NSString *)title fontName:(NSString*)fontName fontSize:(float)size
+- (id) initWithTitle:(NSString *)title fontName:(NSString*)fontName fontSize:(float)size
 {
     self = [self initWithTitle:title];
     self.label.fontName = fontName;
@@ -76,7 +76,7 @@
     return self;
 }
 
-- (instancetype) initWithTitle:(NSString*) title spriteFrame:(CCSpriteFrame*) spriteFrame
+- (id) initWithTitle:(NSString*) title spriteFrame:(CCSpriteFrame*) spriteFrame
 {
     self = [self initWithTitle:title spriteFrame:spriteFrame highlightedSpriteFrame:NULL disabledSpriteFrame:NULL];
     
@@ -90,7 +90,7 @@
     return self;
 }
 
-- (instancetype) initWithTitle:(NSString*) title spriteFrame:(CCSpriteFrame*) spriteFrame highlightedSpriteFrame:(CCSpriteFrame*) highlighted disabledSpriteFrame:(CCSpriteFrame*) disabled
+- (id) initWithTitle:(NSString*) title spriteFrame:(CCSpriteFrame*) spriteFrame highlightedSpriteFrame:(CCSpriteFrame*) highlighted disabledSpriteFrame:(CCSpriteFrame*) disabled
 {
     self = [super init];
     if (!self) return NULL;
@@ -359,52 +359,52 @@
 
 - (void) setLabelColor:(CCColor*)color forState:(CCControlState)state
 {
-    _labelColors[[NSNumber numberWithInt:state]] = color;
+    [_labelColors setObject:color forKey:[NSNumber numberWithInt:state]];
     [self stateChanged];
 }
 
 - (CCColor*) labelColorForState:(CCControlState)state
 {
-    CCColor* color = _labelColors[[NSNumber numberWithInt:state]];
+    CCColor* color = [_labelColors objectForKey:[NSNumber numberWithInt:state]];
     if (!color) color = [CCColor whiteColor];
     return color;
 }
 
 - (void) setLabelOpacity:(CGFloat)opacity forState:(CCControlState)state
 {
-    _labelOpacities[[NSNumber numberWithInt:state]] = [NSNumber numberWithFloat:opacity];
+    [_labelOpacities setObject:[NSNumber numberWithFloat:opacity] forKey:[NSNumber numberWithInt:state]];
     [self stateChanged];
 }
 
 - (CGFloat) labelOpacityForState:(CCControlState)state
 {
-    NSNumber* val = _labelOpacities[[NSNumber numberWithInt:state]];
+    NSNumber* val = [_labelOpacities objectForKey:[NSNumber numberWithInt:state]];
     if (!val) return 1;
     return [val floatValue];
 }
 
 - (void) setBackgroundColor:(CCColor*)color forState:(CCControlState)state
 {
-    _backgroundColors[[NSNumber numberWithInt:state]] = color;
+    [_backgroundColors setObject:color forKey:[NSNumber numberWithInt:state]];
     [self stateChanged];
 }
 
 - (CCColor*) backgroundColorForState:(CCControlState)state
 {
-    CCColor* color = _backgroundColors[[NSNumber numberWithInt:state]];
+    CCColor* color = [_backgroundColors objectForKey:[NSNumber numberWithInt:state]];
     if (!color) color = [CCColor whiteColor];
     return color;
 }
 
 - (void) setBackgroundOpacity:(CGFloat)opacity forState:(CCControlState)state
 {
-    _backgroundOpacities[[NSNumber numberWithInt:state]] = [NSNumber numberWithFloat:opacity];
+    [_backgroundOpacities setObject:[NSNumber numberWithFloat:opacity] forKey:[NSNumber numberWithInt:state]];
     [self stateChanged];
 }
 
 - (CGFloat) backgroundOpacityForState:(CCControlState)state
 {
-    NSNumber* val = _backgroundOpacities[[NSNumber numberWithInt:state]];
+    NSNumber* val = [_backgroundOpacities objectForKey:[NSNumber numberWithInt:state]];
     if (!val) return 1;
     return [val floatValue];
 }
@@ -413,7 +413,7 @@
 {
     if (spriteFrame)
     {
-        _backgroundSpriteFrames[[NSNumber numberWithInt:state]] = spriteFrame;
+        [_backgroundSpriteFrames setObject:spriteFrame forKey:[NSNumber numberWithInt:state]];
     }
     else
     {
@@ -424,7 +424,7 @@
 
 - (CCSpriteFrame*) backgroundSpriteFrameForState:(CCControlState)state
 {
-    return _backgroundSpriteFrames[[NSNumber numberWithInt:state]];
+    return [_backgroundSpriteFrames objectForKey:[NSNumber numberWithInt:state]];
 }
 
 - (void) setTitle:(NSString *)title

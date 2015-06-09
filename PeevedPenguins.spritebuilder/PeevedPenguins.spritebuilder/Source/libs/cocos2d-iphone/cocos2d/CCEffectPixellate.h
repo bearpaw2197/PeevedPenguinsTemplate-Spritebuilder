@@ -34,7 +34,7 @@
  *  @return The CCEffectPixellate object.
  *  @since v3.2 and later
  */
--(instancetype)init;
+-(id)init;
 
 /**
  *  Initializes a CCEffectPixellate object with the supplied parameters.
@@ -44,7 +44,7 @@
  *  @return The CCEffectPixellate object.
  *  @since v3.2 and later
  */
--(instancetype)initWithBlockSize:(float)blockSize;
+-(id)initWithBlockSize:(float)blockSize;
 
 
 /// -----------------------------------------------------------------------

@@ -67,7 +67,7 @@
  *  @return An initialized CCAnimationFrame Object.
  *  @see CCSpriteFrame
  */
--(instancetype) initWithSpriteFrame:(CCSpriteFrame*)spriteFrame delayUnits:(float)delayUnits userInfo:(NSDictionary*)userInfo;
+-(id) initWithSpriteFrame:(CCSpriteFrame*)spriteFrame delayUnits:(float)delayUnits userInfo:(NSDictionary*)userInfo;
 
 
 /// -----------------------------------------------------------------------
@@ -120,7 +120,7 @@
  *
  *  @return The CCAnimation Object.
  */
-+(instancetype) animation;
++(id) animation;
 
 /**
  *  Creates and returns an animation object using the specified CCSpriteFrame array value.
@@ -130,7 +130,7 @@
  *
  *  @return The CCAnimation Object.
  */
-+(instancetype) animationWithSpriteFrames:(NSArray*)arrayOfSpriteFrameNames;
++(id) animationWithSpriteFrames:(NSArray*)arrayOfSpriteFrameNames;
 
 /**
  *  Creates and returns an animation object using the specified CCSpriteFrame array and per frame dealy values.
@@ -140,7 +140,7 @@
  *
  *  @return The CCAnimation Object.
  */
-+(instancetype) animationWithSpriteFrames:(NSArray*)arrayOfSpriteFrameNames delay:(float)delay;
++(id) animationWithSpriteFrames:(NSArray*)arrayOfSpriteFrameNames delay:(float)delay;
 
 /**
  *  Creates and returns an animation object using the specified CCSpriteFrame array, per frame delay and times to repeat animation values.
@@ -151,7 +151,7 @@
  *
  *  @return The CCAnimation Object.
  */
-+(instancetype) animationWithAnimationFrames:(NSArray*)arrayOfAnimationFrames delayPerUnit:(float)delayPerUnit loops:(NSUInteger)loops;
++(id) animationWithAnimationFrames:(NSArray*)arrayOfAnimationFrames delayPerUnit:(float)delayPerUnit loops:(NSUInteger)loops;
 
 /**
  *  Initializes and returns an animation object.
@@ -160,7 +160,7 @@
  *
  *  @return An initialized CCAnimation Object.
  */
--(instancetype) initWithSpriteFrames:(NSArray*)arrayOfSpriteFrameNames;
+-(id) initWithSpriteFrames:(NSArray*)arrayOfSpriteFrameNames;
 
 /**
  *  Initializes and returns an animation object using the specified CCSpriteFrame array and per frame dealy values.
@@ -170,7 +170,7 @@
  *
  *  @return An initialized CCAnimation Object.
  */
--(instancetype) initWithSpriteFrames:(NSArray *)arrayOfSpriteFrameNames delay:(float)delay;
+-(id) initWithSpriteFrames:(NSArray *)arrayOfSpriteFrameNames delay:(float)delay;
 
 /**
  *  Initializes and returns an animation object using the specified CCSpriteFrame array, per frame delay and times to repeat animation values.
@@ -181,7 +181,7 @@
  *
  *  @return An initialized CCAnimation Object.
  */
--(instancetype) initWithAnimationFrames:(NSArray*)arrayOfAnimationFrames delayPerUnit:(float)delayPerUnit loops:(NSUInteger)loops;
+-(id) initWithAnimationFrames:(NSArray*)arrayOfAnimationFrames delayPerUnit:(float)delayPerUnit loops:(NSUInteger)loops;
 
 
 /// -----------------------------------------------------------------------

@@ -50,8 +50,8 @@ BOOL NSMutableAttributedStringSetDefaultAttribute(NSMutableAttributedString *att
     }];
     [attrString addAttribute:attr value:defaultValue range:fullRange];
     [rangesAndValues enumerateObjectsUsingBlock:^(NSArray *rangeAndValue, NSUInteger idx, BOOL *stop) {
-        NSRange range = [(NSValue *)rangeAndValue[1] rangeValue];
-        [attrString addAttribute:attr value:rangeAndValue[0] range:range];
+        NSRange range = [(NSValue *)[rangeAndValue objectAtIndex:1] rangeValue];
+        [attrString addAttribute:attr value:[rangeAndValue objectAtIndex:0] range:range];
     }];
     return result;
 }

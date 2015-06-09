@@ -15,17 +15,17 @@
 
 @implementation CCLightNode
 
--(instancetype)init
+-(id)init
 {
     return [self initWithType:CCLightPoint groups:nil color:[CCColor whiteColor] intensity:1.0f];
 }
 
--(instancetype)initWithType:(CCLightType)type groups:(NSArray*)groups color:(CCColor *)color intensity:(float)intensity
+-(id)initWithType:(CCLightType)type groups:(NSArray*)groups color:(CCColor *)color intensity:(float)intensity
 {
     return [self initWithType:type groups:groups color:color intensity:intensity specularColor:color specularIntensity:intensity ambientColor:[CCColor whiteColor] ambientIntensity:0.5f];
 }
 
--(instancetype)initWithType:(CCLightType)type groups:(NSArray*)groups color:(CCColor *)color intensity:(float)intensity specularColor:(CCColor *)specularColor specularIntensity:(float)specularIntensity ambientColor:(CCColor *)ambientColor ambientIntensity:(float)ambientIntensity
+-(id)initWithType:(CCLightType)type groups:(NSArray*)groups color:(CCColor *)color intensity:(float)intensity specularColor:(CCColor *)specularColor specularIntensity:(float)specularIntensity ambientColor:(CCColor *)ambientColor ambientIntensity:(float)ambientIntensity
 {
     if ((self = [super init]))
     {

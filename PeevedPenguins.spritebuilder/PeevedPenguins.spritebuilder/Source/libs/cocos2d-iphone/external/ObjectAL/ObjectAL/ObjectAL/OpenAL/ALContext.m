@@ -67,12 +67,12 @@
 
 #pragma mark Object Management
 
-+ (instancetype) contextOnDevice:(ALDevice *) device attributes:(NSArray*) attributes
++ (id) contextOnDevice:(ALDevice *) device attributes:(NSArray*) attributes
 {
 	return as_autorelease([[self alloc] initOnDevice:device attributes:attributes]);
 }
 
-+ (instancetype) contextOnDevice:(ALDevice*) device
++ (id) contextOnDevice:(ALDevice*) device
 	   outputFrequency:(int) outputFrequency
 	  refreshIntervals:(int) refreshIntervals 
 	synchronousContext:(bool) synchronousContext
@@ -82,32 +82,32 @@
 	NSMutableArray* attributes = [NSMutableArray arrayWithCapacity:5];
 	if(outputFrequency > 0)
 	{
-		[attributes addObject:@ALC_FREQUENCY];
-		[attributes addObject:@(outputFrequency)];
+		[attributes addObject:[NSNumber numberWithInt:ALC_FREQUENCY]];
+		[attributes addObject:[NSNumber numberWithInt:outputFrequency]];
 	}
 	if(refreshIntervals > 0)
 	{
-		[attributes addObject:@ALC_REFRESH];
-		[attributes addObject:@(refreshIntervals)];
+		[attributes addObject:[NSNumber numberWithInt:ALC_REFRESH]];
+		[attributes addObject:[NSNumber numberWithInt:refreshIntervals]];
 	}
-	[attributes addObject:@ALC_SYNC];
-	[attributes addObject:@(synchronousContext ? AL_TRUE : AL_FALSE)];
+	[attributes addObject:[NSNumber numberWithInt:ALC_SYNC]];
+	[attributes addObject:[NSNumber numberWithInt:synchronousContext ? AL_TRUE : AL_FALSE]];
 	
 	if(monoSources >= 0)
 	{
-		[attributes addObject:@ALC_MONO_SOURCES];
-		[attributes addObject:@(monoSources)];
+		[attributes addObject:[NSNumber numberWithInt:ALC_MONO_SOURCES]];
+		[attributes addObject:[NSNumber numberWithInt:monoSources]];
 	}
 	if(stereoSources >= 0)
 	{
-		[attributes addObject:@ALC_STEREO_SOURCES];
-		[attributes addObject:@(stereoSources)];
+		[attributes addObject:[NSNumber numberWithInt:ALC_STEREO_SOURCES]];
+		[attributes addObject:[NSNumber numberWithInt:stereoSources]];
 	}
 	
 	return [self contextOnDevice:device attributes:attributes];
 }
 
-- (instancetype) initOnDevice:(ALDevice*) deviceIn
+- (id) initOnDevice:(ALDevice*) deviceIn
 	outputFrequency:(int) outputFrequency
    refreshIntervals:(int) refreshIntervals 
  synchronousContext:(bool) synchronousContext
@@ -117,32 +117,32 @@
 	NSMutableArray* attributesList = [NSMutableArray arrayWithCapacity:5];
 	if(outputFrequency > 0)
 	{
-		[attributesList addObject:@ALC_FREQUENCY];
-		[attributesList addObject:@(outputFrequency)];
+		[attributesList addObject:[NSNumber numberWithInt:ALC_FREQUENCY]];
+		[attributesList addObject:[NSNumber numberWithInt:outputFrequency]];
 	}
 	if(refreshIntervals > 0)
 	{
-		[attributesList addObject:@ALC_REFRESH];
-		[attributesList addObject:@(refreshIntervals)];
+		[attributesList addObject:[NSNumber numberWithInt:ALC_REFRESH]];
+		[attributesList addObject:[NSNumber numberWithInt:refreshIntervals]];
 	}
-	[attributesList addObject:@ALC_SYNC];
-	[attributesList addObject:@(synchronousContext ? AL_TRUE : AL_FALSE)];
+	[attributesList addObject:[NSNumber numberWithInt:ALC_SYNC]];
+	[attributesList addObject:[NSNumber numberWithInt:synchronousContext ? AL_TRUE : AL_FALSE]];
 	
 	if(monoSources >= 0)
 	{
-		[attributesList addObject:@ALC_MONO_SOURCES];
-		[attributesList addObject:@(monoSources)];
+		[attributesList addObject:[NSNumber numberWithInt:ALC_MONO_SOURCES]];
+		[attributesList addObject:[NSNumber numberWithInt:monoSources]];
 	}
 	if(stereoSources >= 0)
 	{
-		[attributesList addObject:@ALC_STEREO_SOURCES];
-		[attributesList addObject:@(stereoSources)];
+		[attributesList addObject:[NSNumber numberWithInt:ALC_STEREO_SOURCES]];
+		[attributesList addObject:[NSNumber numberWithInt:stereoSources]];
 	}
 	
 	return [self initOnDevice:deviceIn attributes:attributes];
 }
 
-- (instancetype) initOnDevice:(ALDevice *) deviceIn attributes:(NSArray*) attributesIn
+- (id) initOnDevice:(ALDevice *) deviceIn attributes:(NSArray*) attributesIn
 {
 	if(nil != (self = [super init]))
 	{
@@ -199,7 +199,7 @@
 			{
 				for(int i = 0; i < buffSize; i++)
 				{
-					[attributes addObject:@(attributesList[i])];
+					[attributes addObject:[NSNumber numberWithInt:attributesList[i]]];
 				}
 			}
 		}

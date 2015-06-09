@@ -36,7 +36,7 @@
   Create an autoreleased rigid body with the given mass and moment.
   Guessing the moment of inertia is usually a bad idea. Use the moment estimation functions (cpMomentFor*()).
 */
-+ (instancetype)bodyWithMass:(cpFloat)mass andMoment:(cpFloat)moment;
++ (id)bodyWithMass:(cpFloat)mass andMoment:(cpFloat)moment;
 
 /**
   Create an autoreleased static body.
@@ -52,7 +52,7 @@
   Initialize a rigid body with the given mass and moment of inertia.
   Guessing the moment of inertia is usually a bad idea. Use the moment estimation functions (cpMomentFor*()).
 */
-- (instancetype)initWithMass:(cpFloat)mass andMoment:(cpFloat)moment;
+- (id)initWithMass:(cpFloat)mass andMoment:(cpFloat)moment;
 
 /// Type of the body (dynamic, kinematic, static).
 @property(nonatomic, assign) cpBodyType type;
@@ -165,10 +165,10 @@
 - (void)sleep;
 
 /// Get a list of shapes that are attached to this body and currently added to a space.
-@property (nonatomic, readonly, copy) NSArray *shapes;
+- (NSArray *)shapes;
 
 /// Get a list of constraints that are attached to this body and currently added to a space.
-@property (nonatomic, readonly, copy) NSArray *constraints;
+- (NSArray *)constraints;
 
 /// Body/arbiter iterator callback block type.
 typedef void (^ChipmunkBodyArbiterIteratorBlock)(cpArbiter *arbiter);

@@ -87,7 +87,7 @@
 
 @implementation CCDirectorIOS
 
-- (instancetype) init
+- (id) init
 {
 	if( (self=[super init]) ) {
 		// running thread is main thread on iOS

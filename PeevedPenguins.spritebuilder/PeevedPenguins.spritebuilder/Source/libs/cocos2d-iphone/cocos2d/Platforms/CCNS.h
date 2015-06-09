@@ -67,9 +67,9 @@ static inline NSArray *CGFloatArrayFromString(NSString *string) {
     NSArray *components = [string componentsSeparatedByCharactersInSet:ignoredCharacters];
     NSMutableArray *result = [[NSMutableArray alloc] init];
     for (int i = 0; i < [components count]; i++) {
-        NSString *component = components[i];
+        NSString *component = [components objectAtIndex:i];
         if ([component length] > 0)
-            [result addObject:components[i]];
+            [result addObject:[components objectAtIndex:i]];
     }
     return result;
 }
@@ -77,8 +77,8 @@ static inline NSArray *CGFloatArrayFromString(NSString *string) {
 static inline CGSize CCCGSizeFromString(NSString *string) {
     NSArray *components = CGFloatArrayFromString(string);
     if ([components count] == 2) {
-        return CGSizeMake([components[0] floatValue],
-                          [components[1] floatValue]);
+        return CGSizeMake([[components objectAtIndex:0] floatValue],
+                          [[components objectAtIndex:1] floatValue]);
     } else {
         return CGSizeZero;
     }
@@ -87,8 +87,8 @@ static inline CGSize CCCGSizeFromString(NSString *string) {
 static inline CGPoint CCCGPointFromString(NSString *string) {
     NSArray *components = CGFloatArrayFromString(string);
     if ([components count] == 2) {
-        return CGPointMake([components[0] floatValue],
-                           [components[1] floatValue]);
+        return CGPointMake([[components objectAtIndex:0] floatValue],
+                           [[components objectAtIndex:1] floatValue]);
     } else {
         return CGPointZero;
     }
@@ -97,10 +97,10 @@ static inline CGPoint CCCGPointFromString(NSString *string) {
 static inline CGRect CCCGRectFromString(NSString *string) {
     NSArray *components = CGFloatArrayFromString(string);
     if ([components count] == 4) {
-        return CGRectMake([components[0] floatValue],
-                          [components[1] floatValue],
-                          [components[2] floatValue],
-                          [components[3] floatValue]);
+        return CGRectMake([[components objectAtIndex:0] floatValue],
+                          [[components objectAtIndex:1] floatValue],
+                          [[components objectAtIndex:2] floatValue],
+                          [[components objectAtIndex:3] floatValue]);
     } else {
         return CGRectZero;
     }
@@ -109,12 +109,12 @@ static inline CGRect CCCGRectFromString(NSString *string) {
 static inline CGAffineTransform CCCGAffineTransformFromString(NSString *string) {
     NSArray *components = CGFloatArrayFromString(string);
     if ([components count] == 6) {
-        return CGAffineTransformMake([components[0] floatValue],
-                                     [components[1] floatValue],
-                                     [components[2] floatValue],
-                                     [components[3] floatValue],
-                                     [components[4] floatValue],
-                                     [components[5] floatValue]);
+        return CGAffineTransformMake([[components objectAtIndex:0] floatValue],
+                                     [[components objectAtIndex:1] floatValue],
+                                     [[components objectAtIndex:2] floatValue],
+                                     [[components objectAtIndex:3] floatValue],
+                                     [[components objectAtIndex:4] floatValue],
+                                     [[components objectAtIndex:5] floatValue]);
     } else {
         return CGAffineTransformIdentity;
     }

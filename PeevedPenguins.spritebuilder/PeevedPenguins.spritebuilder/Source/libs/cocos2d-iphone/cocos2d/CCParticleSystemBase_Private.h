@@ -30,6 +30,6 @@
 -(void) update: (CCTime) dt;
 
 // System full status.
-@property (nonatomic, getter=isFull, readonly) BOOL full;
+-(BOOL) isFull;
 
 @end

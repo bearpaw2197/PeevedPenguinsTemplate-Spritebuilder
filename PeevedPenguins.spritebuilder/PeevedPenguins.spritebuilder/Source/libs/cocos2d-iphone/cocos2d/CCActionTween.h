@@ -69,6 +69,6 @@
  *
  *  @return New tween action.
  */
-- (instancetype)initWithDuration:(CCTime)aDuration key:(NSString *)key from:(float)from to:(float)to;
+- (id)initWithDuration:(CCTime)aDuration key:(NSString *)key from:(float)from to:(float)to;
 
 @end

@@ -38,7 +38,7 @@
  *  @return The CCEffectBrightness object.
  *  @since v3.2 and later
  */
--(instancetype)init;
+-(id)init;
 
 /**
  *  Initializes a CCEffectBrightness object with the supplied parameters.
@@ -48,7 +48,7 @@
  *  @return The CCEffectBrightness object.
  *  @since v3.2 and later
  */
--(instancetype)initWithBrightness:(float)brightness;
+-(id)initWithBrightness:(float)brightness;
 
 
 /// -----------------------------------------------------------------------

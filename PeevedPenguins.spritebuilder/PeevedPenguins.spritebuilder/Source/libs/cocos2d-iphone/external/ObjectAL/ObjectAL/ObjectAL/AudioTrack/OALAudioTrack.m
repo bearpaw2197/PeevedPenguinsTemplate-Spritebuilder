@@ -222,12 +222,12 @@
 
 #pragma mark Object Management
 
-+ (instancetype) track
++ (id) track
 {
 	return as_autorelease([[self alloc] init]);
 }
 
-- (instancetype) init
+- (id) init
 {
 	if(nil != (self = [super init]))
 	{

@@ -1,4 +1,4 @@
-typedef NS_ENUM(unsigned int, CCPackageStatus) {
+typedef enum {
     CCPackageStatusInitial = 0,
     CCPackageStatusDownloading = 1,
     CCPackageStatusDownloadPaused = 2,
@@ -11,4 +11,5 @@ typedef NS_ENUM(unsigned int, CCPackageStatus) {
     CCPackageStatusInstalledEnabled = 10,
     CCPackageStatusInstalledDisabled = 11,
     CCPackageStatusDeleted = 12
-};
+}
+CCPackageStatus;

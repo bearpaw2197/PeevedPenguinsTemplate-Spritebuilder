@@ -49,7 +49,7 @@
  *  @return The CCEffectColorChannelOffset object.
  *  @since v3.2 and later
  */
--(instancetype)init;
+-(id)init;
 
 /**
  *  Initializes a CCEffectColorChannelOffset object with the supplied color channel offsets.
@@ -74,7 +74,7 @@
  *  @return The CCEffectColorChannelOffset object.
  *  @since v3.4 and later
  */
--(instancetype)initWithRedOffsetWithPoint:(CGPoint)redOffset greenOffsetWithPoint:(CGPoint)greenOffset blueOffsetWithPoint:(CGPoint)blueOffset;
+-(id)initWithRedOffsetWithPoint:(CGPoint)redOffset greenOffsetWithPoint:(CGPoint)greenOffset blueOffsetWithPoint:(CGPoint)blueOffset;
 
 
 /// -----------------------------------------------------------------------

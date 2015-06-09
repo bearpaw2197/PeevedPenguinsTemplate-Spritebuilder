@@ -62,12 +62,12 @@
 #pragma mark - create and destroy
 // -----------------------------------------------------------------
 
-+ (instancetype)responderManager
++ (id)responderManager
 {
     return([[self alloc] init]);
 }
 
-- (instancetype)init
+- (id)init
 {
     self = [super init];
     NSAssert(self, @"Unable to create class");

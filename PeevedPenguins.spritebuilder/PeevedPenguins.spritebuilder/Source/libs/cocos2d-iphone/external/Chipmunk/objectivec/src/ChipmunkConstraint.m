@@ -104,7 +104,7 @@ both(BOOL, collideBodies, CollideBodies)
 //	}
 //}
 
-- (NSArray *)chipmunkObjects {return @[self];}
+- (NSArray *)chipmunkObjects {return [NSArray arrayWithObject:self];}
 - (void)addToSpace:(ChipmunkSpace *)space {[space addConstraint:self];}
 - (void)removeFromSpace:(ChipmunkSpace *)space {[space removeConstraint:self];}
 
@@ -158,14 +158,14 @@ setter2(type, struct, lower, upper)
 	cpPinJoint _constraint;
 }
 
-+ (instancetype)pinJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB
++ (id)pinJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB
 {
 	return [[[self alloc] initWithBodyA:a bodyB:b anchorA:anchorA anchorB:anchorB] autorelease];
 }
 
 - (cpConstraint *)constraint {return (cpConstraint *)&_constraint;}
 
-- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB
+- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB
 {
 	if((self = [super init])){
 		[a retain];
@@ -190,14 +190,14 @@ both2(cpFloat, cpPinJoint, dist, Dist)
 	cpSlideJoint _constraint;
 }
 
-+ (instancetype)slideJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB min:(cpFloat)min max:(cpFloat)max
++ (id)slideJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB min:(cpFloat)min max:(cpFloat)max
 {
 	return [[[self alloc] initWithBodyA:a bodyB:b anchorA:anchorA anchorB:anchorB min:min max:max] autorelease];
 }
 
 - (cpConstraint *)constraint {return (cpConstraint *)&_constraint;}
 
-- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB min:(cpFloat)min max:(cpFloat)max
+- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB min:(cpFloat)min max:(cpFloat)max
 {
 	if((self = [super init])){
 		[a retain];
@@ -223,19 +223,19 @@ both2(cpFloat, cpSlideJoint, max, Max)
 	cpPivotJoint _constraint;
 }
 
-+ (instancetype)pivotJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB
++ (id)pivotJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB
 {
 	return [[[self alloc] initWithBodyA:a bodyB:b anchorA:anchorA anchorB:anchorB] autorelease];
 }
 
-+ (instancetype)pivotJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b pivot:(cpVect)pivot
++ (id)pivotJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b pivot:(cpVect)pivot
 {
 	return [[[self alloc] initWithBodyA:a bodyB:b pivot:pivot] autorelease];
 }
 
 - (cpConstraint *)constraint {return (cpConstraint *)&_constraint;}
 
-- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB
+- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB
 {
 	if((self = [super init])){
 		[a retain];
@@ -249,7 +249,7 @@ both2(cpFloat, cpSlideJoint, max, Max)
 	return self;
 }
 
-- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b pivot:(cpVect)pivot
+- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b pivot:(cpVect)pivot
 {
 	return [self initWithBodyA:a bodyB:b anchorA:[a worldToLocal:pivot] anchorB:[b worldToLocal:pivot]];
 }
@@ -264,14 +264,14 @@ both2(cpVect, cpPivotJoint, anchorB, AnchorB)
 	cpGrooveJoint _constraint;
 }
 
-+ (instancetype)grooveJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b grooveA:(cpVect)grooveA grooveB:(cpVect)grooveB anchorB:(cpVect)anchorB
++ (id)grooveJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b grooveA:(cpVect)grooveA grooveB:(cpVect)grooveB anchorB:(cpVect)anchorB
 {
 	return [[[self alloc] initWithBodyA:a bodyB:b grooveA:grooveA grooveB:grooveB anchorB:anchorB] autorelease];
 }
 
 - (cpConstraint *)constraint {return (cpConstraint *)&_constraint;}
 
-- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b grooveA:(cpVect)grooveA grooveB:(cpVect)grooveB anchorB:(cpVect)anchorB
+- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b grooveA:(cpVect)grooveA grooveB:(cpVect)grooveB anchorB:(cpVect)anchorB
 {
 	if((self = [super init])){
 		[a retain];
@@ -296,14 +296,14 @@ both2(cpVect, cpGrooveJoint, anchorB, AnchorB)
 	cpDampedSpring _constraint;
 }
 
-+ (instancetype)dampedSpringWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB restLength:(cpFloat)restLength stiffness:(cpFloat)stiffness damping:(cpFloat)damping
++ (id)dampedSpringWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB restLength:(cpFloat)restLength stiffness:(cpFloat)stiffness damping:(cpFloat)damping
 {
 	return [[[self alloc] initWithBodyA:a bodyB:b anchorA:anchorA anchorB:anchorB restLength:restLength stiffness:stiffness damping:damping] autorelease];
 }
 
 - (cpConstraint *)constraint {return (cpConstraint *)&_constraint;}
 
-- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB restLength:(cpFloat)restLength stiffness:(cpFloat)stiffness damping:(cpFloat)damping
+- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b anchorA:(cpVect)anchorA anchorB:(cpVect)anchorB restLength:(cpFloat)restLength stiffness:(cpFloat)stiffness damping:(cpFloat)damping
 {
 	if((self = [super init])){
 		[a retain];
@@ -330,14 +330,14 @@ both2(cpFloat, cpDampedSpring, damping, Damping)
 	cpDampedRotarySpring _constraint;
 }
 
-+ (instancetype)dampedRotarySpringWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b restAngle:(cpFloat)restAngle stiffness:(cpFloat)stiffness damping:(cpFloat)damping
++ (id)dampedRotarySpringWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b restAngle:(cpFloat)restAngle stiffness:(cpFloat)stiffness damping:(cpFloat)damping
 {
 	return [[[self alloc] initWithBodyA:a bodyB:b restAngle:restAngle stiffness:stiffness damping:damping] autorelease];
 }
 
 - (cpConstraint *)constraint {return (cpConstraint *)&_constraint;}
 
-- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b restAngle:(cpFloat)restAngle stiffness:(cpFloat)stiffness damping:(cpFloat)damping
+- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b restAngle:(cpFloat)restAngle stiffness:(cpFloat)stiffness damping:(cpFloat)damping
 {
 	if((self = [super init])){
 		[a retain];
@@ -362,14 +362,14 @@ both2(cpFloat, cpDampedRotarySpring, damping, Damping)
 	cpRotaryLimitJoint _constraint;
 }
 
-+ (instancetype)rotaryLimitJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b min:(cpFloat)min max:(cpFloat)max
++ (id)rotaryLimitJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b min:(cpFloat)min max:(cpFloat)max
 {
 	return [[[self alloc] initWithBodyA:a bodyB:b min:min max:max] autorelease];
 }
 
 - (cpConstraint *)constraint {return (cpConstraint *)&_constraint;}
 
-- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b min:(cpFloat)min max:(cpFloat)max
+- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b min:(cpFloat)min max:(cpFloat)max
 {
 	if((self = [super init])){
 		[a retain];
@@ -393,14 +393,14 @@ both2(cpFloat, cpRotaryLimitJoint, max, Max)
 	cpSimpleMotor _constraint;
 }
 
-+ (instancetype)simpleMotorWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b rate:(cpFloat)rate
++ (id)simpleMotorWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b rate:(cpFloat)rate
 {
 	return [[[self alloc] initWithBodyA:a bodyB:b rate:rate] autorelease];
 }
 
 - (cpConstraint *)constraint {return (cpConstraint *)&_constraint;}
 
-- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b rate:(cpFloat)rate
+- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b rate:(cpFloat)rate
 {
 	if((self = [super init])){
 		[a retain];
@@ -423,14 +423,14 @@ both2(cpFloat, cpSimpleMotor, rate, Rate)
 	cpGearJoint _constraint;
 }
 
-+ (instancetype)gearJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b phase:(cpFloat)phase ratio:(cpFloat)ratio
++ (id)gearJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b phase:(cpFloat)phase ratio:(cpFloat)ratio
 {
 	return [[[self alloc] initWithBodyA:a bodyB:b phase:phase ratio:ratio] autorelease];
 }
 
 - (cpConstraint *)constraint {return (cpConstraint *)&_constraint;}
 
-- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b phase:(cpFloat)phase ratio:(cpFloat)ratio
+- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b phase:(cpFloat)phase ratio:(cpFloat)ratio
 {
 	if((self = [super init])){
 		[a retain];
@@ -454,14 +454,14 @@ both2(cpFloat, cpGearJoint, ratio, Ratio)
 	cpRatchetJoint _constraint;
 }
 
-+ (instancetype)ratchetJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b phase:(cpFloat)phase ratchet:(cpFloat)ratchet
++ (id)ratchetJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b phase:(cpFloat)phase ratchet:(cpFloat)ratchet
 {
 	return [[[self alloc] initWithBodyA:a bodyB:b phase:phase ratchet:ratchet] autorelease];
 }
 
 - (cpConstraint *)constraint {return (cpConstraint *)&_constraint;}
 
-- (instancetype)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b phase:(cpFloat)phase ratchet:(cpFloat)ratchet
+- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b phase:(cpFloat)phase ratchet:(cpFloat)ratchet
 {
 	if((self = [super init])){
 		[a retain];

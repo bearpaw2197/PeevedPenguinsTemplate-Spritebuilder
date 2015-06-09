@@ -84,7 +84,7 @@
 @property (nonatomic, assign) float hitAreaExpansion;
 
 // purposefully undocumented: CCResponder should not be instantiated by users
-- (instancetype)init;
+- (id)init;
 
 /// -----------------------------------------------------------------------
 /// @name Performing Hit Tests

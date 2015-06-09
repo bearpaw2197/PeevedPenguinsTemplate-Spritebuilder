@@ -95,7 +95,7 @@
 
 @implementation CCMoveToX
 
--(instancetype) initWithDuration: (CCTime) t positionX: (float) p callback:(void(^)(void))callback
+-(id) initWithDuration: (CCTime) t positionX: (float) p callback:(void(^)(void))callback
 {
 	if( (self=[super initWithDuration: t]) ) {
 		_endPosition = p;
@@ -135,7 +135,7 @@
 
 @implementation CCMoveToY
 
--(instancetype) initWithDuration: (CCTime) t positionY: (float) p callback:(void(^)(void))callback
+-(id) initWithDuration: (CCTime) t positionY: (float) p callback:(void(^)(void))callback
 {
 	if( (self=[super initWithDuration: t]) ) {
 		_endPosition = p;
@@ -182,14 +182,14 @@
 
 #pragma mark Initializers
 
-- (instancetype) init
+- (id) init
 {
     self = [self initWithContentNode:[CCNode node]];
     self.contentSizeType = CCSizeTypeNormalized;
     return self;
 }
 
-- (instancetype) initWithContentNode:(CCNode*)contentNode
+- (id) initWithContentNode:(CCNode*)contentNode
 {
     self = [super init];
     if (!self) return NULL;
@@ -724,7 +724,7 @@
     BOOL foundSelf = NO;
     for (int i = (int)responders.count - 1; i >= 0; i--)
     {
-        CCNode* responder = responders[i];
+        CCNode* responder = [responders objectAtIndex:i];
         if (foundSelf)
         {
             if (![self isAncestor:responder toNode:self])

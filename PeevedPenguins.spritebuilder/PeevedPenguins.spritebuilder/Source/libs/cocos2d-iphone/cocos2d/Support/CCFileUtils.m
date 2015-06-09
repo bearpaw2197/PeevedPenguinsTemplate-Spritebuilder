@@ -84,7 +84,7 @@ NSInteger ccLoadFileIntoMemory(const char *filename, unsigned char **out)
 @end
 
 @implementation CCCacheValue
--(instancetype) initWithFullPath:(NSString*)path contentScale:(CGFloat)contentScale;
+-(id) initWithFullPath:(NSString*)path contentScale:(CGFloat)contentScale;
 {
 	if( (self=[super init]) )
 	{
@@ -128,7 +128,7 @@ static CCFileUtils *fileUtils = nil;
 }
 
 
-+ (CCFileUtils*)sharedFileUtils
++ (id)sharedFileUtils
 {
 	if(!fileUtils) {
 		fileUtils = [[self alloc] init];
@@ -136,7 +136,7 @@ static CCFileUtils *fileUtils = nil;
 	return fileUtils;
 }
 
--(instancetype) init
+-(id) init
 {
 	if( (self=[super init])) {
 		_fileManager = [[NSFileManager alloc] init];
@@ -396,7 +396,7 @@ static CCFileUtils *fileUtils = nil;
 {
 	// XXX XXX Super Slow
 	for( NSString *key in dictionary) {
-		NSString *value = dictionary[key];
+		NSString *value = [dictionary objectForKey:key];
 		if( [value isEqualToString:k] ) {
 			
 #if __CC_PLATFORM_IOS || __CC_PLATFORM_ANDROID
@@ -439,12 +439,12 @@ static CCFileUtils *fileUtils = nil;
 		return filename;
 
 	// Already cached ?
-	NSString* ret = _fullPathNoResolutionsCache[filename];
+	NSString* ret = [_fullPathNoResolutionsCache objectForKey:filename];
 	if (ret)
 		return ret;
 	
 	// Lookup rules
-	NSString *newfilename = _filenameLookup[filename];
+	NSString *newfilename = [_filenameLookup objectForKey:filename];
 	if( ! newfilename )
 		newfilename = filename;
 
@@ -468,7 +468,7 @@ static CCFileUtils *fileUtils = nil;
 
 	// Save in cache
 	if( ret )
-		_fullPathNoResolutionsCache[filename] = ret;
+		[_fullPathNoResolutionsCache setObject:ret forKey:filename];
 	else
 		CCLOGINFO(@"cocos2d: CCFileUtils: file not found: %@", filename );
 	
@@ -566,14 +566,14 @@ static CCFileUtils *fileUtils = nil;
 //	}
 
 	// Already Cached ?
-	CCCacheValue *value = _fullPathCache[filename];
+	CCCacheValue *value = [_fullPathCache objectForKey:filename];
 	if( value ) {
 		*contentScale = value.contentScale;
 		return value.fullpath;
 	}
 
 	// in Lookup Filename dictionary ?
-	NSString *newfilename = _filenameLookup[filename];
+	NSString *newfilename = [_filenameLookup objectForKey:filename];
 	if( ! newfilename )
 		newfilename = filename;
 
@@ -589,12 +589,12 @@ static CCFileUtils *fileUtils = nil;
 			
 			if( _searchMode == CCFileUtilsSearchModeSuffix ) {
 				// Search using suffixes
-				NSString *suffix = _suffixesDict[device];
+				NSString *suffix = [_suffixesDict objectForKey:device];
 				ret = [self getPathForFilename:fileWithPath withSuffix:suffix];
 				*contentScale = [self contentScaleForKey:suffix inDictionary:_suffixesDict];
 			} else {
 				// Search in subdirectories
-				NSString *directory = _directoriesDict[device];
+				NSString *directory = [_directoriesDict objectForKey:device];
 				ret = [self getPathForFilename:newfilename withResourceDirectory:directory withSearchPath:path];
 				*contentScale = [self contentScaleForKey:directory inDictionary:_directoriesDict];
 			}
@@ -612,7 +612,7 @@ static CCFileUtils *fileUtils = nil;
 
 	if( found ) {
 		value = [[CCCacheValue alloc] initWithFullPath:ret contentScale:*contentScale];
-		_fullPathCache[filename] = value;
+		[_fullPathCache setObject:value forKey:filename];
 	}
 	else
 	{
@@ -650,14 +650,14 @@ static CCFileUtils *fileUtils = nil;
 	if( fullpath ) {
 		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:fullpath];
 
-		NSDictionary *metadata = dict[@"metadata"];
-		NSInteger version = [metadata[@"version"] integerValue];
+		NSDictionary *metadata = [dict objectForKey:@"metadata"];
+		NSInteger version = [[metadata objectForKey:@"version"] integerValue];
 		if( version != 1) {
 			CCLOG(@"cocos2d: ERROR: Invalid filenameLookup dictionary version: %ld. Filename: %@", (long)version, filename);
 			return;
 		}
 		
-		NSMutableDictionary *filenames = dict[@"filenames"];
+		NSMutableDictionary *filenames = [dict objectForKey:@"filenames"];
 		self.filenameLookup = filenames;
 	}
 }
@@ -689,17 +689,17 @@ static CCFileUtils *fileUtils = nil;
 
 -(void) setiPadRetinaDisplaySuffix:(NSString *)suffix
 {
-	_suffixesDict[CCFileUtilsSuffixiPadHD] = suffix;
+	[_suffixesDict setObject:suffix forKey:CCFileUtilsSuffixiPadHD];
 }
 
 -(void) setiPadSuffix:(NSString *)suffix
 {
-	_suffixesDict[CCFileUtilsSuffixiPad] = suffix;
+	[_suffixesDict setObject:suffix forKey:CCFileUtilsSuffixiPad];
 }
 
 -(void) setiPhoneRetinaDisplaySuffix:(NSString *)suffix
 {
-	_suffixesDict[CCFileUtilsSuffixiPhoneHD] = suffix;
+	[_suffixesDict setObject:suffix forKey:CCFileUtilsSuffixiPhoneHD];
 }
 
 -(void)setiPhoneContentScaleFactor:(CGFloat)scale
@@ -747,7 +747,7 @@ static CCFileUtils *fileUtils = nil;
 
 -(NSString*) removeSuffixFromFile:(NSString*) path
 {
-	NSString *withoutSuffix = _removeSuffixCache[path];
+	NSString *withoutSuffix = [_removeSuffixCache objectForKey:path];
 	if( withoutSuffix )
 		return withoutSuffix;
 	
@@ -755,7 +755,7 @@ static CCFileUtils *fileUtils = nil;
 	NSString *ret = @"";
 		
 	for( NSString *device in _searchResolutionsOrder ) {
-		NSString *suffix = _suffixesDict[device];
+		NSString *suffix = [_suffixesDict objectForKey:device];
 		ret = [self removeSuffix:suffix fromPath:path];
 		
 		if( ret )
@@ -766,7 +766,7 @@ static CCFileUtils *fileUtils = nil;
 		ret = path;
 	
     if (path)
-        _removeSuffixCache[path] = ret;
+        [_removeSuffixCache setObject:ret forKey:path];
 	
 	return ret;
 }
@@ -799,17 +799,17 @@ static CCFileUtils *fileUtils = nil;
 
 -(BOOL) iPhoneRetinaDisplayFileExistsAtPath:(NSString*)path
 {
-	return [self fileExistsAtPath:path withSuffix:_suffixesDict[CCFileUtilsSuffixiPhoneHD]];
+	return [self fileExistsAtPath:path withSuffix:[_suffixesDict objectForKey:CCFileUtilsSuffixiPhoneHD]];
 }
 
 -(BOOL) iPadFileExistsAtPath:(NSString*)path
 {
-	return [self fileExistsAtPath:path withSuffix:_suffixesDict[CCFileUtilsSuffixiPad]];
+	return [self fileExistsAtPath:path withSuffix:[_suffixesDict objectForKey:CCFileUtilsSuffixiPad]];
 }
 
 -(BOOL) iPadRetinaDisplayFileExistsAtPath:(NSString*)path
 {
-	return [self fileExistsAtPath:path withSuffix:_suffixesDict[CCFileUtilsSuffixiPadHD]];
+	return [self fileExistsAtPath:path withSuffix:[_suffixesDict objectForKey:CCFileUtilsSuffixiPadHD]];
 }
 
 #endif // __CC_PLATFORM_IOS

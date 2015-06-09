@@ -106,6 +106,7 @@
 		571CD02619649E03003D460C /* CCPlatformTextFieldAndroid.h in Headers */ = {isa = PBXBuildFile; fileRef = 571CD01C19649E03003D460C /* CCPlatformTextFieldAndroid.h */; };
 		571CD02819649E03003D460C /* CCPlatformTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 571CD01E19649E03003D460C /* CCPlatformTextField.h */; };
 		571CD02919649E03003D460C /* CCPlatformTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 571CD01F19649E03003D460C /* CCPlatformTextField.m */; };
+		571CD02A19649E03003D460C /* CCPlatformTextFieldIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 571CD02119649E03003D460C /* CCPlatformTextFieldIOS.h */; };
 		571CD02B19649E03003D460C /* CCPlatformTextFieldIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 571CD02219649E03003D460C /* CCPlatformTextFieldIOS.m */; };
 		57202D391970776100238D56 /* CCPlatformTextFieldAndroid.m in Sources */ = {isa = PBXBuildFile; fileRef = 571CD01D19649E03003D460C /* CCPlatformTextFieldAndroid.m */; };
 		577D72D11970AC59005ABDC0 /* CCPlatformTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 571CD01F19649E03003D460C /* CCPlatformTextField.m */; };
@@ -282,6 +283,7 @@
 		7A59475719E3731100F65F90 /* CCScheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = 5066020F0E38A70D000B500E /* CCScheduler.h */; };
 		7A59475919E3731100F65F90 /* CCDirector_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = B706B19918209FA000B27A2C /* CCDirector_Private.h */; };
 		7A59476019E3731400F65F90 /* CCPlatformTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 571CD01E19649E03003D460C /* CCPlatformTextField.h */; };
+		7A59476219E3731400F65F90 /* CCPlatformTextFieldIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 571CD02119649E03003D460C /* CCPlatformTextFieldIOS.h */; };
 		7A59476419E3731500F65F90 /* CCPlatformTextFieldMac.h in Headers */ = {isa = PBXBuildFile; fileRef = 571CD02419649E03003D460C /* CCPlatformTextFieldMac.h */; };
 		7A59476619E3731600F65F90 /* CCAnimationManager_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D24160F61958F6EE003673BD /* CCAnimationManager_Private.h */; };
 		7A59476719E3731600F65F90 /* CCAnimationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D24160F71958F6EE003673BD /* CCAnimationManager.h */; };
@@ -2356,6 +2358,7 @@
 				503798C60F912C2000986724 /* CGPointExtension.h in Headers */,
 				50D413260F9A3FE00040C3C8 /* CCParticleSystem.h in Headers */,
 				502C6C6C0FB87970002BF3C2 /* CCParallaxNode.h in Headers */,
+				571CD02A19649E03003D460C /* CCPlatformTextFieldIOS.h in Headers */,
 				B706B19818209A8300B27A2C /* CCTexture_Private.h in Headers */,
 				D2DDB09719805E8400233D80 /* CCMatrix4.h in Headers */,
 				D24161111958F72B003673BD /* CCEffectStackProtocol.h in Headers */,
@@ -2661,6 +2664,7 @@
 				7A59475719E3731100F65F90 /* CCScheduler.h in Headers */,
 				7A59475919E3731100F65F90 /* CCDirector_Private.h in Headers */,
 				7A59476019E3731400F65F90 /* CCPlatformTextField.h in Headers */,
+				7A59476219E3731400F65F90 /* CCPlatformTextFieldIOS.h in Headers */,
 				7A59476419E3731500F65F90 /* CCPlatformTextFieldMac.h in Headers */,
 				9DC780BA1A1175F100DD5A4B /* CCLightNode.h in Headers */,
 				7A59476619E3731600F65F90 /* CCAnimationManager_Private.h in Headers */,

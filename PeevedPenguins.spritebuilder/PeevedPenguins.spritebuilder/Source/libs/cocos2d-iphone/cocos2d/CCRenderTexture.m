@@ -80,33 +80,33 @@
 
 @implementation CCRenderTexture
 
-+(instancetype)renderTextureWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat) format depthStencilFormat:(GLuint)depthStencilFormat
++(id)renderTextureWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat) format depthStencilFormat:(GLuint)depthStencilFormat
 {
   return [[self alloc] initWithWidth:w height:h pixelFormat:format depthStencilFormat:depthStencilFormat];
 }
 
 // issue #994
-+(instancetype)renderTextureWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format
++(id)renderTextureWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format
 {
 	return [[self alloc] initWithWidth:w height:h pixelFormat:format];
 }
 
-+(instancetype)renderTextureWithWidth:(int)w height:(int)h
++(id)renderTextureWithWidth:(int)w height:(int)h
 {
 	return [[self alloc] initWithWidth:w height:h pixelFormat:CCTexturePixelFormat_RGBA8888 depthStencilFormat:0];
 }
 
--(instancetype)initWithWidth:(int)w height:(int)h
+-(id)initWithWidth:(int)w height:(int)h
 {
 	return [self initWithWidth:w height:h pixelFormat:CCTexturePixelFormat_RGBA8888];
 }
 
-- (instancetype)initWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format
+- (id)initWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format
 {
   return [self initWithWidth:w height:h pixelFormat:format depthStencilFormat:0];
 }
 
--(instancetype)initWithWidth:(int)width height:(int)height pixelFormat:(CCTexturePixelFormat) format depthStencilFormat:(GLuint)depthStencilFormat
+-(id)initWithWidth:(int)width height:(int)height pixelFormat:(CCTexturePixelFormat) format depthStencilFormat:(GLuint)depthStencilFormat
 {
 	if((self = [super init])){
 #if __CC_METAL_SUPPORTED_AND_ENABLED
@@ -144,7 +144,7 @@
 }
 
 
--(instancetype)init
+-(id)init
 {
     return [self initWithWidth:0 height:0 pixelFormat:CCTexturePixelFormat_RGBA8888];
 }
@@ -460,7 +460,7 @@ FlipY(GLKMatrix4 projection)
 {
 	BOOL success = YES;
 	
-	NSString *fullPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:fileName];
+	NSString *fullPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:fileName];
 
     return [self saveToFilePath:fullPath format:format];
 }

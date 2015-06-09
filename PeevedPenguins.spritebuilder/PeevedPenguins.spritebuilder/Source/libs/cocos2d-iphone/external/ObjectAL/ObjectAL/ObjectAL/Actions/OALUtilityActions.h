@@ -51,7 +51,7 @@
  * @param action The action to run.
  * @return A new action.
  */
-+ (instancetype) actionWithTarget:(id) target action:(OALAction*) action;
++ (id) actionWithTarget:(id) target action:(OALAction*) action;
 
 /** Initialize an action.
  *
@@ -59,7 +59,7 @@
  * @param action The action to run.
  * @return The initialized action.
  */
-- (instancetype) initWithTarget:(id) target action:(OALAction*) action;
+- (id) initWithTarget:(id) target action:(OALAction*) action;
 
 @end
 
@@ -102,21 +102,21 @@
  * @param NS_REQUIRES_NIL_TERMINATION List of actions must be terminated by a nil.
  * @return A new set of sequential actions.
  */
-+ (instancetype) actions:(OALAction*) actions, ... NS_REQUIRES_NIL_TERMINATION;
++ (id) actions:(OALAction*) actions, ... NS_REQUIRES_NIL_TERMINATION;
 
 /** Create an action.
  *
  * @param actions The actions to run.
  * @return A new set of sequential actions.
  */
-+ (instancetype) actionsFromArray:(NSArray*) actions;
++ (id) actionsFromArray:(NSArray*) actions;
 
 /** Initialize an action.
  *
  * @param actions The actions to run.
  * @return The initialized set of sequential actions.
  */
-- (instancetype) initWithActions:(NSArray*) actions;
+- (id) initWithActions:(NSArray*) actions;
 
 @end
 
@@ -144,21 +144,21 @@
  * @param NS_REQUIRES_NIL_TERMINATION List of actions must be terminated by a nil.
  * @return A new set of concurrent actions.
  */
-+ (instancetype) actions:(OALAction*) actions, ... NS_REQUIRES_NIL_TERMINATION;
++ (id) actions:(OALAction*) actions, ... NS_REQUIRES_NIL_TERMINATION;
 
 /** Create an action.
  *
  * @param actions The actions to run.
  * @return A new set of concurrent actions.
  */
-+ (instancetype) actionsFromArray:(NSArray*) actions;
++ (id) actionsFromArray:(NSArray*) actions;
 
 /** Initialize an action.
  *
  * @param actions The actions to run.
  * @return The initialized set of concurrent actions.
  */
-- (instancetype) initWithActions:(NSArray*) actions;
+- (id) initWithActions:(NSArray*) actions;
 
 @end
 
@@ -205,7 +205,7 @@ COCOS2D_SUBCLASS_HEADER(OALConcurrentActions,CCSpawn);
  * @param selector The selector to invoke.
  * @return A new action.
  */
-+ (instancetype) actionWithCallTarget:(id) callTarget
++ (id) actionWithCallTarget:(id) callTarget
 				   selector:(SEL) selector;
 
 /** Create an action.
@@ -215,7 +215,7 @@ COCOS2D_SUBCLASS_HEADER(OALConcurrentActions,CCSpawn);
  * @param object The object to pass to the selector.
  * @return A new action.
  */
-+ (instancetype) actionWithCallTarget:(id) callTarget
++ (id) actionWithCallTarget:(id) callTarget
 				   selector:(SEL) selector
 				 withObject:(id) object;
 
@@ -227,7 +227,7 @@ COCOS2D_SUBCLASS_HEADER(OALConcurrentActions,CCSpawn);
  * @param secondObject The second object to pass to the selector.
  * @return A new action.
  */
-+ (instancetype) actionWithCallTarget:(id) callTarget
++ (id) actionWithCallTarget:(id) callTarget
 				   selector:(SEL) selector
 				 withObject:(id) firstObject
 				 withObject:(id) secondObject;
@@ -238,7 +238,7 @@ COCOS2D_SUBCLASS_HEADER(OALConcurrentActions,CCSpawn);
  * @param selector The selector to invoke.
  * @return The initialized action.
  */
-- (instancetype) initWithCallTarget:(id) callTarget
+- (id) initWithCallTarget:(id) callTarget
 				 selector:(SEL) selector;
 
 /** Initialize an action.
@@ -248,7 +248,7 @@ COCOS2D_SUBCLASS_HEADER(OALConcurrentActions,CCSpawn);
  * @param object The object to pass to the selector.
  * @return Initialize an action.
  */
-- (instancetype) initWithCallTarget:(id) callTarget
+- (id) initWithCallTarget:(id) callTarget
 				 selector:(SEL) selector
 			   withObject:(id) object;
 
@@ -260,7 +260,7 @@ COCOS2D_SUBCLASS_HEADER(OALConcurrentActions,CCSpawn);
  * @param secondObject The second object to pass to the selector.
  * @return The initialized action.
  */
-- (instancetype) initWithCallTarget:(id) callTarget
+- (id) initWithCallTarget:(id) callTarget
 				 selector:(SEL) selector
 			   withObject:(id) firstObject
 			   withObject:(id) secondObject;

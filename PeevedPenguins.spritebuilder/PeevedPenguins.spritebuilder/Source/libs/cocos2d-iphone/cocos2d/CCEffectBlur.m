@@ -51,7 +51,7 @@
 
 @implementation CCEffectBlurImpl
 
--(instancetype)initWithInterface:(CCEffectBlur *)interface
+-(id)initWithInterface:(CCEffectBlur *)interface
 {
     CCEffectBlurParams blurParams = CCEffectUtilsComputeBlurParams(interface.blurRadius);
     
@@ -284,7 +284,7 @@
     BOOL _shaderDirty;
 }
 
--(instancetype)init
+-(id)init
 {
     if((self = [self initWithPixelBlurRadius:2]))
     {
@@ -294,7 +294,7 @@
     return self;
 }
 
--(instancetype)initWithPixelBlurRadius:(NSUInteger)blurRadius
+-(id)initWithPixelBlurRadius:(NSUInteger)blurRadius
 {
     if(self = [super init])
     {

@@ -26,7 +26,7 @@ static GLKMatrix4 matrixWithHue(float hue);
 
 @implementation CCEffectHueImpl
 
--(instancetype)initWithInterface:(CCEffectHue *)interface
+-(id)initWithInterface:(CCEffectHue *)interface
 {
     NSArray *uniforms = @[
                           [CCEffectUniform uniform:@"mat4" name:@"u_hueRotationMtx" value:[NSValue valueWithGLKMatrix4:GLKMatrix4Identity]]
@@ -80,12 +80,12 @@ static GLKMatrix4 matrixWithHue(float hue);
 
 @implementation CCEffectHue
 
--(instancetype)init
+-(id)init
 {
     return [self initWithHue:0.0f];
 }
 
--(instancetype)initWithHue:(float)hue
+-(id)initWithHue:(float)hue
 {
     if((self = [super init]))
     {

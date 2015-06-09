@@ -184,7 +184,7 @@
  * @param reservedSources the number of sources to reserve for this channel.
  * @return The initialized channel.
  */
-- (instancetype) initWithSources:(int) reservedSources;
+- (id) initWithSources:(int) reservedSources;
 
 /** Set this channel's default values from those in the specified source.
  *
@@ -228,7 +228,7 @@
  *
  * @return A list of buffers that were cleared.
  */
-@property (nonatomic, readonly, copy) NSArray *clearUnusedBuffers;
+- (NSArray*) clearUnusedBuffers;
 
 /** Remove all instances of the specified buffer.
  *

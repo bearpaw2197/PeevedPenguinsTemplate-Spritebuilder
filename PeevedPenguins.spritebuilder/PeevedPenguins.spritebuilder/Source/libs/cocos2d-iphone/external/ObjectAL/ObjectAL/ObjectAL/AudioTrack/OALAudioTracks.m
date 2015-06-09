@@ -59,7 +59,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_PROTOTYPE(OALAudioTracks);
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(OALAudioTracks);
 
-- (instancetype) init
+- (id) init
 {
 	if(nil != (self = [super init]))
 	{
@@ -217,7 +217,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(OALAudioTracks);
         // Only actually have to poll a single track's value to avoid the bug.
         if([tracks count] > 0)
         {
-            [tracks[0] deviceCurrentTime];
+            [[tracks objectAtIndex:0] deviceCurrentTime];
         }
     }
 }

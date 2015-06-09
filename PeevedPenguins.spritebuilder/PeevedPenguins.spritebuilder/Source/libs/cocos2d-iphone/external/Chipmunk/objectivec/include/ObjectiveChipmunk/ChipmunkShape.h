@@ -85,7 +85,7 @@
 @property(nonatomic, assign) id userData;
 
 /// Update and cache the axis-aligned bounding box for this shape.
-@property (nonatomic, readonly) cpBB cacheBB;
+- (cpBB)cacheBB;
 
 - (ChipmunkPointQueryInfo *)pointQuery:(cpVect)point;
 - (ChipmunkSegmentQueryInfo *)segmentQueryFrom:(cpVect)start to:(cpVect)end radius:(cpFloat)radius;
@@ -98,7 +98,7 @@
 	cpPointQueryInfo _info;
 }
 
-- (instancetype)initWithInfo:(cpPointQueryInfo *)info;
+- (id)initWithInfo:(cpPointQueryInfo *)info;
 
 /// Returns a pointer to the underlying cpNearestPointQueryInfo C struct.
 @property(nonatomic, readonly) cpPointQueryInfo *info;
@@ -127,7 +127,7 @@
 	cpVect _start, _end;
 }
 
-- (instancetype)initWithInfo:(cpSegmentQueryInfo *)info start:(cpVect)start end:(cpVect)end;
+- (id)initWithInfo:(cpSegmentQueryInfo *)info start:(cpVect)start end:(cpVect)end;
 
 /// Returns a pointer to the underlying cpSegmentQueryInfo C struct.
 @property(nonatomic, readonly) cpSegmentQueryInfo *info;
@@ -163,7 +163,7 @@
 	cpContactPointSet _contactPoints;
 }
 
-- (instancetype)initWithShape:(ChipmunkShape *)shape andPoints:(cpContactPointSet *)set;
+- (id)initWithShape:(ChipmunkShape *)shape andPoints:(cpContactPointSet *)set;
 
 @property(nonatomic, readonly) ChipmunkShape *shape;
 @property(nonatomic, readonly) cpContactPointSet *contactPoints;
@@ -178,7 +178,7 @@
 + (id)circleWithBody:(ChipmunkBody *)body radius:(cpFloat)radius offset:(cpVect)offset;
 
 /// Initialize a circle shape with the given radius and offset from the center of gravity.
-- (instancetype)initWithBody:(ChipmunkBody *)body radius:(cpFloat)radius offset:(cpVect)offset;
+- (id)initWithBody:(ChipmunkBody *)body radius:(cpFloat)radius offset:(cpVect)offset;
 
 /// The radius of the circle.
 @property(nonatomic, readonly) cpFloat radius;
@@ -196,7 +196,7 @@
 + (id)segmentWithBody:(ChipmunkBody *)body from:(cpVect)a to:(cpVect)b radius:(cpFloat)radius;
 
 /// Initialize a segment shape with the given endpoints and radius.
-- (instancetype)initWithBody:(ChipmunkBody *)body from:(cpVect)a to:(cpVect)b radius:(cpFloat)radius;
+- (id)initWithBody:(ChipmunkBody *)body from:(cpVect)a to:(cpVect)b radius:(cpFloat)radius;
 
 /// Let Chipmunk know about the geometry of adjacent segments to avoid colliding with endcaps.
 - (void)setPrevNeighbor:(cpVect)prev nextNeighbor:(cpVect)next;
@@ -229,13 +229,13 @@
 + (id)boxWithBody:(ChipmunkBody *)body bb:(cpBB)bb radius:(cpFloat)radius;
 
 /// Initialize a polygon shape from the given vertexes after applying the transform and with the given rounding radius.
-- (instancetype)initWithBody:(ChipmunkBody *)body count:(int)count verts:(const cpVect *)verts transform:(cpTransform)transform radius:(cpFloat)radius;
+- (id)initWithBody:(ChipmunkBody *)body count:(int)count verts:(const cpVect *)verts transform:(cpTransform)transform radius:(cpFloat)radius;
 
 /// Initialize a box shape centered on the center of gravity.
-- (instancetype)initBoxWithBody:(ChipmunkBody *)body width:(cpFloat)width height:(cpFloat)height radius:(cpFloat)radius;
+- (id)initBoxWithBody:(ChipmunkBody *)body width:(cpFloat)width height:(cpFloat)height radius:(cpFloat)radius;
 
 /// Initialize a box shape with the given bounding box in body local coordinates and rounding radius.
-- (instancetype)initBoxWithBody:(ChipmunkBody *)body bb:(cpBB)bb radius:(cpFloat)radius;
+- (id)initBoxWithBody:(ChipmunkBody *)body bb:(cpBB)bb radius:(cpFloat)radius;
 
 /// The number of vertexes in this polygon.
 @property(nonatomic, readonly) int count;

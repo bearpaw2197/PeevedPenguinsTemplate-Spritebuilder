@@ -61,9 +61,9 @@ static float conditionSaturation(float saturation);
 
 @implementation CCEffectSaturationImpl
 
--(instancetype)initWithInterface:(CCEffectSaturation *)interface
+-(id)initWithInterface:(CCEffectSaturation *)interface
 {
-    CCEffectUniform* uniformSaturation = [CCEffectUniform uniform:@"float" name:@"u_saturation" value:@1.0f];
+    CCEffectUniform* uniformSaturation = [CCEffectUniform uniform:@"float" name:@"u_saturation" value:[NSNumber numberWithFloat:1.0f]];
     
     NSArray *fragFunctions = [CCEffectSaturationImpl buildFragmentFunctions];
     NSArray *renderPasses = [CCEffectSaturationImpl buildRenderPassesWithInterface:interface];
@@ -118,17 +118,17 @@ static float conditionSaturation(float saturation);
 
 @implementation CCEffectSaturation
 
--(instancetype)init
+-(id)init
 {
     return [self initWithSaturation:0.0f];
 }
 
--(instancetype)initWithSaturation:(float)saturation
+-(id)initWithSaturation:(float)saturation
 {
     if((self = [super init]))
     {
         _saturation = saturation;
-        _conditionedSaturation = @(conditionSaturation(saturation));
+        _conditionedSaturation = [NSNumber numberWithFloat:conditionSaturation(saturation)];
 
         self.effectImpl = [[CCEffectSaturationImpl alloc] initWithInterface:self];
         self.debugName = @"CCEffectSaturation";
@@ -144,7 +144,7 @@ static float conditionSaturation(float saturation);
 -(void)setSaturation:(float)saturation
 {
     _saturation = saturation;
-    _conditionedSaturation = @(conditionSaturation(saturation));
+    _conditionedSaturation = [NSNumber numberWithFloat:conditionSaturation(saturation)];
 }
 
 @end

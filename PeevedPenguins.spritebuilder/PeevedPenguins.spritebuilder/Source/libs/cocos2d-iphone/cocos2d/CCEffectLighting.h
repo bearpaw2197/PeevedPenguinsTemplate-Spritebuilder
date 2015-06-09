@@ -41,7 +41,7 @@
  *  @return The CCEffectLighting object.
  *  @since v3.4 and later
  */
--(instancetype)init;
+-(id)init;
 
 /**
  *  Initializes a CCEffectLighting object with the supplied parameters.
@@ -54,7 +54,7 @@
  *  @since v3.4 and later
  *  @see CCColor
  */
--(instancetype)initWithGroups:(NSArray *)groups specularColor:(CCColor *)specularColor shininess:(float)shininess;
+-(id)initWithGroups:(NSArray *)groups specularColor:(CCColor *)specularColor shininess:(float)shininess;
 
 /// -----------------------------------------------------------------------
 /// @name Lighting Properties

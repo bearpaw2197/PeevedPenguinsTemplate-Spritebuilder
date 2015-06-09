@@ -35,39 +35,39 @@
 @implementation CCSpriteBatchNode {
 }
 
-+(instancetype)batchNodeWithTexture:(CCTexture *)tex
++(id)batchNodeWithTexture:(CCTexture *)tex
 {
 	return [[self alloc] initWithTexture:tex capacity:0];
 }
 
-+(instancetype)batchNodeWithTexture:(CCTexture *)tex capacity:(NSUInteger)capacity
++(id)batchNodeWithTexture:(CCTexture *)tex capacity:(NSUInteger)capacity
 {
 	return [[self alloc] initWithTexture:tex capacity:capacity];
 }
 
-+(instancetype)batchNodeWithFile:(NSString*)fileImage capacity:(NSUInteger)capacity
++(id)batchNodeWithFile:(NSString*)fileImage capacity:(NSUInteger)capacity
 {
 	return [[self alloc] initWithFile:fileImage capacity:capacity];
 }
 
-+(instancetype)batchNodeWithFile:(NSString*) imageFile
++(id)batchNodeWithFile:(NSString*) imageFile
 {
 	return [[self alloc] initWithFile:imageFile capacity:0];
 }
 
--(instancetype)init
+-(id)init
 {
     return [self initWithTexture:[[CCTexture alloc] init] capacity:0];
 }
 
--(instancetype)initWithFile:(NSString *)fileImage capacity:(NSUInteger)capacity
+-(id)initWithFile:(NSString *)fileImage capacity:(NSUInteger)capacity
 {
 	CCTexture *tex = [[CCTextureCache sharedTextureCache] addImage:fileImage];
 	return [self initWithTexture:tex capacity:capacity];
 }
 
 // Designated initializer
--(instancetype)initWithTexture:(CCTexture *)tex capacity:(NSUInteger)capacity
+-(id)initWithTexture:(CCTexture *)tex capacity:(NSUInteger)capacity
 {
 	if( (self=[super init])) {
 		self.texture = tex;

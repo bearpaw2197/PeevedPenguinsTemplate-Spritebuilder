@@ -39,12 +39,12 @@
 
 #pragma mark Object Management
 
-+ (instancetype) deviceWithDeviceSpecifier:(NSString*) deviceSpecifier
++ (id) deviceWithDeviceSpecifier:(NSString*) deviceSpecifier
 {
 	return as_autorelease([[self alloc] initWithDeviceSpecifier:deviceSpecifier]);
 }
 
-- (instancetype) initWithDeviceSpecifier:(NSString*) deviceSpecifier
+- (id) initWithDeviceSpecifier:(NSString*) deviceSpecifier
 {
 	if(nil != (self = [super init]))
 	{

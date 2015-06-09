@@ -67,7 +67,7 @@ typedef struct CCSpriteTexCoordSet {
  *
  *  @return The CCSprite Object.
  */
-+ (instancetype)spriteWithImageNamed:(NSString*)imageName;
++ (id)spriteWithImageNamed:(NSString*)imageName;
 
 /**
  *  Initializes a sprite with the name of an image. The name can be either a name in a sprite sheet or the name of a file.
@@ -76,7 +76,7 @@ typedef struct CCSpriteTexCoordSet {
  *
  *  @return A newly initialized CCSprite object.
  */
-- (instancetype)initWithImageNamed:(NSString*)imageName;
+- (id)initWithImageNamed:(NSString*)imageName;
 
 /// -----------------------------------------------------------------------
 /// @name Creating a Sprite with a Sprite Frame
@@ -90,7 +90,7 @@ typedef struct CCSpriteTexCoordSet {
  *  @return The CCSprite Object.
  *  @see CCSpriteFrame
  */
-+ (instancetype)spriteWithSpriteFrame:(CCSpriteFrame*)spriteFrame;
++ (id)spriteWithSpriteFrame:(CCSpriteFrame*)spriteFrame;
 
 /**
  *  Initializes an sprite with an existing CCSpriteFrame.
@@ -100,7 +100,7 @@ typedef struct CCSpriteTexCoordSet {
  *  @return A newly initialized CCSprite object.
  *  @see CCSpriteFrame
  */
-- (instancetype)initWithSpriteFrame:(CCSpriteFrame*)spriteFrame;
+- (id)initWithSpriteFrame:(CCSpriteFrame*)spriteFrame;
 
 /// -----------------------------------------------------------------------
 /// @name Creating a Sprite with a Texture
@@ -116,7 +116,7 @@ typedef struct CCSpriteTexCoordSet {
  *  @return The CCSprite Object.
  *  @see CCTexture
  */
-+ (instancetype)spriteWithTexture:(CCTexture*)texture;
++ (id)spriteWithTexture:(CCTexture*)texture;
 
 /**
  *  Creates a sprite with an existing CCTexture.
@@ -128,7 +128,7 @@ typedef struct CCSpriteTexCoordSet {
  *  @return The CCSprite Object.
  *  @see CCTexture
  */
-+ (instancetype)spriteWithTexture:(CCTexture*)texture rect:(CGRect)rect;
++ (id)spriteWithTexture:(CCTexture*)texture rect:(CGRect)rect;
 
 /**
  *  Initializes a sprite with an existing CCTexture.
@@ -140,7 +140,7 @@ typedef struct CCSpriteTexCoordSet {
  *  @return A newly initialized CCSprite object.
  *  @see CCTexture
  */
-- (instancetype)initWithTexture:(CCTexture*)texture;
+- (id)initWithTexture:(CCTexture*)texture;
 
 /**
  *  Initializes a sprite with an existing CCTexture and a rect in points (unrotated).
@@ -152,7 +152,7 @@ typedef struct CCSpriteTexCoordSet {
  *  @return A newly initialized CCSprite object.
  *  @see CCTexture
  */
-- (instancetype)initWithTexture:(CCTexture*)texture rect:(CGRect)rect;
+- (id)initWithTexture:(CCTexture*)texture rect:(CGRect)rect;
 
 /**
  *  Initializes a sprite with an existing CCTexture and a rect in points, optionally rotated.
@@ -166,7 +166,7 @@ typedef struct CCSpriteTexCoordSet {
  *  @return A newly initialized CCSprite object.
  *  @see CCTexture
  */
-- (instancetype)initWithTexture:(CCTexture *)texture rect:(CGRect)rect rotated:(BOOL)rotated;
+- (id)initWithTexture:(CCTexture *)texture rect:(CGRect)rect rotated:(BOOL)rotated;
 
 /// -----------------------------------------------------------------------
 /// @name Creating a Sprite with a CGImage
@@ -185,7 +185,7 @@ typedef struct CCSpriteTexCoordSet {
  *
  *  @return The CCSprite Object.
  */
-+ (instancetype)spriteWithCGImage: (CGImageRef)image key:(NSString*)key;
++ (id)spriteWithCGImage: (CGImageRef)image key:(NSString*)key;
 
 /**
  *  Initializes an sprite with a CGImageRef and a key.
@@ -200,7 +200,7 @@ typedef struct CCSpriteTexCoordSet {
  *
  *  @return A newly initialized CCSprite object.
  */
-- (instancetype)initWithCGImage:(CGImageRef)image key:(NSString*)key;
+- (id)initWithCGImage:(CGImageRef)image key:(NSString*)key;
 
 /// -----------------------------------------------------------------------
 /// @name Creating an empty Sprite
@@ -277,7 +277,7 @@ typedef struct CCSpriteTexCoordSet {
 
 /** Returns the matrix that transforms the sprite's (local) space coordinates into the sprite's texture space coordinates.
  */
-@property (nonatomic, readonly) CGAffineTransform nodeToTextureTransform;
+- (CGAffineTransform)nodeToTextureTransform;
 
 
 

@@ -33,23 +33,23 @@
 
 
 @interface CCNode()
-@property (nonatomic, readonly) CGAffineTransform nonRigidTransform;
+-(CGAffineTransform)nonRigidTransform;
 @end
 
 
 @interface CCPhysicsCircleShape : CCPhysicsShape
--(instancetype)initWithRadius:(CGFloat)radius center:(CGPoint)center;
+-(id)initWithRadius:(CGFloat)radius center:(CGPoint)center;
 @end
 
 
 @interface CCPhysicsSegmentShape : CCPhysicsShape;
--(instancetype)initFrom:(CGPoint)from to:(CGPoint)to cornerRadius:(CGFloat)cornerRadius;
+-(id)initFrom:(CGPoint)from to:(CGPoint)to cornerRadius:(CGFloat)cornerRadius;
 @end
 
 
 @interface CCPhysicsPolyShape : CCPhysicsShape
--(instancetype)initWithRect:(CGRect)rect cornerRadius:(CGFloat)cornerRadius;
--(instancetype)initWithPolygonFromPoints:(CGPoint *)points count:(NSUInteger)count cornerRadius:(CGFloat)cornerRadius;
+-(id)initWithRect:(CGRect)rect cornerRadius:(CGFloat)cornerRadius;
+-(id)initWithPolygonFromPoints:(CGPoint *)points count:(NSUInteger)count cornerRadius:(CGFloat)cornerRadius;
 @end
 
 
@@ -270,7 +270,7 @@ RadiusForTransform(cpTransform t)
 	cpVect _center;
 }
 
--(instancetype)initWithRadius:(CGFloat)radius center:(CGPoint)center
+-(id)initWithRadius:(CGFloat)radius center:(CGPoint)center
 {
 	if((self = [super init])){
 		_radius = radius;
@@ -304,7 +304,7 @@ RadiusForTransform(cpTransform t)
 	cpVect _from, _to;
 }
 
--(instancetype)initFrom:(CGPoint)from to:(CGPoint)to cornerRadius:(CGFloat)cornerRadius
+-(id)initFrom:(CGPoint)from to:(CGPoint)to cornerRadius:(CGFloat)cornerRadius
 {
 	if((self = [super init])){
 		_radius = cornerRadius;
@@ -340,7 +340,7 @@ RadiusForTransform(cpTransform t)
 	NSUInteger _count;
 }
 
--(instancetype)initWithPolygonFromPoints:(CGPoint *)points count:(NSUInteger)count cornerRadius:(CGFloat)cornerRadius
+-(id)initWithPolygonFromPoints:(CGPoint *)points count:(NSUInteger)count cornerRadius:(CGFloat)cornerRadius
 {
 	if((self = [super init])){
 		_radius = cornerRadius;
@@ -366,7 +366,7 @@ RadiusForTransform(cpTransform t)
 	return self;
 }
 
--(instancetype)initWithRect:(CGRect)rect cornerRadius:(CGFloat)cornerRadius
+-(id)initWithRect:(CGRect)rect cornerRadius:(CGFloat)cornerRadius
 {
 	cpBB bb = {CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetMaxX(rect), CGRectGetMaxY(rect)};
 	CGPoint points[] = {

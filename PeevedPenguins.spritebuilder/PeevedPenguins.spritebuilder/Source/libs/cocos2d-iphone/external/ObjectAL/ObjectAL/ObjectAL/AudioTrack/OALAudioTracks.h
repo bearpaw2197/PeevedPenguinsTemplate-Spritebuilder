@@ -37,7 +37,7 @@
 /**
  * Keeps track of all AudioTrack objects.
  */
-@interface OALAudioTracks : NSObject <OALSuspendManager, NSCopying>
+@interface OALAudioTracks : NSObject <OALSuspendManager>
 {
 	/** All instantiated audio tracks. */
 	NSMutableArray* tracks;

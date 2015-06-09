@@ -262,7 +262,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(OALSimpleAudio);
  * @param reservedSources the number of sources to reserve when initializing.
  * @return The shared instance.
  */
-- (instancetype) initWithSources:(int) reservedSources;
+- (id) initWithSources:(int) reservedSources;
 
 /** (INTERNAL USE) Initialize with the specified parameters.
  *
@@ -271,7 +271,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(OALSimpleAudio);
  * @param stereoSources The GLOBAL number of sources supporting stereo (default 4).
  * @return The shared instance.
  */
-- (instancetype) initWithReservedSources:(int) reservedSources
+- (id) initWithReservedSources:(int) reservedSources
                    monoSources:(int) monoSources
                  stereoSources:(int) stereoSources;
 /** \endcond */
@@ -308,7 +308,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(OALSimpleAudio);
  *
  * @return TRUE if the operation was successful.
  */
-@property (nonatomic, readonly) bool playBg;
+- (bool) playBg;
 
 /** Play whatever background music is preloaded.
  *

@@ -36,7 +36,7 @@
 
 @synthesize spriteFrame = _spriteFrame, delayUnits = _delayUnits, userInfo=_userInfo;
 
--(instancetype) initWithSpriteFrame:(CCSpriteFrame *)spriteFrame delayUnits:(float)delayUnits userInfo:(NSDictionary*)userInfo
+-(id) initWithSpriteFrame:(CCSpriteFrame *)spriteFrame delayUnits:(float)delayUnits userInfo:(NSDictionary*)userInfo
 {
 	if( (self=[super init]) ) {
 		self.spriteFrame = spriteFrame;
@@ -72,37 +72,37 @@
 @implementation CCAnimation
 @synthesize frames = _frames, totalDelayUnits=_totalDelayUnits, delayPerUnit=_delayPerUnit, restoreOriginalFrame=_restoreOriginalFrame, loops=_loops;
 
-+(instancetype) animation
++(id) animation
 {
 	return [[self alloc] init];
 }
 
-+(instancetype) animationWithSpriteFrames:(NSArray*)frames
++(id) animationWithSpriteFrames:(NSArray*)frames
 {
 	return [[self alloc] initWithSpriteFrames:frames];
 }
 
-+(instancetype) animationWithSpriteFrames:(NSArray*)frames delay:(float)delay
++(id) animationWithSpriteFrames:(NSArray*)frames delay:(float)delay
 {
 	return [[self alloc] initWithSpriteFrames:frames delay:delay];
 }
 
-+(instancetype) animationWithAnimationFrames:(NSArray*)arrayOfAnimationFrames delayPerUnit:(float)delayPerUnit loops:(NSUInteger)loops
++(id) animationWithAnimationFrames:(NSArray*)arrayOfAnimationFrames delayPerUnit:(float)delayPerUnit loops:(NSUInteger)loops
 {
 	return [[self alloc] initWithAnimationFrames:arrayOfAnimationFrames delayPerUnit:delayPerUnit loops:loops];
 }
 
--(instancetype) init
+-(id) init
 {
 	return [self initWithSpriteFrames:nil delay:0];
 }
 
--(instancetype) initWithSpriteFrames:(NSArray*)frames
+-(id) initWithSpriteFrames:(NSArray*)frames
 {
 	return [self initWithSpriteFrames:frames delay:0];
 }
 
--(instancetype) initWithSpriteFrames:(NSArray*)array delay:(float)delay
+-(id) initWithSpriteFrames:(NSArray*)array delay:(float)delay
 {
 	if( (self=[super init]) )
 	{
@@ -122,7 +122,7 @@
 	return self;
 }
 
--(instancetype) initWithAnimationFrames:(NSArray*)arrayOfAnimationFrames delayPerUnit:(float)delayPerUnit loops:(NSUInteger)loops
+-(id) initWithAnimationFrames:(NSArray*)arrayOfAnimationFrames delayPerUnit:(float)delayPerUnit loops:(NSUInteger)loops
 {
 	if( ( self=[super init]) )
 	{

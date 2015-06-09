@@ -78,7 +78,7 @@
  *
  *  @return The first scene of your app. It will be presented automatically.
  */
-@property (nonatomic, readonly, strong) CCScene *startScene;
+- (CCScene*) startScene;
 
 // -----------------------------------------------------------------------
 /** @name Cocos2d Setup */

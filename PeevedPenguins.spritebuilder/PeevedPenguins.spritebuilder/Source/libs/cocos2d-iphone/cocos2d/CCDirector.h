@@ -231,13 +231,13 @@ typedef NS_ENUM(NSUInteger, CCDirectorProjection) {
 
 /** @returns The size of the view in points.
  @see viewSizeInPixels */
-@property (nonatomic, readonly) CGSize viewSize;
+- (CGSize) viewSize;
 
 /** @returns The size of the view in pixels.
  On Mac winSize and winSizeInPixels return the same value.
  @see viewSize
  */
-@property (nonatomic, readonly) CGSize viewSizeInPixels;
+- (CGSize) viewSizeInPixels;
 
 /**
  *  Changes the projection size.

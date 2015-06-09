@@ -29,7 +29,7 @@
     NSMutableSet* _deadTouches;
 }
 
-- (instancetype)init
+- (id)init
 {
     if((self = [super init]))
     {
@@ -57,7 +57,7 @@
         CCTouch* ccTouch = [_deadTouches anyObject];
         ccTouch.uiTouch = touch;
         
-        _allTouches[[NSValue valueWithNonretainedObject:touch]] = ccTouch;
+        [_allTouches setObject:ccTouch forKey:[NSValue valueWithNonretainedObject:touch]];
         
         [_deadTouches removeObject:ccTouch];
     }
@@ -65,7 +65,7 @@
     // Set currentTouches
     for(PlatformTouch* touch in touches)
     {
-        CCTouch* ccTouch = _allTouches[[NSValue valueWithNonretainedObject:touch]];
+        CCTouch* ccTouch = [_allTouches objectForKey:[NSValue valueWithNonretainedObject:touch]];
         if(ccTouch)
         {
             ccTouch.view = (CCGLView*)[CCDirector sharedDirector].view;
@@ -82,7 +82,7 @@
     // Set currentTouches
     for(PlatformTouch* touch in touches)
     {
-        CCTouch* ccTouch = _allTouches[[NSValue valueWithNonretainedObject:touch]];
+        CCTouch* ccTouch = [_allTouches objectForKey:[NSValue valueWithNonretainedObject:touch]];
         if(ccTouch)
         {
             ccTouch.view = (CCGLView*)[CCDirector sharedDirector].view;
@@ -101,7 +101,7 @@
     // Set currentTouches
     for(PlatformTouch* touch in touches)
     {
-        CCTouch* ccTouch = _allTouches[[NSValue valueWithNonretainedObject:touch]];
+        CCTouch* ccTouch = [_allTouches objectForKey:[NSValue valueWithNonretainedObject:touch]];
         if(ccTouch)
         {
             ccTouch.view = (CCGLView*)[CCDirector sharedDirector].view;
@@ -128,7 +128,7 @@
     // Set currentTouches
     for(PlatformTouch* touch in touches)
     {
-        CCTouch* ccTouch = _allTouches[[NSValue valueWithNonretainedObject:touch]];
+        CCTouch* ccTouch = [_allTouches objectForKey:[NSValue valueWithNonretainedObject:touch]];
         if(ccTouch)
         {
             ccTouch.view = (CCGLView*)[CCDirector sharedDirector].view;

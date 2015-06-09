@@ -114,12 +114,12 @@
 
 #pragma mark Object Management
 
-+ (instancetype) actionWithPosition:(ALPoint) position
++ (id) actionWithPosition:(ALPoint) position
 {
 	return as_autorelease([(OALPlaceAction*)[self alloc] initWithPosition:position]);
 }
 
-- (instancetype) initWithPosition:(ALPoint) positionIn
+- (id) initWithPosition:(ALPoint) positionIn
 {
 	if(nil != (self = [super init]))
 	{
@@ -161,17 +161,17 @@
 
 #pragma mark Object Management
 
-+ (instancetype) actionWithDuration:(float) duration position:(ALPoint) position
++ (id) actionWithDuration:(float) duration position:(ALPoint) position
 {
 	return as_autorelease([(OALMoveToAction*)[self alloc] initWithDuration:duration position:position]);
 }
 
-+ (instancetype) actionWithUnitsPerSecond:(float) unitsPerSecond position:(ALPoint) position
++ (id) actionWithUnitsPerSecond:(float) unitsPerSecond position:(ALPoint) position
 {
 	return as_autorelease([[self alloc] initWithUnitsPerSecond:unitsPerSecond position:position]);
 }
 
-- (instancetype) initWithDuration:(float) durationIn position:(ALPoint) positionIn
+- (id) initWithDuration:(float) durationIn position:(ALPoint) positionIn
 {
 	if(nil != (self = [super initWithDuration:durationIn]))
 	{
@@ -180,7 +180,7 @@
 	return self;
 }
 
-- (instancetype) initWithUnitsPerSecond:(float) unitsPerSecondIn position:(ALPoint) positionIn
+- (id) initWithUnitsPerSecond:(float) unitsPerSecondIn position:(ALPoint) positionIn
 {
 	if(nil != (self = [super init]))
 	{
@@ -236,17 +236,17 @@
 
 #pragma mark Object Management
 
-+ (instancetype) actionWithDuration:(float) duration delta:(ALPoint) delta
++ (id) actionWithDuration:(float) duration delta:(ALPoint) delta
 {
 	return as_autorelease([[self alloc] initWithDuration:duration delta:delta]);
 }
 
-+ (instancetype) actionWithUnitsPerSecond:(float) unitsPerSecond delta:(ALPoint) delta
++ (id) actionWithUnitsPerSecond:(float) unitsPerSecond delta:(ALPoint) delta
 {
 	return as_autorelease([[self alloc] initWithUnitsPerSecond:unitsPerSecond delta:delta]);
 }
 
-- (instancetype) initWithDuration:(float) durationIn delta:(ALPoint) deltaIn
+- (id) initWithDuration:(float) durationIn delta:(ALPoint) deltaIn
 {
 	if(nil != (self = [super initWithDuration:durationIn]))
 	{
@@ -255,7 +255,7 @@
 	return self;
 }
 
-- (instancetype) initWithUnitsPerSecond:(float) unitsPerSecondIn delta:(ALPoint) deltaIn
+- (id) initWithUnitsPerSecond:(float) unitsPerSecondIn delta:(ALPoint) deltaIn
 {
 	if(nil != (self = [super init]))
 	{

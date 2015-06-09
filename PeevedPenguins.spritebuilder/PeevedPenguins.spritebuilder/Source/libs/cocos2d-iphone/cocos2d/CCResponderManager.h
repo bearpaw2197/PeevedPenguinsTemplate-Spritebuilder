@@ -161,7 +161,7 @@ enum
  *
  *  @return An initialized CCResponderManager Object.
  */
-- (instancetype)init;
+- (id)init;
 
 
 /// -----------------------------------------------------------------------

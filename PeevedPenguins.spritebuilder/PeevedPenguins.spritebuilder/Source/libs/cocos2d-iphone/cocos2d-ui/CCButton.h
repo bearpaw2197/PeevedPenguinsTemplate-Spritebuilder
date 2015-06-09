@@ -64,7 +64,7 @@
  *
  *  @return A new button.
  */
-+ (instancetype) buttonWithTitle:(NSString*) title;
++ (id) buttonWithTitle:(NSString*) title;
 
 /**
  *  Creates a new button with a title and no background.
@@ -75,7 +75,7 @@
  *
  *  @return A new button.
  */
-+ (instancetype) buttonWithTitle:(NSString*) title fontName:(NSString*)fontName fontSize:(float)size;
++ (id) buttonWithTitle:(NSString*) title fontName:(NSString*)fontName fontSize:(float)size;
 
 /**
  *  Creates a new button with the specified title for the label and sprite frame for its background.
@@ -86,7 +86,7 @@
  *  @return A new button.
  *  @see CCSpriteFrame
  */
-+ (instancetype) buttonWithTitle:(NSString*) title spriteFrame:(CCSpriteFrame*) spriteFrame;
++ (id) buttonWithTitle:(NSString*) title spriteFrame:(CCSpriteFrame*) spriteFrame;
 
 /**
  *  Creates a new button with the speicified title for the label, sprite frames for its background in different states.
@@ -99,7 +99,7 @@
  *  @return A new button.
  *  @see CCSpriteFrame
  */
-+ (instancetype) buttonWithTitle:(NSString*) title spriteFrame:(CCSpriteFrame*) spriteFrame highlightedSpriteFrame:(CCSpriteFrame*) highlighted disabledSpriteFrame:(CCSpriteFrame*) disabled;
++ (id) buttonWithTitle:(NSString*) title spriteFrame:(CCSpriteFrame*) spriteFrame highlightedSpriteFrame:(CCSpriteFrame*) highlighted disabledSpriteFrame:(CCSpriteFrame*) disabled;
 
 /**
  *  Initializes a new button with a title and no background. Uses default font and font size.
@@ -108,7 +108,7 @@
  *
  *  @return A new button.
  */
-- (instancetype) initWithTitle:(NSString*) title;
+- (id) initWithTitle:(NSString*) title;
 
 /**
  *  Initializes a new button with a title and no background.
@@ -119,7 +119,7 @@
  *
  *  @return A new button.
  */
-- (instancetype) initWithTitle:(NSString *)title fontName:(NSString*)fontName fontSize:(float)size;
+- (id) initWithTitle:(NSString *)title fontName:(NSString*)fontName fontSize:(float)size;
 
 /**
  *  Initializes a new button with the specified title for the label and sprite frame for its background.
@@ -130,7 +130,7 @@
  *  @return A new button.
  *  @see CCSpriteFrame
  */
-- (instancetype) initWithTitle:(NSString*) title spriteFrame:(CCSpriteFrame*) spriteFrame;
+- (id) initWithTitle:(NSString*) title spriteFrame:(CCSpriteFrame*) spriteFrame;
 
 /**
  *  Initializes a new button with the speicified title for the label, sprite frames for its background in different states.
@@ -143,7 +143,7 @@
  *  @return A new button.
  *  @see CCSpriteFrame
  */
-- (instancetype) initWithTitle:(NSString*) title spriteFrame:(CCSpriteFrame*) spriteFrame highlightedSpriteFrame:(CCSpriteFrame*) highlighted disabledSpriteFrame:(CCSpriteFrame*) disabled;
+- (id) initWithTitle:(NSString*) title spriteFrame:(CCSpriteFrame*) spriteFrame highlightedSpriteFrame:(CCSpriteFrame*) highlighted disabledSpriteFrame:(CCSpriteFrame*) disabled;
 
 /// -----------------------------------------------------------------------
 /// @name Button Child Nodes

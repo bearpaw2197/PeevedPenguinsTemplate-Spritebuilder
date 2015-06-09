@@ -45,7 +45,7 @@
 
 @synthesize chipmunkObjects = _chipmunkObjects;
 
--(instancetype)initWithArray:(NSArray *)objects {
+-(id)initWithArray:(NSArray *)objects {
 	if((self = [super init])){
 		self.chipmunkObjects = objects;
 	}
@@ -60,7 +60,7 @@
 
 -(id)objectAtIndex:(NSUInteger)index
 {
-	return _chipmunkObjects[index];
+	return [_chipmunkObjects objectAtIndex:index];
 }
 
 @end
@@ -145,7 +145,7 @@ static NSString *dialogMessage = @"This copy of Chipmunk Pro is a trial, please 
 	return obj;
 }
 
-- (instancetype)initWithSpace:(cpSpace *)space
+- (id)initWithSpace:(cpSpace *)space
 {
 	if((self = [super init])){
 		_children = [[NSMutableSet alloc] init];
@@ -162,7 +162,7 @@ static NSString *dialogMessage = @"This copy of Chipmunk Pro is a trial, please 
 	return self;
 }
 
-- (instancetype)init {
+- (id)init {
 	// Use a fast space instead if the class is available.
 	// However if you don't specify -ObjC as a linker flag the dynamic substitution won't work.
 	Class hastySpace = NSClassFromString(@"ChipmunkHastySpace");
@@ -575,10 +575,13 @@ boundSeg(ChipmunkBody *body, cpVect a, cpVect b, cpFloat radius, cpFloat elastic
 	cpFloat r = bounds.r + radius;
 	cpFloat t = bounds.t + radius;
 	
-	NSArray *segs = [[NSArrayChipmunkObject alloc] initWithArray:@[boundSeg(_staticBody, cpv(l,b), cpv(l,t), radius, elasticity, friction, filter, collisionType),
+	NSArray *segs = [[NSArrayChipmunkObject alloc] initWithArray:[NSArray arrayWithObjects:
+		boundSeg(_staticBody, cpv(l,b), cpv(l,t), radius, elasticity, friction, filter, collisionType),
 		boundSeg(_staticBody, cpv(l,t), cpv(r,t), radius, elasticity, friction, filter, collisionType),
 		boundSeg(_staticBody, cpv(r,t), cpv(r,b), radius, elasticity, friction, filter, collisionType),
-		boundSeg(_staticBody, cpv(r,b), cpv(l,b), radius, elasticity, friction, filter, collisionType)]];
+		boundSeg(_staticBody, cpv(r,b), cpv(l,b), radius, elasticity, friction, filter, collisionType),
+		nil
+	]];
 	
 	[self add:segs];
 	return [segs autorelease];

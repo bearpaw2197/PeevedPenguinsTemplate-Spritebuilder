@@ -95,7 +95,7 @@
 	return as_autorelease([[self alloc] initWithSources:reservedSources]);
 }
 
-- (instancetype) initWithSources:(int) reservedSources
+- (id) initWithSources:(int) reservedSources
 {
 	if(nil != (self = [super init]))
 	{

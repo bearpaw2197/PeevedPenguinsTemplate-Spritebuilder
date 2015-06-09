@@ -59,37 +59,37 @@
 	BOOL _flipX, _flipY;
 }
 
-+(instancetype)spriteWithImageNamed:(NSString*)imageName
++(id)spriteWithImageNamed:(NSString*)imageName
 {
     return [[self alloc] initWithImageNamed:imageName];
 }
 
-+(instancetype)spriteWithTexture:(CCTexture*)texture
++(id)spriteWithTexture:(CCTexture*)texture
 {
 	return [[self alloc] initWithTexture:texture];
 }
 
-+(instancetype)spriteWithTexture:(CCTexture*)texture rect:(CGRect)rect
++(id)spriteWithTexture:(CCTexture*)texture rect:(CGRect)rect
 {
 	return [[self alloc] initWithTexture:texture rect:rect];
 }
 
-+(instancetype)spriteWithFile:(NSString*)filename
++(id)spriteWithFile:(NSString*)filename
 {
 	return [[self alloc] initWithFile:filename];
 }
 
-+(instancetype)spriteWithFile:(NSString*)filename rect:(CGRect)rect
++(id)spriteWithFile:(NSString*)filename rect:(CGRect)rect
 {
 	return [[self alloc] initWithFile:filename rect:rect];
 }
 
-+(instancetype)spriteWithSpriteFrame:(CCSpriteFrame*)spriteFrame
++(id)spriteWithSpriteFrame:(CCSpriteFrame*)spriteFrame
 {
 	return [[self alloc] initWithSpriteFrame:spriteFrame];
 }
 
-+(instancetype)spriteWithSpriteFrameName:(NSString*)spriteFrameName
++(id)spriteWithSpriteFrameName:(NSString*)spriteFrameName
 {
 	CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:spriteFrameName];
 
@@ -97,7 +97,7 @@
 	return [self spriteWithSpriteFrame:frame];
 }
 
-+(instancetype)spriteWithCGImage:(CGImageRef)image key:(NSString*)key
++(id)spriteWithCGImage:(CGImageRef)image key:(NSString*)key
 {
 	return [[self alloc] initWithCGImage:image key:key];
 }
@@ -107,13 +107,13 @@
     return [[self alloc] init];
 }
 
--(instancetype) init
+-(id) init
 {
 	return [self initWithTexture:nil rect:CGRectZero];
 }
 
 // designated initializer
--(instancetype) initWithTexture:(CCTexture*)texture rect:(CGRect)rect rotated:(BOOL)rotated
+-(id) initWithTexture:(CCTexture*)texture rect:(CGRect)rect rotated:(BOOL)rotated
 {
 	if((self = [super init])){
 		self.blendMode = [CCBlendMode premultipliedAlphaMode];
@@ -138,17 +138,17 @@
 	return self;
 }
 
-- (instancetype) initWithImageNamed:(NSString*)imageName
+- (id) initWithImageNamed:(NSString*)imageName
 {
     return [self initWithSpriteFrame:[CCSpriteFrame frameWithImageNamed:imageName]];
 }
 
--(instancetype) initWithTexture:(CCTexture*)texture rect:(CGRect)rect
+-(id) initWithTexture:(CCTexture*)texture rect:(CGRect)rect
 {
 	return [self initWithTexture:texture rect:rect rotated:NO];
 }
 
--(instancetype) initWithTexture:(CCTexture*)texture
+-(id) initWithTexture:(CCTexture*)texture
 {
 	NSAssert(texture!=nil, @"Invalid texture for sprite");
 
@@ -157,7 +157,7 @@
 	return [self initWithTexture:texture rect:rect];
 }
 
--(instancetype) initWithFile:(NSString*)filename
+-(id) initWithFile:(NSString*)filename
 {
 	NSAssert(filename != nil, @"Invalid filename for sprite");
 
@@ -171,7 +171,7 @@
 	return nil;
 }
 
--(instancetype) initWithFile:(NSString*)filename rect:(CGRect)rect
+-(id) initWithFile:(NSString*)filename rect:(CGRect)rect
 {
 	NSAssert(filename!=nil, @"Invalid filename for sprite");
 
@@ -182,7 +182,7 @@
 	return nil;
 }
 
-- (instancetype) initWithSpriteFrame:(CCSpriteFrame*)spriteFrame
+- (id) initWithSpriteFrame:(CCSpriteFrame*)spriteFrame
 {
 	NSAssert(spriteFrame!=nil, @"Invalid spriteFrame for sprite");
 
@@ -191,7 +191,7 @@
 	return ret;
 }
 
--(instancetype)initWithSpriteFrameName:(NSString*)spriteFrameName
+-(id)initWithSpriteFrameName:(NSString*)spriteFrameName
 {
 	NSAssert(spriteFrameName!=nil, @"Invalid spriteFrameName for sprite");
 
@@ -199,7 +199,7 @@
 	return [self initWithSpriteFrame:frame];
 }
 
-- (instancetype) initWithCGImage:(CGImageRef)image key:(NSString*)key
+- (id) initWithCGImage:(CGImageRef)image key:(NSString*)key
 {
 	NSAssert(image!=nil, @"Invalid CGImageRef for sprite");
 

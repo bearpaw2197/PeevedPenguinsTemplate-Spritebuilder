@@ -27,7 +27,7 @@
 
 @implementation CCBSequence
 
-- (instancetype)init
+- (id)init
 {
     self = [super init];
     if (!self) return NULL;

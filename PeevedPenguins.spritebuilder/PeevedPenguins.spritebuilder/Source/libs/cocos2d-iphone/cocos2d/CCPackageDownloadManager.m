@@ -16,7 +16,7 @@
 
 @implementation CCPackageDownloadManager
 
-- (instancetype)init
+- (id)init
 {
     self = [super init];
 

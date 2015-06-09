@@ -118,7 +118,7 @@
 	cpfpow(0.8, 60) is a good starting point that provides fast response, but smooth mouse updates.
 	@c force is the force the grab points can apply.
 */
--(instancetype)initForSpace:(ChipmunkSpace *)space withSmoothing:(cpFloat)smoothing withGrabForce:(cpFloat)grabForce;
+-(id)initForSpace:(ChipmunkSpace *)space withSmoothing:(cpFloat)smoothing withGrabForce:(cpFloat)grabForce;
 
 /// Start tracking a new grab point
 /// Returns the ChipmunkGrab that is tracking the touch, but only if a shape was grabbed.

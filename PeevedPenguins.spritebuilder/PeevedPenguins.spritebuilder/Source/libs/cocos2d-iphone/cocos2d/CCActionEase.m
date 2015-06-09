@@ -51,7 +51,7 @@
 	return [[self alloc] initWithAction: action];
 }
 
--(instancetype) initWithAction: (CCActionInterval*) action
+-(id) initWithAction: (CCActionInterval*) action
 {
 	NSAssert( action!=nil, @"Ease: arguments must be non-nil");
 
@@ -143,7 +143,7 @@
 	return [[self alloc] initWithAction: action rate:rate];
 }
 
--(instancetype) initWithAction: (CCActionInterval*) action rate:(float)rate
+-(id) initWithAction: (CCActionInterval*) action rate:(float)rate
 {
 	if( (self=[super initWithAction:action ]) )
 		self.rate = rate;
@@ -219,12 +219,12 @@
 	return [[self alloc] initWithAction:action period:period];
 }
 
--(instancetype) initWithAction: (CCActionInterval*) action
+-(id) initWithAction: (CCActionInterval*) action
 {
 	return [self initWithAction:action period:0.3f];
 }
 
--(instancetype) initWithAction: (CCActionInterval*) action period:(float)period
+-(id) initWithAction: (CCActionInterval*) action period:(float)period
 {
 	if( (self=[super initWithAction:action]) )
 		_period = period;
