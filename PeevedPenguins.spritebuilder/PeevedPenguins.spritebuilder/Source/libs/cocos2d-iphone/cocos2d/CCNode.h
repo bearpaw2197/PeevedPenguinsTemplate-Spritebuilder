@@ -248,7 +248,7 @@
 +(instancetype) node;
 
 // purposefully undocumented: init is inherited from NSObject
--(instancetype) init NS_DESIGNATED_INITIALIZER;
+-(instancetype) init;
 
 /// -----------------------------------------------------------------------
 /// @name Storing Custom Information

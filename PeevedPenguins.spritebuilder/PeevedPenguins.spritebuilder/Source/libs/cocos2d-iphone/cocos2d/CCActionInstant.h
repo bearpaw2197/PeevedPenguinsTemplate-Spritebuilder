@@ -123,7 +123,7 @@
  *
  *  @return An initialized flip action object.
  */
-- (instancetype)initWithFlipX:(BOOL)x NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithFlipX:(BOOL)x;
 
 @end
 
@@ -158,7 +158,7 @@
  *
  *  @return The initialized flip action object.
  */
-- (instancetype)initWithFlipY:(BOOL)y NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithFlipY:(BOOL)y;
 
 @end
 
@@ -191,7 +191,7 @@
  *
  *  @return An initialized place action object.
  */
-- (instancetype)initWithPosition:(CGPoint)pos NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithPosition:(CGPoint)pos;
 
 @end
 
@@ -252,7 +252,7 @@
  *
  *  @return An initialized call func action object.
  */
-- (instancetype)initWithTarget:(id)t selector:(SEL)s NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithTarget:(id)t selector:(SEL)s;
 
 // Executes the selector on the specific target.
 - (void)execute;
@@ -321,7 +321,7 @@
  *
  *  @return An initialized call block action.
  */
-- (instancetype)initWithBlock:(void(^)())block NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithBlock:(void(^)())block;
 
 // Executes the selector on the specific target.
 - (void)execute;
@@ -361,7 +361,7 @@
  *  @return An initialized sprite frame action object.
  *  @see CCSpriteFrame
  */
--(instancetype) initWithSpriteFrame:(CCSpriteFrame*)spriteFrame NS_DESIGNATED_INITIALIZER;
+-(instancetype) initWithSpriteFrame:(CCSpriteFrame*)spriteFrame;
 
 @end
 
@@ -404,6 +404,6 @@
  @see OALSimpleAudio
  @see [OALSimpleAudio playEffect:volume:pitch:pan:loop:]
  */
--(instancetype) initWithSoundFile:(NSString*)file pitch:(float)pitch pan:(float) pan gain:(float)gain NS_DESIGNATED_INITIALIZER;
+-(instancetype) initWithSoundFile:(NSString*)file pitch:(float)pitch pan:(float) pan gain:(float)gain;
 
 @end

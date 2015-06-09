@@ -73,7 +73,7 @@
  
  @return Returns a new text field.
  */
-- (instancetype) initWithSpriteFrame:(CCSpriteFrame*)frame NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithSpriteFrame:(CCSpriteFrame*)frame;
 
 /** @name Accessing the Platform-Specific Text Field */
 

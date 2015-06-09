@@ -54,7 +54,7 @@
  *  @since v3.4 and later
  *  @see CCColor
  */
--(instancetype)initWithGroups:(NSArray *)groups specularColor:(CCColor *)specularColor shininess:(float)shininess NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithGroups:(NSArray *)groups specularColor:(CCColor *)specularColor shininess:(float)shininess;
 
 /// -----------------------------------------------------------------------
 /// @name Lighting Properties

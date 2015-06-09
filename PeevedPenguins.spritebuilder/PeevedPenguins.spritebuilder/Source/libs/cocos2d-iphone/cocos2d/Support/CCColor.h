@@ -101,7 +101,7 @@
  *
  *  @return An initialized color object.
  */
-- (CCColor *)initWithWhite:(float)white alpha:(float)alpha NS_DESIGNATED_INITIALIZER;
+- (CCColor *)initWithWhite:(float)white alpha:(float)alpha;
 
 /**
  *  Initializes and returns a color object using the specified opacity and RGBA component values.
@@ -113,7 +113,7 @@
  *
  *  @return An initialized color object.
  */
-- (CCColor *)initWithRed:(float)red green:(float)green blue:(float)blue alpha:(float)alpha NS_DESIGNATED_INITIALIZER;
+- (CCColor *)initWithRed:(float)red green:(float)green blue:(float)blue alpha:(float)alpha;
 
 /**
  *  Initializes and returns a color object using the specified opacity and RGB component values. Alpha will default to 1.0.
@@ -124,7 +124,7 @@
  *
  *  @return An initialized color object.
  */
-- (CCColor *)initWithRed:(float)red green:(float)green blue:(float)blue NS_DESIGNATED_INITIALIZER;
+- (CCColor *)initWithRed:(float)red green:(float)green blue:(float)blue;
 
 /// -----------------------------------------------------------------------
 /// @name Creating a Color with CGColor/UIColor
@@ -157,7 +157,7 @@
  *
  *  @return An initialized color object.
  */
-- (CCColor *)initWithCGColor:(CGColorRef)cgColor NS_DESIGNATED_INITIALIZER;
+- (CCColor *)initWithCGColor:(CGColorRef)cgColor;
 
 #if __CC_PLATFORM_IOS
 /**
@@ -167,7 +167,7 @@
  *
  *  @return An initialized color object.
  */
-- (CCColor *)initWithUIColor:(UIColor*)color NS_DESIGNATED_INITIALIZER;
+- (CCColor *)initWithUIColor:(UIColor*)color;
 #endif
 
 

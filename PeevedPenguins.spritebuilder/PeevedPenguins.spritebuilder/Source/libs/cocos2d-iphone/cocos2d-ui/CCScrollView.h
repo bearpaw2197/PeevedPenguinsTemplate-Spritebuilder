@@ -93,7 +93,7 @@
 
 @property (nonatomic,assign) BOOL bounces;
 
-- (instancetype) initWithContentNode:(CCNode*)contentNode NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithContentNode:(CCNode*)contentNode;
 
 - (void) setScrollPosition:(CGPoint)newPos animated:(BOOL)animated;
 

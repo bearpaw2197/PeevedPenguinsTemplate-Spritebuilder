@@ -45,7 +45,7 @@
  *  @return The CCEffectHue object.
  *  @since v3.2 and later
  */
--(instancetype)initWithHue:(float)hue NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithHue:(float)hue;
 
 
 /// -----------------------------------------------------------------------

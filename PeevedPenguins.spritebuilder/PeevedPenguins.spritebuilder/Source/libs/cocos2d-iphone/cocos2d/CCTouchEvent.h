@@ -24,7 +24,7 @@
 @property(nonatomic, readonly) NSMutableSet* currentTouches; // CCTouches
 
 // purposefully undocumented: following methods are for internal use only
-- (instancetype)init NS_DESIGNATED_INITIALIZER;
+- (instancetype)init;
 
 - (void)updateTouchesBegan:(NSSet*)touches;
 - (void)updateTouchesMoved:(NSSet*)touches;

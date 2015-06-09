@@ -62,7 +62,7 @@ typedef NS_ENUM(NSUInteger, CCGraphicsBufferType){
 	void *_ptr;
 }
 
--(instancetype)initWithCapacity:(NSUInteger)capacity elementSize:(size_t)elementSize type:(CCGraphicsBufferType)type NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithCapacity:(NSUInteger)capacity elementSize:(size_t)elementSize type:(CCGraphicsBufferType)type;
 -(void)resize:(size_t)newCapacity;
 
 -(void)destroy;
@@ -125,7 +125,7 @@ CCGraphicsBufferPushElements(CCGraphicsBuffer *buffer, size_t requestedCount)
 @property(nonatomic, assign) CGSize sizeInPixels;
 @property(nonatomic, assign) CGFloat contentScale;
 
--(instancetype)initWithTexture:(CCTexture *)texture depthStencilFormat:(GLuint)depthStencilFormat NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithTexture:(CCTexture *)texture depthStencilFormat:(GLuint)depthStencilFormat;
 
 -(void)syncWithView:(CC_VIEW<CCDirectorView> *)view;
 
