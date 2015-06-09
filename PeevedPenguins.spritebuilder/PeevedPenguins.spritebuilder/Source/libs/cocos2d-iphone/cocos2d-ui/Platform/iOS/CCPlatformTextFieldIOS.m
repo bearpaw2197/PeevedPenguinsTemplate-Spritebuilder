@@ -154,7 +154,7 @@
     UIView* view = [[CCDirector sharedDirector] view];
     
     NSDictionary* info = [notification userInfo];
-    NSValue* value = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
+    NSValue* value = info[UIKeyboardFrameEndUserInfoKey];
     CGRect frame = [value CGRectValue];
     frame = [view.window convertRect:frame toView:view];
     

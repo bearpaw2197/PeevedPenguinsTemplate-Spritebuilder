@@ -39,7 +39,7 @@
  *  @since v3.3 and later
  *  @see CCPackageManagerDelegate
  */
-@property (nonatomic, weak) id <CCPackageManagerDelegate> delegate;
+@property (nonatomic, assign) id <CCPackageManagerDelegate> delegate;
 
 /** @name Obtaining Installed Packages */
 

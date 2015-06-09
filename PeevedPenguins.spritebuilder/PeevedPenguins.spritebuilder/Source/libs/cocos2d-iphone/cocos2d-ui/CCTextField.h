@@ -49,7 +49,7 @@
  @warning Since the text field is a native UI control, it will always be drawn on top of everything that Cocos2D draws. That means you can't
  have another node (ie a sprite) partially or entirely drawn above the text field.
  */
-@interface CCTextField : CCControl <CCPlatformTextFieldDelegate>
+@interface CCTextField : CCControl <CCPlatformTextFieldDelegate, CCLabelProtocol>
 {
     CCSprite9Slice* _background;
 

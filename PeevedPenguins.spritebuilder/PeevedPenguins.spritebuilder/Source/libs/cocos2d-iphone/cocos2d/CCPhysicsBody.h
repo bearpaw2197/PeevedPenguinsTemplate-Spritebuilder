@@ -430,6 +430,6 @@ By default physics bodies collide with all other physics bodies. Since 2D games 
 /** The CCNode to which this physics body is attached. Is nil until the body was assigned to the physicsBody property of a node.
  @see CCNode
  */
-@property(nonatomic, readonly, weak) CCNode *node;
+@property(nonatomic, readonly, assign) CCNode *node;
 
 @end

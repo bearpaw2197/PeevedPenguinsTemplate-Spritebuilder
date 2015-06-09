@@ -42,7 +42,7 @@
 /**
  *  Download manager's delegate
  */
-@property (nonatomic, weak) id <CCPackageDownloadManagerDelegate> delegate;
+@property (nonatomic, assign) id<CCPackageDownloadManagerDelegate> delegate;
 
 /**
  *  Creates a new download for a given package.

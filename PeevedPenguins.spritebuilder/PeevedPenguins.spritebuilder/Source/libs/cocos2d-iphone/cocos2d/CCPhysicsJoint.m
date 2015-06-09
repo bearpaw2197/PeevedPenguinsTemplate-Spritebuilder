@@ -27,41 +27,41 @@
 #import "CCNode_Private.h"
 
 @interface CCNode(Private)
--(CGAffineTransform)nonRigidTransform;
+@property (nonatomic, readonly) CGAffineTransform nonRigidTransform;
 @end
 
 
 
 @interface CCPhysicsPivotJoint : CCPhysicsJoint
--(id)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchor:(CGPoint)anchor;
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchor:(CGPoint)anchor;
 @end
 
 @interface CCPhysicsPinJoint : CCPhysicsJoint
--(id)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB;
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB;
 @end
 
 @interface CCPhysicsSlideJoint : CCPhysicsJoint
--(id)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB minDistance:(CGFloat)min maxDistance:(CGFloat)max;
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB minDistance:(CGFloat)min maxDistance:(CGFloat)max;
 @end
 
 @interface CCPhysicsSpringJoint : CCPhysicsJoint
--(id)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB restLength:(CGFloat)restLength stiffness:(CGFloat)stiffness damping:(CGFloat)damping;
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB restLength:(CGFloat)restLength stiffness:(CGFloat)stiffness damping:(CGFloat)damping;
 @end
 
 @interface CCPhysicsRotarySpring : CCPhysicsJoint
--(id)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB restAngle:(cpFloat)restAngle stiffness:(cpFloat)stiffness damping:(cpFloat)damping;
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB restAngle:(cpFloat)restAngle stiffness:(cpFloat)stiffness damping:(cpFloat)damping;
 @end
 
 @interface CCPhysicsMotorJoint : CCPhysicsJoint
--(id)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB rate:(cpFloat)rate;
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB rate:(cpFloat)rate ;
 @end
 
 @interface CCPhysicsRatchet : CCPhysicsJoint
--(id)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB phase:(cpFloat)phase ratchet:(cpFloat)ratchet;
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB phase:(cpFloat)phase ratchet:(cpFloat)ratchet;
 @end
 
 @interface CCPhysicsRotaryLimitJoint : CCPhysicsJoint
--(id)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB min:(cpFloat)min max:(cpFloat)max;
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB min:(cpFloat)min max:(cpFloat)max;
 @end
 
 @implementation CCPhysicsJoint
@@ -71,7 +71,7 @@
 }
 
 
--(id)init
+-(instancetype)init
 {
 	if((self = [super init])){
 		_valid = YES;
@@ -304,7 +304,7 @@ BreakConstraint(cpConstraint *constraint, cpSpace *space)
 	CGPoint _anchor;
 }
 
--(id)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchor:(CGPoint)anchor
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchor:(CGPoint)anchor
 {
 	if((self = [super init])){
 		_constraint = [ChipmunkPivotJoint pivotJointWithBodyA:bodyA.body bodyB:bodyB.body pivot:CCP_TO_CPV(anchor)];
@@ -339,7 +339,7 @@ BreakConstraint(cpConstraint *constraint, cpSpace *space)
 
 }
 
--(id)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB restAngle:(cpFloat)_restAngle stiffness:(cpFloat)stiffness damping:(cpFloat)damping
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB restAngle:(cpFloat)_restAngle stiffness:(cpFloat)stiffness damping:(cpFloat)damping
 {
 	if((self = [super init])){
 		_constraint = [ChipmunkDampedRotarySpring dampedRotarySpringWithBodyA:bodyA.body bodyB:bodyB.body restAngle:_restAngle stiffness:stiffness damping:damping];
@@ -369,7 +369,7 @@ BreakConstraint(cpConstraint *constraint, cpSpace *space)
 	CGPoint _anchorA, _anchorB;
 }
 
--(id)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB
 {
 	if((self = [super init])){
 		_constraint = [ChipmunkPinJoint pinJointWithBodyA:bodyA.body bodyB:bodyB.body anchorA:CCP_TO_CPV(anchorA) anchorB:CCP_TO_CPV(anchorB)];
@@ -407,7 +407,7 @@ BreakConstraint(cpConstraint *constraint, cpSpace *space)
 	CGPoint _anchorA, _anchorB;
 }
 
--(id)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB minDistance:(CGFloat)min maxDistance:(CGFloat)max
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB minDistance:(CGFloat)min maxDistance:(CGFloat)max
 {
 	if((self = [super init])){
 		_constraint = [ChipmunkSlideJoint slideJointWithBodyA:bodyA.body bodyB:bodyB.body anchorA:CCP_TO_CPV(anchorA) anchorB:CCP_TO_CPV(anchorB) min:min max:max];
@@ -450,7 +450,7 @@ BreakConstraint(cpConstraint *constraint, cpSpace *space)
 	CGPoint _anchorA, _anchorB;
 }
 
--(id)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB restLength:(CGFloat)restLength stiffness:(CGFloat)stiffness damping:(CGFloat)damping
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB restLength:(CGFloat)restLength stiffness:(CGFloat)stiffness damping:(CGFloat)damping
 
 {
 	if((self = [super init])){
@@ -491,7 +491,7 @@ BreakConstraint(cpConstraint *constraint, cpSpace *space)
 	ChipmunkSimpleMotor *_constraint;
 }
 
--(id)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB rate:(cpFloat)rate
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB rate:(cpFloat)rate
 {
     if((self = [super init])){
         _constraint = [ChipmunkSimpleMotor simpleMotorWithBodyA:bodyA.body bodyB:bodyB.body rate:rate];
@@ -515,7 +515,7 @@ BreakConstraint(cpConstraint *constraint, cpSpace *space)
     ChipmunkRatchetJoint * _constraint;
 }
 
--(id)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB phase:(cpFloat)phase ratchet:(cpFloat)ratchet
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB phase:(cpFloat)phase ratchet:(cpFloat)ratchet
 {
     if((self = [super init])){
         _constraint = [ChipmunkRatchetJoint ratchetJointWithBodyA:bodyA.body bodyB:bodyB.body phase:phase ratchet:ratchet];
@@ -543,7 +543,7 @@ BreakConstraint(cpConstraint *constraint, cpSpace *space)
     
 }
 
--(id)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB min:(cpFloat)_min max:(cpFloat)_max
+-(instancetype)initWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB min:(cpFloat)_min max:(cpFloat)_max
 {
     if((self = [super init])){
         _constraint = [ChipmunkRotaryLimitJoint rotaryLimitJointWithBodyA:bodyA.body bodyB:bodyB.body min:_min max:_max];
@@ -572,7 +572,7 @@ BreakConstraint(cpConstraint *constraint, cpSpace *space)
 
 @implementation CCPhysicsJoint(ObjectiveChipmunk)
 
--(id<NSFastEnumeration>)chipmunkObjects {return [NSArray arrayWithObject:self.constraint];}
+-(id<NSFastEnumeration>)chipmunkObjects {return @[self.constraint];}
 
 -(ChipmunkConstraint *)constraint
 {

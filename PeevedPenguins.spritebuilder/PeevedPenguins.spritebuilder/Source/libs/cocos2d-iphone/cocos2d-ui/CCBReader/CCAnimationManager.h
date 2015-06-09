@@ -130,6 +130,6 @@
 
 /// The animation manager delegate receives updates about the animation playback state.
 /// @see CCBAnimationManagerDelegate
-@property (nonatomic,weak) NSObject<CCBAnimationManagerDelegate>* delegate;
+@property (nonatomic,assign) NSObject<CCBAnimationManagerDelegate>* delegate;
 
 @end

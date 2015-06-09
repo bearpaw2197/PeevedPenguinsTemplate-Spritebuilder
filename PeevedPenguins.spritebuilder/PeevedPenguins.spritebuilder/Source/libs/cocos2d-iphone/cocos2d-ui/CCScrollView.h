@@ -69,7 +69,7 @@
     CGPoint _velocity;
 }
 
-@property (nonatomic, weak) id<CCScrollViewDelegate> delegate;
+@property (nonatomic, assign) id<CCScrollViewDelegate> delegate;
 
 @property (nonatomic,strong) CCNode* contentNode;
 
@@ -93,7 +93,7 @@
 
 @property (nonatomic,assign) BOOL bounces;
 
-- (id) initWithContentNode:(CCNode*)contentNode;
+- (instancetype) initWithContentNode:(CCNode*)contentNode;
 
 - (void) setScrollPosition:(CGPoint)newPos animated:(BOOL)animated;
 

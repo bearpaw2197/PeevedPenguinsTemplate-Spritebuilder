@@ -76,14 +76,14 @@ enum {
  
  @return The CCAction Object.
  */
-+ (id)action;
++ (instancetype)action;
 
 /**
  *  Initializes and returns an action object.
  *
  *  @return An initialized CCAction Object.
  */
-- (id)init;
+- (instancetype)init;
 
 
 /// -----------------------------------------------------------------------
@@ -122,7 +122,7 @@ enum {
  *
  *  @return Action completion status
  */
-- (BOOL)isDone;
+@property (nonatomic, getter=isDone, readonly) BOOL done;
 
 /**
  *  Assigns a target to the action
@@ -199,7 +199,7 @@ enum {
 
  @return The reversed action.
  */
-- (CCActionFiniteTime *)reverse;
+@property (nonatomic, readonly, copy) CCActionFiniteTime *reverse;
 
 @end
 
@@ -313,7 +313,7 @@ enum {
  *
  *  @return An initialized CCActionSpeed object.
  */
-- (id)initWithAction:(CCActionInterval *)action speed:(CGFloat)value;
+- (instancetype)initWithAction:(CCActionInterval *)action speed:(CGFloat)value;
 
 
 /// -----------------------------------------------------------------------
@@ -411,7 +411,7 @@ enum {
  *
  *  @return An initialized follow action object.
  */
-- (id)initWithTarget:(CCNode *)followedNode;
+- (instancetype)initWithTarget:(CCNode *)followedNode;
 
 /**
  *  Initalizes a follow action with boundaries.
@@ -421,7 +421,7 @@ enum {
  *
  *  @return The initalized follow action object.
  */
-- (id)initWithTarget:(CCNode *)followedNode worldBoundary:(CGRect)rect;
+- (instancetype)initWithTarget:(CCNode *)followedNode worldBoundary:(CGRect)rect;
 
 
 // purposefully undocumented: needn't be changed while action is running

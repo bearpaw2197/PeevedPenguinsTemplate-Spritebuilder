@@ -42,7 +42,7 @@
  *  @param handle     Handle image for the normal state.
  *  @see CCSpriteFrame
  */
-- (id) initWithBackground:(CCSpriteFrame*)background andHandleImage:(CCSpriteFrame*)handle;
+- (instancetype) initWithBackground:(CCSpriteFrame*)background andHandleImage:(CCSpriteFrame*)handle  ;
 
 
 /// -----------------------------------------------------------------------

@@ -43,7 +43,7 @@
 
 @synthesize elapsed = _elapsed;
 
--(id) init
+-(instancetype) init
 {
 	NSAssert(NO, @"IntervalActionInit: Init not supported. Use InitWithDuration");
 	return nil;
@@ -54,7 +54,7 @@
 	return [[self alloc] initWithDuration:d ];
 }
 
--(id) initWithDuration: (CCTime) d
+-(instancetype) initWithDuration: (CCTime) d
 {
 	if( (self=[super init]) ) {
 		_duration = d;
@@ -148,14 +148,14 @@
 
 +(id) actionWithArray: (NSArray*) actions
 {
-	CCActionFiniteTime *prev = [actions objectAtIndex:0];
+	CCActionFiniteTime *prev = actions[0];
 	
 	for (NSUInteger i = 1; i < [actions count]; i++)
-		prev = [self actionOne:prev two:[actions objectAtIndex:i]];
+		prev = [self actionOne:prev two:actions[i]];
 	
 	return prev;
 }
--(id) initWithArray:(NSArray *)actions
+-(instancetype) initWithArray:(NSArray *)actions
 {
     // this is backwards because it's "safer" as a quick Swift fix for v3.4
     return [CCActionSequence actionWithArray:actions];
@@ -166,7 +166,7 @@
 	return [[self alloc] initOne:one two:two ];
 }
 
--(id) initOne: (CCActionFiniteTime*) one two: (CCActionFiniteTime*) two
+-(instancetype) initOne: (CCActionFiniteTime*) one two: (CCActionFiniteTime*) two
 {
 	NSAssert( one!=nil && two!=nil, @"Sequence: arguments must be non-nil");
 	// NSAssert( one!=_actions[0] && one!=_actions[1], @"Sequence: re-init using the same parameters is not supported");
@@ -287,7 +287,7 @@
 	return [[self alloc] initWithAction:action times:times];
 }
 
--(id) initWithAction:(CCActionFiniteTime*)action times:(NSUInteger)times
+-(instancetype) initWithAction:(CCActionFiniteTime*)action times:(NSUInteger)times
 {
 	CCTime d = [action duration] * times;
 
@@ -416,14 +416,14 @@
 
 +(id) actionWithArray: (NSArray*) actions
 {
-	CCActionFiniteTime *prev = [actions objectAtIndex:0];
+	CCActionFiniteTime *prev = actions[0];
 
 	for (NSUInteger i = 1; i < [actions count]; i++)
-		prev = [self actionOne:prev two:[actions objectAtIndex:i]];
+		prev = [self actionOne:prev two:actions[i]];
 
 	return prev;
 }
--(id) initWithArray: (NSArray*) actions
+-(instancetype) initWithArray: (NSArray*) actions
 {
     // this is backwards because it's "safer" as a quick Swift fix for v3.4
     return [CCActionSpawn actionWithArray:actions];
@@ -434,7 +434,7 @@
 	return [[self alloc] initOne:one two:two ];
 }
 
--(id) initOne: (CCActionFiniteTime*) one two: (CCActionFiniteTime*) two
+-(instancetype) initOne: (CCActionFiniteTime*) one two: (CCActionFiniteTime*) two
 {
 	NSAssert( one!=nil && two!=nil, @"Spawn: arguments must be non-nil");
 	NSAssert( one!=_one && one!=_two, @"Spawn: reinit using same parameters is not supported");
@@ -509,12 +509,12 @@
 	return [[self alloc] initWithDuration:t angle:a simple:simple];
 }
 
--(id) initWithDuration: (CCTime) t angle:(float) a
+-(instancetype) initWithDuration: (CCTime) t angle:(float) a
 {
 	return [self initWithDuration:t angle:a simple:NO];
 }
 
--(id) initWithDuration: (CCTime) t angle:(float) a simple:(bool) simple
+-(instancetype) initWithDuration: (CCTime) t angle:(float) a simple:(bool) simple
 {
 	if( (self=[super initWithDuration: t]) ) {
 		_dstAngleX = _dstAngleY = a;
@@ -529,7 +529,7 @@
 	return [[self alloc] initWithDuration:t angleX:aX angleY:aY ];
 }
 
--(id) initWithDuration: (CCTime) t angleX:(float) aX angleY:(float) aY
+-(instancetype) initWithDuration: (CCTime) t angleX:(float) aX angleY:(float) aY
 {
 	if( (self=[super initWithDuration: t]) ){
 		_dstAngleX = aX;
@@ -545,7 +545,7 @@
 	return [[self alloc] initWithDuration:t angleX:aX];
 }
 
--(id) initWithDuration: (CCTime) t angleX:(float) aX
+-(instancetype) initWithDuration: (CCTime) t angleX:(float) aX
 {
 	if( (self=[super initWithDuration: t]) ){
 		_dstAngleX = aX;
@@ -559,7 +559,7 @@
 	return [[self alloc] initWithDuration:t angleY:aY];
 }
 
--(id) initWithDuration: (CCTime) t angleY:(float) aY
+-(instancetype) initWithDuration: (CCTime) t angleY:(float) aY
 {
 	if( (self=[super initWithDuration: t]) ){
 		_dstAngleY = aY;
@@ -653,7 +653,7 @@
 	return [[self alloc] initWithDuration:t angle:a ];
 }
 
--(id) initWithDuration: (CCTime) t angle:(float) a
+-(instancetype) initWithDuration: (CCTime) t angle:(float) a
 {
 	if( (self=[super initWithDuration: t]) )
 		_angleX = _angleY = a;
@@ -666,7 +666,7 @@
 	return [[self alloc] initWithDuration:t angleX:aX angleY:aY ];
 }
 
--(id) initWithDuration: (CCTime) t angleX:(float) aX angleY:(float) aY
+-(instancetype) initWithDuration: (CCTime) t angleX:(float) aX angleY:(float) aY
 {
 	if( (self=[super initWithDuration: t]) ){
 		_angleX = aX;
@@ -721,7 +721,7 @@
 	return [[self alloc] initWithDuration:t position:p ];
 }
 
--(id) initWithDuration: (CCTime) t position: (CGPoint) p
+-(instancetype) initWithDuration: (CCTime) t position: (CGPoint) p
 {
 	if( (self=[super initWithDuration: t]) )
 		_positionDelta = p;
@@ -774,7 +774,7 @@
 	return [[self alloc] initWithDuration:t position:p ];
 }
 
--(id) initWithDuration: (CCTime) t position: (CGPoint) p
+-(instancetype) initWithDuration: (CCTime) t position: (CGPoint) p
 {
 	if( (self=[super initWithDuration: t]) ) {
 		_endPosition = p;
@@ -808,7 +808,7 @@
 	return [[self alloc] initWithDuration: t skewX:sx skewY:sy];
 }
 
--(id) initWithDuration:(CCTime)t skewX:(float)sx skewY:(float)sy
+-(instancetype) initWithDuration:(CCTime)t skewX:(float)sx skewY:(float)sy
 {
 	if( (self=[super initWithDuration:t]) ) {
 		_endSkewX = sx;
@@ -875,7 +875,7 @@
 
 @implementation CCActionSkewBy
 
--(id) initWithDuration:(CCTime)t skewX:(float)deltaSkewX skewY:(float)deltaSkewY
+-(instancetype) initWithDuration:(CCTime)t skewX:(float)deltaSkewX skewY:(float)deltaSkewY
 {
 	if( (self=[super initWithDuration:t skewX:deltaSkewX skewY:deltaSkewY]) ) {
 		_skewX = deltaSkewX;
@@ -911,7 +911,7 @@
 	return [[self alloc] initWithDuration: t position: pos height: h jumps:j];
 }
 
--(id) initWithDuration: (CCTime) t position: (CGPoint) pos height: (CCTime) h jumps:(NSUInteger)j
+-(instancetype) initWithDuration: (CCTime) t position: (CGPoint) pos height: (CCTime) h jumps:(NSUInteger)j
 {
 	if( (self=[super initWithDuration:t]) ) {
 		_delta = pos;
@@ -1006,7 +1006,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 	return [[self alloc] initWithDuration:t bezier:c ];
 }
 
--(id) initWithDuration: (CCTime) t bezier:(ccBezierConfig) c
+-(instancetype) initWithDuration: (CCTime) t bezier:(ccBezierConfig) c
 {
 	if( (self=[super initWithDuration: t]) ) {
 		_config = c;
@@ -1074,7 +1074,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 //
 #pragma mark - CCBezierTo
 @implementation CCActionBezierTo
--(id) initWithDuration: (CCTime) t bezier:(ccBezierConfig) c
+-(instancetype) initWithDuration: (CCTime) t bezier:(ccBezierConfig) c
 {
 	if( (self=[super initWithDuration: t]) ) {
 		_toConfig = c;
@@ -1108,7 +1108,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 	return [[self alloc] initWithDuration: t scale:s];
 }
 
--(id) initWithDuration: (CCTime) t scale:(float) s
+-(instancetype) initWithDuration: (CCTime) t scale:(float) s
 {
 	if( (self=[super initWithDuration: t]) ) {
 		_endScaleX = s;
@@ -1122,7 +1122,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 	return [[self alloc] initWithDuration: t scaleX:sx scaleY:sy];
 }
 
--(id) initWithDuration: (CCTime) t scaleX:(float)sx scaleY:(float)sy
+-(instancetype) initWithDuration: (CCTime) t scaleX:(float)sx scaleY:(float)sy
 {
 	if( (self=[super initWithDuration: t]) ) {
 		_endScaleX = sx;
@@ -1189,7 +1189,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 	return [[ self alloc] initWithDuration: t blinks: b];
 }
 
--(id) initWithDuration: (CCTime) t blinks: (NSUInteger) b
+-(instancetype) initWithDuration: (CCTime) t blinks: (NSUInteger) b
 {
 	if( (self=[super initWithDuration: t] ) )
 		_times = b;
@@ -1352,7 +1352,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 	return [(CCActionTintBy*)[ self alloc] initWithDuration:t red:r green:g blue:b];
 }
 
--(id) initWithDuration:(CCTime)t red:(CGFloat)r green:(CGFloat)g blue:(CGFloat)b
+-(instancetype) initWithDuration:(CCTime)t red:(CGFloat)r green:(CGFloat)g blue:(CGFloat)b
 {
 	if( (self=[super initWithDuration: t] ) ) {
 		_deltaR = r;
@@ -1419,7 +1419,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 	return [a initWithAction:action];
 }
 
--(id) initWithAction: (CCActionFiniteTime*) action
+-(instancetype) initWithAction: (CCActionFiniteTime*) action
 {
 	NSAssert(action != nil, @"CCReverseTime: action should not be nil");
 	NSAssert(action != _other, @"CCReverseTime: re-init doesn't support using the same arguments");
@@ -1461,14 +1461,13 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 }
 @end
 
-//
 // Animate
 //
 
 #pragma mark - CCAnimate
 @implementation CCActionAnimate
 
-@synthesize animation = _animation;
+@synthesize _animation;
 
 +(id) actionWithAnimation: (CCAnimation*)anim
 {
@@ -1476,7 +1475,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 }
 
 // delegate initializer
--(id) initWithAnimation:(CCAnimation*)anim
+-(instancetype) initWithAnimation:(CCAnimation*)anim
 {
 	NSAssert( anim!=nil, @"Animate: argument Animation must be non-nil");
 	
@@ -1485,7 +1484,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 	if( (self=[super initWithDuration:singleDuration * anim.loops] ) ) {
 
 		_nextFrame = 0;
-		self.animation = anim;
+		self._animation = anim;
 		_origFrame = nil;
 		_executedLoops = 0;
 		
@@ -1496,7 +1495,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 		
 		for( CCAnimationFrame *frame in anim.frames ) {
 
-			NSNumber *value = [NSNumber numberWithFloat: (accumUnitsOfTime * newUnitOfTimeValue) / singleDuration];
+			NSNumber *value = @((accumUnitsOfTime * newUnitOfTimeValue) / singleDuration);
 			accumUnitsOfTime += frame.delayUnits;
 
 			[_splitTimes addObject:value];
@@ -1558,10 +1557,10 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 	CCSpriteFrame *frameToDisplay = nil;
 
 	for( NSUInteger i=_nextFrame; i < numberOfFrames; i++ ) {
-		NSNumber *splitTime = [_splitTimes objectAtIndex:i];
+		NSNumber *splitTime = _splitTimes[i];
 
 		if( [splitTime floatValue] <= t ) {
-			CCAnimationFrame *frame = [frames objectAtIndex:i];
+			CCAnimationFrame *frame = frames[i];
 			frameToDisplay = [frame spriteFrame];
 			[(CCSprite*)_target setSpriteFrame: frameToDisplay];
 			

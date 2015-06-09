@@ -21,12 +21,12 @@ static GLKMatrix4 matrixWithHue(float hue);
 
 
 @interface CCEffectHueImpl : CCEffectImpl
-@property (nonatomic, weak) CCEffectHue *interface;
+@property (nonatomic, assign) CCEffectHue *interface;
 @end
 
 @implementation CCEffectHueImpl
 
--(id)initWithInterface:(CCEffectHue *)interface
+-(instancetype)initWithInterface:(CCEffectHue *)interface
 {
     NSArray *uniforms = @[
                           [CCEffectUniform uniform:@"mat4" name:@"u_hueRotationMtx" value:[NSValue valueWithGLKMatrix4:GLKMatrix4Identity]]
@@ -57,7 +57,7 @@ static GLKMatrix4 matrixWithHue(float hue);
 
 + (NSArray *)buildRenderPassesWithInterface:(CCEffectHue *)interface
 {
-    __weak CCEffectHue *weakInterface = interface;
+    CCEffectHue *weakInterface = interface;
 
     CCEffectRenderPass *pass0 = [[CCEffectRenderPass alloc] init];
     pass0.debugLabel = @"CCEffectHue pass 0";
@@ -80,12 +80,12 @@ static GLKMatrix4 matrixWithHue(float hue);
 
 @implementation CCEffectHue
 
--(id)init
+-(instancetype)init
 {
     return [self initWithHue:0.0f];
 }
 
--(id)initWithHue:(float)hue
+-(instancetype)initWithHue:(float)hue
 {
     if((self = [super init]))
     {

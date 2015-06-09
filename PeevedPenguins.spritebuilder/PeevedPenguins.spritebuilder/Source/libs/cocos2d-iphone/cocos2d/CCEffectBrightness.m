@@ -18,15 +18,15 @@ static float conditionBrightness(float brightness);
 @end
 
 @interface CCEffectBrightnessImpl : CCEffectImpl
-@property (nonatomic, weak) CCEffectBrightness *interface;
+@property (nonatomic, assign) CCEffectBrightness *interface;
 @end
 
 
 @implementation CCEffectBrightnessImpl
 
--(id)initWithInterface:(CCEffectBrightness *)interface
+-(instancetype)initWithInterface:(CCEffectBrightness *)interface
 {
-    CCEffectUniform* uniformBrightness = [CCEffectUniform uniform:@"float" name:@"u_brightness" value:[NSNumber numberWithFloat:0.0f]];
+    CCEffectUniform* uniformBrightness = [CCEffectUniform uniform:@"float" name:@"u_brightness" value:@0.0f];
     
     NSArray *fragFunctions = [CCEffectBrightnessImpl buildFragmentFunctions];
     NSArray *renderPasses = [CCEffectBrightnessImpl buildRenderPassesWithInterface:interface];
@@ -53,7 +53,7 @@ static float conditionBrightness(float brightness);
 
 + (NSArray *)buildRenderPassesWithInterface:(CCEffectBrightness *)interface
 {
-    __weak CCEffectBrightness *weakInterface = interface;
+    CCEffectBrightness *weakInterface = interface;
 
     CCEffectRenderPass *pass0 = [[CCEffectRenderPass alloc] init];
     pass0.debugLabel = @"CCEffectBrightness pass 0";
@@ -75,17 +75,17 @@ static float conditionBrightness(float brightness);
 
 @implementation CCEffectBrightness
 
--(id)init
+-(instancetype)init
 {
     return [self initWithBrightness:0.0f];
 }
 
--(id)initWithBrightness:(float)brightness
+-(instancetype)initWithBrightness:(float)brightness
 {
     if((self = [super init]))
     {
         _brightness = brightness;
-        _conditionedBrightness = [NSNumber numberWithFloat:conditionBrightness(brightness)];
+        _conditionedBrightness = @(conditionBrightness(brightness));
 
         self.effectImpl = [[CCEffectBrightnessImpl alloc] initWithInterface:self];
         self.debugName = @"CCEffectBrightness";
@@ -101,7 +101,7 @@ static float conditionBrightness(float brightness);
 -(void)setBrightness:(float)brightness
 {
     _brightness = brightness;
-    _conditionedBrightness = [NSNumber numberWithFloat:conditionBrightness(brightness)];
+    _conditionedBrightness = @(conditionBrightness(brightness));
 }
 
 @end

@@ -35,7 +35,7 @@
 /**
  * The delegate of the download.
  */
-@property (nonatomic, weak) id <CCPackageDownloadDelegate> delegate;
+@property (nonatomic,assign) id <CCPackageDownloadDelegate> delegate;
 
 /**
  *  Returns a new instance of a CCPackageDownload

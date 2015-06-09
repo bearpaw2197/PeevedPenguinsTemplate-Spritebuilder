@@ -31,7 +31,7 @@
 @interface CCCacheEntry : NSObject
 
 @property(nonatomic, strong) id sharedData;
-@property(nonatomic, weak) id publicObject;
+@property(nonatomic, assign) id publicObject;
 
 @end
 
