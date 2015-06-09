@@ -23,10 +23,7 @@
     
 }
 
--(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB
-{
-    CCLOG(@"Something collided with a seal!");
-}
+
 
 // is called when CCB file has completed loading
 - (void)didLoadFromCCB {
@@ -123,7 +120,10 @@
     [self releaseCatapult];
 }
 
-
+-(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB
+{
+    CCLOG(@"Something collided with a seal!");
+}
 
 - (void)launchPenguin {
     // loads the Penguin.ccb we have set up in Spritebuilder
