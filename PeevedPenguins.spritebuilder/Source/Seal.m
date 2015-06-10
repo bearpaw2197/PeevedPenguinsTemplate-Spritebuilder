@@ -10,6 +10,8 @@
 
 @implementation Seal
 
-self.physicsBody.collisionType = @"seal";
+- (void)didLoadFromCCB {
+    self.physicsBody.collisionType = @"seal";
+}
 
 @end
