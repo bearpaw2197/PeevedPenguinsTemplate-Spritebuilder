@@ -10,6 +10,6 @@
 
 @implementation Seal
 
-
+self.physicsBody.collisionType = @"seal";
 
 @end
