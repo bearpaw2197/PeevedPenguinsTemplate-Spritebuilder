@@ -285,8 +285,7 @@ CCRenderStateGLTransition(CCRenderStateGL *self, CCRenderer *renderer, CCRenderS
 		}
 	}
 	
-	CCGL_DEBUG_POP_GROUP_MARKER();
-	CC_CHECK_GL_ERROR_DEBUG();
+
 }
 
 -(void)transitionRenderer:(CCRenderer *)renderer FromState:(CCRenderStateGL *)previous
