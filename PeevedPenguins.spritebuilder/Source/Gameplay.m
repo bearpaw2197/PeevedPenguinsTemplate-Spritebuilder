@@ -69,6 +69,20 @@
     }
 }
 
+- (void)sealRemoved:(CCNode *)seal {
+    // load particle effect
+    CCParticleSystem *explosion = (CCParticleSystem *)[CCBReader load:@"SealExplosion"];
+    
+    // place the particle effect on the seals position
+    explosion.position = seal.position;
+    // add the particle effect to the same node the seal is on
+    [seal.parent addChild:explosion];
+    // make the particle effect clean itself up, once it is completed
+    explosion.autoRemoveOnFinish = TRUE;
+    
+    // finally, remove the destroyed seal
+    [seal removeFromParent];
+}
 
 -(void) touchBegan:(CCTouch *)touch withEvent:(UIEvent *)event
 {
@@ -145,19 +159,7 @@
     
 }
 
-- (void)sealRemoved:(CCNode *)seal {
-    // load particle effect
-    CCParticleSystem *explosion = (CCParticleSystem *)[CCBReader load:@"SealExplosion"];
-    // make the particle effect clean itself up, once it is completed
-    explosion.autoRemoveOnFinish = TRUE;
-    // place the particle effect on the seals position
-    explosion.position = seal.position;
-    // add the particle effect to the same node the seal is on
-    [seal.parent addChild:explosion];
-    
-    // finally, remove the destroyed seal
-    [seal removeFromParent];
-}
+
 
 - (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
     float energy = [pair totalKineticEnergy];
