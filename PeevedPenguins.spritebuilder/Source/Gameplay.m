@@ -41,11 +41,12 @@
     
     _physicsNode.collisionDelegate = self;
     
-    
-    
 }
 
-
+- (void)retry {
+    // reload this level
+    [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"Gameplay"]];
+}
 
 - (void)releaseCatapult {
     if (_mouseJoint != nil)
@@ -143,10 +144,7 @@
     
 }
 
-- (void)retry {
-    // reload this level
-    [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"Gameplay"]];
-}
+
 
 -(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB
 {
